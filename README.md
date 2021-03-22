@@ -1,7 +1,14 @@
-<header align="center">
-  <img height="128" src="./assets/logo.svg">
+<p align="center">
+  <img height="120px" src="./assets/logo.svg" />
   <br />
   <a href="https://fullstacks.ir">
     <h1 align="center">جامعه فول‌استکس </h1>
   </a>
-</header>
+</p>
+
+<h2 lang="fa" dir="rtl" align="right">جامعه فول‌استکس</h2>
+<p lang="fa" dir="rtl" align="right"></p>
+
+
+---
+<img src="./assets/header.webp" />
