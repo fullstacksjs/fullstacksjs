@@ -1,7 +1,7 @@
 <header align="center">
-  <a href="https://fullstacks.ir">
-  <svg height="128" viewBox="0 0 682.67 969.76"><path fill="#fad64f" d="M341.33 0L0 628.42l341.33 341.34 341.34-341.34zm0 778.83L168.89 600.32l172.44-317.79 172.44 317.79z"/><path fill="#fad64f" d="M341.33 282.52l-172.44 317.8L0 628.42 341.33.01v282.51z"/><path fill="#f6a14b" d="M0 628.42l341.33 341.34V778.83L168.89 600.32 0 628.42zM341.33 282.52l172.44 317.8 168.9 28.1L341.33 0v282.52z"/><path fill="#f47c46" d="M682.67 628.42L341.33 969.76V778.83l172.44-178.51 168.9 28.1z"/></svg>
+  <img height="128" src="./assets/logo.svg">
   <br />
-  <h1 align="center">جامعه فول‌استکس </h1>
+  <a href="https://fullstacks.ir">
+    <h1 align="center">جامعه فول‌استکس </h1>
   </a>
 </header>
