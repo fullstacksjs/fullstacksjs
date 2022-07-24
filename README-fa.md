@@ -1,3 +1,7 @@
+<div align="center">
+<img src="https://raw.githubusercontent.com/fullstacksjs/fullstacksjs/main/assets/logo.svg" height="100" />
+</div>
+
 <h2 lang="fa" dir="rtl" align="right">FullstacksJS</h2>
 
 <img src="https://raw.githubusercontent.com/fullstacksjs/fullstacksjs/main/assets/header.webp" />

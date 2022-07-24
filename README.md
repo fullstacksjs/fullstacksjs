@@ -1,3 +1,7 @@
+<div align="center">
+<img src="https://raw.githubusercontent.com/fullstacksjs/fullstacksjs/main/assets/logo.svg" height="100" />
+</div>
+
 # FullstacksJS
 
 ![Header](https://raw.githubusercontent.com/fullstacksjs/fullstacksjs/main/assets/header.webp)
