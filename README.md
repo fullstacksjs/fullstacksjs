@@ -1,47 +1,40 @@
-<p align="center">
-  <img height="120px" src="./assets/logo.svg" />
-  <br />
-  <a href="https://fullstacks.ir">
-    <h1 align="center">جامعه فول‌استکس</h1>
-  </a>
-</p>
+# FullstacksJS
 
-<img src="https://raw.githubusercontent.com/fullstacksjs/fullstacksjs/main/assets/header.webp" />
+![Header](https://raw.githubusercontent.com/fullstacksjs/fullstacksjs/main/assets/header.webp)
 
-<h2 lang="fa" dir="rtl" align="right">درباره جامعه</h2>
-<p lang="fa" dir="rtl" align="justify">
-ما یک جامعه در حوزه‌ی برنامه‌نویسی و مهندسی نرم‌افزار با هدف یادگیری هستیم.
-هدف اصلی این جامعه ایجاد بستری حرفه‌ای برای یادگیری عمیق مفاهیم در حوزه توسعه و مهندسی نرم‌افزار است.
-از سری برنامه‌های ما در این جامعه پرسش و پاسخ توسط منتورها، برگزاری میت‌آپ‌ها، لایوها و تولید دوره‌های آموزشی هست.
-همچنین در راستای یادگیری و تقویت فرهنگِ توسعه و مشارکت متن‌ باز،‌ پروژه‌هایی که در این جامعه توسعه داده می‌شود، کاملا متن باز بوده و اعضا می‌توانند در آن‌ها مشارکت داشته باشند.
-</p>
+## About us
 
-<h2 lang="fa" dir="rtl" align="right">اهداف و انگیزه شکل‌گیری</h2>
-<p lang="fa" dir="rtl" align="justify">
-محیط اینترنت از محتوا، آموزش‌ها و انجمن‌های برنامه‌نویسی نظارت نشده‌ای اشباع شده است.
-این انجمن‌ها با هدف کسب شهرت یا برندسازی شخصی، اطلاعات ناقص، منسوخ شده و گاها اشتباهی را به جویندگان دانش این حوزه منتقل می‌کنند.
-از این رو، تصمیم گرفتیم تا بستری ایجاد نماییم که محتوا و فعالیت‌های آن توسط افراد متخصص مدیریت و نظارت شود.
-</p>
+**FullstacksJS** is an open-source community focused on knowledge sharing, exploring, and enhancing developer experience. The primary objective of this community is to establish a professional environment for in-depth contents in software development and engineering field.
+In order to learn and strengthen the culture of open source development and contribution, the projects that are developed in this community are entirely open source, and members are encouraged to participate.
 
-<h2 lang="fa" dir="rtl" align="right">ارزش‌های ما</h2>
-<p lang="fa" dir="rtl" align="justify">
-ارزش‌ها به جامعه ما شکل می‌دهند و مشخص کننده مسیر حرکت و تصمیمات جامعه می‌باشند.
-تصمیم‌ها و فرم محتوای تولید شده در جامعه به صورت مستقیم از این ارزش‌ها تاثیر می‌پذیرند.
+## Vision
 
-<ol dir="rtl">
-  <li>
-    <strong>:اخلاق</strong>
-    <p align="justify">مهم‌ترن ارزش در جامعه که بالاترین الویت را در تصمیمات دارا می‌باشد. در جامعه هیچگاه ارزش‌های اخلاقی بخاطر منافع حاصل از فعالیت‌ها کنار گذاشته نمی‌شوند.</p>
-  </li>
-  <li>
-    <strong>صحت اطلاعات و محتوای تولید شده:</strong>
-    <p align="justify">محتوایی که در جامعه تولید یا توسط جامعه تایید و بازنشر داده می‌شوند، باید توسط افراد متخصص اعتبارسنجی شده باشند. اگر پس از نشر محتوا متوجه اشتباه بودن مطالب شویم باید اشتباه بودن آن را اطلاع رسانی کرده و محتوای تصحیح کند.</p>
-  </li>
-  <!-- <dt></dt>
-  <dd></dd> -->
-</ol>
+> **WE GROW TOGETHER**
 
-</p>
+## Motivation
 
----
-<img src="https://raw.githubusercontent.com/fullstacksjs/fullstacksjs/main/assets/footer.webp" />
+The Internet is full of unfiltered programming content, tutorials, and forums, which provide incomplete, outdated, and sometimes incorrect information to the knowledge seekers in this field. Therefore, we decided to establish a community where experts control and review the contents and activities.This creates a community that values **in-depth** and **correct** content.
+
+# Values
+
+Values form our community and influence its behavior also have a direct impact on community's decision-making and contents.
+
+* Ethics: Ethics is the most important value in the community, which has the highest priority in decisions. In the community, moral principles are never sacrificed for the sake of other activities.
+
+* Validity: Expert approval is required for every community-produced and published content. If an error is discovered in previously published content, the community must notify the appropriate parties and update the content.
+
+## Social Media
+
+- [Telegram](https://t.me/fullstacks)
+- [YouTube](https://www.youtube.com/c/FullstacksAcademy)
+- [LinkedIn](https://www.linkedin.com/company/fullstacksjs/)
+- [Discord](https://kutt.it/fsk-discord)
+- [Twitch](https://www.twitch.tv/fullstacksjs)
+- [GitHub](https://github.com/fullstacksjs)
+- [Twitter](https://twitter.com/fullstacksjs)
+
+## Quick References
+
+- [FullstacksJS CAMP →](./CAMP.md)
+
+![Footer](./assets/footer.png)
