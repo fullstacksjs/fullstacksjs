@@ -30,10 +30,10 @@ In CAMP, we work as a software team on open-source projects that provide a wide 
 
 - 4 hours a day / 5 days a week
 - You should be available for daily and weekly  .
- - Daily stand-up (15 minute /  )
- - Grooming session (1 hour /  )
- - Demo (1 hour /  )
- - Retrospective (30 minutes /  )
+ - Daily stand-up (15 minute / cycle)
+ - Grooming session (1 hour / cycle)
+ - Demo (1 hour / cycle)
+ - Retrospective (30 minutes / cycle)
  - Sprint planning (30 minutes / cycle)
 
 
