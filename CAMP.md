@@ -16,7 +16,7 @@ In CAMP, we work as a software team on open-source projects that provide a wide 
 
 - You’ll experience working as in an All-English working environment.
 - You’ll gain experience of Agile values and principles.
-- You’ll continue to learn how to design, develop, and ship a scaleable software.
+- You’ll continue to learn how to design, develop, and ship a scalable software.
 
 
 ## Must Have
