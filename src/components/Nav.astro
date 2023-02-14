@@ -1,7 +1,27 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+const url = new URL(Astro.request.url);
+const path = url.pathname;
+const navs = [
+  { href: '/', children: 'About' },
+  { href: '/rules', children: 'Rules' },
+  // { href: '/projects', children: 'Projects' },
+];
+type Attributes = HTMLAttributes<'li'>;
+---
+
 <ul>
-  <li aria-current="page"><a href="/">About</a></li>
-  <li><a href="/rules">Rules</a></li>
-  <li><a href="/projects">Projects</a></li>
+  {
+    navs.map(({ children, href }) => {
+      const ariaProps: Attributes =
+        href === path ? { 'aria-current': 'page' } : {};
+      return (
+        <li {...ariaProps}>
+          <a href={href}>{children}</a>
+        </li>
+      );
+    })
+  }
 </ul>
 
 <style>
