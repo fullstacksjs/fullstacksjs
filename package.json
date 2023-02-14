@@ -10,8 +10,7 @@
   "author": "Alireza Safaeirad <frontendmonster@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
+    "start": "astro dev --host 0.0.0.0",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"

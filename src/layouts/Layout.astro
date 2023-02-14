@@ -13,6 +13,12 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <title>{title}</title>
   </head>
   <body>
@@ -21,20 +27,83 @@ const { title } = Astro.props;
 </html>
 <style is:global>
   :root {
-    --accent: 124, 58, 237;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      #da62c4 30%,
-      white 60%
-    );
+    --accent: #f39f47;
+    --bg: #212025;
+    --fg-0: #e6e6e6;
+    --fg-1: #b3b3b3;
+    --fg-muted: rgb(255 255 255 / 0.2);
   }
+
+  * {
+    box-sizing: border-box;
+    scrollbar-color: rgba(255 255 255 / 15%) transparent;
+    scrollbar-width: thin;
+  }
+
+  ul,
+  hr {
+    padding: 0;
+    margin: 0;
+  }
+
+  ::-webkit-scrollbar {
+    width: 2px;
+    height: 4px;
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(255 255 255 / 15%);
+  }
+
   html {
-    font-family: system-ui, sans-serif;
-    background-color: #f6f6f6;
+    font-family: 'Inconsolata', system-ui, sans-serif;
+    background-color: var(--bg);
+    font-size: 0.625rem;
+    color: var(--fg-0);
   }
-  code {
-    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+
+  body {
+    margin: 0;
+    font-size: 2rem;
+    padding-bottom: 4rem;
+  }
+
+  h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.05;
+  }
+
+  p {
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--fg-1);
+  }
+
+  .container {
+    margin: 0 3rem;
+  }
+
+  @media screen and (min-width: 560px) {
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+  }
+
+  @media screen and (min-width: 760px) {
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+  }
+
+  @media screen and (min-width: 960px) {
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
   }
 </style>

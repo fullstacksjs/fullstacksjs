@@ -1,0 +1,41 @@
+<ul>
+  <li aria-current="page"><a href="/">About</a></li>
+  <li><a href="/rules">Rules</a></li>
+  <li><a href="/projects">Projects</a></li>
+</ul>
+
+<style>
+  ul {
+    display: inline-flex;
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.05;
+    gap: 4rem;
+  }
+
+  li {
+    list-style: none;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+  }
+
+  a {
+    color: unset;
+    text-decoration: none;
+  }
+
+  a:focus {
+    outline: 1px solid var(--accent);
+    outline-offset: 1rem;
+  }
+
+  [aria-current='page'] {
+    color: var(--fg-0);
+  }
+
+  @media screen and (min-width: 560px) {
+    ul {
+      font-size: 3.2rem;
+    }
+  }
+</style>

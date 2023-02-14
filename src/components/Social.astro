@@ -1,0 +1,59 @@
+---
+import Discord from './Icons/Discord.astro';
+import Github from './Icons/Github.astro';
+import Telegram from './Icons/Telegram.astro';
+import Twitch from './Icons/Twitch.astro';
+import Twitter from './Icons/Twitter.astro';
+import Youtube from './Icons/Youtube.astro';
+import SocialItem from './SocialItem.astro';
+
+const items = [
+  { icon: Telegram, children: 'Telegram' },
+  { icon: Youtube, children: 'Youtube' },
+  { icon: Twitter, children: 'Twitter' },
+  { icon: Discord, children: 'Discord' },
+  { icon: Github, children: 'Github' },
+  { icon: Twitch, children: 'Twitch' },
+];
+---
+
+<ul class="container">
+  {
+    items.map(({ children, icon: Icon }) => (
+      <li>
+        <SocialItem href="href">
+          <Icon />
+          <span>{children}</span>
+        </SocialItem>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  span {
+    width: 10rem;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  @media screen and (min-width: 760px) {
+    span {
+      width: 16rem;
+    }
+  }
+
+  @media screen and (min-width: 960px) {
+    span {
+      width: unset;
+    }
+  }
+</style>
