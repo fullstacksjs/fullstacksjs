@@ -1,0 +1,23 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs and editors
+/.project
+/.idea
+/.vscode
+
+# environment
+.env.local
+
+# npm
+.npm
+npm-debug.log*
+node_modules/
+*.tgz
+
+# yarn
+.yarn-integrity
+yarn.lock
+yarn-debug.log*
+yarn-error.log*
