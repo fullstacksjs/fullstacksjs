@@ -22,10 +22,11 @@ const { target } = Astro.props;
     transition: opacity 300ms, color 300ms;
     cursor: pointer;
     position: relative;
+    margin-bottom: 0.8rem;
   }
 
-  li b {
-    color: var(--fg-0);
+  li a {
+    color: var(--accent-1);
   }
 
   .cancel {
@@ -36,12 +37,11 @@ const { target } = Astro.props;
 
   li:target .cancel {
     display: inline;
-    color: var(--fg-1);
   }
 
-  li:target,
+  li:target a,
   li:target b {
-    color: var(--accent);
+    color: var(--accent-1);
   }
 
   li:has(~ li:target),
@@ -51,6 +51,9 @@ const { target } = Astro.props;
 
   li:not(:target):hover {
     opacity: 1;
+  }
+
+  li:not(:target):hover a {
     color: var(--fg-0);
   }
 </style>
