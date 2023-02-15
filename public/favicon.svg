@@ -1,16 +1,16 @@
 <svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="512" height="512" rx="40" fill="#212025"/>
 <g filter="url(#filter0_d_57_1616)">
-<path d="M255.603 163.062L325.205 281.308L255.603 349L186 281.308L255.603 163.062ZM255.603 313.139L292.218 276.943L255.603 214.902L219.317 276.943L255.603 313.139Z" fill="#F39F47"/>
+<path d="M255.501 77.0001L390 305.304L255.501 436L121 305.304L255.501 77.0001ZM255.501 366.762L326.258 296.876L255.501 177.091L185.382 296.876L255.501 366.762Z" fill="#F39F47"/>
 </g>
 <g style="mix-blend-mode:overlay">
-<path d="M186 281.307L255.603 348.999L255.603 313.139L219.317 276.942L186 281.307Z" fill="#2B303B" fill-opacity="0.5"/>
+<path d="M121 305.303L255.5 435.999L255.5 366.761L185.382 296.874L121 305.303Z" fill="#2B303B" fill-opacity="0.5"/>
 </g>
 <g style="mix-blend-mode:soft-light">
-<path d="M325.205 281.308L255.603 163.062L255.603 214.902L292.218 276.943L325.205 281.308Z" fill="#D4DDED" fill-opacity="0.5"/>
+<path d="M390 305.304L255.501 77.0002L255.501 177.091L326.257 296.876L390 305.304Z" fill="#D4DDED" fill-opacity="0.5"/>
 </g>
 <defs>
-<filter id="filter0_d_57_1616" x="174.211" y="157.167" width="162.783" height="209.517" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter0_d_57_1616" x="109.211" y="71.1055" width="292.578" height="382.578" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dy="5.89461"/>
