@@ -20,9 +20,9 @@ const items = [
 <footer class="container">
   <ul>
     {
-      items.map(({ children, icon: Icon }) => (
+      items.map(({ children, href, icon: Icon }) => (
         <li>
-          <SocialItem href="href">
+          <SocialItem href={href}>
             <Icon />
             <span>{children}</span>
           </SocialItem>
