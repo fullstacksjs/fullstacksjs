@@ -1,62 +1,64 @@
 ---
 import Article from '../components/Article.astro';
+import Rule from '../components/Rule.astro';
+import RuleSet from '../components/RuleSet.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="FullstacksJS - Rules">
   <Article>
-    <h1>Rules</h1>
+    <h1>FullstacksJS Rules</h1>
     Unacceptable Behavior The following behaviors are considered harassment and are
     unacceptable within our community:
 
-    <ul>
-      <li>
+    <RuleSet>
+      <Rule target="violence">
         Violence, threats of violence or violent language directed against
         another person.
-      </li>
-      <li>
-        Name-calling or calling someone or a group of people offensive names.
-      </li>
-      <li>Posting NSWF.</li>
-      <li>Posting other people's personally identifying information.</li>
-      <li>
-        Insults based on gender, sexual orientation, race, religion, and
-        disability.
-      </li>
-      <li>
-        Unwelcome sexual attention, including, sexualized comments or jokes.
-      </li>
-      <li>Posting/Request for content subject to copyright.</li>
-      <li>Spam/Flooding.</li>
-      <li>Advocating for, or encouraging, any of the above behavior.</li>
-    </ul>
-  </Article>
-
-  <Article>
-    <h1>Community Rules:</h1>
-    <ul>
-      <li>
-        Do not post anything that a reasonable person would consider offensive,
-        abusive, or hate speech.
-      </li>
-      <li>
-        Do not direct message someone unless they've granted permission in the
-        server
-      </li>
-      <li>Any form of harassment will not be tolerated</li>
-    </ul>
+      </Rule>
+      <Rule target="name-calling">
+        <b>Name-calling</b> or calling someone or a group of people offensive names.
+      </Rule>
+      <Rule target="nsfw">
+        Posting <b>NSFW</b> content.
+      </Rule>
+      <Rule target="personal">
+        Posting other people's personally identifying information.
+      </Rule>
+      <Rule target="insult">
+        Insults/Hate speech based on <b>gender</b>, <b>race</b>, <b>religion</b
+        >, and <b>disability</b>.
+      </Rule>
+      <Rule target="sex">Unwelcome sexual attention.</Rule>
+      <Rule target="copyright">
+        Posting/Request for content subject to <b>copyright.</b>
+      </Rule>
+      <Rule target="spam">
+        <b>Spam</b>/<b>Flooding.</b>
+      </Rule>
+      <Rule target="dm">
+        Do not <b>direct message</b> someone unless they've granted permission.
+      </Rule>
+      <Rule target="advocate">
+        Advocating for, or encouraging, any of the above behavior.
+      </Rule>
+    </RuleSet>
   </Article>
 
   <Article>
     <h1>Community Guidelines:</h1>
-    <ul>
-      <li>
+    <RuleSet>
+      <Rule target="kind">
         Be kind and courteous, friendly and professional. There's no need to be
         mean or rude
-      </li>
-      <li>Don't start a conversation in a wrong topic.</li>
-      <li>Don't cross-post the same thing in multiple topics.</li>
-      <li>Respect that people have differences of opinion.</li>
-    </ul>
+      </Rule>
+      <Rule target="topic">Don't start a conversation in a wrong topic.</Rule>
+      <Rule target="cross">
+        Don't cross-post the same thing in multiple topics.
+      </Rule>
+      <Rule target="opinion">
+        Respect that people have differences of opinion.
+      </Rule>
+    </RuleSet>
   </Article>
 </Layout>

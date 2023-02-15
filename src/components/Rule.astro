@@ -1,0 +1,56 @@
+---
+interface Props {
+  target: string;
+}
+
+const { target } = Astro.props;
+---
+
+<li id={target}>
+  <a class="cancel" href="#"></a>
+  <a href={`#${target}`}>
+    <slot />
+  </a>
+</li>
+
+<style>
+  li {
+    text-indent: 0.7rem;
+    margin-bottom: 0.5rem;
+    list-style: '•';
+    line-height: 2.4rem;
+    transition: opacity 300ms, color 300ms;
+    cursor: pointer;
+    position: relative;
+  }
+
+  li b {
+    color: var(--fg-0);
+  }
+
+  .cancel {
+    display: none;
+    position: absolute;
+    inset: 0;
+  }
+
+  li:target .cancel {
+    display: inline;
+    color: var(--fg-1);
+  }
+
+  li:target,
+  li:target b {
+    color: var(--accent);
+  }
+
+  li:has(~ li:target),
+  li:target ~ li {
+    opacity: 0.1;
+  }
+
+  li:not(:target):hover {
+    opacity: 1;
+    color: var(--fg-0);
+  }
+</style>
