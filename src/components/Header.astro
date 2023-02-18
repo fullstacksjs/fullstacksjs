@@ -1,10 +1,14 @@
 ---
+import Button from './Button.astro';
 import Logo from './Logo.astro';
 import Nav from './Nav.astro';
 ---
 
 <header>
   <Logo />
+  <Button href="https://t.me/fullstacksjs" target="_blank" rel="noopener">
+    Join US
+  </Button>
   <Nav />
 </header>
 <hr />
@@ -25,7 +29,7 @@ import Nav from './Nav.astro';
   @media screen and (min-width: 560px) {
     header {
       padding: 2rem 0;
-      gap: 2.4rem;
+      gap: 3.4rem;
     }
   }
 </style>
