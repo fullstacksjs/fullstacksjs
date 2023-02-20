@@ -41,10 +41,17 @@ const items = [
 
   span {
     width: 10rem;
+    color: var(--fg-1);
+    transition: color 300ms;
+  }
+
+  span:hover {
+    color: var(--accent);
   }
 
   li {
     list-style: none;
+    color: var(--accent);
   }
 
   @media screen and (min-width: 760px) {

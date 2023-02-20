@@ -1,42 +1,36 @@
 ---
+import { removeLeadingSlashes } from '@fullstacksjs/toolbox';
 import type { HTMLAttributes } from 'astro/types';
+
 const url = new URL(Astro.request.url);
 const path = url.pathname;
-const navs = [
-  { href: '/', children: 'About' },
-  { href: '/rules', children: 'Rules' },
-  // { href: '/projects', children: 'Projects' },
-];
-type Attributes = HTMLAttributes<'li'>;
+
+interface Props {
+  href: string;
+}
+
+const { href: rawHref } = Astro.props;
+const isCurrentPath = rawHref === path;
+const ariaProps: HTMLAttributes<'li'> = isCurrentPath
+  ? { 'aria-current': 'page' }
+  : {};
+
+const id = removeLeadingSlashes(rawHref) + '-head';
+const href = isCurrentPath ? `#${id}` : rawHref;
 ---
 
-<ul>
-  {
-    navs.map(({ children, href }) => {
-      const ariaProps: Attributes =
-        href === path ? { 'aria-current': 'page' } : {};
-      return (
-        <li {...ariaProps}>
-          <a href={href}>{children}</a>
-        </li>
-      );
-    })
-  }
-</ul>
+<li id={id} {...ariaProps}>
+  <a href={href}>
+    <slot />
+  </a>
+</li>
 
 <style>
-  ul {
-    display: inline-flex;
-    font-size: 2.4rem;
-    font-weight: 700;
-    line-height: 1.05;
-    gap: 4rem;
-  }
-
   li {
     list-style: none;
     text-transform: uppercase;
     color: var(--fg-muted);
+    scroll-margin: 3rem;
   }
 
   a {
@@ -51,11 +45,5 @@ type Attributes = HTMLAttributes<'li'>;
 
   [aria-current='page'] {
     color: var(--fg-0);
-  }
-
-  @media screen and (min-width: 560px) {
-    ul {
-      font-size: 3.2rem;
-    }
   }
 </style>

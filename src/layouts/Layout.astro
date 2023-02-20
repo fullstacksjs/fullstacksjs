@@ -32,7 +32,7 @@ const { title } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&display=swap"
       rel="stylesheet"
     />
 
@@ -71,7 +71,9 @@ const { title } = Astro.props;
     <main class="container">
       <slot />
     </main>
-    <Social />
+    <footer class="footer">
+      <Social />
+    </footer>
   </body>
 </html>
 <style is:global>
@@ -82,6 +84,7 @@ const { title } = Astro.props;
     --fg-0: #e6e6e6;
     --fg-1: #b3b3b3;
     --fg-muted: rgb(255 255 255 / 0.2);
+    --fg-inactive: rgb(255 255 255 / 0.3);
     scroll-behavior: smooth;
   }
 
@@ -100,6 +103,10 @@ const { title } = Astro.props;
   hr {
     padding: 0;
     margin: 0;
+  }
+
+  hr {
+    width: 100%;
   }
 
   ::-webkit-scrollbar {
@@ -121,7 +128,7 @@ const { title } = Astro.props;
   }
 
   html {
-    font-family: 'Inconsolata', monospace;
+    font-family: 'Rajdhani', sans-serif;
     background-color: var(--bg);
     font-size: 0.625rem;
     color: var(--fg-1);
@@ -143,13 +150,16 @@ const { title } = Astro.props;
 
   p {
     font-weight: 400;
-    line-height: 1.2;
     color: var(--fg-1);
     margin: 0;
   }
 
   .container {
     margin: 0 3rem;
+  }
+
+  .footer {
+    margin-top: 10rem;
   }
 
   b {
@@ -186,6 +196,5 @@ const { title } = Astro.props;
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    padding: 4rem 0;
   }
 </style>

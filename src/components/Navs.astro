@@ -1,0 +1,27 @@
+---
+import Nav from './Nav.astro';
+const navs = [
+  { href: '/', children: 'About' },
+  { href: '/rules', children: 'Rules' },
+];
+---
+
+<ul>
+  {navs.map(({ children, href }) => <Nav href={href}>{children}</Nav>)}
+</ul>
+
+<style>
+  ul {
+    display: inline-flex;
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.05;
+    gap: 4rem;
+  }
+
+  @media screen and (min-width: 560px) {
+    ul {
+      font-size: 3.2rem;
+    }
+  }
+</style>
