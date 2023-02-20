@@ -1,5 +1,6 @@
 ---
 import Article from '../components/Article.astro';
+import Articles from '../components/Articles.astro';
 import Paragraph from '../components/Paragraph.astro';
 import Rule from '../components/Rule.astro';
 import RuleSet from '../components/RuleSet.astro';
@@ -7,64 +8,67 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="FullstacksJS - Rules">
-  <Article>
-    <h1>FullstacksJS Rules</h1>
-    <Paragraph>
-      The following behaviors are considered <b>harassment</b> and are <b
-        >unacceptable</b
-      > within our community:
-    </Paragraph>
+  <Articles>
+    <Article>
+      <h1>FullstacksJS Rules</h1>
+      <Paragraph>
+        The following behaviors are considered <b>harassment</b> and are <b
+          >unacceptable</b
+        > within our community:
+      </Paragraph>
 
-    <RuleSet>
-      <Rule target="violence">
-        Violence, threats of violence or violent language directed against
-        another person.
-      </Rule>
-      <Rule target="name-calling">
-        <b>Name-calling</b> or calling someone or a group of people offensive names.
-      </Rule>
-      <Rule target="nsfw">
-        Posting <b>NSFW</b> content.
-      </Rule>
-      <Rule target="personal">
-        Posting other people's personally identifying information.
-      </Rule>
-      <Rule target="insult">
-        Insults/Hate speech based on <b>gender</b>, <b>race</b>, <b>religion</b
-        >, and <b>disability</b>.
-      </Rule>
-      <Rule target="sex">Unwelcome sexual attention.</Rule>
-      <Rule target="copyright">
-        Posting/Request for content subject to <b>copyright.</b>
-      </Rule>
-      <Rule target="spam">
-        <b>Spam</b>/<b>Flooding.</b>
-      </Rule>
-      <Rule target="dm">
-        Do not <b>direct message</b> someone unless they've granted permission.
-      </Rule>
-      <Rule target="advocate">
-        Advocating for, or encouraging, any of the above behavior.
-      </Rule>
-    </RuleSet>
-  </Article>
+      <RuleSet>
+        <Rule target="violence">
+          Violence, threats of violence or violent language directed against
+          another person.
+        </Rule>
+        <Rule target="name-calling">
+          <b>Name-calling</b> or calling someone or a group of people offensive names.
+        </Rule>
+        <Rule target="nsfw">
+          Posting <b>NSFW</b> content.
+        </Rule>
+        <Rule target="personal">
+          Posting other people's personally identifying information.
+        </Rule>
+        <Rule target="insult">
+          Insults/Hate speech based on <b>gender</b>, <b>race</b>, <b
+            >religion</b
+          >, and <b>disability</b>.
+        </Rule>
+        <Rule target="sex">Unwelcome sexual attention.</Rule>
+        <Rule target="copyright">
+          Posting/Request for content subject to <b>copyright.</b>
+        </Rule>
+        <Rule target="spam">
+          <b>Spam</b>/<b>Flooding.</b>
+        </Rule>
+        <Rule target="dm">
+          Do not <b>direct message</b> someone unless they've granted permission.
+        </Rule>
+        <Rule target="advocate">
+          Advocating for, or encouraging, any of the above behavior.
+        </Rule>
+      </RuleSet>
+    </Article>
 
-  <Article>
-    <h1>Community Guidelines:</h1>
-    <RuleSet>
-      <Rule target="kind">
-        Be kind and courteous, friendly and professional. There's no need to be
-        mean or rude
-      </Rule>
-      <Rule target="topic">Don't start a conversation in a wrong topic.</Rule>
-      <Rule target="cross">
-        Don't cross-post the same thing in multiple topics.
-      </Rule>
-      <Rule target="opinion">
-        Respect that people have differences of opinion.
-      </Rule>
-    </RuleSet>
-  </Article>
+    <Article>
+      <h1>Community Guidelines:</h1>
+      <RuleSet>
+        <Rule target="kind">
+          Be kind and courteous, friendly and professional. There's no need to
+          be mean or rude
+        </Rule>
+        <Rule target="topic">Don't start a conversation in a wrong topic.</Rule>
+        <Rule target="cross">
+          Don't cross-post the same thing in multiple topics.
+        </Rule>
+        <Rule target="opinion">
+          Respect that people have differences of opinion.
+        </Rule>
+      </RuleSet>
+    </Article>
+  </Articles>
 </Layout>
 
 <style>
