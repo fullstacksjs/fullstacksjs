@@ -9,18 +9,17 @@ interface Props {
   href: string;
 }
 
-const { href: rawHref } = Astro.props;
-const isCurrentPath = rawHref === path;
+const { href } = Astro.props;
+const isCurrentPath = href === path;
 const ariaProps: HTMLAttributes<'li'> = isCurrentPath
   ? { 'aria-current': 'page' }
   : {};
 
-const id = removeLeadingSlashes(rawHref) + '-head';
-const href = isCurrentPath ? `#${id}` : rawHref;
+const id = removeLeadingSlashes(href) + '-head';
 ---
 
 <li id={id} {...ariaProps}>
-  <a href={href}>
+  <a href={`${href}#${id}`}>
     <slot />
   </a>
 </li>
