@@ -23,5 +23,13 @@
       "ethics": "<0>Ethics</0>: Ethics is the most important value in the community, which has the highest priority in decisions. In the community, moral principles are never sacrificed for the sake of other activities.",
       "validity": "<0>Validity</0>: Expert approval is required for every community-produced and published content. If an error is discovered in previously published content, the community must notify the appropriate parties and update the content."
     }
+  },
+  "social": {
+    "telegram": "Telegram",
+    "youtube": "Youtube",
+    "twitter": "Twitter",
+    "github": "Github",
+    "discord": "Discord",
+    "twitch": "Twitch"
   }
 }
