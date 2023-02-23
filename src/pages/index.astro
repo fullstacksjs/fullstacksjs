@@ -1,5 +1,6 @@
 ---
-import { changeLanguage } from 'i18next';
+import { Trans } from 'astro-i18next/components';
+import { changeLanguage, t } from 'i18next';
 import Article from '../components/Article.astro';
 import Articles from '../components/Articles.astro';
 import Paragraph from '../components/Paragraph.astro';
@@ -11,46 +12,54 @@ changeLanguage('en');
 <Layout title="FullstacksJS - Community">
   <Articles>
     <Article>
-      <h1>About FullstacksJS</h1>
+      <h1>{t('main.about.title')}</h1>
       <Paragraph>
-        <strong>FullstacksJS</strong> is an open-source community focused on knowledge
-        sharing, exploring, and enhancing developer experience. The primary objective
-        of this community is to establish a professional environment for in-depth
-        contents in software development and engineering field. In order to learn
-        and strengthen the culture of open source development and contribution, the
-        projects that are developed in this community are entirely open source, and
-        members are encouraged to participate.
+        <Trans i18nKey="main.about.content">
+          <strong>FullstacksJS</strong> is an open-source community focused on knowledge
+          sharing, exploring, and enhancing developer experience. The primary objective
+          of this community is to establish a professional environment for in-depth
+          contents in software development and engineering field. In order to learn
+          and strengthen the culture of open source development and contribution,
+          the projects that are developed in this community are entirely open source,
+          and members are encouraged to participate.
+        </Trans>
       </Paragraph>
     </Article>
 
     <Article>
-      <h1>Motivation</h1>
+      <h1>{t('main.motivation.title')}</h1>
       <Paragraph>
-        The Internet is full of unfiltered programming content, tutorials, and
-        forums, which provide <b>incomplete</b>, <b>outdated</b>, and sometimes
-        <b>incorrect</b> information to the knowledge seekers in this field. Therefore,
-        we decided to establish a community where experts control and review the
-        contents and activities.This creates a community that values in-depth and
-        correct content.
+        <Trans i18nKey="main.motivation.content">
+          The Internet is full of unfiltered programming content, tutorials, and
+          forums, which provide <b>incomplete</b>, <b>outdated</b>, and
+          sometimes
+          <b>incorrect</b> information to the knowledge seekers in this field. Therefore,
+          we decided to establish a community where experts control and review the
+          contents and activities.This creates a community that values in-depth and
+          correct content.
+        </Trans>
       </Paragraph>
     </Article>
 
     <Article>
-      <h1>Values</h1>
+      <h1>{t('main.values.title')}</h1>
       <Paragraph>
-        Values form our community and influence its behavior also have a direct
-        impact on community's decision-making and contents.
+        {t('main.values.content')}
       </Paragraph>
       <Paragraph>
-        <b>Ethics:</b> Ethics is the most important value in the community, which
-        has the highest priority in decisions. In the community, moral principles
-        are never sacrificed for the sake of other activities.
+        <Trans i18nKey="main.valuse.ethics">
+          <b>Ethics:</b> Ethics is the most important value in the community, which
+          has the highest priority in decisions. In the community, moral principles
+          are never sacrificed for the sake of other activities.
+        </Trans>
       </Paragraph>
       <Paragraph>
-        <b>Validity</b>: Expert approval is required for every
-        community-produced and published content. If an error is discovered in
-        previously published content, the community must notify the appropriate
-        parties and update the content.
+        <Trans i18nKey="main.values.validity">
+          <b>Validity</b>: Expert approval is required for every
+          community-produced and published content. If an error is discovered in
+          previously published content, the community must notify the
+          appropriate parties and update the content.
+        </Trans>
       </Paragraph>
     </Article>
   </Articles>
