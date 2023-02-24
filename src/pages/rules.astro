@@ -1,73 +1,86 @@
 ---
-import { changeLanguage } from "i18next";
-import Article from "../components/Article.astro";
-import Articles from "../components/Articles.astro";
-import Paragraph from "../components/Paragraph.astro";
-import Rule from "../components/Rule.astro";
-import RuleSet from "../components/RuleSet.astro";
-import Layout from "../layouts/Layout.astro";
+import { changeLanguage } from 'i18next';
+import Article from '../components/Article.astro';
+import Articles from '../components/Articles.astro';
+import Paragraph from '../components/Paragraph.astro';
+import Rule from '../components/Rule.astro';
+import RuleSet from '../components/RuleSet.astro';
+import Layout from '../layouts/Layout.astro';
+import { t } from 'i18next';
+import { Trans } from 'astro-i18next/components';
 
-changeLanguage("en");
+changeLanguage('en');
 ---
 
 <Layout title="FullstacksJS - Rules">
   <Articles>
     <Article>
-      <h1>FullstacksJS Rules</h1>
+      <h1>{t('rules.title')}</h1>
       <Paragraph>
-        The following behaviors are considered <b>harassment</b> and are <b
-          >unacceptable</b
-        > within our community:
+        <Trans i18nKey="rules.desc">
+          The following behaviors are considered <b>harassment</b> and are <b
+            >unacceptable</b
+          > within our community:
+        </Trans>
       </Paragraph>
 
       <RuleSet>
         <Rule target="violence">
-          Violence, threats of violence or violent language directed against
-          another person.
+          {t('rules.items.violence')}
         </Rule>
         <Rule target="name-calling">
-          <b>Name-calling</b> or calling someone or a group of people offensive names.
+          <Trans i18nKey="rules.items.nameCalling">
+            <b>Name-calling</b> or calling someone or a group of people offensive
+            names.
+          </Trans>
         </Rule>
         <Rule target="nsfw">
-          Posting <b>NSFW</b> content.
+          <Trans i18nKey="rules.items.nsfw">
+            osting <b>NSFW</b> content.
+          </Trans>
         </Rule>
         <Rule target="personal">
-          Posting other people's personally identifying information.
+          {t('rules.items.personal')}
         </Rule>
         <Rule target="insult">
-          Insults/Hate speech based on <b>gender</b>, <b>race</b>, <b
-            >religion</b
-          >, and <b>disability</b>.
+          <Trans i18nKey="rules.items.insult">
+            Insults/Hate speech based on <b>gender</b>, <b>race</b>, <b
+              >religion</b
+            >, and <b>disability</b>.
+          </Trans>
         </Rule>
-        <Rule target="sex">Unwelcome sexual attention.</Rule>
+        <Rule target="sex">{t('rules.items.sex')}</Rule>
         <Rule target="copyright">
-          Posting/Request for content subject to <b>copyright.</b>
+          <Trans i18nKey="rules.items.copyright">
+            Posting/Request for content subject to <b>copyright.</b>
+          </Trans>
         </Rule>
         <Rule target="spam">
-          <b>Spam</b>/<b>Flooding.</b>
+          <Trans i18nKey="rulse.spam"><b>Spam</b>/<b>Flooding.</b></Trans>
         </Rule>
         <Rule target="dm">
-          Do not <b>direct message</b> someone unless they've granted permission.
+          <Trans i18nKey="rules.items.dm">
+            Do not <b>direct message</b> someone unless they've granted permission.
+          </Trans>
         </Rule>
         <Rule target="advocate">
-          Advocating for, or encouraging, any of the above behavior.
+          {t('rules.items.advocate')}
         </Rule>
       </RuleSet>
     </Article>
 
     <Article>
-      <h1>Community Guidelines:</h1>
+      <h1>{t('guidelines.title')}</h1>
       <RuleSet>
         <Rule target="kind">
-          Be kind and courteous, friendly and professional. There's no need to
-          be mean or rude
+          {t('guidelines.items.kind')}
         </Rule>
-        <Rule target="topic">Don't start a conversation in a wrong topic.</Rule>
+        <Rule target="topic">{t('guidelines.items.topic')}</Rule>
         <Rule target="cross">
-          Don't cross-post the same thing in multiple topics.
+          {t('guidelines.items.cross')}
         </Rule>
         <Rule target="opinion">
-          Respect that people have differences of opinion.
+          {t('guidelines.items.opinion')}
         </Rule>
       </RuleSet>
     </Article>
