@@ -21,6 +21,8 @@ interface Props extends HTMLAttributes<'a'> {}
     box-shadow: 0px 4px 22px 4px rgba(243, 159, 71, 0.16);
     border-radius: 8px;
 
+    transition: box-shadow ease-in-out 100ms;
+
     font-style: normal;
     font-weight: 700;
     font-size: 22px;
@@ -29,5 +31,10 @@ interface Props extends HTMLAttributes<'a'> {}
 
   .button:focus {
     outline: 1px solid var(--accent);
+  }
+
+  .button:hover {
+
+    box-shadow: 0px 4px 30px 5px rgba(243, 159, 71, 0.16);
   }
 </style>
