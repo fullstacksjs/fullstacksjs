@@ -28,6 +28,7 @@ const id = removeLeadingSlashes(href) + '-head';
     list-style: none;
     text-transform: uppercase;
     color: var(--fg-muted);
+    transition: color ease-in-out 170ms;
     scroll-margin: 3rem;
   }
 
@@ -43,5 +44,9 @@ const id = removeLeadingSlashes(href) + '-head';
 
   [aria-current='page'] {
     color: var(--fg-0);
+  }
+
+  li:hover:not([aria-current='page']) {
+    color: var(--fg-1);
   }
 </style>
