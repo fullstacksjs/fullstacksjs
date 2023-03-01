@@ -1,13 +1,13 @@
 ---
 import { Trans } from 'astro-i18next/components';
-import { changeLanguage } from 'i18next';
+import { changeLanguage, t } from 'i18next';
 import Article from '../../components/Article.astro';
 import Articles from '../../components/Articles.astro';
 import Paragraph from '../../components/Paragraph.astro';
 import Rule from '../../components/Rule.astro';
 import RuleSet from '../../components/RuleSet.astro';
 import Layout from '../../layouts/Layout.astro';
-import { t } from 'i18next';
+
 changeLanguage('fa');
 ---
 
@@ -28,7 +28,10 @@ changeLanguage('fa');
           {t('rules.items.violence')}
         </Rule>
         <Rule target="name-calling">
-          {t('rules.items.nameCalling')}
+          <Trans i18nKey="rules.items.nameCalling">
+            <b>Name-calling</b> or calling someone or a group of people with offensive
+            names.
+          </Trans>
         </Rule>
         <Rule target="nsfw">
           <Trans i18nKey="rules.items.nsfw">
@@ -52,7 +55,7 @@ changeLanguage('fa');
           </Trans>
         </Rule>
         <Rule target="spam">
-          {t('rules.items.spam')}
+          <Trans i18nKey="rules.spam"><b>Spam</b>/<b>Flooding.</b></Trans>
         </Rule>
         <Rule target="dm">
           <Trans i18nKey="rules.items.dm">
