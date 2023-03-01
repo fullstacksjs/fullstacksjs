@@ -9,6 +9,7 @@ export default defineConfig({
   adapter: vercel(),
   integrations: [astroI18next()],
   i18nextServer: {
+    debug: true,
     resources: locales,
   },
   i18nextServerPlugins: {
