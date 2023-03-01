@@ -15,7 +15,7 @@
     },
     "motivation": {
       "title": "Motivation",
-      "content": "The Internet is full of unfiltered programming content, tutorials, and forums, which provide <0>incomplete</0>, <1>outdated</1>, and sometimes <2>incorrect</2> information to the knowledge seekers in this field. Therefore, we decided to establish a community where experts control and review the contents and activities.This creates a community that values in-depth and correct content."
+      "content": "The Internet is full of unfiltered programming content, tutorials, and forums, which provide <0>incomplete</0>, <1>outdated</1>, and sometimes <2>incorrect</2> information to the knowledge seekers in this field. Therefore, we decided to establish a community where experts control and review the contents and activities. This creates a community that values in-depth and correct content."
     },
     "values": {
       "title": "Values",
@@ -37,7 +37,7 @@
     "desc": "The following behaviors are considered <0>harassment</0> and are <1>unacceptable</1> within our community:",
     "items": {
       "violence": "Violence, threats of violence or violent language directed against another person.",
-      "nameCalling": "Name-calling or calling someone or a group of people offensive names.",
+      "nameCalling": "<0>Name-calling</0> or calling someone or a group of people with offensive names.",
       "nsfw": "Posting <0>NSFW</0> content.",
       "personal": "Posting other people's personally identifying information.",
       "insult": "Insults/Hate speech based on <0>gender</0>, <1>race</1>, <2>religion</2>, and <3>disability</3>.",
