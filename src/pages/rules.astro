@@ -12,10 +12,10 @@ import Layout from '../layouts/Layout.astro';
 changeLanguage('en');
 ---
 
-<Layout title="title.rules">
+<Layout title="titles.rules">
   <Articles>
     <Article>
-      <h1>{t('rules.title')}</h1>
+      <h2>{t('rules.title')}</h2>
       <Paragraph>
         <Trans i18nKey="rules.desc">
           The following behaviors are considered <b>harassment</b> and are <b
@@ -70,7 +70,7 @@ changeLanguage('en');
     </Article>
 
     <Article>
-      <h1>{t('guidelines.title')}</h1>
+      <h2>{t('guidelines.title')}</h2>
       <RuleSet>
         <Rule target="kind">
           {t('guidelines.items.kind')}

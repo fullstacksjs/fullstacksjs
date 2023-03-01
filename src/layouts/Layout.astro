@@ -164,11 +164,15 @@ const schema = {
         padding-bottom: 4rem;
       }
 
-      h1 {
+      h1,
+      h2 {
         color: var(--fg-0);
-        font-size: 2.8rem;
         font-weight: 700;
         margin: 0;
+      }
+
+      h2 {
+        font-size: 2.8rem;
         line-height: 1.05;
       }
 
@@ -186,16 +190,13 @@ const schema = {
         margin-top: 10rem;
       }
 
-      b {
-      }
-
       @media screen and (min-width: 560px) {
         .container {
           max-width: 500px;
           margin: 0 auto;
         }
 
-        h1 {
+        h2 {
           font-size: 3.2rem;
         }
       }
