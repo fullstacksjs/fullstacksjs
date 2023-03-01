@@ -14,6 +14,7 @@
     "start": "astro dev --host 0.0.0.0",
     "build": "astro build",
     "preview": "astro preview",
+    "generate": "npx astro-i18next generate && npm run lint",
     "astro": "astro"
   },
   "dependencies": {

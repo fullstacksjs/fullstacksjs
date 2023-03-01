@@ -8,7 +8,10 @@ module.exports = init({
   },
   extends: ['plugin:astro/recommended'],
   rules: {
-    'import/no-unresolved': [2, { ignore: ['^astro'] }],
+    'import/no-unresolved': [
+      2,
+      { ignore: ['^astro', '@astrojs/vercel/serverless'] },
+    ],
   },
   overrides: [
     {

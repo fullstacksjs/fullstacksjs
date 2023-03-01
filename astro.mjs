@@ -1,6 +1,9 @@
-import en from './public/locales/en/translation.json' assert { type: 'json' };
-import fa from './public/locales/fa/translation.json' assert { type: 'json' };
+import en from './public/locales/en.json' assert { type: 'json' };
+import fa from './public/locales/fa.json' assert { type: 'json' };
 
-const locales = { en, fa };
+const locales = {
+  en: { translation: en },
+  fa: { translation: fa },
+};
 
 export default locales;
