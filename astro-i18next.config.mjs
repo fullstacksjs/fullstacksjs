@@ -4,6 +4,11 @@ import locales from './astro.mjs';
 export default {
   defaultLocale: 'en',
   locales: ['en', 'fa'],
+  i18nextServer: {
+    backend: {
+      loadPath: './public/locales/{{lng}}/{{ns}}.json',
+    },
+  },
   i18nextClient: {
     debug: true,
     resources: locales,
