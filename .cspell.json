@@ -1,0 +1,36 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "useGitignore": true,
+  "ignorePaths": ["**/*.svg"],
+  "words": [
+    "astro",
+    "astrojs",
+    "fullstacksjs",
+    "Alireza",
+    "Safaeirad",
+    "Rajdhani",
+    "preconnect",
+    "noopener",
+    "rgba",
+    "Navs",
+    "crossorigin",
+    "stylesheet",
+    "msapplication",
+    "funder",
+    "keyframes",
+    "linejoin",
+    "linecap",
+    "evenodd",
+    "browserconfig",
+    "mstile"
+  ],
+  "dictionaries": ["node"],
+  "patterns": [
+    {
+      "name": "persian",
+      "pattern": "/[الفبپتسجچحخدذرزژسشصضطظعغفقکگلمنوهی]/g"
+    }
+  ],
+  "ignoreRegExpList": ["persian"]
+}
