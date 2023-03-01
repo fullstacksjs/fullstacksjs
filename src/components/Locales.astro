@@ -1,0 +1,32 @@
+---
+import { localizeUrl } from 'astro-i18next';
+import i18next from 'i18next';
+
+const currentLanguage = i18next.language;
+const currentUrl = Astro.url.href;
+---
+
+<div dir="ltr">
+  <a
+    class={currentLanguage === 'en' ? 'active' : ''}
+    href={localizeUrl(currentUrl, 'en')}>EN</a
+  >
+  <span>/</span>
+  <a
+    class={currentLanguage === 'fa' ? 'active' : ''}
+    href={localizeUrl(currentUrl, 'fa')}>FA</a
+  >
+</div>
+
+<style>
+  div {
+    display: flex;
+    gap: 10px;
+    color: var(--fg-muted);
+    margin: 12px 0 0 18px;
+  }
+
+  a.active {
+    color: var(--fg-0);
+  }
+</style>

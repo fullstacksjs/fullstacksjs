@@ -160,8 +160,11 @@ const schema = {
 
       body {
         margin: 0;
-        font-size: 2rem;
         padding-bottom: 4rem;
+      }
+
+      body {
+        font-size: 2rem;
       }
 
       h1,
@@ -171,7 +174,11 @@ const schema = {
         margin: 0;
       }
 
-      h2 {
+      [lang='fa'] h2 {
+        font-size: 2.5rem;
+      }
+
+      [lang='en'] h2 {
         font-size: 2.8rem;
         line-height: 1.05;
       }
@@ -196,7 +203,11 @@ const schema = {
           margin: 0 auto;
         }
 
-        h2 {
+        [lang='fa'] h2 {
+          font-size: 2.8rem;
+        }
+
+        [lang='en'] h2 {
           font-size: 3.2rem;
         }
       }
