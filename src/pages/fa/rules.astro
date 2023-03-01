@@ -1,15 +1,14 @@
 ---
-import { changeLanguage } from 'i18next';
-import Article from '../components/Article.astro';
-import Articles from '../components/Articles.astro';
-import Paragraph from '../components/Paragraph.astro';
-import Rule from '../components/Rule.astro';
-import RuleSet from '../components/RuleSet.astro';
-import Layout from '../layouts/Layout.astro';
-import { t } from 'i18next';
 import { Trans } from 'astro-i18next/components';
-
-changeLanguage('en');
+import { changeLanguage } from 'i18next';
+import Article from '../../components/Article.astro';
+import Articles from '../../components/Articles.astro';
+import Paragraph from '../../components/Paragraph.astro';
+import Rule from '../../components/Rule.astro';
+import RuleSet from '../../components/RuleSet.astro';
+import Layout from '../../layouts/Layout.astro';
+import { t } from 'i18next';
+changeLanguage('fa');
 ---
 
 <Layout title="FullstacksJS - Rules">
@@ -29,10 +28,7 @@ changeLanguage('en');
           {t('rules.items.violence')}
         </Rule>
         <Rule target="name-calling">
-          <Trans i18nKey="rules.items.nameCalling">
-            <b>Name-calling</b> or calling someone or a group of people offensive
-            names.
-          </Trans>
+          {t('rules.items.nameCalling')}
         </Rule>
         <Rule target="nsfw">
           <Trans i18nKey="rules.items.nsfw">
@@ -56,7 +52,7 @@ changeLanguage('en');
           </Trans>
         </Rule>
         <Rule target="spam">
-          <Trans i18nKey="rulse.spam"><b>Spam</b>/<b>Flooding.</b></Trans>
+          {t('rules.items.spam')}
         </Rule>
         <Rule target="dm">
           <Trans i18nKey="rules.items.dm">

@@ -1,13 +1,20 @@
 ---
 import Nav from './Nav.astro';
+import i18next, { t } from 'i18next';
+import { localizePath } from 'astro-i18next';
+
 const navs = [
-  { href: '/', children: 'About' },
-  { href: '/rules', children: 'Rules' },
+  { href: '/', children: t('navigation.about') },
+  { href: '/rules', children: t('navigation.rules') },
 ];
 ---
 
 <ul>
-  {navs.map(({ children, href }) => <Nav href={href}>{children}</Nav>)}
+  {
+    navs.map(({ children, href }) => (
+      <Nav href={localizePath(href, i18next.language)}>{children}</Nav>
+    ))
+  }
 </ul>
 
 <style>

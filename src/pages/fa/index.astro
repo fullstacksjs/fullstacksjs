@@ -1,0 +1,49 @@
+---
+import { Trans } from 'astro-i18next/components';
+import { changeLanguage, t } from 'i18next';
+import Article from '../../components/Article.astro';
+import Articles from '../../components/Articles.astro';
+import Paragraph from '../../components/Paragraph.astro';
+import Layout from '../../layouts/Layout.astro';
+
+changeLanguage('fa');
+---
+
+<Layout title="FullstacksJS - Community">
+  <Articles>
+    <Article>
+      <h1>{t('main.about.title')}</h1>
+      <Paragraph>
+        {t('main.about.content')}
+      </Paragraph>
+    </Article>
+
+    <Article>
+      <h1>{t('main.motivation.title')}</h1>
+      <Paragraph>
+        <Trans i18nKey="main.motivation.content">
+          The Internet is full of unfiltered programming content, tutorials, and
+          forums, which provide <b>incomplete</b>, <b>outdated</b>, and
+          sometimes
+          <b>incorrect</b> information to the knowledge seekers in this field. Therefore,
+          we decided to establish a community where experts control and review the
+          contents and activities.This creates a community that values in-depth and
+          correct content.
+        </Trans>
+      </Paragraph>
+    </Article>
+
+    <Article>
+      <h1>{t('main.values.title')}</h1>
+      <Paragraph>
+        {t('main.values.content')}
+      </Paragraph>
+      <Paragraph>
+        {t('main.values.ethics')}
+      </Paragraph>
+      <Paragraph>
+        {t('main.values.validity')}
+      </Paragraph>
+    </Article>
+  </Articles>
+</Layout>

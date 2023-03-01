@@ -6,14 +6,39 @@ import Twitch from './Icons/Twitch.astro';
 import Twitter from './Icons/Twitter.astro';
 import Youtube from './Icons/Youtube.astro';
 import SocialItem from './SocialItem.astro';
+import { t } from 'i18next';
 
 const items = [
-  { icon: Telegram, href: 'https://t.me/fullstacksjs', children: 'Telegram' },
-  { icon: Youtube, href: 'https://youtube.com/@fullstacksjs', children: 'Youtube' },
-  { icon: Twitter, href: 'https://twitter.com/fullstacksjs', children: 'Twitter' },
-  { icon: Github, href: 'https://github.com/fullstacksjs', children: 'Github' },
-  { icon: Discord, href: 'https://discord.gg/rRKPzR4SY4', children: 'Discord' },
-  { icon: Twitch, href: 'https://twitch.tv/fullstacksjs', children: 'Twitch' },
+  {
+    icon: Telegram,
+    href: 'https://t.me/fullstacksjs',
+    children: t('social.telegram'),
+  },
+  {
+    icon: Youtube,
+    href: 'https://youtube.com/@fullstacksjs',
+    children: t('social.youtube'),
+  },
+  {
+    icon: Twitter,
+    href: 'https://twitter.com/fullstacksjs',
+    children: t('social.twitter'),
+  },
+  {
+    icon: Github,
+    href: 'https://github.com/fullstacksjs',
+    children: t('social.github'),
+  },
+  {
+    icon: Discord,
+    href: 'https://discord.gg/rRKPzR4SY4',
+    children: t('social.discord'),
+  },
+  {
+    icon: Twitch,
+    href: 'https://twitch.tv/fullstacksjs',
+    children: t('social.twitch'),
+  },
 ];
 ---
 

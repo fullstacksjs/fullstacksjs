@@ -2,15 +2,14 @@
 import { removeLeadingSlashes } from '@fullstacksjs/toolbox';
 import type { HTMLAttributes } from 'astro/types';
 
-const url = new URL(Astro.request.url);
-const path = url.pathname;
+const { pathname } = Astro.url;
 
 interface Props {
   href: string;
 }
 
 const { href } = Astro.props;
-const isCurrentPath = href === path;
+const isCurrentPath = href === pathname;
 const ariaProps: HTMLAttributes<'li'> = isCurrentPath
   ? { 'aria-current': 'page' }
   : {};
