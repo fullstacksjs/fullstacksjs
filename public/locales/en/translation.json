@@ -1,6 +1,9 @@
 {
+  "titles": {
+    "about": "FullstacksJS - Community",
+    "rules": "FullstacksJS - Rules"
+  },
   "header": {
-    "title": "FullstacksJS - Community",
     "vision": "We grow together",
     "button": "Join US"
   },

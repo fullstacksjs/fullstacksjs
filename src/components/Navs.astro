@@ -1,7 +1,8 @@
 ---
-import Nav from './Nav.astro';
-import i18next, { t } from 'i18next';
 import { localizePath } from 'astro-i18next';
+import i18next, { t } from 'i18next';
+
+import Nav from './Nav.astro';
 
 const navs = [
   { href: '/', children: t('navigation.about') },

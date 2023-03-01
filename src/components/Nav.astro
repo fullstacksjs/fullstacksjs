@@ -1,6 +1,6 @@
 ---
 import { removeLeadingSlashes } from '@fullstacksjs/toolbox';
-import type { HTMLAttributes } from 'astro/types';
+import { type HTMLAttributes } from 'astro/types';
 
 const { pathname } = Astro.url;
 
@@ -14,7 +14,7 @@ const ariaProps: HTMLAttributes<'li'> = isCurrentPath
   ? { 'aria-current': 'page' }
   : {};
 
-const id = removeLeadingSlashes(href) + '-head';
+const id = `${removeLeadingSlashes(href)}-head`;
 ---
 
 <li id={id} {...ariaProps}>

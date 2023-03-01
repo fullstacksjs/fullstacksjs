@@ -1,6 +1,7 @@
 ---
 import { Trans } from 'astro-i18next/components';
 import { changeLanguage, t } from 'i18next';
+
 import Article from '../components/Article.astro';
 import Articles from '../components/Articles.astro';
 import Paragraph from '../components/Paragraph.astro';
@@ -9,10 +10,10 @@ import Layout from '../layouts/Layout.astro';
 changeLanguage('en');
 ---
 
-<Layout title="FullstacksJS - Community">
+<Layout title="titles.about">
   <Articles>
     <Article>
-      <h1>{t('main.about.title')}</h1>
+      <h1><Trans i18nKey="main.about.title">0</Trans></h1>
       <Paragraph>
         <Trans i18nKey="main.about.content">
           <strong>FullstacksJS</strong> is an open-source community focused on knowledge

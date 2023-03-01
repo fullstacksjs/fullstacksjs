@@ -1,8 +1,9 @@
 ---
+import { HeadHrefLangs } from 'astro-i18next/components';
+import i18next, { t } from 'i18next';
+
 import Header from '../components/Header.astro';
 import Social from '../components/Social.astro';
-import i18next, { t } from 'i18next';
-import { HeadHrefLangs } from 'astro-i18next/components';
 
 export interface Props {
   title: string;
@@ -21,7 +22,20 @@ const ogImage = 'https://fullstacksjs.com/og.png';
 const bgColor = '#212025';
 const accentColor = '#F39F47';
 
-const title = t('header.title');
+const title = t(Astro.props.title);
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  legalName: 'FullstacksJS',
+  url: 'https://fullstacksjs.com',
+  logo: 'https://fullstacksjs.com/maskable_icon_x512.png',
+  ethicsPolicy: 'https://fullstacksjs.com/rules',
+  funder: {
+    email: 'frontendmonster@gmail.com',
+    givenName: 'Alireza',
+    familyName: 'Safaeirad',
+  },
+};
 ---
 
 <!DOCTYPE html>
@@ -67,23 +81,10 @@ const title = t('header.title');
     <meta name="twitter:card" content="summary_large_image" />
 
     <HeadHrefLangs />
-    <title>{t('header.title')}</title>
+    <title>{title}</title>
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "legalName": "FullstacksJS",
-      "url": "https://fullstacksjs.com",
-      "logo": "https://fullstacksjs.com/maskable_icon_x512.png",
-      "ethicsPolicy": "https://fullstacksjs.com/rules",
-      "funder": {
-        "email": "frontendmonster@gmail.com",
-        "givenName": "Alireza",
-        "familyName": "Safaeirad"
-      }
-    }
-   </script>
+    <script type="application/ld+json" set:html={JSON.stringify(schema)}
+    ></script>
   </head>
   <body>
     <Header />
@@ -93,20 +94,18 @@ const title = t('header.title');
     <footer class="footer">
       <Social />
     </footer>
-  </body>
-</html>
-<style is:global>
-  :root {
-    --accent: #f39f47;
-    --accent-1: #d19a67;
-    --bg: #212025;
-    --fg-0: #e6e6e6;
-    --fg-1: #b3b3b3;
-    --fg-muted: rgb(255 255 255 / 0.2);
-    --fg-inactive: rgb(255 255 255 / 0.3);
-    --fast: 200ms;
-    scroll-behavior: smooth;
-  }
+    <style is:global>
+      :root {
+        --accent: #f39f47;
+        --accent-1: #d19a67;
+        --bg: #212025;
+        --fg-0: #e6e6e6;
+        --fg-1: #b3b3b3;
+        --fg-muted: rgb(255 255 255 / 0.2);
+        --fg-inactive: rgb(255 255 255 / 0.3);
+        --fast: 200ms;
+        scroll-behavior: smooth;
+      }
 
       * {
         box-sizing: border-box;

@@ -23,7 +23,8 @@
     "linecap",
     "evenodd",
     "browserconfig",
-    "mstile"
+    "mstile",
+    "parens"
   ],
   "dictionaries": ["node"],
   "patterns": [
