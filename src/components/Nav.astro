@@ -1,21 +1,20 @@
 ---
 import { removeLeadingSlashes } from '@fullstacksjs/toolbox';
-import type { HTMLAttributes } from 'astro/types';
+import { type HTMLAttributes } from 'astro/types';
 
-const url = new URL(Astro.request.url);
-const path = url.pathname;
+const { pathname } = Astro.url;
 
 interface Props {
   href: string;
 }
 
 const { href } = Astro.props;
-const isCurrentPath = href === path;
+const isCurrentPath = href === pathname;
 const ariaProps: HTMLAttributes<'li'> = isCurrentPath
   ? { 'aria-current': 'page' }
   : {};
 
-const id = removeLeadingSlashes(href) + '-head';
+const id = `${removeLeadingSlashes(href)}-head`;
 ---
 
 <li id={id} {...ariaProps}>
@@ -29,6 +28,7 @@ const id = removeLeadingSlashes(href) + '-head';
     list-style: none;
     text-transform: uppercase;
     color: var(--fg-muted);
+    transition: color ease-in-out var(--fast);
     scroll-margin: 3rem;
   }
 
@@ -44,5 +44,9 @@ const id = removeLeadingSlashes(href) + '-head';
 
   [aria-current='page'] {
     color: var(--fg-0);
+  }
+
+  li:hover:not([aria-current='page']) {
+    color: var(--fg-1);
   }
 </style>

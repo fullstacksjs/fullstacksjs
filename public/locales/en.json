@@ -1,0 +1,63 @@
+{
+  "titles": {
+    "about": "FullstacksJS - Community",
+    "rules": "FullstacksJS - Rules"
+  },
+  "header": {
+    "vision": "We grow together",
+    "button": "Join US"
+  },
+  "navigation": {
+    "about": "about",
+    "rules": "rules"
+  },
+  "main": {
+    "about": {
+      "title": "About FullstacksJS",
+      "content": "<0>FullstacksJS</0> is an open-source community focused on knowledge sharing, exploring, and enhancing developer experience. The primary objective of this community is to establish a professional environment for in-depth contents in software development and engineering field. In order to learn and strengthen the culture of open source development and contribution, the projects that are developed in this community are entirely open source, and members are encouraged to participate."
+    },
+    "motivation": {
+      "title": "Motivation",
+      "content": "The Internet is full of unfiltered programming content, tutorials, and forums, which provide <0>incomplete</0>, <1>outdated</1>, and sometimes <2>incorrect</2> information to the knowledge seekers in this field. Therefore, we decided to establish a community where experts control and review the contents and activities. This creates a community that values in-depth and correct content."
+    },
+    "values": {
+      "title": "Values",
+      "content": "Values form our community and influence its behavior also have a direct impact on community's decision-making and contents.",
+      "ethics": "<0>Ethics</0>: Ethics is the most important value in the community, which has the highest priority in decisions. In the community, moral principles are never sacrificed for the sake of other activities.",
+      "validity": "<0>Validity</0>: Expert approval is required for every community-produced and published content. If an error is discovered in previously published content, the community must notify the appropriate parties and update the content."
+    }
+  },
+  "social": {
+    "telegram": "Telegram",
+    "youtube": "Youtube",
+    "twitter": "Twitter",
+    "github": "Github",
+    "discord": "Discord",
+    "twitch": "Twitch"
+  },
+  "rules": {
+    "title": "FullstacksJS Rules",
+    "desc": "The following behaviors are considered <0>harassment</0> and are <1>unacceptable</1> within our community:",
+    "items": {
+      "violence": "Violence, threats of violence or violent language directed against another person.",
+      "nameCalling": "<0>Name-calling</0> or calling someone or a group of people with offensive names.",
+      "nsfw": "Posting <0>NSFW</0> content.",
+      "personal": "Posting other people's personally identifying information.",
+      "insult": "Insults/Hate speech based on <0>gender</0>, <1>race</1>, <2>religion</2>, and <3>disability</3>.",
+      "sex": "Unwelcome sexual attention.",
+      "copyright": "Posting/Request for content subject to <0>copyright</0>.",
+      "spam": "<0>Spam</0>/<1>Flooding</1>.",
+      "dm": "Do not <0>direct message</0> someone unless they've granted permission.",
+      "advocate": "Advocating for, or encouraging, any of the above behavior."
+    }
+  },
+  "guidelines": {
+    "title": "Community Guidelines",
+    "items": {
+      "kind": "Be kind and courteous, friendly and professional. There's no need to be mean or rude.",
+      "topic": "Don't start a conversation in a wrong topic.",
+      "cross": "Don't cross-post the same thing in multiple topics.",
+      "opinion": "Respect that people have differences of opinion."
+    }
+  }
+}
