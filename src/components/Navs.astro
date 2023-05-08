@@ -2,34 +2,24 @@
 import { localizePath } from 'astro-i18next';
 import i18next, { t } from 'i18next';
 
+import { LanguageStyle } from '../getLocaleStyle';
 import Nav from './Nav.astro';
 
 const navs = [
   { href: '/', children: t('navigation.about') },
   { href: '/rules', children: t('navigation.rules') },
 ];
+
+const languageStyle = LanguageStyle(i18next).get({
+  en: 'text-md tablet:text-2xl',
+  fa: 'text-md tablet:text-xl',
+});
 ---
 
-<ul>
+<ul class={`inline-flex font-bold leading-none gap-16 ${languageStyle}`}>
   {
     navs.map(({ children, href }) => (
       <Nav href={localizePath(href, i18next.language)}>{children}</Nav>
     ))
   }
 </ul>
-
-<style>
-  ul {
-    display: inline-flex;
-    font-size: 2.4rem;
-    font-weight: 700;
-    line-height: 1.05;
-    gap: 4rem;
-  }
-
-  @media screen and (min-width: 560px) {
-    ul {
-      font-size: 3.2rem;
-    }
-  }
-</style>

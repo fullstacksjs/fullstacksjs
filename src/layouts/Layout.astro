@@ -39,7 +39,11 @@ const schema = {
 ---
 
 <!DOCTYPE html>
-<html lang={i18next.language} dir={i18next.language === 'en' ? 'ltr' : 'rtl'}>
+<html
+  lang={i18next.language}
+  dir={i18next.language === 'en' ? 'ltr' : 'rtl'}
+  class="bg-dark-0 text-light-0 leading-normal"
+>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -52,7 +56,7 @@ const schema = {
       rel="stylesheet"
     />
 
-    <link rel="manifest" href="manifest.json" />
+    <link rel="manifest" href="/manifest.json" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
@@ -86,46 +90,33 @@ const schema = {
     <script type="application/ld+json" set:html={JSON.stringify(schema)}
     ></script>
   </head>
-  <body>
+  <body class="pb-16 pt-40 mobile:pb-32 text-base">
     <Header />
-    <main class="container">
-      <slot />
-    </main>
-    <footer class="footer">
+    <div
+      class="container my-12 mobile:mx-auto gap-[6rem] mobile:gap-[10rem] flex flex-col"
+    >
+      <main>
+        <slot />
+      </main>
       <Social />
-    </footer>
+    </div>
     <style is:global>
       :root {
-        --accent: #f39f47;
-        --accent-1: #d19a67;
-        --bg: #23252e;
-        --fg-0: #e6e6e6;
-        --fg-1: #b3b3b3;
+        --accent-0: 243 159 71;
+        --accent-1: 209 154 103;
+        --bg: 35 37 46;
+        --fg-0: 230 230 230;
+        --fg-1: 179 179 179;
         --fg-muted: rgb(255 255 255 / 0.2);
         --fg-inactive: rgb(255 255 255 / 0.3);
         --fast: 200ms;
         scroll-behavior: smooth;
+        font-size: 0.625rem;
       }
 
       * {
-        box-sizing: border-box;
         scrollbar-color: var(--fg-muted) transparent;
         scrollbar-width: thin;
-      }
-
-      a {
-        text-decoration: none;
-        color: unset;
-      }
-
-      ul,
-      hr {
-        padding: 0;
-        margin: 0;
-      }
-
-      hr {
-        width: 100%;
       }
 
       ::-webkit-scrollbar {
@@ -139,103 +130,8 @@ const schema = {
       }
 
       ::selection {
-        background: var(--accent);
-        color: var(--bg);
-      }
-
-      strong {
-        color: var(--accent);
-      }
-
-      button {
-        font-family: inherit;
-      }
-
-      html {
-        font-family: 'Rajdhani', 'IRANSans', sans-serif;
-        background-color: var(--bg);
-        font-size: 0.625rem;
-        color: var(--fg-1);
-      }
-
-      body {
-        margin: 0;
-        padding-bottom: 4rem;
-      }
-
-      body {
-        font-size: 2rem;
-      }
-
-      h1,
-      h2 {
-        color: var(--fg-0);
-        font-weight: 700;
-        margin: 0;
-      }
-
-      [lang='fa'] h2 {
-        font-size: 2.5rem;
-      }
-
-      [lang='en'] h2 {
-        font-size: 2.8rem;
-        line-height: 1.05;
-      }
-
-      p {
-        font-weight: 400;
-        color: var(--fg-1);
-        margin: 0;
-      }
-
-      .container {
-        margin: 0 3rem;
-      }
-
-      .footer {
-        margin-top: 10rem;
-      }
-
-      @media screen and (min-width: 560px) {
-        body {
-          padding-bottom: 8rem;
-        }
-
-        .container {
-          max-width: 500px;
-          margin: 0 auto;
-        }
-
-        [lang='fa'] h2 {
-          font-size: 2.8rem;
-        }
-
-        [lang='en'] h2 {
-          font-size: 3.2rem;
-        }
-      }
-
-      @media screen and (min-width: 760px) {
-        .container {
-          max-width: 700px;
-          margin: 0 auto;
-        }
-      }
-
-      @media screen and (min-width: 960px) {
-        .container {
-          max-width: 900px;
-          margin: 0 auto;
-        }
-      }
-    </style>
-
-    <style>
-      main {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
+        background: rgb(var(--accent-0));
+        color: rgb(var(--bg));
       }
     </style>
   </body>

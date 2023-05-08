@@ -1,15 +1,11 @@
-<p>
+---
+import i18next from 'i18next';
+
+import { LanguageStyle } from '../getLocaleStyle';
+
+const languageStyle = LanguageStyle(i18next).get({ en: '', fa: 'text-sm' });
+---
+
+<p class={`text-light-1 ${languageStyle}`}>
   <slot />
 </p>
-
-<style>
-  p {
-    line-height: 2.8rem;
-  }
-
-  @media screen and (min-width: 560px) {
-    p {
-      line-height: 3.2rem;
-    }
-  }
-</style>

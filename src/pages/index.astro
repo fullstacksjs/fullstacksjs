@@ -4,7 +4,9 @@ import { changeLanguage, t } from 'i18next';
 
 import Article from '../components/Article.astro';
 import Articles from '../components/Articles.astro';
+import Highlight from '../components/Highlight.astro';
 import Paragraph from '../components/Paragraph.astro';
+import SectionHeader from '../components/SectionHeader.astro';
 import Layout from '../layouts/Layout.astro';
 
 changeLanguage('en');
@@ -13,22 +15,22 @@ changeLanguage('en');
 <Layout title="titles.about">
   <Articles>
     <Article>
-      <h2>{t('main.about.title')}</h2>
+      <SectionHeader>{t('main.about.title')}</SectionHeader>
       <Paragraph>
         <Trans i18nKey="main.about.content">
-          <strong>FullstacksJS</strong> is an open-source community focused on knowledge
-          sharing, exploring, and enhancing developer experience. The primary objective
-          of this community is to establish a professional environment for in-depth
-          contents in software development and engineering field. In order to learn
-          and strengthen the culture of open source development and contribution,
-          the projects that are developed in this community are entirely open source,
-          and members are encouraged to participate.
+          <Highlight>FullstacksJS</Highlight> is an open-source community focused
+          on knowledge sharing, exploring, and enhancing developer experience. The
+          primary objective of this community is to establish a professional environment
+          for in-depth contents in software development and engineering field. In
+          order to learn and strengthen the culture of open source development and
+          contribution, the projects that are developed in this community are entirely
+          open source, and members are encouraged to participate.
         </Trans>
       </Paragraph>
     </Article>
 
     <Article>
-      <h2>{t('main.motivation.title')}</h2>
+      <SectionHeader>{t('main.motivation.title')}</SectionHeader>
       <Paragraph>
         <Trans i18nKey="main.motivation.content">
           The Internet is full of unfiltered programming content, tutorials, and
@@ -43,7 +45,7 @@ changeLanguage('en');
     </Article>
 
     <Article>
-      <h2>{t('main.values.title')}</h2>
+      <SectionHeader>{t('main.values.title')}</SectionHeader>
       <Paragraph>
         {t('main.values.content')}
       </Paragraph>

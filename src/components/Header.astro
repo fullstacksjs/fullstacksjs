@@ -6,56 +6,19 @@ import Hero from './Hero.astro';
 import Locales from './Locales.astro';
 import Logo from './Logo.astro';
 import Navs from './Navs.astro';
+import Seperator from './Seperator.astro';
 ---
 
 <Locales />
-<header>
-  <div class="logo">
+
+<header class="flex flex-col items-center gap-[6rem] mb-[10rem]">
+  <div class="flex flex-col gap-[3rem] mobile:gap-[4rem] items-center">
     <Logo />
     <Hero />
     <Button href="https://t.me/fullstacksjs" target="_blank" rel="noopener">
       {t('header.button')}
     </Button>
   </div>
-  <hr />
+  <Seperator />
   <Navs />
 </header>
-
-<style>
-  header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6rem;
-    padding-top: 15rem;
-    margin-bottom: 10rem;
-  }
-
-  .logo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6rem;
-  }
-
-  hr {
-    border-color: rgb(255 255 255 / 10%);
-  }
-
-  @media screen and (min-width: 560px) {
-    header {
-      padding-top: 10rem;
-      gap: 6rem;
-    }
-
-    .logo {
-      gap: 4rem;
-    }
-  }
-
-  @media screen and (min-width: 560px) and (max-height: 700px) {
-    header {
-      padding-top: 6rem;
-    }
-  }
-</style>

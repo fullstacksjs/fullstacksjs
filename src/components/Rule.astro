@@ -6,44 +6,27 @@ interface Props {
 const { target } = Astro.props;
 ---
 
-<li id={target}>
-  <a class="cancel" href="#"></a>
-  <a href={`#${target}`}>
+<li
+  id={target}
+  class="group ms-6 mb-3 leading-tight relative cursor-pointer transition-[color,opacity] motion-reduce:transition-none"
+>
+  <a class="cancel absolute inset-0 group-target:inline" href="#"></a>
+  <a class="text-accent-1 block w-ful" href={`#${target}`}>
     <slot />
   </a>
 </li>
 
 <style>
   li {
-    margin-inline-start: 1.5rem;
-    margin-bottom: 0.5rem;
     list-style: '•  ';
-    line-height: 2.4rem;
-    transition: opacity 300ms, color 300ms;
-    cursor: pointer;
-    position: relative;
-    margin-bottom: 0.8rem;
-  }
-
-  li a {
-    color: var(--accent-1);
-    display: block;
-    width: 100%;
   }
 
   .cancel {
     display: none;
-    position: absolute;
-    inset: 0;
   }
 
   li:target .cancel {
     display: inline;
-  }
-
-  li:target a,
-  li:target b {
-    color: var(--accent-1);
   }
 
   li:has(~ li:target),

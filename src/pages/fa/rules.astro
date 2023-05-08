@@ -7,6 +7,7 @@ import Articles from '../../components/Articles.astro';
 import Paragraph from '../../components/Paragraph.astro';
 import Rule from '../../components/Rule.astro';
 import RuleSet from '../../components/RuleSet.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
 import Layout from '../../layouts/Layout.astro';
 
 changeLanguage('fa');
@@ -15,7 +16,7 @@ changeLanguage('fa');
 <Layout title="titles.rules">
   <Articles>
     <Article>
-      <h2>{t('rules.title')}</h2>
+      <SectionHeader>{t('rules.title')}</SectionHeader>
       <Paragraph>
         <Trans i18nKey="rules.desc">
           The following behaviors are considered <b>harassment</b> and are <b
@@ -70,7 +71,7 @@ changeLanguage('fa');
     </Article>
 
     <Article>
-      <h2>{t('guidelines.title')}</h2>
+      <SectionHeader>{t('guidelines.title')}</SectionHeader>
       <RuleSet>
         <Rule target="kind">
           {t('guidelines.items.kind')}
@@ -86,9 +87,3 @@ changeLanguage('fa');
     </Article>
   </Articles>
 </Layout>
-
-<style>
-  p {
-    color: var(--fg-0);
-  }
-</style>

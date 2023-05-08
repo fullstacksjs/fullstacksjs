@@ -17,36 +17,25 @@ const ariaProps: HTMLAttributes<'li'> = isCurrentPath
 const id = `${removeLeadingSlashes(href)}-head`;
 ---
 
-<li id={id} {...ariaProps}>
-  <a href={`${href}#${id}`}>
+<li
+  id={id}
+  {...ariaProps}
+  class="list-none uppercase text-light-muted transition-colors scroll-m-9"
+>
+  <a
+    href={`${href}#${id}`}
+    class="rounded-sm focus:outline focus:outline-1 focus:outline-accent-0 focus:outline-offset-8"
+  >
     <slot />
   </a>
 </li>
 
 <style>
-  li {
-    list-style: none;
-    text-transform: uppercase;
-    color: var(--fg-muted);
-    transition: color ease-in-out var(--fast);
-    scroll-margin: 3rem;
-  }
-
-  a {
-    color: unset;
-    text-decoration: none;
-  }
-
-  a:focus {
-    outline: 1px solid var(--accent);
-    outline-offset: 1rem;
-  }
-
-  [aria-current='page'] {
-    color: var(--fg-0);
+  li[aria-current='page'] {
+    color: rgb(var(--fg-0));
   }
 
   li:hover:not([aria-current='page']) {
-    color: var(--fg-1);
+    color: rgb(var(--fg-1));
   }
 </style>
