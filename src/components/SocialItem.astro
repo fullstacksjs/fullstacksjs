@@ -6,19 +6,11 @@ interface Props {
 const { href } = Astro.props;
 ---
 
-<a class="social" target="_blank" rel="noopener noreferrer" href={href}>
+<a
+  class="social flex items-center gap-2 transition-colors hover:text-accent-0"
+  target="_blank"
+  rel="noopener noreferrer"
+  href={href}
+>
   <slot />
 </a>
-
-<style>
-  .social {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    transition: color 300ms;
-  }
-
-  .social:hover {
-    color: var(--accent);
-  }
-</style>

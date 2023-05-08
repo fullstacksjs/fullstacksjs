@@ -7,12 +7,6 @@ module.exports = init({
     typescript: true,
   },
   extends: ['plugin:astro/recommended'],
-  rules: {
-    'import/no-unresolved': [
-      2,
-      { ignore: ['^astro', '@astrojs/vercel/serverless'] },
-    ],
-  },
   overrides: [
     {
       files: ['*.ts'],
@@ -33,6 +27,13 @@ module.exports = init({
       parserOptions: {
         parser: '@typescript-eslint/parser',
         extraFileExtensions: ['.astro'],
+      },
+      settings: {
+        'import/resolver': {
+          typescript: {
+            project: ['./tsconfig.json'],
+          },
+        },
       },
     },
   ],

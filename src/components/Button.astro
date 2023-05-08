@@ -4,36 +4,7 @@ import { HTMLAttributes } from 'astro/types';
 interface Props extends HTMLAttributes<'a'> {}
 ---
 
-<a class="button" {...Astro.props}><slot /></a>
-
-<style>
-  .button {
-    background-color: var(--accent);
-    text-transform: uppercase;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 1.2rem 3rem;
-    color: var(--bg);
-
-    border: 0.4rem solid #60462f;
-    box-shadow: 0px 4px 22px 4px rgba(243, 159, 71, 0.16);
-    border-radius: 1rem;
-
-    transition: box-shadow ease-in-out var(--fast);
-
-    font-style: normal;
-    font-weight: 600;
-    font-size: 1.8rem;
-    line-height: 1.27;
-  }
-
-  .button:focus {
-    outline: 1px solid var(--accent);
-  }
-
-  .button:hover {
-    box-shadow: 0px 4px 30px 5px rgba(243, 159, 71, 0.16);
-  }
-</style>
+<a
+  class="bg-accent-0 uppercase flex flex-row justify-center items-center text-dark-0 py-4 px-12 rounded-lg font-semibold text-sm ring-4 hover:ring-[6px] hover:ring-accent-0/40 transition-shadow ring-accent-0/30 leading-snug outline-1 outline-accent-0 outline-offset-4 focus:outline"
+  {...Astro.props}><slot /></a
+>

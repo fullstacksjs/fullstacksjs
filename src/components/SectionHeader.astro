@@ -1,0 +1,14 @@
+---
+import i18next from 'i18next';
+
+import { LanguageStyle } from '../getLocaleStyle';
+
+const languageStyle = LanguageStyle(i18next).get({
+  fa: 'text-md mobile:xl',
+  en: 'text-xl mobile:2xl',
+});
+---
+
+<h2 class={`h2 font-bold ${languageStyle}`}>
+  <slot />
+</h2>

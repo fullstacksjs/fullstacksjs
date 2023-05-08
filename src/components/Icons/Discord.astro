@@ -1,9 +1,16 @@
+---
+interface Props {
+  class: string;
+}
+---
+
 <svg
   width="32"
   height="32"
   viewBox="0 0 33 32"
   fill="currentColor"
   xmlns="http://www.w3.org/2000/svg"
+  class={Astro.props.class}
 >
   <path
     d="M17.1311 15.9258C17.1311 15.2183 17.6451 14.65 18.2961 14.65C18.9358 14.65 19.4612 15.2183 19.4612 15.9258C19.4612 16.6334 18.9472 17.2017 18.2961 17.2017C17.6565 17.2017 17.1311 16.6334 17.1311 15.9258Z"

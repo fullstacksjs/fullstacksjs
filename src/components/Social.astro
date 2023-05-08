@@ -43,52 +43,19 @@ const items = [
 ];
 ---
 
-<footer class="container">
-  <ul>
+<footer>
+  <ul class="flex flex-wrap place-content-between gap-8">
     {
       items.map(({ children, href, icon: Icon }) => (
-        <li>
+        <li class="list-none text-accent-0">
           <SocialItem href={href}>
-            <Icon />
-            <span>{children}</span>
+            <Icon class="flex-shrink-0" />
+            <span class="w-40 mobile:w-64 wide:w-full text-light-0 hover:text-accent-0 transition-colors">
+              {children}
+            </span>
           </SocialItem>
         </li>
       ))
     }
   </ul>
 </footer>
-
-<style>
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  span {
-    width: 10rem;
-    color: var(--fg-1);
-    transition: color 300ms;
-  }
-
-  span:hover {
-    color: var(--accent);
-  }
-
-  li {
-    list-style: none;
-    color: var(--accent);
-  }
-
-  @media screen and (min-width: 760px) {
-    span {
-      width: 16rem;
-    }
-  }
-
-  @media screen and (min-width: 960px) {
-    span {
-      width: unset;
-    }
-  }
-</style>

@@ -6,31 +6,17 @@ const currentLanguage = i18next.language;
 const currentUrl = Astro.url.href;
 ---
 
-<div dir="ltr">
+<div
+  dir="ltr"
+  class="absolute flex gap-4 text-light-muted top-8 left-12 text-xsm font-semibold"
+>
   <a
-    class={currentLanguage === 'en' ? 'active' : ''}
+    class={currentLanguage === 'en' ? 'text-light-0' : ''}
     href={localizeUrl(currentUrl, 'en')}>EN</a
   >
   <span>/</span>
   <a
-    class={currentLanguage === 'fa' ? 'active' : ''}
+    class={currentLanguage === 'fa' ? 'text-light-0' : ''}
     href={localizeUrl(currentUrl, 'fa')}>FA</a
   >
 </div>
-
-<style>
-  div {
-    position: absolute;
-    display: flex;
-    gap: 1rem;
-    color: var(--fg-muted);
-    left: 3rem;
-    top: 2rem;
-    font-size: 1.6rem;
-    font-weight: 600;
-  }
-
-  a.active {
-    color: var(--fg-0);
-  }
-</style>
