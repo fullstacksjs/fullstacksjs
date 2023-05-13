@@ -1,0 +1,77 @@
+---
+import { changeLanguage } from 'i18next';
+
+import ArchivedEvents from '../../components/ArchivedEvents.astro';
+import SeperatorLine from '../../components/SeperatorLine.astro';
+import UpcomingEvents from '../../components/UpcomingEvents.astro';
+import Layout from '../../layouts/Layout.astro';
+
+changeLanguage('fa');
+
+// types
+export interface Event {
+  id: number;
+  title: string;
+  date: string;
+  type: 'archived' | 'upcoming';
+  img: string;
+  subscribersCount: number;
+  presenterAvatar: string;
+}
+// datas
+const events: Event[] = [
+  {
+    id: 1,
+    title: 'How to become a pragmatic programmer',
+    date: '2022/02/27',
+    type: 'archived',
+    img: '/public/cardBG.png',
+    subscribersCount: 110,
+    presenterAvatar: '/public/avatar.png',
+  },
+  {
+    id: 2,
+    title: 'Nix and nixos',
+    date: '2022/02/27',
+    type: 'upcoming',
+    img: '/public/cardBG.png',
+    subscribersCount: 110,
+    presenterAvatar: '/public/avatar.png',
+  },
+  {
+    id: 3,
+    title: 'Webpack',
+    date: '2022/02/27',
+    type: 'upcoming',
+    img: '/public/cardBG.png',
+    subscribersCount: 110,
+    presenterAvatar: '/public/avatar.png',
+  },
+  {
+    id: 4,
+    title: '10X programming',
+    date: '2022/02/27',
+    type: 'archived',
+    img: '/public/cardBG.png',
+    subscribersCount: 110,
+    presenterAvatar: '/public/avatar.png',
+  },
+  {
+    id: 5,
+    title: 'Nix and nixos',
+    date: '2022/02/27',
+    type: 'upcoming',
+    img: '/public/cardBG.png',
+    subscribersCount: 110,
+    presenterAvatar: '/public/avatar.png',
+  },
+];
+const upcomingEvents = events.filter((event) => event.type === 'upcoming');
+const archivedEvents = events.filter((event) => event.type === 'archived');
+---
+
+<Layout title="titles.events">
+  <UpcomingEvents events={upcomingEvents} />
+  <SeperatorLine />
+  <ArchivedEvents events={archivedEvents} />
+</Layout>
