@@ -1,7 +1,8 @@
 {
   "titles": {
     "about": "FullstacksJS - Community",
-    "rules": "FullstackJS - Rules"
+    "rules": "FullstackJS - Rules",
+    "events": "FullstacksJS - Events"
   },
   "header": {
     "vision": "باهم رشد میکنیم",
@@ -9,7 +10,8 @@
   },
   "navigation": {
     "about": "درباره ما",
-    "rules": "قوانین"
+    "rules": "قوانین",
+    "events": "رویدادها"
   },
   "main": {
     "about": {
@@ -59,5 +61,15 @@
       "cross": "یک مطلب را در چندین موضوع به صورت متقاطع ارسال نکنید.",
       "opinion": "احترام بگذاریم که مردم با هم اختلاف نظر داشته باشند."
     }
+  },
+  "upcomingEvents": {
+    "title": "رویدادهای پیش رو",
+    "action": "تهیه اشتراک",
+    "actionCountModifier": "مشترک"
+  },
+  "archivedEvents": {
+    "title": "رویدادهای بایگانی شده",
+    "action": "تماشا ویدیو",
+    "actionCountModifier": "مشترک"
   }
 }

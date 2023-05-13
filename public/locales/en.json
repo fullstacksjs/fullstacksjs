@@ -1,7 +1,8 @@
 {
   "titles": {
     "about": "FullstacksJS - Community",
-    "rules": "FullstacksJS - Rules"
+    "rules": "FullstacksJS - Rules",
+    "events": "FullstacksJS - Events"
   },
   "header": {
     "vision": "We grow together",
@@ -9,7 +10,8 @@
   },
   "navigation": {
     "about": "about",
-    "rules": "rules"
+    "rules": "rules",
+    "events": "events"
   },
   "main": {
     "about": {
@@ -59,5 +61,15 @@
       "cross": "Don't cross-post the same thing in multiple topics.",
       "opinion": "Respect that people have differences of opinion."
     }
+  },
+  "upcomingEvents": {
+    "title": "Upcoming Events",
+    "action": "Subscribe",
+    "actionCountModifier": "subscribers"
+  },
+  "archivedEvents": {
+    "title": "Archived Events",
+    "action": "Watch",
+    "actionCountModifier": "subscribers"
   }
 }
