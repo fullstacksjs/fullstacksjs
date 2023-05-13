@@ -1,0 +1,15 @@
+---
+import { t } from 'i18next';
+
+const { eventType } = Astro.props;
+---
+
+<a
+  href="#"
+  class="w-full block py-5 text-center text-sm text-accent-0 shadow-ctaBorder rounded-xl mt-[1.8rem] transition-all hover:shadow-none hover:text-dark-0 hover:bg-accent-0"
+  >{
+    eventType === 'upcoming'
+      ? t('upcomingEvents.action')
+      : t('archivedEvents.action')
+  }</a
+>

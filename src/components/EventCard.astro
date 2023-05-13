@@ -1,0 +1,45 @@
+---
+import { t } from 'i18next';
+
+import { Event } from '../pages/events.astro';
+import EventActionsBtn from './EventActionsBtn.astro';
+
+interface Props {
+  event: Event;
+}
+
+const { event } = Astro.props;
+---
+
+<div class="dotted-border p-[1px] flex flex-col">
+  <img
+    class="w-full h-auto flex-none rounded-t-[4px]"
+    src={event.img}
+    alt="ss"
+  />
+  <div class="p-8 flex-1 grid">
+    <div class="py-8">
+      <h4 class="text-md font-bold uppercase leading-none">{event.title}</h4>
+      <p class="text-xsm text-accent-0">{event.date}</p>
+    </div>
+    <div class="mt-auto">
+      <div class="flex justify-between items-center">
+        <img class="rounded-full" src={event.presenterAvatar} alt="avatar" />
+        <span class="text-xsm text-accent-0">
+          {
+            `${event.subscribersCount} ${t(
+              'upcomingEvents.actionCountModifier',
+            )}`
+          }
+        </span>
+      </div>
+      <EventActionsBtn eventType={event.type} />
+    </div>
+  </div>
+</div>
+<style>
+  .dotted-border {
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='4' ry='4' stroke='%23D4DDED33' stroke-width='1' stroke-dasharray='6%2c10' stroke-dashoffset='8' stroke-linecap='square'/%3e%3c/svg%3e");
+    border-radius: 4px;
+  }
+</style>
