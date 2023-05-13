@@ -43,6 +43,9 @@ module.exports = {
       },
     },
     extend: {
+      boxShadow: {
+        ctaBorder: '0px 0px 0 1px rgb(var(--accent-0))',
+      },
       colors: {
         accent: {
           0: 'rgb(var(--accent-0) / <alpha-value>)',
