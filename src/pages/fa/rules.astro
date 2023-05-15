@@ -4,6 +4,8 @@ import { changeLanguage, t } from 'i18next';
 
 import Article from '../../components/Article.astro';
 import Articles from '../../components/Articles.astro';
+import Guide from '../../components/Guide.astro';
+import Highlight from '../../components/Highlight.astro';
 import Paragraph from '../../components/Paragraph.astro';
 import Rule from '../../components/Rule.astro';
 import RuleSet from '../../components/RuleSet.astro';
@@ -11,6 +13,20 @@ import SectionHeader from '../../components/SectionHeader.astro';
 import Layout from '../../layouts/Layout.astro';
 
 changeLanguage('fa');
+
+const guides = [
+  'precise',
+  'environment',
+  'diagnostic',
+  'sandbox',
+  'courteous',
+  'topic',
+  'xy',
+  'rush',
+  'guess',
+  'pv',
+  'homework',
+];
 ---
 
 <Layout title="titles.rules">
@@ -83,6 +99,15 @@ changeLanguage('fa');
         <Rule target="opinion">
           {t('guidelines.items.opinion')}
         </Rule>
+      </RuleSet>
+    </Article>
+
+    <Article>
+      <SectionHeader>
+        <Trans i18nKey="ask.title">1</Trans>
+      </SectionHeader>
+      <RuleSet>
+        {guides.map((guide) => <Guide guide={guide} />)}
       </RuleSet>
     </Article>
   </Articles>

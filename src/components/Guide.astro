@@ -1,0 +1,17 @@
+---
+import { t } from 'i18next';
+
+import Rule from './Rule.astro';
+
+interface Props {
+  guide: string;
+}
+
+const { guide } = Astro.props;
+---
+
+<Rule target={guide}>
+  <p class="text-accent-1 mb-2">{t(`ask.guides.${guide}.title`)}:</p>
+  <p class="text-light-0">{t(`ask.guides.${guide}.desc`)}</p>
+  <br />
+</Rule>

@@ -51,6 +51,55 @@
       "advocate": "Advocating for, or encouraging, any of the above behavior."
     }
   },
+  "ask": {
+    "title": "How to ask a question",
+    "guides": {
+      "precise": {
+        "title": "Be precise and informative about your problem",
+        "desc": "Rather than just saying \\\"my code doesn't work\\\" provide specific details about the issue you're facing. For example, mention the programming language you're using, any error messages you're receiving, and the steps you've taken so far to try and resolve the problem."
+      },
+      "environment": {
+        "title": "Describe the environment in which it occurs",
+        "desc": "Mention the OS, runtime, or application you're using, along with any relevant settings or configurations."
+      },
+      "diagnostic": {
+        "title": "Describe the diagnostic steps you took to try and pin down the problem yourself",
+        "desc": "If you've tried any troubleshooting steps, such as testing different configurations or reinstalling software, mention what you did and what the results were."
+      },
+      "sandbox": {
+        "title": "Where's the code?",
+        "desc": "If your question is related to a piece of code you've written, make sure to include that code in your post. But be mindful of the length of your code and use tools like codesandbox.com or stackblitz.com to share it more efficiently."
+      },
+      "courteous": {
+        "title": "Be courteous",
+        "desc": "Remember that people are taking time out of their day to help you, so be polite and respectful in your interactions with them."
+      },
+      "topic": {
+        "title": "Choose the topic carefully",
+        "desc": "Make sure your post is categorized in a way that accurately reflects the topic you're asking about. This will help ensure that your question is seen by people who are knowledgeable about the subject matter."
+      },
+      "xy": {
+        "title": "Describe the goal, not the step",
+        "desc": "Rather than just asking how to do something, describe the larger goal you're trying to achieve. This can help others provide more useful and relevant advice."
+      },
+      "rush": {
+        "title": "Don't rush to claim that you have found a bug",
+        "desc": "Even if you're pretty sure that you've found a bug, it's best to approach the issue as if it might be something you're doing wrong. This can help ensure that you're open to suggestions and don't waste time chasing down a non-existent bug."
+      },
+      "guess": {
+        "title": "Describe the problem's symptoms, not your guesses",
+        "desc": "Avoid making assumptions or speculating about the cause of the problem. Stick to describing the symptoms you're experiencing and let others help you diagnose the underlying issue."
+      },
+      "pv": {
+        "title": "Don't ask people to reply by PV",
+        "desc": "Keep the conversation public so that others can benefit from the discussion and provide their own insights."
+      },
+      "homework": {
+        "title": "Avoid posting homework questions",
+        "desc": "While it's okay to ask for hints or guidance, avoid asking for full solutions to homework problems. The point of homework is to learn, so take advantage of the opportunity to develop your skills by working through the problem on your own."
+      }
+    }
+  },
   "guidelines": {
     "title": "Community Guidelines",
     "items": {
