@@ -8,24 +8,20 @@ import Layout from '../layouts/Layout.astro';
 
 changeLanguage('en');
 
-// types
 export interface Event {
   id: number;
   title: string;
   date: string;
-  type: 'archived' | 'upcoming';
-  img: string;
+  thumbnail: string;
   subscribersCount: number;
   presenterAvatar: string;
 }
-// datas
 const events: Event[] = [
   {
     id: 1,
     title: 'How to become a pragmatic programmer',
-    date: '2022/02/27',
-    type: 'archived',
-    img: '/public/cardBG.png',
+    date: '2024/02/27',
+    thumbnail: '/public/cardBG.png',
     subscribersCount: 110,
     presenterAvatar: '/public/avatar.png',
   },
@@ -33,8 +29,7 @@ const events: Event[] = [
     id: 2,
     title: 'Nix and nixos',
     date: '2022/02/27',
-    type: 'upcoming',
-    img: '/public/cardBG.png',
+    thumbnail: '/public/cardBG.png',
     subscribersCount: 110,
     presenterAvatar: '/public/avatar.png',
   },
@@ -42,8 +37,7 @@ const events: Event[] = [
     id: 3,
     title: 'Webpack',
     date: '2022/02/27',
-    type: 'upcoming',
-    img: '/public/cardBG.png',
+    thumbnail: '/public/cardBG.png',
     subscribersCount: 110,
     presenterAvatar: '/public/avatar.png',
   },
@@ -51,23 +45,25 @@ const events: Event[] = [
     id: 4,
     title: '10X programming',
     date: '2022/02/27',
-    type: 'archived',
-    img: '/public/cardBG.png',
+    thumbnail: '/public/cardBG.png',
     subscribersCount: 110,
     presenterAvatar: '/public/avatar.png',
   },
   {
     id: 5,
     title: 'Nix and nixos',
-    date: '2022/02/27',
-    type: 'upcoming',
-    img: '/public/cardBG.png',
+    date: '2024/02/27',
+    thumbnail: '/public/cardBG.png',
     subscribersCount: 110,
     presenterAvatar: '/public/avatar.png',
   },
 ];
-const upcomingEvents = events.filter((event) => event.type === 'upcoming');
-const archivedEvents = events.filter((event) => event.type === 'archived');
+const upcomingEvents = events.filter(
+  (event) => new Date(event.date) > new Date(),
+);
+const archivedEvents = events.filter(
+  (event) => new Date() > new Date(event.date),
+);
 ---
 
 <Layout title="titles.events">

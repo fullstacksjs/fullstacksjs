@@ -6,15 +6,16 @@ import EventActionsBtn from './EventActionsBtn.astro';
 
 interface Props {
   event: Event;
+  eventType: string;
 }
 
-const { event } = Astro.props;
+const { event, eventType } = Astro.props;
 ---
 
 <div class="dotted-border p-[1px] flex flex-col">
   <img
     class="w-full h-auto flex-none rounded-t-[4px]"
-    src={event.img}
+    src={event.thumbnail}
     alt="ss"
   />
   <div class="p-8 flex-1 grid">
@@ -33,7 +34,7 @@ const { event } = Astro.props;
           }
         </span>
       </div>
-      <EventActionsBtn eventType={event.type} />
+      <EventActionsBtn eventType={eventType} />
     </div>
   </div>
 </div>
