@@ -15,6 +15,6 @@ const { events } = Astro.props;
 <div>
   <SectionHeader>{t('archivedEvents.title')}</SectionHeader>
   <div class="mt-16 grid gap-16 tablet:grid-cols-2 desktop:grid-cols-3">
-    {events.map((event) => <EventCard event={event} />)}
+    {events.map((event) => <EventCard event={event} eventType="archived" />)}
   </div>
 </div>
