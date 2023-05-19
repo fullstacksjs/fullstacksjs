@@ -6,10 +6,10 @@ import EventActionsBtn from './EventActionsBtn.astro';
 
 interface Props {
   event: Event;
-  eventType: string;
 }
 
-const { event, eventType } = Astro.props;
+const { event } = Astro.props;
+const eventType = new Date(event.date) > new Date() ? 'upcoming' : 'archived';
 ---
 
 <div class="dotted-border p-[1px] flex flex-col">
@@ -25,10 +25,14 @@ const { event, eventType } = Astro.props;
     </div>
     <div class="mt-auto">
       <div class="flex justify-between items-center">
-        <img class="rounded-full" src={event.presenterAvatar} alt="avatar" />
+        <img
+          class="rounded-full w-12 h-12"
+          src={event.presenterAvatar}
+          alt="avatar"
+        />
         <span class="text-xsm text-accent-0">
           {
-            `${event.subscribersCount} ${t(
+            `${event.subscribersCount && 0} ${t(
               'upcomingEvents.actionCountModifier',
             )}`
           }

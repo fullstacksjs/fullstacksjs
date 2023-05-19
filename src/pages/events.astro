@@ -1,9 +1,8 @@
 ---
-import { changeLanguage } from 'i18next';
+import { changeLanguage, t } from 'i18next';
 
-import ArchivedEvents from '../components/ArchivedEvents.astro';
+import EventsList from '../components/EventsList.astro';
 import SeperatorLine from '../components/SeperatorLine.astro';
-import UpcomingEvents from '../components/UpcomingEvents.astro';
 import Layout from '../layouts/Layout.astro';
 
 changeLanguage('en');
@@ -67,7 +66,7 @@ const archivedEvents = events.filter(
 ---
 
 <Layout title="titles.events">
-  <UpcomingEvents events={upcomingEvents} />
+  <EventsList events={upcomingEvents} title={t('upcomingEvents.title')} />
   <SeperatorLine />
-  <ArchivedEvents events={archivedEvents} />
+  <EventsList events={archivedEvents} title={t('archivedEvents.title')} />
 </Layout>
