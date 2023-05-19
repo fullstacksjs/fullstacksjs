@@ -7,14 +7,15 @@ import SectionHeader from './SectionHeader.astro';
 
 interface Props {
   events: Event[];
+  title: string;
 }
 
-const { events } = Astro.props;
+const { events, title } = Astro.props;
 ---
 
 <div>
-  <SectionHeader>{t('archivedEvents.title')}</SectionHeader>
+  <SectionHeader>{title}</SectionHeader>
   <div class="mt-16 grid gap-16 tablet:grid-cols-2 desktop:grid-cols-3">
-    {events.map((event) => <EventCard event={event} eventType="archived" />)}
+    {events.map((event) => <EventCard event={event} />)}
   </div>
 </div>
