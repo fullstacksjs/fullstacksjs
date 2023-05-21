@@ -1,0 +1,17 @@
+import { z } from 'zod';
+
+const Config = z.object({
+  auth0: z.object({
+    domain: z.string(),
+    clientId: z.string(),
+  }),
+});
+
+export type Config = z.infer<typeof Config>;
+
+export const config = Config.parse({
+  auth0: {
+    domain: import.meta.env.PUBLIC_AUTH0_DOMAIN,
+    clientId: import.meta.env.PUBLIC_AUTH0_CLIENT_ID,
+  },
+} as Config);
