@@ -1,12 +1,17 @@
 const { init } = require('@fullstacksjs/eslint-config/init');
 
 module.exports = init({
+  root: true,
   modules: {
     auto: true,
     react: false,
     typescript: true,
   },
-  extends: ['plugin:astro/recommended'],
+  plugins: ['tailwindcss'],
+  extends: ['plugin:astro/recommended', 'plugin:tailwindcss/recommended'],
+  rules: {
+    'tailwindcss/no-custom-classname': 'off',
+  },
   overrides: [
     {
       files: ['*.ts'],
@@ -37,5 +42,4 @@ module.exports = init({
       },
     },
   ],
-  root: true,
 });
