@@ -12,21 +12,21 @@ const { event } = Astro.props;
 const eventType = new Date(event.date) > new Date() ? 'upcoming' : 'archived';
 ---
 
-<div class="dotted-border p-[1px] flex flex-col">
+<div class="dotted-border flex flex-col p-[1px]">
   <img
-    class="w-full h-auto flex-none rounded-t-[4px]"
+    class="h-auto w-full flex-none rounded-t-[4px]"
     src={event.thumbnail}
     alt="ss"
   />
-  <div class="p-8 flex-1 grid">
+  <div class="grid flex-1 p-8">
     <div class="py-8">
       <h4 class="text-md font-bold uppercase leading-none">{event.title}</h4>
       <p class="text-xsm text-accent-0">{event.date}</p>
     </div>
     <div class="mt-auto">
-      <div class="flex justify-between items-center">
+      <div class="flex items-center justify-between">
         <img
-          class="rounded-full w-12 h-12"
+          class="h-12 w-12 rounded-full"
           src={event.presenterAvatar}
           alt="avatar"
         />
@@ -44,7 +44,9 @@ const eventType = new Date(event.date) > new Date() ? 'upcoming' : 'archived';
 </div>
 <style>
   .dotted-border {
+    /* cspell:disable */
     background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='4' ry='4' stroke='%23D4DDED33' stroke-width='1' stroke-dasharray='6%2c10' stroke-dashoffset='8' stroke-linecap='square'/%3e%3c/svg%3e");
+    /* cspell:enable */
     border-radius: 4px;
   }
 </style>

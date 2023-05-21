@@ -2,7 +2,7 @@
 import { changeLanguage, t } from 'i18next';
 
 import EventsList from '../components/EventsList.astro';
-import SeperatorLine from '../components/SeperatorLine.astro';
+import SeparatorLine from '../components/SeparatorLine.astro';
 import Layout from '../layouts/Layout.astro';
 
 changeLanguage('en');
@@ -67,6 +67,6 @@ const archivedEvents = events.filter(
 
 <Layout title="titles.events">
   <EventsList events={upcomingEvents} title={t('upcomingEvents.title')} />
-  <SeperatorLine />
+  <SeparatorLine />
   <EventsList events={archivedEvents} title={t('archivedEvents.title')} />
 </Layout>
