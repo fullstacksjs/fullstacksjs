@@ -24,7 +24,7 @@ const languageStyle = LanguageStyle(i18next).get({
 });
 ---
 
-<ul class={`inline-flex font-bold leading-none gap-16 ${languageStyle}`}>
+<ul class={`inline-flex gap-16 font-bold leading-none ${languageStyle}`}>
   {
     navs
       .filter((c) => features[c.feature])

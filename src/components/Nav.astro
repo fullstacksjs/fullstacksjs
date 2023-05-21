@@ -20,11 +20,11 @@ const id = `${removeLeadingSlashes(href)}-head`;
 <li
   id={id}
   {...ariaProps}
-  class="list-none uppercase text-light-muted transition-colors scroll-m-9"
+  class="scroll-m-9 list-none uppercase text-light-muted transition-colors"
 >
   <a
     href={`${href}#${id}`}
-    class="rounded-sm focus:outline focus:outline-1 focus:outline-accent-0 focus:outline-offset-8"
+    class="rounded-sm focus:outline focus:outline-1 focus:outline-offset-8 focus:outline-accent-0"
   >
     <slot />
   </a>

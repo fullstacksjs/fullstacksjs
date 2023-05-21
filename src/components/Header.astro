@@ -6,21 +6,21 @@ import Hero from './Hero.astro';
 import Locales from './Locales.astro';
 import Logo from './Logo.astro';
 import Navs from './Navs.astro';
-import Seperator from './Seperator.astro';
+import Separator from './Separator.astro';
 ---
 
 <Locales />
 
 <header
-  class="flex flex-col items-center gap-[6rem] mb-[6rem] tablet:mb-[10rem]"
+  class="mb-[6rem] flex flex-col items-center gap-[6rem] tablet:mb-[10rem]"
 >
-  <div class="flex flex-col gap-[3rem] mobile:gap-[4rem] items-center">
+  <div class="flex flex-col items-center gap-[3rem] mobile:gap-[4rem]">
     <Logo />
     <Hero />
     <Button href="https://t.me/fullstacksjs" target="_blank" rel="noopener">
       {t('header.button')}
     </Button>
   </div>
-  <Seperator />
+  <Separator />
   <Navs />
 </header>

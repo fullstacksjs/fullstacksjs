@@ -15,7 +15,7 @@ const keywords = [
   'telegram',
   'کانال برنامه نویسی',
   'کانال تلگرام',
-  'فول استکس',
+  'فول‌استکس',
 ].join(',');
 const description =
   'FullstacksJS is an open-source community focused on knowledge sharing, exploring, and enhancing developer experience.';
@@ -47,7 +47,7 @@ const tagManager = `https://www.googletagmanager.com/gtag/js?id=${
 <html
   lang={i18next.language}
   dir={i18next.language === 'en' ? 'ltr' : 'rtl'}
-  class="bg-dark-0 text-light-0 leading-normal"
+  class="bg-dark-0 leading-normal text-light-0"
 >
   <head>
     <meta charset="UTF-8" />
@@ -120,10 +120,10 @@ const tagManager = `https://www.googletagmanager.com/gtag/js?id=${
       fs?.parentNode?.insertBefore(s, fs);
     </script>
   </head>
-  <body class="pb-16 pt-40 mobile:pb-32 text-base">
+  <body class="pb-16 pt-40 text-base mobile:pb-32">
     <Header />
     <div
-      class="container my-12 mobile:mx-auto gap-[6rem] mobile:gap-[10rem] flex flex-col"
+      class="container my-12 flex flex-col gap-[6rem] mobile:mx-auto mobile:gap-[10rem]"
     >
       <main>
         <slot />

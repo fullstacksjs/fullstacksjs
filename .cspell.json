@@ -1,13 +1,16 @@
 {
   "version": "0.2",
-  "language": "en",
+  "language": "en,fa",
   "useGitignore": true,
+  "import": ["@cspell/dict-fa-ir/cspell-ext.json"],
   "ignorePaths": ["**/*.svg"],
   "words": [
     "Alireza",
     "astro",
     "astrojs",
     "browserconfig",
+    "classname",
+    "codesandbox",
     "crossorigin",
     "evenodd",
     "fullstacksjs",
@@ -22,20 +25,25 @@
     "Navs",
     "noopener",
     "noscript",
+    "noreferrer",
     "parens",
     "preconnect",
+    "prerender",
     "Rajdhani",
     "rgba",
     "Safaeirad",
+    "stackblitz",
     "stylesheet",
-    "tailwindcss"
+    "tailwindcss",
+    "استکس",
+    "برندسازی",
+    "توئیتچ",
+    "خودتون",
+    "دیسکورد",
+    "علائمی",
+    "لایوها",
+    "لینکدین",
+    "منتورها"
   ],
-  "dictionaries": ["node"],
-  "patterns": [
-    {
-      "name": "persian",
-      "pattern": "/[الفبپتسجچحخدذرزژسشصضطظعغفقکگلمنوهی]/g"
-    }
-  ],
-  "ignoreRegExpList": ["persian"]
+  "dictionaries": ["node"]
 }
