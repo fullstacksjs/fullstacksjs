@@ -8,9 +8,11 @@ module.exports = init({
     typescript: true,
   },
   plugins: ['tailwindcss'],
-  extends: ['plugin:astro/recommended', 'plugin:tailwindcss/recommended'],
+  extends: ['plugin:tailwindcss/recommended'],
   rules: {
     'tailwindcss/no-custom-classname': 'off',
+    'import/no-unresolved': 'off',
+    'import/newline-after-import': 'off',
   },
   overrides: [
     {
@@ -25,20 +27,26 @@ module.exports = init({
           },
         },
       },
+      rules: {
+        'import/no-unresolved': 'error',
+        'import/newline-after-import': 'warn',
+      },
     },
     {
       files: ['*.astro'],
       parser: 'astro-eslint-parser',
-      parserOptions: {
-        parser: '@typescript-eslint/parser',
-        extraFileExtensions: ['.astro'],
-      },
+      extends: ['plugin:astro/recommended'],
       settings: {
         'import/resolver': {
           typescript: {
             project: ['./tsconfig.json'],
           },
         },
+      },
+      rules: {
+        'prettier/prettier': 'off',
+        'import/newline-after-import': 'off',
+        'import/no-unresolved': 'error',
       },
     },
   ],
