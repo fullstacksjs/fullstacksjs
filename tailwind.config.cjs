@@ -23,8 +23,8 @@ module.exports = {
       loose: '2.4',
     },
     fontFamily: {
-      sans: ['Rajdhani', 'IRANSans', 'sans-serif'],
-      serif: ['Rajdhani', 'IRANSans', 'serif'],
+      sans: ['Rajdhani', 'Vazirmatn', 'sans-serif'],
+      serif: ['Rajdhani', 'Vazirmatn', 'serif'],
     },
     screens: {
       mobile: '560px',

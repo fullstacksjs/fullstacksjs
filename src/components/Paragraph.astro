@@ -3,7 +3,10 @@ import i18next from 'i18next';
 
 import { LanguageStyle } from '../getLocaleStyle';
 
-const languageStyle = LanguageStyle(i18next).get({ en: '', fa: 'text-sm' });
+const languageStyle = LanguageStyle(i18next).get({
+  en: '',
+  fa: 'leading-relaxed',
+});
 ---
 
 <p class={`text-light-1 ${languageStyle}`}>

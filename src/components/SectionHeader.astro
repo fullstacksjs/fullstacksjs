@@ -6,13 +6,8 @@ import { LanguageStyle } from '../getLocaleStyle';
 interface Props {
   id?: string;
 }
-
-const languageStyle = LanguageStyle(i18next).get({
-  fa: 'text-md mobile:xl',
-  en: 'text-xl mobile:2xl',
-});
 ---
 
-<h2 id={Astro.props.id} class={`h2 font-bold ${languageStyle}`}>
+<h2 id={Astro.props.id} class="h2 text-xl font-bold">
   <slot />
 </h2>
