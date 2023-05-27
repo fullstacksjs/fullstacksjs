@@ -2,13 +2,20 @@
 import { localizePath } from 'astro-i18next';
 import i18next, { t } from 'i18next';
 
+import { features } from '../features';
 import { LanguageStyle } from '../getLocaleStyle';
 import Nav from './Nav.astro';
 
-const navs = [
-  { href: '/', children: t('navigation.about') },
-  { href: '/rules', children: t('navigation.rules') },
-  { href: '/events', children: t('navigation.events') },
+interface Nav {
+  feature: keyof typeof features;
+  href: string;
+  children: string;
+}
+
+const navs: Nav[] = [
+  { feature: 'about', href: '/', children: t('navigation.about') },
+  { feature: 'rules', href: '/rules', children: t('navigation.rules') },
+  { feature: 'events', href: '/events', children: t('navigation.events') },
 ];
 
 const languageStyle = LanguageStyle(i18next).get({
@@ -19,8 +26,10 @@ const languageStyle = LanguageStyle(i18next).get({
 
 <ul class={`inline-flex font-bold leading-none gap-16 ${languageStyle}`}>
   {
-    navs.map(({ children, href }) => (
-      <Nav href={localizePath(href, i18next.language)}>{children}</Nav>
-    ))
+    navs
+      .filter((c) => features[c.feature])
+      .map(({ children, href }) => (
+        <Nav href={localizePath(href, i18next.language)}>{children}</Nav>
+      ))
   }
 </ul>
