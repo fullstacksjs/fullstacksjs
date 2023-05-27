@@ -35,6 +35,7 @@
     "eslint-plugin-astro": "0.27.0",
     "prettier": "2.8.8",
     "prettier-plugin-astro": "0.8.0",
+    "schema-dts": "1.1.2",
     "typescript": "5.0.4"
   },
   "volta": {

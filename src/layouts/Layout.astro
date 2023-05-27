@@ -1,6 +1,7 @@
 ---
 import { HeadHrefLangs } from 'astro-i18next/components';
 import i18next, { t } from 'i18next';
+import { Organization, WithContext } from 'schema-dts';
 
 import Header from '../components/Header.astro';
 import Social from '../components/Social.astro';
@@ -23,7 +24,7 @@ const bgColor = '#212025';
 const accentColor = '#F39F47';
 
 const title = t(Astro.props.title);
-const schema = {
+const schema: WithContext<Organization> = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   legalName: 'FullstacksJS',
