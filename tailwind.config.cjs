@@ -43,6 +43,12 @@ module.exports = {
       },
     },
     extend: {
+      keyframes: {
+        skeleton: {
+          '0%': { transform: ['translateX(-200px)', 'skewX(-30deg)'] },
+          '100%': { transform: ['translateX(150px)'] },
+        },
+      },
       boxShadow: {
         ctaBorder: '0px 0px 0 1px rgb(var(--accent-0))',
       },

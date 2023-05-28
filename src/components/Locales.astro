@@ -6,10 +6,7 @@ const currentLanguage = i18next.language;
 const currentUrl = Astro.url.href;
 ---
 
-<div
-  dir="ltr"
-  class="absolute left-12 top-8 flex gap-4 text-xsm font-semibold text-light-muted"
->
+<div dir="ltr" class="flex gap-4 text-xsm font-semibold text-light-muted">
   <a
     class={currentLanguage === 'en' ? 'text-light-0' : ''}
     href={localizeUrl(currentUrl, 'en')}>EN</a
