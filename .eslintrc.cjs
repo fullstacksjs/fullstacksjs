@@ -19,21 +19,9 @@ module.exports = init({
   },
   overrides: [
     {
-      files: ['*.ts'],
-      rules: {
-        'import/no-unresolved': 'error',
-        'import/newline-after-import': 'warn',
-      },
-    },
-    {
       files: ['*.astro'],
       parser: 'astro-eslint-parser',
       extends: ['plugin:astro/recommended'],
-      rules: {
-        'prettier/prettier': 'off',
-        'import/newline-after-import': 'off',
-        'import/no-unresolved': 'error',
-      },
     },
   ],
 });
