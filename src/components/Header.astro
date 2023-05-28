@@ -4,13 +4,13 @@ import i18next, { t } from 'i18next';
 import Button from './Button.astro';
 import Hero from './Hero.astro';
 import Locales from './Locales.astro';
+import LoginButton from './LoginButton';
 import Logo from './Logo.astro';
 import Navs from './Navs.astro';
 import Separator from './Separator.astro';
-import LoginButton from './LoginButton';
 ---
 
-<div class="flex justify-between items-center p-4 tablet:p-8" dir="ltr">
+<div class="flex items-center justify-between p-4 tablet:p-8" dir="ltr">
   <Locales />
   <LoginButton client:only language={i18next.language} />
 </div>

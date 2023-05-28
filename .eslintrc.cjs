@@ -5,7 +5,10 @@ module.exports = init({
   modules: {
     auto: true,
     react: false,
-    typescript: true,
+    typescript: {
+      parserProject: ['./tsconfig.eslint.json'],
+      resolverProject: ['./tsconfig.json'],
+    },
   },
   plugins: ['tailwindcss'],
   extends: ['plugin:tailwindcss/recommended'],
@@ -17,16 +20,6 @@ module.exports = init({
   overrides: [
     {
       files: ['*.ts'],
-      parserOptions: {
-        project: ['./tsconfig.eslint.json'],
-      },
-      settings: {
-        'import/resolver': {
-          typescript: {
-            project: ['./tsconfig.json'],
-          },
-        },
-      },
       rules: {
         'import/no-unresolved': 'error',
         'import/newline-after-import': 'warn',
@@ -36,13 +29,6 @@ module.exports = init({
       files: ['*.astro'],
       parser: 'astro-eslint-parser',
       extends: ['plugin:astro/recommended'],
-      settings: {
-        'import/resolver': {
-          typescript: {
-            project: ['./tsconfig.json'],
-          },
-        },
-      },
       rules: {
         'prettier/prettier': 'off',
         'import/newline-after-import': 'off',

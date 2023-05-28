@@ -1,8 +1,8 @@
-interface IProps {
+interface Props {
   className: string;
 }
 
-function GithubOutlineIcon({ className }: IProps) {
+function GithubOutlineIcon({ className }: Props) {
   return (
     <svg
       className={className}
