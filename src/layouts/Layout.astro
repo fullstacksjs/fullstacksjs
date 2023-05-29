@@ -37,6 +37,10 @@ const schema: WithContext<Organization> = {
     familyName: 'Safaeirad',
   },
 };
+
+const tagManager = `https://www.googletagmanager.com/gtag/js?id=${
+  import.meta.env.PUBLIC_GA_TRACKING_ID
+}`;
 ---
 
 <!DOCTYPE html>
@@ -90,6 +94,17 @@ const schema: WithContext<Organization> = {
 
     <script type="application/ld+json" set:html={JSON.stringify(schema)}
     ></script>
+    <script async src={tagManager}></script>
+    <script>
+      window.dataLayer = window.dataLayer ?? [];
+      window.gtag = function gtag() {
+        // eslint-disable-next-line prefer-rest-params, fp/no-arguments
+        window.dataLayer.push(arguments);
+      };
+      window.gtag('js', new Date());
+      // @ts-expect-error TODO: Waiting for PR to merge
+      window.gtag('config', import.meta.env.PUBLIC_GA_TRACKING_ID);
+    </script>
   </head>
   <body class="pb-16 pt-40 mobile:pb-32 text-base">
     <Header />
