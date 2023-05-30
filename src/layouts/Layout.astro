@@ -105,37 +105,21 @@ const tagManager = `https://www.googletagmanager.com/gtag/js?id=${
       // @ts-expect-error TODO: Waiting for PR to merge
       window.gtag('config', import.meta.env.PUBLIC_GA_TRACKING_ID);
     </script>
-    <script is:inline>
-      (function gtm(w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-        const f = d.getElementsByTagName(s)[0];
-        const j = d.createElement(s);
-        const dl = l !== 'dataLayer' ? `&l=${l}` : '';
-        j.async = true;
-        j.src = `https://www.googletagmanager.com/gtm.js?id=${i}${dl}`;
-        f.parentNode.insertBefore(j, f);
-      })(
-        window,
-        document,
-        'script',
-        'dataLayer',
-        import.meta.env.PUBLIC_GTM_CONTAINER,
-      );
+    <script>
+      window.dataLayer.push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js',
+      });
+      const fs = document.getElementsByTagName('script')[0];
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = `https://www.googletagmanager.com/gtm.js?id=${
+        import.meta.env.PUBLIC_GTM_CONTAINER
+      }`;
+      fs?.parentNode?.insertBefore(s, fs);
     </script>
   </head>
   <body class="pb-16 pt-40 mobile:pb-32 text-base">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript
-      ><iframe
-        src={`https://www.googletagmanager.com/ns.html?id=${
-          import.meta.env.PUBLIC_GTM_CONTAINER
-        }`}
-        height="0"
-        width="0"
-        style="display:none;visibility:hidden"></iframe></noscript
-    >
-    <!-- End Google Tag Manager (noscript) -->
     <Header />
     <div
       class="container my-12 mobile:mx-auto gap-[6rem] mobile:gap-[10rem] flex flex-col"
