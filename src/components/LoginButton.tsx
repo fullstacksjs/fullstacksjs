@@ -1,16 +1,16 @@
-import { useAuth0 } from '@auth0/auth0-react';
-import { Auth0Provider } from '@auth0/auth0-react';
+import { Auth0Provider, useAuth0 } from '@auth0/auth0-react';
+import { useEffect, useState } from 'react';
+
 import { config } from '../libs/config';
 import GithubOutlineIcon from './Icons/GithubOutlineIcon.';
 import LogoutIcon from './Icons/LogoutIcon';
 import LoginBtnSkeleton from './Skeletons/LoginBtnSkeleton';
-import { useEffect, useState } from 'react';
 
-interface Iprop {
+interface Props {
   language: string;
 }
 
-function LoginButton({ language }: Iprop): JSX.Element {
+function LoginButton({ language }: Props): JSX.Element {
   const { loginWithPopup, logout, isAuthenticated, isLoading, user } =
     useAuth0();
   const [isExtended, setIsExtended] = useState(false);
@@ -23,7 +23,7 @@ function LoginButton({ language }: Iprop): JSX.Element {
   const handleLogin = async () => {
     try {
       await loginWithPopup();
-      isMobile && setIsExtended(false);
+      if (isMobile) setIsExtended(false);
     } catch (err) {
       console.log('err', err);
     }
@@ -31,12 +31,13 @@ function LoginButton({ language }: Iprop): JSX.Element {
 
   const handleLogout = () => {
     logout({ logoutParams: { returnTo: window.location.origin } });
-    isMobile && setIsExtended(false);
+    if (isMobile) setIsExtended(false);
   };
 
   useEffect(() => {
     setIsMobile(window.innerWidth <= 768);
     window.addEventListener('resize', handleWindowSizeChange);
+
     return () => {
       window.removeEventListener('resize', handleWindowSizeChange);
     };
@@ -48,7 +49,7 @@ function LoginButton({ language }: Iprop): JSX.Element {
 
   if (isAuthenticated) {
     return (
-      <div className="flex gap-3 items-center rounded-lg bg-[rgba(255,255,255,0.1)] text-white px-4 py-3 text-xsm font-semibold capitalize leading-snug focus:outline hover:cursor-pointer">
+      <div className="flex items-center gap-3 rounded-lg bg-bg-muted px-4 py-3 text-xsm font-semibold capitalize leading-snug text-white hover:cursor-pointer focus:outline">
         <div
           onClick={() => {
             if (isMobile) setIsExtended((pre) => !pre);
@@ -56,17 +57,17 @@ function LoginButton({ language }: Iprop): JSX.Element {
         >
           <img
             src={user?.picture}
-            className="w-14 h-14 rounded-full border border-white"
+            className="h-14 w-14 rounded-full border border-white"
           />
         </div>
         <div
           className={`text-xsm ${
             isExtended ? 'flex' : 'hidden'
-          } tablet:flex items-center gap-3`}
+          } items-center gap-3 tablet:flex`}
         >
           <p className="text-xsm">{user?.name}</p>
           <button type="button" onClick={handleLogout}>
-            <LogoutIcon className="w-8 h-8" />
+            <LogoutIcon className="h-8 w-8" />
           </button>
         </div>
       </div>
@@ -74,20 +75,20 @@ function LoginButton({ language }: Iprop): JSX.Element {
   }
 
   return (
-    <div className="flex gap-3 items-center rounded-lg bg-[rgba(255,255,255,0.1)] text-[rgba(230,230,230,1)] px-4 py-3 font-semibold capitalize leading-snug focus:outline hover:cursor-pointer">
+    <div className="flex items-center gap-3 rounded-lg bg-bg-muted px-4 py-3 font-semibold capitalize leading-snug text-fg-0/10 hover:cursor-pointer focus:outline">
       <div
-        className="py-2.5 bg-[rgba(35,37,46,1)] pl-2 pr-3 rounded-full border border-[rgba(230,230,230,1)]"
+        className="rounded-full border border-fg-0 bg-bg-0 py-2.5 pl-2 pr-3"
         onClick={() => {
           if (isMobile) setIsExtended((pre) => !pre);
         }}
       >
-        <GithubOutlineIcon className="w-8 h-8" />
+        <GithubOutlineIcon className="h-8 w-8" />
       </div>
       <button
         type="button"
         className={`text-xsm ${
           isExtended ? 'block' : 'hidden'
-        } tablet:block font-normal`}
+        } font-normal tablet:block`}
         onClick={handleLogin}
       >
         {language === 'en' ? 'Login with Github' : 'ورود با گیت‌هاب'}
@@ -96,7 +97,7 @@ function LoginButton({ language }: Iprop): JSX.Element {
   );
 }
 
-function Wrapper({ language }: Iprop) {
+function Wrapper({ language }: Props) {
   return (
     <Auth0Provider
       domain={config.auth0.domain}
