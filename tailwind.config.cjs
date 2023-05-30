@@ -63,6 +63,14 @@ module.exports = {
           muted: 'rgb(255 255 255 / 0.2)',
           inactive: 'rgb(255 255 255 / 0.3)',
         },
+        bg: {
+          0: 'rgb(var(--bg))',
+          muted: 'rgb(255 255 255 / 10%)',
+        },
+        fg: {
+          0: 'rgb(var(--fg-0) / <alpha-value> )',
+          muted: 'var(--fg-muted)',
+        },
         dark: {
           0: 'rgb(var(--bg) / <alpha-value>)',
         },
