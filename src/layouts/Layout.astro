@@ -106,6 +106,7 @@ const tagManager = `https://www.googletagmanager.com/gtag/js?id=${
       window.gtag('config', import.meta.env.PUBLIC_GA_TRACKING_ID);
     </script>
     <script>
+      window.dataLayer = window.dataLayer ?? [];
       window.dataLayer.push({
         'gtm.start': new Date().getTime(),
         event: 'gtm.js',
