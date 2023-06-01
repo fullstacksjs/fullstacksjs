@@ -8,7 +8,7 @@ const { target } = Astro.props;
 
 <li
   id={target}
-  class="group relative mb-3 ms-6 cursor-pointer leading-tight transition-[color,opacity] motion-reduce:transition-none scroll-m-10"
+  class="group relative mb-3 ms-6 cursor-pointer scroll-m-10 leading-tight transition-[color,opacity] motion-reduce:transition-none"
 >
   <a class="cancel absolute inset-0 group-target:inline" href="#_"></a>
   <a class="block w-full text-accent-1" href={`#${target}`}>
