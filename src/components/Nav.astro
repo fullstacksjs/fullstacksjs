@@ -1,6 +1,6 @@
 ---
-import { removeLeadingSlashes } from '@fullstacksjs/toolbox';
 import type { HTMLAttributes } from 'astro/types';
+import i18next from 'i18next';
 
 const { pathname } = Astro.url;
 
@@ -10,32 +10,42 @@ interface Props {
 
 const { href } = Astro.props;
 const isCurrentPath = href === pathname;
+const isRtl = i18next.dir() === 'rtl';
+
 const ariaProps: HTMLAttributes<'li'> = isCurrentPath
   ? { 'aria-current': 'page' }
   : {};
-
-const id = `${removeLeadingSlashes(href)}-head`;
 ---
 
 <li
-  id={id}
   {...ariaProps}
-  class="scroll-m-9 list-none uppercase text-light-muted transition-colors"
+  class:list={[
+    'relative scroll-m-9 list-none uppercase transition-colors',
+    {
+      'after:w-8 text-fg-0': isCurrentPath,
+      'hover:after:w-8 text-light-muted hover:text-fg-1': !isCurrentPath,
+      'after:left-0': !isRtl,
+      'after:right-0': isRtl,
+    },
+  ]}
 >
   <a
-    href={`${href}#${id}`}
-    class="rounded-sm focus:outline focus:outline-1 focus:outline-offset-8 focus:outline-accent-0"
+    href={href}
+    class={'rounded-sm focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-8 focus-visible:outline-accent-0'}
   >
     <slot />
   </a>
 </li>
 
 <style>
-  li[aria-current='page'] {
-    color: rgb(var(--fg-0));
-  }
-
-  li:hover:not([aria-current='page']) {
-    color: rgb(var(--fg-1));
+  li::after {
+    content: ' ';
+    position: absolute;
+    bottom: -3px;
+    width: 0;
+    height: 3px;
+    background-color: currentColor;
+    transition-property: width;
+    transition-duration: inherit;
   }
 </style>

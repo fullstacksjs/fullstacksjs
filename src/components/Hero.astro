@@ -1,8 +1,26 @@
 ---
 import { t } from 'i18next';
+
+import Button from './Button.astro';
+import Logo from './Logo.astro';
+import Separator from './Separator.astro';
 ---
 
-<div class="flex flex-col items-center gap-2">
-  <h1 class="text-4xl font-bold leading-tight tablet:text-5xl">FullstacksJS</h1>
-  <p class="text-sm uppercase tablet:text-md">{t('header.vision')}</p>
-</div>
+<header
+  class="mb-[6rem] flex flex-col items-center gap-[6rem] tablet:mb-[10rem]"
+>
+  <div class="flex flex-col items-center gap-[3rem] mobile:gap-[4rem]">
+    <Logo />
+    <div class="flex flex-col items-center gap-2">
+      <h1 class="text-4xl font-bold leading-tight tablet:text-5xl">
+        FullstacksJS
+      </h1>
+      <p class="text-sm uppercase tablet:text-md">{t('header.vision')}</p>
+    </div>
+
+    <Button href="https://t.me/fullstacksjs" target="_blank" rel="noopener">
+      {t('header.button')}
+    </Button>
+  </div>
+  <Separator />
+</header>

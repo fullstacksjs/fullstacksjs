@@ -40,16 +40,10 @@
   margin-inline: 3rem;
 }
 
-@media (min-width: 760px) {
-  .container {
-    max-width: 560px;
-    margin-inline: auto;
-  }
-}
-
 @media (min-width: 960px) {
   .container {
     max-width: 900px;
+    margin-inline: auto;
   }
 }
 

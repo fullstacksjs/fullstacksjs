@@ -17,14 +17,9 @@ const navs: Nav[] = [
   { feature: 'rules', href: '/rules', children: t('navigation.rules') },
   { feature: 'events', href: '/events', children: t('navigation.events') },
 ];
-
-const languageStyle = LanguageStyle(i18next).get({
-  en: 'text-md tablet:text-2xl',
-  fa: 'text-md tablet:text-xl',
-});
 ---
 
-<ul class={`inline-flex gap-16 font-bold leading-none ${languageStyle}`}>
+<ul class="inline-flex gap-16 text-md font-bold leading-tight">
   {
     navs
       .filter((c) => features[c.feature])

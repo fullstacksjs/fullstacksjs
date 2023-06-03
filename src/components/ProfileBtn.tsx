@@ -1,12 +1,12 @@
 import { useAuth0 } from '@auth0/auth0-react';
 
-import useIsDeviceMobile from '../custom hooks/useDeviceSize';
-import AuthButtonsWrapper from './AuthButtonsWrapper';
+import useIsDeviceTablet from '../hooks/useDeviceSize';
 import LogoutIcon from './Icons/LogoutIcon';
+import SecondaryButton from './SecondaryButton';
 
 function ProfileBtn() {
   const { user, logout } = useAuth0();
-  const [isMobile] = useIsDeviceMobile();
+  const [isMobile] = useIsDeviceTablet();
 
   const handleLogout = () => {
     logout({ logoutParams: { returnTo: window.location.origin } });
@@ -14,19 +14,19 @@ function ProfileBtn() {
 
   return (
     <div className="flex gap-2">
-      <AuthButtonsWrapper>
+      <SecondaryButton>
         <img
           src={user?.picture}
           className="h-14 w-14 rounded-full border border-white"
         />
         <p className={isMobile ? 'hidden' : 'mr-2'}>{user?.name}</p>
-      </AuthButtonsWrapper>
-      <AuthButtonsWrapper
-        className="w-[53px] justify-center"
+      </SecondaryButton>
+      <SecondaryButton
+        className="aspect-square justify-center"
         onClick={handleLogout}
       >
         <LogoutIcon className="h-10 w-10" />
-      </AuthButtonsWrapper>
+      </SecondaryButton>
     </div>
   );
 }

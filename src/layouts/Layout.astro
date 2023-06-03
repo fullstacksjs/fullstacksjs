@@ -1,11 +1,14 @@
 ---
+import '../styles/global.css';
+
 import { HeadHrefLangs } from 'astro-i18next/components';
+// NOTE: The next line is a hack to fix prettier bug with conditional rending
+// eslint-disable-line prettier/prettier
 import i18next, { t } from 'i18next';
 import type { Organization, WithContext } from 'schema-dts';
 
-// eslint-disable-line prettier/prettier
-// NOTE: Previous line is a hack to fix prettier bug with conditional rending
 import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
 import Social from '../components/Social.astro';
 import { config } from '../libs/config';
 
@@ -125,49 +128,12 @@ const isAnalyticEnabled = Boolean(trackingId) && Boolean(containerId);
       </script>
     )}
   </head>
-  <body class="pb-16 text-base mobile:pb-32">
-    <Header />
-    <div
-      class="container my-12 flex flex-col gap-[6rem] mobile:mx-auto mobile:gap-[10rem]"
-    >
-      <main>
-        <slot />
-      </main>
+  <body class="text-base">
+    <div class="container flex flex-col gap-24 py-8 mobile:gap-40 mobile:py-40">
+      <Header />
+      <Hero />
+      <slot />
       <Social />
     </div>
-    <style is:global>
-      :root {
-        --accent-0: 243 159 71;
-        --accent-1: 209 154 103;
-        --bg: 35 37 46;
-        --fg-0: 230 230 230;
-        --fg-1: 179 179 179;
-        --fg-muted: rgb(255 255 255 / 0.2);
-        --fg-inactive: rgb(255 255 255 / 0.3);
-        --fast: 200ms;
-        scroll-behavior: smooth;
-        font-size: 0.625rem;
-      }
-
-      * {
-        scrollbar-color: var(--fg-muted) transparent;
-        scrollbar-width: thin;
-      }
-
-      ::-webkit-scrollbar {
-        width: 2px;
-        height: 4px;
-        background-color: transparent;
-      }
-
-      ::-webkit-scrollbar-thumb {
-        background-color: var(--fg-muted);
-      }
-
-      ::selection {
-        background: rgb(var(--accent-0));
-        color: rgb(var(--bg));
-      }
-    </style>
   </body>
 </html>

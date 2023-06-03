@@ -1,8 +1,8 @@
 import { useAuth0 } from '@auth0/auth0-react';
 
-import useIsDeviceMobile from '../custom hooks/useDeviceSize';
-import AuthButtonsWrapper from './AuthButtonsWrapper';
+import useIsDeviceTablet from '../hooks/useDeviceSize';
 import GithubOutlineIcon from './Icons/GithubOutlineIcon.';
+import SecondaryButton from './SecondaryButton';
 
 interface Props {
   language: string;
@@ -10,7 +10,7 @@ interface Props {
 
 function LoginBtn({ language }: Props) {
   const { loginWithPopup } = useAuth0();
-  const [isMobile] = useIsDeviceMobile();
+  const [isMobile] = useIsDeviceTablet();
 
   const handleLogin = async () => {
     try {
@@ -21,14 +21,14 @@ function LoginBtn({ language }: Props) {
   };
 
   return (
-    <AuthButtonsWrapper onClick={handleLogin}>
+    <SecondaryButton onClick={handleLogin}>
       <div className="rounded-full border border-fg-0 bg-bg-0 p-3.5">
         <GithubOutlineIcon className="h-6 w-6" />
       </div>
       <p className={isMobile ? 'hidden' : 'mr-2'}>
         {language === 'en' ? 'Login with Github' : 'ورود با گیت‌هاب'}
       </p>
-    </AuthButtonsWrapper>
+    </SecondaryButton>
   );
 }
 

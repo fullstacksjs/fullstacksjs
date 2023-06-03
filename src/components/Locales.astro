@@ -2,18 +2,24 @@
 import { localizeUrl } from 'astro-i18next';
 import i18next from 'i18next';
 
+import EN from './Icons/EN.astro';
+import IR from './Icons/IR.astro';
+import SecondaryButton from './SecondaryButton';
+
+interface Props {
+  class: string;
+}
+
 const currentLanguage = i18next.language;
 const currentUrl = Astro.url.href;
+const href = localizeUrl(currentUrl, currentLanguage === 'en' ? 'fa' : 'en');
 ---
 
-<div dir="ltr" class="flex gap-4 text-xsm font-semibold text-light-muted">
-  <a
-    class={currentLanguage === 'en' ? 'text-light-0' : ''}
-    href={localizeUrl(currentUrl, 'en')}>EN</a
-  >
-  <span>/</span>
-  <a
-    class={currentLanguage === 'fa' ? 'text-light-0' : ''}
-    href={localizeUrl(currentUrl, 'fa')}>FA</a
-  >
-</div>
+<a href={href} class={Astro.props.class}>
+  <SecondaryButton className="px-8">
+    <div class="flex items-center gap-2 font-semibold">
+      {currentLanguage === 'fa' ? <EN /> : <IR />}
+      {currentLanguage === 'fa' ? 'EN' : 'IR'}
+    </div>
+  </SecondaryButton>
+</a>

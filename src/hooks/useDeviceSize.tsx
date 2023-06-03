@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const useIsDeviceMobile = () => {
+const useIsDeviceTablet = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   function handleWindowSizeChange() {
@@ -19,4 +19,4 @@ const useIsDeviceMobile = () => {
   return [isMobile];
 };
 
-export default useIsDeviceMobile;
+export default useIsDeviceTablet;
