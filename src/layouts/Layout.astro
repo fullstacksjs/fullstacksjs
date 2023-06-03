@@ -1,8 +1,10 @@
 ---
 import { HeadHrefLangs } from 'astro-i18next/components';
 import i18next, { t } from 'i18next';
-import { Organization, WithContext } from 'schema-dts';
+import type { Organization, WithContext } from 'schema-dts';
 
+// eslint-disable-line prettier/prettier
+// NOTE: Previous line is a hack to fix prettier bug with conditional rending
 import Header from '../components/Header.astro';
 import Social from '../components/Social.astro';
 import { config } from '../libs/config';
