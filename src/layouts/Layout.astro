@@ -5,6 +5,7 @@ import { Organization, WithContext } from 'schema-dts';
 
 import Header from '../components/Header.astro';
 import Social from '../components/Social.astro';
+import { config } from '../libs/config';
 
 export interface Props {
   title: string;
@@ -38,9 +39,12 @@ const schema: WithContext<Organization> = {
   },
 };
 
-const tagManager = `https://www.googletagmanager.com/gtag/js?id=${
-  import.meta.env.PUBLIC_GA_TRACKING_ID
-}`;
+const { containerId, trackingId } = config.analytics;
+
+const tagManagerSrc = `https://www.googletagmanager.com/gtag/js?id=${trackingId}`;
+const gtmSrc = `https://www.googletagmanager.com/gtm.js?id=${containerId}`;
+const isAnalyticEnabled = Boolean(trackingId) && Boolean(containerId);
+
 ---
 
 <!DOCTYPE html>
@@ -94,31 +98,30 @@ const tagManager = `https://www.googletagmanager.com/gtag/js?id=${
 
     <script type="application/ld+json" set:html={JSON.stringify(schema)}
     ></script>
-    <script async src={tagManager}></script>
-    <script>
-      window.dataLayer = window.dataLayer ?? [];
-      window.gtag = function gtag() {
-        // eslint-disable-next-line prefer-rest-params, fp/no-arguments
-        window.dataLayer.push(arguments);
-      };
-      window.gtag('js', new Date());
-      // @ts-expect-error TODO: Waiting for PR to merge
-      window.gtag('config', import.meta.env.PUBLIC_GA_TRACKING_ID);
-    </script>
-    <script>
-      window.dataLayer = window.dataLayer ?? [];
-      window.dataLayer.push({
-        'gtm.start': new Date().getTime(),
-        event: 'gtm.js',
-      });
-      const fs = document.getElementsByTagName('script')[0];
-      const s = document.createElement('script');
-      s.async = true;
-      s.src = `https://www.googletagmanager.com/gtm.js?id=${
-        import.meta.env.PUBLIC_GTM_CONTAINER
-      }`;
-      fs?.parentNode?.insertBefore(s, fs);
-    </script>
+    {isAnalyticEnabled && (
+      <script async src={tagManagerSrc}></script>
+      <script define:vars={{ trackingId }}>
+        window.dataLayer = window.dataLayer ?? [];
+        window.gtag = function gtag() {
+          // eslint-disable-next-line prefer-rest-params, fp/no-arguments
+          window.dataLayer.push(arguments);
+        };
+        window.gtag('js', new Date());
+        window.gtag('config', trackingId);
+      </script>
+      <script define:vars={{ gtmSrc }}>
+        window.dataLayer = window.dataLayer ?? [];
+        window.dataLayer.push({
+          'gtm.start': new Date().getTime(),
+          event: 'gtm.js',
+        });
+        const fs = document.getElementsByTagName('script')[0];
+        const s = document.createElement('script');
+        s.async = true;
+        s.src = gtmSrc;
+        fs?.parentNode?.insertBefore(s, fs);
+      </script>
+    )}
   </head>
   <body class="pb-16 text-base mobile:pb-32">
     <Header />
