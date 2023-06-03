@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  corePlugins: {
+    container: false,
+  },
   theme: {
     fontSize: {
       xs: '0.8rem',
@@ -32,16 +35,6 @@ module.exports = {
       desktop: '960px',
       wide: '1370px',
     },
-    container: {
-      center: true,
-      padding: '3rem',
-      screens: {
-        mobile: '100%',
-        tablet: '500px',
-        desktop: '700px',
-        wide: '900px',
-      },
-    },
     extend: {
       keyframes: {
         skeleton: {
@@ -69,6 +62,7 @@ module.exports = {
         },
         fg: {
           0: 'rgb(var(--fg-0) / <alpha-value> )',
+          1: 'rgb(var(--fg-1) / <alpha-value> )',
           muted: 'var(--fg-muted)',
         },
         dark: {

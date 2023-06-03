@@ -1,0 +1,60 @@
+:root {
+  --accent-0: 243 159 71;
+  --accent-1: 209 154 103;
+  --bg: 35 37 46;
+  --fg-0: 230 230 230;
+  --fg-1: 179 179 179;
+  --fg-muted: rgb(255 255 255 / 0.2);
+  --fg-inactive: rgb(255 255 255 / 0.3);
+  --fast: 200ms;
+  --w-mobile: 560px;
+  --w-tablet: 760px;
+  --w-desktop: 960px;
+  --w-wide: 1370px;
+  scroll-behavior: smooth;
+  font-size: 0.625rem;
+}
+
+* {
+  scrollbar-color: var(--fg-muted) transparent;
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+  height: 4px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--fg-muted);
+}
+
+::selection {
+  background: rgb(var(--accent-0));
+  color: rgb(var(--bg));
+}
+
+.container {
+  max-width: 100%;
+  margin-inline: 3rem;
+}
+
+@media (min-width: 760px) {
+  .container {
+    max-width: 560px;
+    margin-inline: auto;
+  }
+}
+
+@media (min-width: 960px) {
+  .container {
+    max-width: 900px;
+  }
+}
+
+@media (min-width: 1370px) {
+  .container {
+    max-width: 1180px;
+  }
+}
