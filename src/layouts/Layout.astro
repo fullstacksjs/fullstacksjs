@@ -6,6 +6,8 @@ import i18next from 'i18next';
 import Head from '../components/Head.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
+import HeroMobile from '../components/HeroMobile.astro';
+import Separator from '../components/SeparatorLine.astro';
 import Social from '../components/Social.astro';
 
 export interface Props {
@@ -24,7 +26,10 @@ export interface Props {
     <div class="container flex flex-col gap-24 py-8 mobile:gap-40 mobile:py-40">
       <Header />
       <Hero />
+      <HeroMobile />
+      <Separator />
       <slot />
+      <Separator />
       <Social />
     </div>
   </body>

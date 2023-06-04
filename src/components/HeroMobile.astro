@@ -1,0 +1,20 @@
+---
+import { t } from 'i18next';
+
+import JoinButton from './JoinButton.astro';
+import Logo from './Logo.astro';
+---
+
+<header
+  class="flex flex-col items-center justify-between gap-12 desktop:hidden"
+>
+  <Logo />
+  <div class="flex flex-col items-center gap-2">
+    <h1 class="text-4xl font-bold leading-tight">FullstacksJS</h1>
+    <p class="text-sm uppercase text-fg-1">
+      {t('header.vision')}
+    </p>
+  </div>
+
+  <JoinButton />
+</header>
