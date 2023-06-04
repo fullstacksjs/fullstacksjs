@@ -12,10 +12,12 @@ interface Props {
 
 const currentLanguage = i18next.language;
 const currentUrl = Astro.url.href;
-const href = localizeUrl(currentUrl, currentLanguage === 'en' ? 'fa' : 'en');
 ---
 
-<a href={href} class={Astro.props.class}>
+<a
+  href={localizeUrl(currentUrl, currentLanguage === 'en' ? 'fa' : 'en')}
+  class={Astro.props.class}
+>
   <SecondaryButton className="px-8">
     <div class="flex items-center gap-2 font-semibold">
       {currentLanguage === 'fa' ? <EN /> : <IR />}
