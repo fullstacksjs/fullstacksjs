@@ -9,7 +9,7 @@ interface Props {
 }
 
 const { href } = Astro.props;
-const isCurrentPath = href === pathname;
+const isCurrentPath = href.includes(pathname);
 const isRtl = i18next.dir() === 'rtl';
 
 const ariaProps: HTMLAttributes<'li'> = isCurrentPath
