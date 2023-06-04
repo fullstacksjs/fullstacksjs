@@ -1,0 +1,10 @@
+li::after {
+  content: ' ';
+  position: absolute;
+  bottom: -3px;
+  width: 0;
+  height: 3px;
+  background-color: currentColor;
+  transition-property: width;
+  transition-duration: inherit;
+}

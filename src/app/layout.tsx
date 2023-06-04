@@ -1,7 +1,11 @@
+import { Rajdhani } from 'next/font/google';
 import './globals.css';
-import { Inter } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin'] });
+const rajdhani = Rajdhani({
+  weight: ['500', '600', '700'],
+  subsets: ['latin'],
+  variable: '--font-rajdhani',
+});
 
 export const metadata = {
   title: 'Create Next App',
@@ -14,8 +18,15 @@ interface Props {
 
 export default function RootLayout({ children }: Props) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html
+      lang="en"
+      className={`bg-dark-0 leading-normal text-light-0 ${rajdhani.variable}`}
+    >
+      <body>
+        <div className="container flex flex-col gap-24 py-8 mobile:gap-40 tablet:py-40">
+          {children}
+        </div>
+      </body>
     </html>
   );
 }

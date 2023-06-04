@@ -3,25 +3,56 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --accent-0: 243 159 71;
+  --accent-1: 209 154 103;
+  --bg: 35 37 46;
+  --fg-0: 230 230 230;
+  --fg-1: 179 179 179;
+  --fg-muted: rgb(255 255 255 / 0.2);
+  --fg-inactive: rgb(255 255 255 / 0.3);
+  --fast: 200ms;
+  --w-mobile: 560px;
+  --w-tablet: 760px;
+  --w-desktop: 960px;
+  --w-wide: 1370px;
+  scroll-behavior: smooth;
+  font-size: 0.625rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+* {
+  scrollbar-color: var(--fg-muted) transparent;
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+  height: 4px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--fg-muted);
+}
+
+::selection {
+  background: rgb(var(--accent-0));
+  color: rgb(var(--bg));
+}
+
+.container {
+  max-width: 100%;
+  margin-inline: 3rem;
+}
+
+@media (min-width: 960px) {
+  .container {
+    max-width: 900px;
+    margin-inline: auto;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@media (min-width: 1370px) {
+  .container {
+    max-width: 1180px;
+  }
 }
