@@ -1,0 +1,33 @@
+---
+interface Props {
+  containerId: string;
+  trackingId: string;
+}
+const { containerId, trackingId } = Astro.props;
+
+const tagManagerSrc = `https://www.googletagmanager.com/gtag/js?id=${trackingId}`;
+const gtmSrc = `https://www.googletagmanager.com/gtm.js?id=${containerId}`;
+---
+
+<script async src={tagManagerSrc}></script>
+<script define:vars={{ trackingId }}>
+  window.dataLayer = window.dataLayer ?? [];
+  window.gtag = function gtag() {
+    // eslint-disable-next-line prefer-rest-params, fp/no-arguments
+    window.dataLayer.push(arguments);
+  };
+  window.gtag('js', new Date());
+  window.gtag('config', trackingId);
+</script>
+<script define:vars={{ gtmSrc }}>
+  window.dataLayer = window.dataLayer ?? [];
+  window.dataLayer.push({
+    'gtm.start': new Date().getTime(),
+    event: 'gtm.js',
+  });
+  const fs = document.getElementsByTagName('script')[0];
+  const s = document.createElement('script');
+  s.async = true;
+  s.src = gtmSrc;
+  fs?.parentNode?.insertBefore(s, fs);
+</script>
