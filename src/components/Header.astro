@@ -2,18 +2,12 @@
 import i18next from 'i18next';
 
 import Authentication from './Authentication';
-import Menu from './Icons/Menu.astro';
 import Locales from './Locales.astro';
 import Navs from './Navs.astro';
 ---
 
 <div class="flex items-center justify-between">
-  <div class="mobile:hidden">
-    <Menu />
-  </div>
-  <div class="hidden mobile:block">
-    <Navs />
-  </div>
+  <Navs />
   <div class="flex items-center gap-16">
     <Locales class="hidden desktop:block" />
     <div class="hidden h-10 w-[1px] bg-fg-muted desktop:block"></div>
