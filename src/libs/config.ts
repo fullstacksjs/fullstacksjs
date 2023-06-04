@@ -17,8 +17,8 @@ const Config = z.object({
     clientId: z.string(),
   }),
   analytics: z.object({
-    containerId: z.string(),
-    trackingId: z.string(),
+    containerId: z.string().optional(),
+    trackingId: z.string().optional(),
   }),
   features: z.object({
     about: z.string().optional().transform<boolean>(hasFeature('about')),
