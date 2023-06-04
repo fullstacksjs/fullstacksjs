@@ -43,5 +43,6 @@ export const config = Config.parse({
     about: import.meta.env.PUBLIC_FEATURES,
     rules: import.meta.env.PUBLIC_FEATURES,
     events: import.meta.env.PUBLIC_FEATURES,
+    ask: import.meta.env.PUBLIC_FEATURES,
   },
 });
