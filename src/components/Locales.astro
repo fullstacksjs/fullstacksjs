@@ -14,10 +14,7 @@ const currentLanguage = i18next.language;
 const currentUrl = Astro.url.href;
 ---
 
-<a
-  href={localizeUrl(currentUrl, currentLanguage === 'en' ? 'fa' : 'en')}
-  class={Astro.props.class}
->
+<a href={localizeUrl(currentUrl, 'fa')} class={Astro.props.class}>
   <SecondaryButton className="px-8">
     <div class="flex items-center gap-2 font-semibold">
       {currentLanguage === 'fa' ? <EN /> : <IR />}
