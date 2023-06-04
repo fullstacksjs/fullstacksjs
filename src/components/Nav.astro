@@ -14,8 +14,8 @@ interface Props {
 
 const { href } = Astro.props;
 const isCurrentPath =
-  removeLeadingSlashes(href.trim()) === removeLeadingSlashes(pathname.trim());
-console.log({ href, pathname });
+  removeTrailingSlashes(removeLeadingSlashes(href.trim())) ===
+  removeTrailingSlashes(removeLeadingSlashes(pathname.trim()));
 
 const isRtl = i18next.dir() === 'rtl';
 
