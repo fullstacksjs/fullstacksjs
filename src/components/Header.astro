@@ -1,6 +1,7 @@
 ---
 import i18next from 'i18next';
 
+import { features } from '../features';
 import Authentication from './Authentication';
 import Locales from './Locales.astro';
 import Navs from './Navs.astro';
@@ -9,8 +10,14 @@ import Navs from './Navs.astro';
 <div class="flex items-center justify-between">
   <Navs />
   <div class="flex items-center gap-16">
-    <Locales class="hidden desktop:block" />
-    <div class="hidden h-10 w-[1px] bg-fg-muted desktop:block"></div>
+    {
+      features.locales && (
+        <>
+          <Locales class="hidden desktop:block" />
+          <div class="hidden h-10 w-[1px] bg-fg-muted desktop:block" />
+        </>
+      )
+    }
     <Authentication client:load language={i18next.language} />
   </div>
 </div>

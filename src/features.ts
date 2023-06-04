@@ -5,4 +5,5 @@ export const features = {
   rules: config.features.rules,
   ask: config.features.ask,
   events: config.features.events,
+  locales: config.features.locales,
 } as const;

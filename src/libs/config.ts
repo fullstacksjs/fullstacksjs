@@ -25,6 +25,7 @@ const Config = z.object({
     rules: z.string().optional().transform<boolean>(hasFeature('rules')),
     events: z.string().optional().transform<boolean>(hasFeature('events')),
     ask: z.string().optional().transform<boolean>(hasFeature('ask')),
+    locales: z.string().optional().transform<boolean>(hasFeature('locales')),
   }),
 });
 
@@ -44,5 +45,6 @@ export const config = Config.parse({
     rules: import.meta.env.PUBLIC_FEATURES,
     events: import.meta.env.PUBLIC_FEATURES,
     ask: import.meta.env.PUBLIC_FEATURES,
+    locales: import.meta.env.PUBLIC_FEATURES,
   },
 });
