@@ -30,7 +30,7 @@
     "@auth0/auth0-spa-js": "2.0.7",
     "@fullstacksjs/toolbox": "3.0.2",
     "astro": "2.5.7",
-    "astro-i18next": "1.0.0-beta.21",
+    "astro-i18next": "1.0.0-beta.17",
     "i18next": "22.5.0",
     "next-auth": "4.22.1",
     "react": "18.2.0",
