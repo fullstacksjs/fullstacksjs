@@ -1,4 +1,8 @@
 ---
+import {
+  removeLeadingSlashes,
+  removeTrailingSlashes,
+} from '@fullstacksjs/toolbox';
 import type { HTMLAttributes } from 'astro/types';
 import i18next from 'i18next';
 
@@ -9,7 +13,8 @@ interface Props {
 }
 
 const { href } = Astro.props;
-const isCurrentPath = href.includes(pathname);
+const isCurrentPath =
+  removeLeadingSlashes(href.trim()) === removeLeadingSlashes(pathname.trim());
 const isRtl = i18next.dir() === 'rtl';
 
 const ariaProps: HTMLAttributes<'li'> = isCurrentPath
