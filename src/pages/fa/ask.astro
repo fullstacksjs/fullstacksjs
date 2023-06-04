@@ -1,0 +1,41 @@
+---
+import { Trans } from 'astro-i18next/components';
+import { changeLanguage } from 'i18next';
+
+import Article from '../../components/Article.astro';
+import Articles from '../../components/Articles.astro';
+import Guide from '../../components/Guide.astro';
+import RuleSet from '../../components/RuleSet.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import Layout from '../../layouts/Layout.astro';
+
+changeLanguage('fa');
+
+export const prerender = true;
+const guides = [
+  'precise',
+  'environment',
+  'diagnostic',
+  'sandbox',
+  'courteous',
+  'topic',
+  'xy',
+  'rush',
+  'guess',
+  'pv',
+  'homework',
+];
+---
+
+<Layout title="titles.ask">
+  <Articles>
+    <Article>
+      <SectionHeader id="ask">
+        <Trans i18nKey="ask.title">1</Trans>
+      </SectionHeader>
+      <RuleSet>
+        {guides.map((guide) => <Guide guide={guide} />)}
+      </RuleSet>
+    </Article>
+  </Articles>
+</Layout>

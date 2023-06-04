@@ -24,6 +24,7 @@ const Config = z.object({
     about: z.string().optional().transform<boolean>(hasFeature('about')),
     rules: z.string().optional().transform<boolean>(hasFeature('rules')),
     events: z.string().optional().transform<boolean>(hasFeature('events')),
+    ask: z.string().optional().transform<boolean>(hasFeature('ask')),
   }),
 });
 

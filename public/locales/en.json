@@ -2,6 +2,7 @@
   "titles": {
     "about": "FullstacksJS - Community",
     "rules": "FullstacksJS - Rules",
+    "ask": "FullstacksJS - How to ask a Question",
     "events": "FullstacksJS - Events"
   },
   "header": {
@@ -10,6 +11,7 @@
   },
   "navigation": {
     "about": "about",
+    "ask": "ask",
     "rules": "rules",
     "events": "events"
   },
