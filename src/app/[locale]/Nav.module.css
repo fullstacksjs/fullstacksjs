@@ -1,4 +1,4 @@
-li::after {
+.li::after {
   content: ' ';
   position: absolute;
   bottom: -3px;

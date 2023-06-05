@@ -1,3 +1,4 @@
+import styles from './Nav.module.css';
 import clsx from 'clsx';
 
 interface Props {
@@ -20,7 +21,8 @@ export default function Nav({ href, children }: Props) {
     <li
       {...ariaProps}
       className={clsx(
-        'relative scroll-m-9 list-none uppercase transition-colors',
+        `relative scroll-m-9 list-none uppercase transition-colors`,
+        styles['li'],
         {
           'after:w-8 text-fg-0': isCurrentPath,
           'hover:after:w-8 text-light-muted hover:text-fg-1': !isCurrentPath,

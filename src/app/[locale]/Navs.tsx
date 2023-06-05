@@ -1,4 +1,5 @@
-import { features } from '../features';
+import { features } from '../../features';
+import { useTranslations } from 'next-intl';
 import Nav from './Nav';
 
 interface Nav {
@@ -7,15 +8,16 @@ interface Nav {
   children: string;
 }
 
-// TODO: Add internationalization
 const navs: Nav[] = [
-  { feature: 'about', href: '/', children: 'navigation.about' },
-  { feature: 'rules', href: '/rules', children: 'navigation.rules' },
-  { feature: 'ask', href: '/ask', children: 'navigation.ask' },
-  { feature: 'events', href: '/events', children: 'navigation.events' },
+  { feature: 'about', href: '/', children: 'about' },
+  { feature: 'rules', href: '/rules', children: 'rules' },
+  { feature: 'ask', href: '/ask', children: 'ask' },
+  { feature: 'events', href: '/events', children: 'events' },
 ];
 
 export default function Navs() {
+  const t = useTranslations('navigation');
+
   return (
     <ul className="inline-flex gap-8 text-md font-bold leading-tight tablet:gap-16">
       {navs
@@ -23,7 +25,7 @@ export default function Navs() {
         .map(({ children, href }) => (
           // TODO: Add internationalization
           <Nav key={href} href={href}>
-            {children}
+            {t(children)}
           </Nav>
         ))}
     </ul>

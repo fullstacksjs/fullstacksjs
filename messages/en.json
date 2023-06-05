@@ -1,0 +1,126 @@
+{
+  "titles": {
+    "about": "FullstacksJS - Community",
+    "rules": "FullstacksJS - Rules",
+    "ask": "FullstacksJS - How to ask a Question",
+    "events": "FullstacksJS - Events"
+  },
+  "header": {
+    "vision": "We grow together",
+    "button": "Join US on Telegram"
+  },
+  "navigation": {
+    "about": "about",
+    "ask": "ask",
+    "rules": "rules",
+    "events": "events"
+  },
+  "main": {
+    "about": {
+      "title": "About FullstacksJS",
+      "content": "<0>FullstacksJS</0> is an open-source community focused on knowledge sharing, exploring, and enhancing developer experience. The primary objective of this community is to establish a professional environment for in-depth contents in software development and engineering field. In order to learn and strengthen the culture of open source development and contribution, the projects that are developed in this community are entirely open source, and members are encouraged to participate."
+    },
+    "motivation": {
+      "title": "Motivation",
+      "content": "The Internet is full of unfiltered programming content, tutorials, and forums, which provide <0>incomplete</0>, <1>outdated</1>, and sometimes <2>incorrect</2> information to the knowledge seekers in this field. Therefore, we decided to establish a community where experts control and review the contents and activities. This creates a community that values in-depth and correct content."
+    },
+    "values": {
+      "title": "Values",
+      "content": "Values form our community and influence its behavior also have a direct impact on community's decision-making and contents.",
+      "ethics": "<0>Ethics</0>: Ethics is the most important value in the community, which has the highest priority in decisions. In the community, moral principles are never sacrificed for the sake of other activities.",
+      "validity": "<0>Validity</0>: Expert approval is required for every community-produced and published content. If an error is discovered in previously published content, the community must notify the appropriate parties and update the content."
+    }
+  },
+  "social": {
+    "telegram": "Telegram",
+    "youtube": "Youtube",
+    "twitter": "Twitter",
+    "github": "Github",
+    "discord": "Discord",
+    "twitch": "Twitch"
+  },
+  "rules": {
+    "title": "FullstacksJS Rules",
+    "desc": "The following behaviors are considered <0>harassment</0> and are <1>unacceptable</1> within our community:",
+    "items": {
+      "violence": "Violence, threats of violence or violent language directed against another person.",
+      "nameCalling": "<0>Name-calling</0> or calling someone or a group of people with offensive names.",
+      "nsfw": "Posting <0>NSFW</0> content.",
+      "personal": "Posting other people's personally identifying information.",
+      "insult": "Insults/Hate speech based on <0>gender</0>, <1>race</1>, <2>religion</2>, and <3>disability</3>.",
+      "sex": "Unwelcome sexual attention.",
+      "copyright": "Posting/Request for content subject to <0>copyright</0>.",
+      "spam": "<0>Spam</0>/<1>Flooding</1>.",
+      "dm": "Do not <0>direct message</0> someone unless they've granted permission.",
+      "advocate": "Advocating for, or encouraging, any of the above behavior."
+    }
+  },
+  "ask": {
+    "title": "How to ask a question",
+    "guides": {
+      "precise": {
+        "title": "Be precise and informative about your problem",
+        "desc": "Rather than just saying \\\"my code doesn't work\\\" provide specific details about the issue you're facing. For example, mention the programming language you're using, any error messages you're receiving, and the steps you've taken so far to try and resolve the problem."
+      },
+      "environment": {
+        "title": "Describe the environment in which it occurs",
+        "desc": "Mention the OS, runtime, or application you're using, along with any relevant settings or configurations."
+      },
+      "diagnostic": {
+        "title": "Describe the diagnostic steps you took to try and pin down the problem yourself",
+        "desc": "If you've tried any troubleshooting steps, such as testing different configurations or reinstalling software, mention what you did and what the results were."
+      },
+      "sandbox": {
+        "title": "Where's the code?",
+        "desc": "If your question is related to a piece of code you've written, make sure to include that code in your post. But be mindful of the length of your code and use tools like codesandbox.com or stackblitz.com to share it more efficiently."
+      },
+      "courteous": {
+        "title": "Be courteous",
+        "desc": "Remember that people are taking time out of their day to help you, so be polite and respectful in your interactions with them."
+      },
+      "topic": {
+        "title": "Choose the topic carefully",
+        "desc": "Make sure your post is categorized in a way that accurately reflects the topic you're asking about. This will help ensure that your question is seen by people who are knowledgeable about the subject matter."
+      },
+      "xy": {
+        "title": "Describe the goal, not the step",
+        "desc": "Rather than just asking how to do something, describe the larger goal you're trying to achieve. This can help others provide more useful and relevant advice."
+      },
+      "rush": {
+        "title": "Don't rush to claim that you have found a bug",
+        "desc": "Even if you're pretty sure that you've found a bug, it's best to approach the issue as if it might be something you're doing wrong. This can help ensure that you're open to suggestions and don't waste time chasing down a non-existent bug."
+      },
+      "guess": {
+        "title": "Describe the problem's symptoms, not your guesses",
+        "desc": "Avoid making assumptions or speculating about the cause of the problem. Stick to describing the symptoms you're experiencing and let others help you diagnose the underlying issue."
+      },
+      "pv": {
+        "title": "Don't ask people to reply by PV",
+        "desc": "Keep the conversation public so that others can benefit from the discussion and provide their own insights."
+      },
+      "homework": {
+        "title": "Avoid posting homework questions",
+        "desc": "While it's okay to ask for hints or guidance, avoid asking for full solutions to homework problems. The point of homework is to learn, so take advantage of the opportunity to develop your skills by working through the problem on your own."
+      }
+    }
+  },
+  "guidelines": {
+    "title": "Community Guidelines",
+    "items": {
+      "kind": "Be kind and courteous, friendly and professional. There's no need to be mean or rude.",
+      "topic": "Don't start a conversation in a wrong topic.",
+      "cross": "Don't cross-post the same thing in multiple topics.",
+      "opinion": "Respect that people have differences of opinion."
+    }
+  },
+  "upcomingEvents": {
+    "title": "Upcoming Events",
+    "action": "Subscribe",
+    "actionCountModifier": "subscribers"
+  },
+  "archivedEvents": {
+    "title": "Archived Events",
+    "action": "Watch",
+    "actionCountModifier": "subscribers"
+  }
+}

@@ -1,15 +1,6 @@
 import { getEnv as _getEnv, isNullOrEmpty } from '@fullstacksjs/toolbox';
 import { z } from 'zod';
 
-type EnvKey =
-  | 'NEXT_PUBLIC_AUTH0_CLIENT_ID'
-  | 'NEXT_PUBLIC_AUTH0_DOMAIN'
-  | 'NEXT_PUBLIC_FEATURES'
-  | 'NEXT_PUBLIC_GA_TRACKING_ID'
-  | 'NEXT_PUBLIC_GTM_CONTAINER';
-
-const getEnv = _getEnv<EnvKey>;
-
 const hasFeature =
   (feature: string) =>
   (v: string | undefined): boolean => {
@@ -42,18 +33,18 @@ export type Config = z.infer<typeof Config>;
 
 export const config = Config.parse({
   auth0: {
-    domain: getEnv('NEXT_PUBLIC_AUTH0_DOMAIN'),
-    clientId: getEnv('NEXT_PUBLIC_AUTH0_CLIENT_ID'),
+    domain: process.env.NEXT_PUBLIC_AUTH0_DOMAIN,
+    clientId: process.env.NEXT_PUBLIC_AUTH0_CLIENT_ID,
   },
   analytics: {
-    containerId: getEnv('NEXT_PUBLIC_GTM_CONTAINER'),
-    trackingId: getEnv('NEXT_PUBLIC_GA_TRACKING_ID'),
+    containerId: process.env.NEXT_PUBLIC_GTM_CONTAINER,
+    trackingId: process.env.NEXT_PUBLIC_GA_TRACKING_ID,
   },
   features: {
-    about: getEnv('NEXT_PUBLIC_FEATURES'),
-    rules: getEnv('NEXT_PUBLIC_FEATURES'),
-    events: getEnv('NEXT_PUBLIC_FEATURES'),
-    ask: getEnv('NEXT_PUBLIC_FEATURES'),
-    locales: getEnv('NEXT_PUBLIC_FEATURES'),
+    about: process.env.NEXT_PUBLIC_FEATURES,
+    rules: process.env.NEXT_PUBLIC_FEATURES,
+    events: process.env.NEXT_PUBLIC_FEATURES,
+    ask: process.env.NEXT_PUBLIC_FEATURES,
+    locales: process.env.NEXT_PUBLIC_FEATURES,
   },
 });
