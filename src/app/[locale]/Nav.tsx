@@ -1,31 +1,29 @@
+'use client';
+import { usePathname } from 'next/navigation';
 import styles from './Nav.module.css';
 import clsx from 'clsx';
 
 interface Props {
   href: string;
   children: React.ReactNode;
+  direction: 'ltr' | 'rtl';
 }
 
-export default function Nav({ href, children }: Props) {
-  const isCurrentPath = false;
-  // removeTrailingSlashes(removeLeadingSlashes(href.trim())) ===
-  // removeTrailingSlashes(removeLeadingSlashes(pathname.trim()));
-  // TODO: Make it real
-  const isRtl = true;
-
-  const ariaProps: React.HTMLAttributes<HTMLLIElement> = isCurrentPath
-    ? { 'aria-current': 'page' }
-    : {};
+export default function Nav({ href, children, direction }: Props) {
+  const pathname = usePathname();
+  const isActive = pathname.startsWith(href);
+  const isRtl = direction === 'rtl';
 
   return (
     <li
-      {...ariaProps}
+      aria-current={isActive ? 'page' : undefined}
       className={clsx(
         `relative scroll-m-9 list-none uppercase transition-colors`,
         styles['li'],
         {
-          'after:w-8 text-fg-0': isCurrentPath,
-          'hover:after:w-8 text-light-muted hover:text-fg-1': !isCurrentPath,
+          'after:w-8 text-fg-0': isActive,
+          'after:w-0 hover:after:w-8 text-light-muted hover:text-fg-1':
+            !isActive,
           'after:left-0': !isRtl,
           'after:right-0': isRtl,
         },

@@ -1,5 +1,5 @@
 import { features } from '../../features';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import Nav from './Nav';
 
 interface Nav {
@@ -17,14 +17,18 @@ const navs: Nav[] = [
 
 export default function Navs() {
   const t = useTranslations('navigation');
+  const locale = useLocale();
 
   return (
     <ul className="inline-flex gap-8 text-md font-bold leading-tight tablet:gap-16">
       {navs
         .filter((c) => features[c.feature])
         .map(({ children, href }) => (
-          // TODO: Add internationalization
-          <Nav key={href} href={href}>
+          <Nav
+            key={href}
+            href={href}
+            direction={locale === 'fa' ? 'rtl' : 'ltr'}
+          >
             {t(children)}
           </Nav>
         ))}
