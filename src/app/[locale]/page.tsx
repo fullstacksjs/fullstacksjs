@@ -1,9 +1,11 @@
-import Header from './Header';
+import Header from './components/Header';
+import Hero from './components/Hero';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="container flex flex-col gap-24 py-8 mobile:gap-40 tablet:py-40 w-full">
       <Header />
+      <Hero />
     </main>
   );
 }

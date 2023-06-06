@@ -1,4 +1,4 @@
-import { features } from '../../features';
+import { features } from '../../../features';
 import { useTranslations, useLocale } from 'next-intl';
 import Nav from './Nav';
 

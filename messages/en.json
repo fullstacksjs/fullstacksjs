@@ -5,9 +5,11 @@
     "ask": "FullstacksJS - How to ask a Question",
     "events": "FullstacksJS - Events"
   },
+  "hero": {
+    "join": "Join US on Telegram"
+  },
   "header": {
-    "vision": "We grow together",
-    "button": "Join US on Telegram"
+    "vision": "We grow together"
   },
   "navigation": {
     "about": "about",
