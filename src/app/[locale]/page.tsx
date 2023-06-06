@@ -1,11 +1,47 @@
-import Header from './components/Header';
-import Hero from './components/Hero';
+import { Article } from '@/components/Article';
+import Articles from '@/components/Articles';
+import { Highlight } from '@/components/Highlight';
+import { Paragraph } from '@/components/Paragraph';
+import { useTranslations } from 'next-intl';
+
+export const metadata = {
+  title: 'Fullstacksjs',
+};
 
 export default function Home() {
+  const t = useTranslations('main');
+
   return (
-    <main className="container flex flex-col gap-24 py-8 mobile:gap-40 tablet:py-40 w-full">
-      <Header />
-      <Hero />
-    </main>
+    <Articles>
+      <Article title={t('about.title')}>
+        <Paragraph>
+          {t.rich('about.content', {
+            mark: (chunk) => <Highlight>{chunk}</Highlight>,
+          })}
+        </Paragraph>
+      </Article>
+
+      <Article title={t('motivation.title')}>
+        <Paragraph>
+          {t.rich('motivation.content', {
+            b: (chunk) => <b>{chunk}</b>,
+          })}
+        </Paragraph>
+      </Article>
+
+      <Article title={t('values.title')}>
+        <Paragraph>{t('values.content')}</Paragraph>
+        <Paragraph>
+          {t.rich('values.ethics', {
+            b: (chunk) => <b>{chunk}</b>,
+          })}
+        </Paragraph>
+        <Paragraph>
+          {t.rich('values.validity', {
+            b: (chunk) => <b>{chunk}</b>,
+          })}
+        </Paragraph>
+      </Article>
+    </Articles>
   );
 }

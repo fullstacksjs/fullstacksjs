@@ -2,6 +2,9 @@ import { useLocale } from 'next-intl';
 import { notFound } from 'next/navigation';
 
 import { Rajdhani } from 'next/font/google';
+import Header from './components/Header';
+import Hero from './components/Hero';
+import { Socials } from '@/components/Socials';
 
 const rajdhani = Rajdhani({
   weight: ['500', '600', '700'],
@@ -32,8 +35,11 @@ export default function LocaleLayout({ children, params }: Props) {
       className={`bg-dark-0 leading-normal text-light-0 ${rajdhani.variable}`}
     >
       <body>
-        <div className="container flex flex-col gap-24 py-8 mobile:gap-40 tablet:py-40">
+        <div className="container flex flex-col text-base gap-24 py-8 mobile:gap-40 tablet:py-40 w-full">
+          <Header />
+          <Hero />
           {children}
+          <Socials />
         </div>
       </body>
     </html>
