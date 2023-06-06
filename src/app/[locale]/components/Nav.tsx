@@ -1,5 +1,5 @@
 'use client';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSelectedLayoutSegment } from 'next/navigation';
 import styles from './Nav.module.css';
 import clsx from 'clsx';
 
@@ -10,8 +10,8 @@ interface Props {
 }
 
 export default function Nav({ href, children, direction }: Props) {
-  const pathname = usePathname();
-  const isActive = pathname.startsWith(href);
+  const selected = useSelectedLayoutSegment();
+  const isActive = selected === href;
   const isRtl = direction === 'rtl';
 
   return (

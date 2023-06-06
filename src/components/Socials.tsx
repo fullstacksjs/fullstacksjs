@@ -41,7 +41,7 @@ const items = [
   },
 ];
 
-export const Socials = (): React.JSX.Element => {
+export default function Socials(): React.JSX.Element {
   const t = useTranslations();
 
   return (
@@ -60,4 +60,4 @@ export const Socials = (): React.JSX.Element => {
       </ul>
     </footer>
   );
-};
+}

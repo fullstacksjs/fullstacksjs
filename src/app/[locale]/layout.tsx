@@ -1,10 +1,10 @@
 import { useLocale } from 'next-intl';
 import { notFound } from 'next/navigation';
 
+import Socials from '@/components/Socials';
 import { Rajdhani } from 'next/font/google';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import { Socials } from '@/components/Socials';
 
 const rajdhani = Rajdhani({
   weight: ['500', '600', '700'],

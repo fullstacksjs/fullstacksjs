@@ -43,18 +43,27 @@
   },
   "rules": {
     "title": "FullstacksJS Rules",
-    "desc": "The following behaviors are considered <b>harassment</0> and are <1>unacceptable</1> within our community:",
+    "desc": "The following behaviors are considered <b>harassment</b> and are <b>unacceptable</b> within our community:",
     "items": {
       "violence": "Violence, threats of violence or violent language directed against another person.",
-      "nameCalling": "<b>Name-calling</0> or calling someone or a group of people with offensive names.",
-      "nsfw": "Posting <b>NSFW</0> content.",
+      "name-calling": "<b>Name-calling</b> or calling someone or a group of people with offensive names.",
+      "nsfw": "Posting <b>NSFW</b> content.",
       "personal": "Posting other people's personally identifying information.",
-      "insult": "Insults/Hate speech based on <b>gender</0>, <1>race</1>, <2>religion</2>, and <3>disability</3>.",
+      "insult": "Insults/Hate speech based on <b>gender</b>, <b>race</b>, <b>religion</b>, and <b>disability</b>.",
       "sex": "Unwelcome sexual attention.",
-      "copyright": "Posting/Request for content subject to <b>copyright</0>.",
-      "spam": "<b>Spam</0>/<1>Flooding</1>.",
-      "dm": "Do not <b>direct message</0> someone unless they've granted permission.",
+      "copyright": "Posting/Request for content subject to <b>copyright</b>.",
+      "spam": "<b>Spam</b>/<b>Flooding</b>.",
+      "dm": "Do not <b>direct message</b> someone unless they've granted permission.",
       "advocate": "Advocating for, or encouraging, any of the above behavior."
+    },
+    "guidelines": {
+      "title": "Community Guidelines",
+      "items": {
+        "kind": "Be kind and courteous, friendly and professional. There's no need to be mean or rude.",
+        "topic": "Don't start a conversation in a wrong topic.",
+        "cross": "Don't cross-post the same thing in multiple topics.",
+        "opinion": "Respect that people have differences of opinion."
+      }
     }
   },
   "ask": {
@@ -104,15 +113,6 @@
         "title": "Avoid posting homework questions",
         "desc": "While it's okay to ask for hints or guidance, avoid asking for full solutions to homework problems. The point of homework is to learn, so take advantage of the opportunity to develop your skills by working through the problem on your own."
       }
-    }
-  },
-  "guidelines": {
-    "title": "Community Guidelines",
-    "items": {
-      "kind": "Be kind and courteous, friendly and professional. There's no need to be mean or rude.",
-      "topic": "Don't start a conversation in a wrong topic.",
-      "cross": "Don't cross-post the same thing in multiple topics.",
-      "opinion": "Respect that people have differences of opinion."
     }
   },
   "upcomingEvents": {

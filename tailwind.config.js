@@ -69,6 +69,9 @@ module.exports = {
           0: 'rgb(var(--bg) / <alpha-value>)',
         },
       },
+      listStyleType: {
+        dot: '"•  "',
+      },
     },
   },
   plugins: [],
