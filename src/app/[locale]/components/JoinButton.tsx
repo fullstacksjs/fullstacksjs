@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl';
-import { Button } from './Button';
+import { Button } from '@/components/Button';
 
 export default function JoinButton(): JSX.Element {
   const t = useTranslations('hero');
