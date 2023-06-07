@@ -5,5 +5,7 @@ declare namespace NodeJS {
     NEXT_PUBLIC_FEATURES?: string;
     NEXT_PUBLIC_GA_TRACKING_ID?: string;
     NEXT_PUBLIC_GTM_CONTAINER?: string;
+    GITHUB_ID?: string;
+    GITHUB_SECRET?: string;
   }
 }
