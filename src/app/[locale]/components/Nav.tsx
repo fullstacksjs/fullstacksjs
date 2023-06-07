@@ -1,7 +1,9 @@
 'use client';
-import { usePathname, useSelectedLayoutSegment } from 'next/navigation';
-import styles from './Nav.module.css';
+import { comparePaths } from '@fullstacksjs/toolbox';
 import clsx from 'clsx';
+import { useSelectedLayoutSegment } from 'next/navigation';
+import styles from './Nav.module.css';
+import Link from 'next/link';
 
 interface Props {
   href: string;
@@ -10,8 +12,8 @@ interface Props {
 }
 
 export default function Nav({ href, children, direction }: Props) {
-  const selected = useSelectedLayoutSegment();
-  const isActive = selected === href;
+  const selected = useSelectedLayoutSegment() ?? '';
+  const isActive = comparePaths(selected, href) === 0;
   const isRtl = direction === 'rtl';
 
   return (
@@ -29,14 +31,14 @@ export default function Nav({ href, children, direction }: Props) {
         },
       )}
     >
-      <a
+      <Link
         href={href}
         className={
           'rounded-sm text-base focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-8 focus-visible:outline-accent-0 tablet:text-md'
         }
       >
         {children}
-      </a>
+      </Link>
     </li>
   );
 }

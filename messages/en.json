@@ -71,7 +71,7 @@
     "guides": {
       "precise": {
         "title": "Be precise and informative about your problem",
-        "desc": "Rather than just saying \\\"my code doesn't work\\\" provide specific details about the issue you're facing. For example, mention the programming language you're using, any error messages you're receiving, and the steps you've taken so far to try and resolve the problem."
+        "desc": "Rather than just saying \"my code doesn't work\" provide specific details about the issue you're facing. For example, mention the programming language you're using, any error messages you're receiving, and the steps you've taken so far to try and resolve the problem."
       },
       "environment": {
         "title": "Describe the environment in which it occurs",
