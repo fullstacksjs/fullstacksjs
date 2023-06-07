@@ -1,4 +1,5 @@
-import LoginButton from './LoginButton';
+import { Authentication } from '@/components/Authentication';
+
 import Navs from './Navs';
 
 export default function Header(): React.JSX.Element {
@@ -6,8 +7,7 @@ export default function Header(): React.JSX.Element {
     <div className="flex items-center justify-between">
       <Navs />
       <div className="flex items-center gap-16">
-        <LoginButton />
-        {/* <Authentication client:load language={i18next.language} /> */}
+        <Authentication />
       </div>
     </div>
   );
