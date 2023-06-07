@@ -12,13 +12,14 @@
     "@fullstacksjs/toolbox": "3.1.1",
     "clsx": "1.2.1",
     "next": "13.4.4",
+    "next-auth": "4.22.1",
     "next-intl": "2.15.0-beta.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "zod": "^3.21.4"
   },
   "devDependencies": {
-    "@fullstacksjs/eslint-config": "9.5.0",
+    "@fullstacksjs/eslint-config": "9.5.3",
     "@fullstacksjs/tsconfig": "1.1.0",
     "@svgr/webpack": "8.0.1",
     "@types/node": "20.2.5",

@@ -1,8 +1,9 @@
-import { useLocale } from 'next-intl';
+import { Rajdhani } from 'next/font/google';
 import { notFound } from 'next/navigation';
+import { useLocale } from 'next-intl';
 
 import Socials from '@/components/Socials';
-import { Rajdhani } from 'next/font/google';
+
 import Header from './components/Header';
 import Hero from './components/Hero';
 
@@ -12,7 +13,7 @@ const rajdhani = Rajdhani({
   variable: '--font-rajdhani',
 });
 
-export const dynamic = 'force-dynamic';
+// export const dynamic = 'force-dynamic';
 
 export const metadata = {
   title: 'Create Next App',
@@ -37,7 +38,7 @@ export default function LocaleLayout({ children, params }: Props) {
       className={`bg-dark-0 leading-normal text-light-0 ${rajdhani.variable}`}
     >
       <body>
-        <div className="container flex flex-col text-base gap-24 py-8 mobile:gap-40 tablet:py-40 w-full">
+        <div className="container flex w-full flex-col gap-24 py-8 text-base mobile:gap-40 tablet:py-40">
           <Header />
           <Hero />
           {children}

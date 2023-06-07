@@ -1,4 +1,5 @@
 import { useTranslations } from 'next-intl';
+
 import JoinButton from './JoinButton';
 import Logo from './Logo.svg';
 
@@ -6,7 +7,7 @@ export default function Hero(): JSX.Element {
   const t = useTranslations('header');
 
   return (
-    <header className="items-center justify-between flex">
+    <header className="flex items-center justify-between">
       <div className="flex flex-col items-start gap-16">
         <div className="flex flex-col gap-2">
           <h1 className="text-5xl font-bold leading-tight">FullstacksJS</h1>

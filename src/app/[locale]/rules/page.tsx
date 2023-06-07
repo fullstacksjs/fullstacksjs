@@ -1,6 +1,8 @@
-import Articles from '@/components/Articles';
-import RulesBody from './RulesBody';
 import { NextIntlClientProvider, useLocale } from 'next-intl';
+
+import Articles from '@/components/Articles';
+
+import RulesBody from './RulesBody';
 
 export default async function RulesPage() {
   const locale = useLocale();

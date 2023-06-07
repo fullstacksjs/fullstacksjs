@@ -1,5 +1,6 @@
+import { useLocale, useTranslations } from 'next-intl';
+
 import { features } from '../../../features';
-import { useTranslations, useLocale } from 'next-intl';
 import Nav from './Nav';
 
 interface Nav {

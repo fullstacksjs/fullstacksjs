@@ -1,9 +1,10 @@
 'use client';
 import { comparePaths } from '@fullstacksjs/toolbox';
 import clsx from 'clsx';
-import { useSelectedLayoutSegment } from 'next/navigation';
-import styles from './Nav.module.css';
 import Link from 'next/link';
+import { useSelectedLayoutSegment } from 'next/navigation';
+
+import styles from './Nav.module.css';
 
 interface Props {
   href: string;
@@ -33,9 +34,7 @@ export default function Nav({ href, children, direction }: Props) {
     >
       <Link
         href={href}
-        className={
-          'rounded-sm text-base focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-8 focus-visible:outline-accent-0 tablet:text-md'
-        }
+        className="rounded-sm text-base focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-8 focus-visible:outline-accent-0 tablet:text-md"
       >
         {children}
       </Link>

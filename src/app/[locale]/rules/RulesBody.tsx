@@ -1,11 +1,12 @@
 'use client';
+import { isNull } from '@fullstacksjs/toolbox';
+import { useTranslations } from 'next-intl';
+import { useState } from 'react';
+
 import { Article } from '@/components/Article';
 import { Paragraph } from '@/components/Paragraph';
 import { Rule } from '@/components/Rule';
 import { RuleSet } from '@/components/RuleSet';
-import { isNull } from '@fullstacksjs/toolbox';
-import { useTranslations } from 'next-intl';
-import { useState } from 'react';
 
 const rules = [
   'violence',
@@ -41,6 +42,7 @@ export default function RulesBody(): React.JSX.Element {
         <RuleSet>
           {rules.map((rule) => (
             <Rule
+              key={rule}
               onSelect={handleSelect}
               isActive={isNull(activeTarget) || activeTarget === rule}
               target={rule}
@@ -55,6 +57,7 @@ export default function RulesBody(): React.JSX.Element {
         <RuleSet>
           {guidelines.map((guide) => (
             <Rule
+              key={guide}
               onSelect={handleSelect}
               isActive={isNull(activeTarget) || activeTarget === guide}
               target={guide}

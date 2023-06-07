@@ -3,5 +3,5 @@ interface Props {
 }
 
 export const Paragraph = ({ children }: Props): React.JSX.Element => {
-  return <p className={'text-light-1'}>{children}</p>;
+  return <p className="text-light-1">{children}</p>;
 };

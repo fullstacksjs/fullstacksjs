@@ -1,10 +1,11 @@
+import { useTranslations } from 'next-intl';
+
 import { Article } from '@/components/Article';
 import Articles from '@/components/Articles';
 import { Rule } from '@/components/Rule';
 import { RuleSet } from '@/components/RuleSet';
-import { useTranslations } from 'next-intl';
 
-const guides = [
+const asks = [
   'precise',
   'environment',
   'diagnostic',
@@ -25,12 +26,10 @@ export default function AskPage() {
     <Articles>
       <Article title={t('title')}>
         <RuleSet>
-          {guides.map((guide) => (
-            <Rule target={guide}>
-              <p className="mb-2 text-accent-1">
-                {t(`guides.${guide}.title`)}:
-              </p>
-              <p className="text-light-0">{t(`guides.${guide}.desc`)}</p>
+          {asks.map((ask) => (
+            <Rule key={ask} target={ask}>
+              <p className="mb-2 text-accent-1">{t(`guides.${ask}.title`)}:</p>
+              <p className="text-light-0">{t(`guides.${ask}.desc`)}</p>
               <br />
             </Rule>
           ))}

@@ -18,11 +18,11 @@ export const Rule = ({
   return (
     <li
       id={target}
-      className={`list-dot group relative mb-3 ms-6 cursor-pointer scroll-m-10 leading-tight motion-reduce:transition-none`}
+      className="group relative mb-3 ms-6 cursor-pointer scroll-m-10 list-dot leading-tight motion-reduce:transition-none"
     >
       <a
         className={clsx(
-          'block transition-[color] w-full hover:text-fg-0',
+          'block w-full transition-[color] hover:text-fg-0',
           { 'text-accent-1 ': isActive },
           { 'text-fg-muted': !isActive },
         )}
