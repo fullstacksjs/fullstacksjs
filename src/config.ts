@@ -20,6 +20,10 @@ const Config = z.object({
     clientId: z.string(),
     clientSecret: z.string(),
   }),
+  dato: z.object({
+    endpoint: z.string(),
+    token: z.string(),
+  }),
   analytics: z.object({
     containerId: z.string().optional(),
     trackingId: z.string().optional(),
@@ -39,6 +43,10 @@ export const config = Config.parse({
   auth0: {
     domain: process.env.NEXT_PUBLIC_AUTH0_DOMAIN,
     clientId: process.env.NEXT_PUBLIC_AUTH0_CLIENT_ID,
+  },
+  dato: {
+    endpoint: process.env.DATO_ENDPOINT,
+    token: process.env.DATO_TOKEN,
   },
   github: {
     clientId: process.env.GITHUB_ID,

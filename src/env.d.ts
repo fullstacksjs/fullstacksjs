@@ -7,5 +7,7 @@ declare namespace NodeJS {
     NEXT_PUBLIC_GTM_CONTAINER?: string;
     GITHUB_ID?: string;
     GITHUB_SECRET?: string;
+    DATO_TOKEN: string;
+    DATO_ENDPOINT: string;
   }
 }
