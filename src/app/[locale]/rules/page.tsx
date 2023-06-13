@@ -4,6 +4,8 @@ import Articles from '@/components/Articles';
 
 import RulesBody from './RulesBody';
 
+export const dynamic = 'force-dynamic';
+
 export default async function RulesPage() {
   const locale = useLocale();
 

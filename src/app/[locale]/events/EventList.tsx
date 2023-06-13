@@ -1,3 +1,5 @@
+import { isEmpty } from '@fullstacksjs/toolbox';
+
 import SectionHeader from '@/components/SectionHeader';
 import type { FullstackEvent } from '@/data-layer/operations/getEvents';
 
@@ -9,6 +11,8 @@ interface Props {
 }
 
 export default function EventList({ events, title }: Props) {
+  if (isEmpty(events)) return null;
+
   return (
     <div>
       <SectionHeader>{title}</SectionHeader>

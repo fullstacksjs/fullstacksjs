@@ -9,6 +9,8 @@ export const metadata = {
   title: 'Fullstacksjs',
 };
 
+export const dynamic = 'force-dynamic';
+
 export default function Home() {
   const t = useTranslations('main');
 
