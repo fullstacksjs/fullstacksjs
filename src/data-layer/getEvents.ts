@@ -3,9 +3,9 @@ import 'server-only';
 import { gql, GraphQLClient } from 'graphql-request';
 import { cache } from 'react';
 
-import { config } from '@/config';
+import { serverConfig } from '@/config/serverConfig';
 
-import type { AllEventsQuery } from '../__genearted__';
+import type { AllEventsQuery } from './__genearted__';
 
 const query = gql`
   query AllEvents {
@@ -56,8 +56,8 @@ export interface FullstackEvent {
   };
 }
 
-const client = new GraphQLClient(config.dato.endpoint, {
-  headers: { authorization: `Bearer ${config.dato.token}` },
+const client = new GraphQLClient(serverConfig.dato.endpoint, {
+  headers: { authorization: `Bearer ${serverConfig.dato.token}` },
 });
 
 const toFullstacksJSEvent = (ev: AllEventsQuery['allEvents'][number]) =>

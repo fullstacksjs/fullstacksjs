@@ -1,12 +1,11 @@
 import { notFound } from 'next/navigation';
 
-import { getEvents } from '@/data-layer/operations/getEvents';
-import { features } from '@/features';
+import { getEvents } from '@/data-layer/getEvents';
+import { getServerFeature } from '@/features/getServerFeatures';
 
 import EventsContent from './EventContent';
 
-// export const dynamic = 'force-static';
-export const dynamic = 'force-dynamic';
+// export const dynamic = 'force-dynamic';
 
 export interface Lecturer {
   slug: string;
@@ -17,7 +16,7 @@ export interface Lecturer {
 export default async function EventsPage() {
   const events = await getEvents();
 
-  if (!features.events) notFound();
+  if (getServerFeature('events')) notFound();
 
   const upcomingEvents = events.filter(
     (event) => new Date(event.date) > new Date(),

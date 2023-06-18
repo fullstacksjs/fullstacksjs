@@ -1,10 +1,12 @@
 import { useLocale, useTranslations } from 'next-intl';
 
-import { features } from '../../../features';
+import type { Features } from '@/features';
+import { getServerFeature } from '@/features/getServerFeatures';
+
 import Nav from './Nav';
 
 interface Nav {
-  feature: keyof typeof features;
+  feature: Features;
   href: string;
   children: string;
 }
@@ -23,7 +25,7 @@ export default function Navs() {
   return (
     <ul className="inline-flex gap-8 text-md font-bold leading-tight tablet:gap-16">
       {navs
-        .filter((c) => features[c.feature])
+        .filter((c) => getServerFeature(c.feature))
         .map(({ children, href }) => (
           <Nav
             key={href}

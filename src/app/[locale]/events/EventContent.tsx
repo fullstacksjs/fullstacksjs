@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl';
 
 import { Separator } from '@/components/Separator';
-import type { FullstackEvent } from '@/data-layer/operations/getEvents';
+import type { FullstackEvent } from '@/data-layer/getEvents';
 
 import EventList from './EventList';
 

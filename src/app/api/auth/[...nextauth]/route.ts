@@ -1,13 +1,13 @@
 import NextAuth from 'next-auth';
 import GithubProvider from 'next-auth/providers/github';
 
-import { config } from '@/config';
+import { serverConfig } from '@/config/serverConfig';
 
 const handler = NextAuth({
   providers: [
     GithubProvider({
-      clientId: config.github.clientId,
-      clientSecret: config.github.clientSecret,
+      clientId: serverConfig.github.clientId,
+      clientSecret: serverConfig.github.clientSecret,
     }),
   ],
 });

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 
-import type { FullstackEvent } from '@/data-layer/operations/getEvents';
+import type { FullstackEvent } from '@/data-layer/getEvents';
 
 interface Props {
   event: FullstackEvent;
