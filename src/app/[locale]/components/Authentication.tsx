@@ -6,7 +6,11 @@ import GithubOutlineIcon from './GithubIcon.svg?url';
 import LoginButton from './LoginButton';
 import { ProfileButton } from './ProfileButton';
 
-export const Authentication = (): JSX.Element => {
+interface Props {
+  loginText: string;
+}
+
+export const Authentication = ({ loginText }: Props): JSX.Element => {
   const { data, status } = useSession();
   const isLoading = status === 'loading';
   const login = () => signIn('github');
@@ -26,7 +30,7 @@ export const Authentication = (): JSX.Element => {
       height={20}
       onClick={login}
     >
-      Login with Github
+      {loginText}
     </LoginButton>
   );
 };

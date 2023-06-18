@@ -20,7 +20,7 @@ const navs: Nav[] = [
 ];
 
 export default function Navs() {
-  const t = useTranslations('navigation');
+  const t = useTranslations('header.navigation');
   const direction = useDirection();
 
   return (

@@ -6,16 +6,19 @@
     "events": "FullstacksJS - Events"
   },
   "hero": {
-    "join": "Join US on Telegram"
-  },
-  "header": {
+    "join": "Join US on Telegram",
     "vision": "We grow together"
   },
-  "navigation": {
-    "about": "about",
-    "ask": "ask",
-    "rules": "rules",
-    "events": "events"
+  "header": {
+    "navigation": {
+      "about": "about",
+      "ask": "ask",
+      "rules": "rules",
+      "events": "events"
+    },
+    "auth": {
+      "login": "Login with GitHub"
+    }
   },
   "main": {
     "about": {

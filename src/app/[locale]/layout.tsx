@@ -8,8 +8,8 @@ import Socials from '@/components/Socials';
 import { useDirection } from '@/hooks/useDirection';
 
 import { AuthProvider } from './components/AuhProviders';
+import Banner from './components/Banner';
 import Header from './components/Header';
-import Hero from './components/Hero';
 import {
   description,
   icons,
@@ -79,7 +79,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         <AuthProvider session={session!}>
           <div className="container flex w-full flex-col gap-24 py-8 text-base mobile:gap-40 tablet:py-40">
             <Header />
-            <Hero />
+            <Banner />
             {children}
             <Socials />
           </div>

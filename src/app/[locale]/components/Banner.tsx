@@ -3,8 +3,8 @@ import { useTranslations } from 'next-intl';
 import JoinButton from './JoinButton';
 import Logo from './Logo.svg';
 
-export default function Hero(): JSX.Element {
-  const t = useTranslations('header');
+export default function Banner(): JSX.Element {
+  const t = useTranslations('hero');
 
   return (
     <header className="flex items-center justify-between">
