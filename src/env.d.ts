@@ -11,3 +11,7 @@ declare namespace NodeJS {
     DATO_ENDPOINT: string;
   }
 }
+declare module '*.svg?url' {
+  const content: import('next/image').StaticImageData;
+  export default content;
+}
