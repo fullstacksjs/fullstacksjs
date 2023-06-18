@@ -26,8 +26,8 @@ module.exports = {
       loose: '2.4',
     },
     fontFamily: {
-      sans: ['var(--font-rajdhani)'],
-      serif: ['var(--font-rajdhani)'],
+      sans: ['var(--font-rajdhani)', 'var(--font-vazir)'],
+      serif: ['var(--font-rajdhani)', 'var(--font-vazir)'],
     },
     screens: {
       mobile: '560px',

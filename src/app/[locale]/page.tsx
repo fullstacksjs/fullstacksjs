@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { useTranslations } from 'next-intl';
 
 import { Article } from '@/components/Article';
@@ -5,7 +6,7 @@ import Articles from '@/components/Articles';
 import { Highlight } from '@/components/Highlight';
 import { Paragraph } from '@/components/Paragraph';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Fullstacksjs',
 };
 

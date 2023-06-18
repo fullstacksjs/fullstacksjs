@@ -2,8 +2,12 @@
   "version": "0.2",
   "language": "en,fa",
   "useGitignore": true,
-  "import": ["@cspell/dict-fa-ir/cspell-ext.json"],
-  "ignorePaths": ["**/*.svg"],
+  "import": [
+    "@cspell/dict-fa-ir/cspell-ext.json"
+  ],
+  "ignorePaths": [
+    "**/*.svg"
+  ],
   "words": [
     "Alireza",
     "browserconfig",
@@ -38,6 +42,8 @@
     "svgr",
     "tailwindcss",
     "usehooks",
+    "vazir",
+    "Vazirmatn",
     "استکس",
     "برندسازی",
     "توئیتچ",
@@ -48,5 +54,7 @@
     "لینکدین",
     "منتورها"
   ],
-  "dictionaries": ["node"]
+  "dictionaries": [
+    "node"
+  ]
 }
