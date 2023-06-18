@@ -1,11 +1,11 @@
 import 'server-only';
 
-import { gql, GraphQLClient } from 'graphql-request';
+import { gql } from 'graphql-request';
 import { cache } from 'react';
 
-import { serverConfig } from '@/config/serverConfig';
-
-import type { AllEventsQuery } from './__genearted__';
+import type { AllEventsQuery } from './__generated__';
+import { datoClient } from './client';
+import type { FullstackEvent, Lecturer } from './domain';
 
 const query = gql`
   query AllEvents {
@@ -39,47 +39,32 @@ const query = gql`
   }
 `;
 
-export interface FullstackEvent {
-  slug: string;
-  title: any;
-  date: string;
-  thumbnail: {
-    src: string;
-    alt: string;
-  };
-  subscribersCount?: number;
-  presenter: {
-    avatar: {
-      src: string;
-      alt: string;
-    };
-  };
-}
-
-const client = new GraphQLClient(serverConfig.dato.endpoint, {
-  headers: { authorization: `Bearer ${serverConfig.dato.token}` },
+const toLecturer = (
+  l: AllEventsQuery['allEvents'][number]['lecturers'][number],
+): Lecturer => ({
+  name: l.name!,
+  avatar: {
+    src: l.avatar!.url,
+    alt: l.avatar!.alt ?? `${l.name!}'s avatar`,
+  },
 });
 
-const toFullstacksJSEvent = (ev: AllEventsQuery['allEvents'][number]) =>
-  ({
-    slug: ev.slug,
+const toFullstacksJSEvent = (
+  ev: AllEventsQuery['allEvents'][number],
+): FullstackEvent => {
+  return {
+    slug: ev.slug!,
     title: ev.title,
     thumbnail: {
-      alt: ev.thumbnail?.alt,
-      src: ev.thumbnail?.url,
+      alt: ev.thumbnail!.alt ?? `${ev.slug!}'s thumbnail`,
+      src: ev.thumbnail!.url,
     },
-    presenter: {
-      avatar: {
-        src: ev.lecturers[0]?.avatar?.[0]?.url,
-        alt: ev.lecturers[0]?.avatar?.[0]?.alt,
-      },
-    },
+    lecturers: ev.lecturers.map(toLecturer),
     date: ev.startDate,
-  } as FullstackEvent);
+  };
+};
 
 export const getEvents = cache(async (): Promise<FullstackEvent[]> => {
-  console.log('GETTING EVENTS!');
-
-  const data = await client.request<AllEventsQuery>(query);
+  const data = await datoClient.request<AllEventsQuery>(query);
   return data.allEvents.map(toFullstacksJSEvent);
 });
