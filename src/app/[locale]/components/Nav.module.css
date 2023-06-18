@@ -1,9 +1,0 @@
-.li::after {
-  content: ' ';
-  position: absolute;
-  bottom: -3px;
-  height: 3px;
-  background-color: currentColor;
-  transition-property: width;
-  transition-duration: inherit;
-}

@@ -8,8 +8,6 @@ export const ogImage = {
 } as const;
 
 export const icons = [
-  { rel: 'icon', url: '/favicon.svg', type: 'image/svg+xml' },
-  { rel: 'icon', url: '/favicon.ico', sizes: 'any' },
   {
     rel: 'icon',
     url: '/favicon-16x16.png',

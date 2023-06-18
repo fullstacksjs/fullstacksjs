@@ -1,5 +1,4 @@
-import { Authentication } from '@/components/Authentication';
-
+import { Authentication } from './Authentication';
 import Navs from './Navs';
 
 export default function Header(): React.JSX.Element {

@@ -4,12 +4,12 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { useSelectedLayoutSegment } from 'next/navigation';
 
-import styles from './Nav.module.css';
+import type { Direction } from '@/hooks/useDirection';
 
 interface Props {
   href: string;
   children: React.ReactNode;
-  direction: 'ltr' | 'rtl';
+  direction: Direction;
 }
 
 export default function Nav({ href, children, direction }: Props) {
@@ -21,8 +21,7 @@ export default function Nav({ href, children, direction }: Props) {
     <li
       aria-current={isActive ? 'page' : undefined}
       className={clsx(
-        `relative scroll-m-9 list-none uppercase transition-colors`,
-        styles['li'],
+        'after:height-[3px] relative scroll-m-9 list-none uppercase transition-colors after:absolute after:bottom-[-3px] after:bg-current after:transition-[width]',
         {
           'after:w-8 text-fg-0': isActive,
           'after:w-0 hover:after:w-8 text-light-muted hover:text-fg-1':

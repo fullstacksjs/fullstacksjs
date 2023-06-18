@@ -1,1 +1,1 @@
-export type { Feature as Features } from './Features';
+export type { Feature } from './Features';

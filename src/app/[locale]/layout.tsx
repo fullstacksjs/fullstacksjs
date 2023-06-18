@@ -5,11 +5,19 @@ import { getServerSession } from 'next-auth';
 import { useLocale } from 'next-intl';
 
 import Socials from '@/components/Socials';
+import { useDirection } from '@/hooks/useDirection';
 
-import { AuthProvider } from './AuhProviders';
+import { AuthProvider } from './components/AuhProviders';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import { description, icons, JsonLd, keywords, ogImage, title } from './SEO';
+import {
+  description,
+  icons,
+  JsonLd,
+  keywords,
+  ogImage,
+  title,
+} from './components/SEO';
 
 export const rajdhani = Rajdhani({
   weight: ['500', '600', '700'],
@@ -53,6 +61,7 @@ interface Props {
 
 export default async function LocaleLayout({ children, params }: Props) {
   const locale = useLocale();
+  const direction = useDirection();
 
   const session = await getServerSession();
   if (params.locale !== locale) notFound();
@@ -60,6 +69,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html
       lang={locale}
+      dir={direction}
       className={`bg-dark-0 leading-normal text-light-0 ${rajdhani.variable} ${vazir.variable}`}
     >
       <head>

@@ -1,21 +1,31 @@
 'use client';
-import { signIn } from 'next-auth/react';
+import Image from 'next/image';
 
 import SecondaryButton from '@/components/SecondaryButton';
 
-import GithubOutlineIcon from './GithubIcon.svg';
+interface Props {
+  children: string;
+  avatar: string;
+  onClick?: () => void;
+  alt?: string;
+  width?: number;
+  height?: number;
+}
 
-function LoginButton() {
-  const handleLogin = () => {
-    void signIn('github');
-  };
-
+function LoginButton({
+  onClick,
+  avatar,
+  children,
+  width = 35,
+  height = 35,
+  alt = `${children}'s avatar`,
+}: Props) {
   return (
-    <SecondaryButton onClick={handleLogin}>
-      <div className="rounded-full border border-fg-0 bg-bg-0 p-3.5">
-        <GithubOutlineIcon />
+    <SecondaryButton onClick={onClick}>
+      <div className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-full border border-fg-0">
+        <Image src={avatar} width={width} height={height} alt={alt} />
       </div>
-      <p className="hidden tablet:mr-2 tablet:block">Login with Github</p>
+      <p className="hidden tablet:me-2 tablet:block">{children}</p>
     </SecondaryButton>
   );
 }
