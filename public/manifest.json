@@ -1,5 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+  "start_url": "/",
   "name": "FullstacksJS Community",
   "short_name": "FullstacksJS",
   "description": "FullstacksJS is an open-source community focused on knowledge sharing, exploring, and enhancing developer experience.",
