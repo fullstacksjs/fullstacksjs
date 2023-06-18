@@ -1,34 +1,35 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# FullstacksJS
 
-## Getting Started
+![Header](./assets/header.png)
 
-First, run the development server:
+## About US
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+**FullstacksJS** is an open-source community focused on knowledge sharing, exploring, and enhancing developer experience. The primary objective of this community is to establish a professional environment for in-depth contents in software development and engineering field.
+In order to learn and strengthen the culture of open source development and contribution, the projects that are developed in this community are entirely open source, and members are encouraged to participate.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Vision
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+> **WE GROW TOGETHER**
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Motivation
 
-## Learn More
+The Internet is full of unfiltered programming content, tutorials, and forums, which provide incomplete, outdated, and sometimes incorrect information to the knowledge seekers in this field. Therefore, we decided to establish a community where experts control and review the contents and activities.This creates a community that values **in-depth** and **correct** content.
 
-To learn more about Next.js, take a look at the following resources:
+# Values
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Values form our community and influence its behavior also have a direct impact on community's decision-making and contents.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+* Ethics: Ethics is the most important value in the community, which has the highest priority in decisions. In the community, moral principles are never sacrificed for the sake of other activities.
 
-## Deploy on Vercel
+* Validity: Expert approval is required for every community-produced and published content. If an error is discovered in previously published content, the community must notify the appropriate parties and update the content.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Social Media
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [Website](https://fullstacksjs.com)
+- [Telegram](https://t.me/fullstacks)
+- [YouTube](https://youtube.com/@FullstacksJS)
+- [LinkedIn](https://linkedin.com/company/fullstacksjs/)
+- [Discord](https://kutt.it/fsk-discord)
+- [Twitch](https://twitch.tv/fullstacksjs)
+- [GitHub](https://github.com/fullstacksjs)
+- [Twitter](https://twitter.com/fullstacksjs)
