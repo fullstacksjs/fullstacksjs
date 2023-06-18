@@ -1,7 +1,7 @@
 import { isEmpty } from '@fullstacksjs/toolbox';
 
 import SectionHeader from '@/components/SectionHeader';
-import type { FullstackEvent } from '@/data-layer/getEvents';
+import type { FullstackEvent } from '@/data-layer/domain';
 
 import EventCard from './EventCard';
 
@@ -18,7 +18,7 @@ export default function EventList({ events, title }: Props) {
       <SectionHeader>{title}</SectionHeader>
       <div className="mt-16 grid gap-16 tablet:grid-cols-2 desktop:grid-cols-3">
         {events.map((event) => (
-          <EventCard key={event.date} event={event} />
+          <EventCard key={event.slug} event={event} />
         ))}
       </div>
     </div>

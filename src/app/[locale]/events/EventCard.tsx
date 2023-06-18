@@ -1,18 +1,18 @@
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 
-import type { FullstackEvent } from '@/data-layer/getEvents';
+import type { FullstackEvent } from '@/data-layer/domain';
 
 interface Props {
   event: FullstackEvent;
 }
 
 export default function EventCard({ event }: Props): React.JSX.Element {
-  const t = useTranslations();
-  // const eventType = new Date(event.date) > new Date() ? 'upcoming' : 'archived';
+  const t = useTranslations('events');
+  const lecturers = event.lecturers[0]!;
 
   return (
-    <div className="dotted-border flex flex-col p-[1px]">
+    <div className="flex flex-col rounded-md border border-dashed border-fg-muted p-[1px]">
       <Image
         className="h-auto w-full flex-none rounded-t-[4px]"
         src={event.thumbnail.src}
@@ -25,24 +25,23 @@ export default function EventCard({ event }: Props): React.JSX.Element {
           <h4 className="text-md font-bold uppercase leading-none">
             {event.title.value.document.children[0].children[0].value}
           </h4>
-          <p className="text-xsm text-accent-0">{event.date}</p>
+          <p className="text-xsm text-accent-0">
+            {event.date.toLocaleDateString('en-UK')}
+          </p>
         </div>
         <div className="mt-auto">
           <div className="flex items-center justify-between">
             <Image
               className="rounded-full"
-              src={event.presenter.avatar.src}
-              alt={event.presenter.avatar.alt}
+              src={lecturers.avatar.src}
+              alt={lecturers.avatar.alt}
               width={24}
               height={24}
             />
             <span className="text-xsm text-accent-0">
-              {`${event.subscribersCount ?? 0} ${t(
-                'upcomingEvents.actionCountModifier',
-              )}`}
+              {`${event.subscribersCount ?? 0} ${t('subscribers')}`}
             </span>
           </div>
-          {/* <EventActionsBtn eventType={eventType} /> */}
         </div>
       </div>
     </div>

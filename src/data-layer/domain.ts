@@ -11,7 +11,7 @@ export interface Lecturer {
 export interface FullstackEvent {
   slug: string;
   title: any;
-  date: string;
+  date: Date;
   thumbnail: Media;
   subscribersCount?: number;
   lecturers: Lecturer[];

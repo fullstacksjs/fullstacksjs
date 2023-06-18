@@ -115,14 +115,18 @@
       }
     }
   },
-  "upcomingEvents": {
-    "title": "Upcoming Events",
-    "action": "Subscribe",
-    "actionCountModifier": "subscribers"
+  "notfound": {
+    "title": "Not Found"
   },
-  "archivedEvents": {
-    "title": "Archived Events",
-    "action": "Watch",
-    "actionCountModifier": "subscribers"
+  "events": {
+    "subscribers": "Subscribers",
+    "upcoming": {
+      "title": "Upcoming Events",
+      "action": "Subscribe"
+    },
+    "archived": {
+      "title": "Archived Events",
+      "action": "Watch"
+    }
   }
 }

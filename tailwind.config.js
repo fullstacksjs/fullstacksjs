@@ -36,6 +36,9 @@ module.exports = {
       wide: '1370px',
     },
     extend: {
+      borderRadius: {
+        md: '0.4rem',
+      },
       keyframes: {
         skeleton: {
           '0%': { transform: ['translateX(-200px)', 'skewX(-30deg)'] },

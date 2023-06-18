@@ -60,7 +60,7 @@ const toFullstacksJSEvent = (
       src: ev.thumbnail!.url,
     },
     lecturers: ev.lecturers.map(toLecturer),
-    date: ev.startDate,
+    date: new Date(ev.startDate),
   };
 };
 

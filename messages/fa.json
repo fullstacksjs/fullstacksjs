@@ -115,14 +115,15 @@
       }
     }
   },
-  "upcomingEvents": {
-    "title": "رویدادهای پیش رو",
-    "action": "تهیه اشتراک",
-    "actionCountModifier": "مشترک"
-  },
-  "archivedEvents": {
-    "title": "رویدادهای بایگانی شده",
-    "action": "تماشا ویدیو",
-    "actionCountModifier": "مشترک"
+  "events": {
+    "subscribers": "مشترک",
+    "upcoming": {
+      "title": "رویدادهای پیش رو",
+      "action": "تهیه اشتراک"
+    },
+    "archived": {
+      "title": "رویدادهای بایگانی شده",
+      "action": "تماشا ویدیو"
+    }
   }
 }

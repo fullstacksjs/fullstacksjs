@@ -7,16 +7,10 @@ import EventsContent from './EventContent';
 
 // export const dynamic = 'force-dynamic';
 
-export interface Lecturer {
-  slug: string;
-  name: string;
-  avatar: string;
-}
-
 export default async function EventsPage() {
   const events = await getEvents();
 
-  if (getServerFeature('events')) notFound();
+  if (!getServerFeature('events')) notFound();
 
   const upcomingEvents = events.filter(
     (event) => new Date(event.date) > new Date(),
