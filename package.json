@@ -38,6 +38,7 @@
     "change-case-all": "1.0.15",
     "dotenv": "16.1.4",
     "dotenv-cli": "7.2.1",
+    "encoding": "0.1.13",
     "eslint": "8.43.0",
     "eslint-config-next": "13.4.6",
     "postcss": "8.4.24",
