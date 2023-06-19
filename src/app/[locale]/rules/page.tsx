@@ -1,22 +1,17 @@
 import { NextIntlClientProvider, useLocale } from 'next-intl';
+import { getMessages } from '@/i18n';
 
-import Articles from '@/components/Articles';
-
-import RulesBody from './RulesBody';
+import RulesContent from './RulesContent';
 
 // export const dynamic = 'force-dynamic';
 
 export default async function RulesPage() {
   const locale = useLocale();
-
-  const messages = (await import(`../../../../messages/${locale}.json`))
-    .default;
+  const messages = await getMessages(locale);
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages.rules}>
-      <Articles>
-        <RulesBody />
-      </Articles>
+      <RulesContent />
     </NextIntlClientProvider>
   );
 }

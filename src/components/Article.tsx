@@ -4,7 +4,7 @@ interface Props {
   id?: string;
 }
 
-export const Article = ({ children, id, title }: Props): React.JSX.Element => {
+export const Article = ({ children, id, title }: Props) => {
   return (
     <article className="flex w-full flex-col gap-8">
       <h2 id={id} className="text-2xl font-bold">

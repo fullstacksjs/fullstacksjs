@@ -26,8 +26,8 @@ export const Authentication = ({ loginText }: Props): JSX.Element => {
     <LoginButton
       avatar={GithubOutlineIcon.src}
       alt="Github Logo"
-      width={20}
-      height={20}
+      width={16}
+      height={16}
       onClick={login}
     >
       {loginText}

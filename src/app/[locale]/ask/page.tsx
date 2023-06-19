@@ -1,42 +1,17 @@
-import { useTranslations } from 'next-intl';
+import { NextIntlClientProvider, useLocale } from 'next-intl';
 
-import { Article } from '@/components/Article';
-import Articles from '@/components/Articles';
-import { Rule } from '@/components/Rule';
-import { RuleSet } from '@/components/RuleSet';
-
-const asks = [
-  'precise',
-  'environment',
-  'diagnostic',
-  'sandbox',
-  'courteous',
-  'topic',
-  'xy',
-  'rush',
-  'guess',
-  'pv',
-  'homework',
-];
+import { getMessages } from '@/i18n';
+import AskContent from './AskContent';
 
 // export const dynamic = 'force-dynamic';
 
-export default function AskPage() {
-  const t = useTranslations('ask');
+export default async function AskPage() {
+  const locale = useLocale();
+  const messages = await getMessages(locale);
 
   return (
-    <Articles>
-      <Article title={t('title')}>
-        <RuleSet>
-          {asks.map((ask) => (
-            <Rule key={ask} target={ask}>
-              <p className="mb-2 text-accent-1">{t(`guides.${ask}.title`)}:</p>
-              <p className="text-light-0">{t(`guides.${ask}.desc`)}</p>
-              <br />
-            </Rule>
-          ))}
-        </RuleSet>
-      </Article>
-    </Articles>
+    <NextIntlClientProvider locale={locale} messages={messages.ask}>
+      <AskContent />
+    </NextIntlClientProvider>
   );
 }

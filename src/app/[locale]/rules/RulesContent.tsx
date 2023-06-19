@@ -1,11 +1,10 @@
 'use client';
-import { isNull } from '@fullstacksjs/toolbox';
 import { useTranslations } from 'next-intl';
-import { useState } from 'react';
 
 import { Article } from '@/components/Article';
+import { Articles } from '@/components/Articles';
 import { Paragraph } from '@/components/Paragraph';
-import { Rule } from '@/components/Rule';
+import { Rule, useRuleTarget } from '@/components/Rule';
 import { RuleSet } from '@/components/RuleSet';
 
 const rules = [
@@ -22,32 +21,26 @@ const rules = [
 ];
 
 const guidelines = ['kind', 'topic', 'cross', 'opinion'];
+const i18nMapper = { b: (chunk: React.ReactNode) => <b>{chunk}</b> };
 
-export default function RulesBody(): React.JSX.Element {
-  const [activeTarget, setActive] = useState<string | undefined>();
+export default function RulesContent(): React.JSX.Element {
   const t = useTranslations();
-
-  const handleSelect = (target: string) => {
-    if (target === activeTarget) setActive(undefined);
-    else setActive(target);
-  };
+  const { handleSelect, getState: isActive } = useRuleTarget();
 
   return (
-    <>
+    <Articles>
       <Article id="rules" title={t('title')}>
-        <Paragraph>
-          {t.rich('desc', { b: (chunk) => <b>{chunk}</b> })}
-        </Paragraph>
+        <Paragraph>{t.rich('desc', i18nMapper)}</Paragraph>
 
         <RuleSet>
           {rules.map((rule) => (
             <Rule
               key={rule}
               onSelect={handleSelect}
-              isActive={isNull(activeTarget) || activeTarget === rule}
+              state={isActive(rule)}
               target={rule}
             >
-              {t.rich(`items.${rule}`, { b: (chunk) => <b>{chunk}</b> })}
+              {t.rich(`items.${rule}`, i18nMapper)}
             </Rule>
           ))}
         </RuleSet>
@@ -59,7 +52,7 @@ export default function RulesBody(): React.JSX.Element {
             <Rule
               key={guide}
               onSelect={handleSelect}
-              isActive={isNull(activeTarget) || activeTarget === guide}
+              state={isActive(guide)}
               target={guide}
             >
               {t(`guidelines.items.${guide}`)}
@@ -67,6 +60,6 @@ export default function RulesBody(): React.JSX.Element {
           ))}
         </RuleSet>
       </Article>
-    </>
+    </Articles>
   );
 }
