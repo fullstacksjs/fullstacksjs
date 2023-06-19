@@ -5,7 +5,7 @@ import { Articles } from '@/components/Articles';
 import { Highlight } from '@/components/Highlight';
 import { Paragraph } from '@/components/Paragraph';
 
-// export const dynamic = 'force-dynamic';
+export const dynamic = 'force-dynamic';
 
 export default function Home() {
   const t = useTranslations('main');

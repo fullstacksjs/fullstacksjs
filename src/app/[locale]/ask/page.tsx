@@ -4,7 +4,7 @@ import { getMessages } from '@/i18n';
 
 import AskContent from './AskContent';
 
-// export const dynamic = 'force-dynamic';
+export const dynamic = 'force-dynamic';
 
 export default async function AskPage() {
   const locale = useLocale();
