@@ -5,10 +5,12 @@ import { getServerSession } from 'next-auth';
 import { useLocale } from 'next-intl';
 
 import Socials from '@/components/Socials';
+import { serverConfig } from '@/config/serverConfig';
 import { useDirection } from '@/hooks/useDirection';
 
 import { AuthProvider } from './components/AuhProviders';
 import Banner from './components/Banner';
+import GoogleAnalytics from './components/GoogleAnalytics';
 import Header from './components/Header';
 import {
   description,
@@ -62,6 +64,8 @@ interface Props {
 export default async function LocaleLayout({ children, params }: Props) {
   const locale = useLocale();
   const direction = useDirection();
+  const { containerId, trackingId } = serverConfig.analytics;
+  const isAnalyticsActive = containerId && trackingId;
 
   const session = await getServerSession();
   if (params.locale !== locale) notFound();
@@ -74,6 +78,9 @@ export default async function LocaleLayout({ children, params }: Props) {
     >
       <head>
         <JsonLd />
+        {isAnalyticsActive ? (
+          <GoogleAnalytics containerId={containerId} trackingId={trackingId} />
+        ) : null}
       </head>
       <body>
         <AuthProvider session={session!}>
