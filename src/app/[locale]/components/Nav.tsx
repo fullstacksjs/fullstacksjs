@@ -21,7 +21,7 @@ export default function Nav({ href, children, direction }: Props) {
     <li
       aria-current={isActive ? 'page' : undefined}
       className={clsx(
-        'after:height-[3px] relative scroll-m-9 list-none uppercase transition-colors after:absolute after:bottom-[-3px] after:bg-current after:transition-[width]',
+        'relative scroll-m-9 list-none uppercase transition-colors after:absolute after:bottom-[-3px] after:h-[3px] after:bg-current after:transition-[width]',
         {
           'after:w-8 text-fg-0': isActive,
           'after:w-0 hover:after:w-8 text-light-muted hover:text-fg-1':

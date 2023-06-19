@@ -25,7 +25,7 @@ export default function Logo() {
         </g>
       </g>
 
-      <g className="animate-orbit origin-center">
+      <g className="origin-center">
         <circle cx="226" cy="136" r="1" transform="rotate(90 226 136)" />
         <circle
           cx="222.96"
@@ -167,7 +167,7 @@ export default function Logo() {
         />
       </g>
 
-      <g className="animate-orbit-rev origin-center" opacity="0.6">
+      <g className="origin-center" opacity="0.6">
         <circle cx="249" cy="136" r="0.75" transform="rotate(90 249 136)" />
         <circle
           cx="245.184"
@@ -309,7 +309,7 @@ export default function Logo() {
         />
       </g>
 
-      <g className="animate-orbit origin-center" opacity="0.6">
+      <g className="origin-center" opacity="0.6">
         <circle cx="271" cy="136" r="0.5" transform="rotate(90 271 136)" />
         <circle
           cx="268.494"

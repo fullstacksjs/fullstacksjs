@@ -52,7 +52,7 @@ export default function Socials(): React.JSX.Element {
           <li key={children} className="list-none text-accent-0">
             <SocialItem href={href}>
               <Icon className="shrink-0" />
-              <span className="w-40 text-light-0 transition-colors hover:text-accent-0 mobile:w-64 wide:w-full">
+              <span className="w-40 text-light-0 transition-colors hover:text-accent-0 mobile:w-64 tablet:w-auto wide:w-full">
                 {t(`social.${children}`)}
               </span>
             </SocialItem>

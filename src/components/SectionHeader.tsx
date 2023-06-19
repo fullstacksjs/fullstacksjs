@@ -5,7 +5,7 @@ interface Props {
 
 export default function SectionHeader({ id, children }: Props) {
   return (
-    <h2 id={id} className="h2 text-2xl font-bold">
+    <h2 id={id} className="text-2xl font-bold">
       {children}
     </h2>
   );
