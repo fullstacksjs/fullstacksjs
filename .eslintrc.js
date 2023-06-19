@@ -11,4 +11,7 @@ module.exports = init({
       resolverProject: './tsconfig.json',
     },
   },
+  rules: {
+    'tailwindcss/no-custom-classname': 'warn',
+  },
 });
