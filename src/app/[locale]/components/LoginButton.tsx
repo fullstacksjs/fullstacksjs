@@ -22,7 +22,7 @@ function LoginButton({
 }: Props) {
   return (
     <SecondaryButton onClick={onClick}>
-      <div className="bg-dark-0 flex h-14 w-14 items-center justify-center overflow-hidden rounded-full border border-fg-0">
+      <div className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-full border border-fg-0 bg-dark-0">
         <Image src={avatar} width={width} height={height} alt={alt} />
       </div>
       <p className="hidden tablet:me-2 tablet:block">{children}</p>

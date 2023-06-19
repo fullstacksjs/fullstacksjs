@@ -1,4 +1,5 @@
 import { NextIntlClientProvider, useLocale } from 'next-intl';
+
 import { getMessages } from '@/i18n';
 
 import RulesContent from './RulesContent';

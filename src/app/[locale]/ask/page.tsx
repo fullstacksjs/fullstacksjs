@@ -1,6 +1,7 @@
 import { NextIntlClientProvider, useLocale } from 'next-intl';
 
 import { getMessages } from '@/i18n';
+
 import AskContent from './AskContent';
 
 // export const dynamic = 'force-dynamic';

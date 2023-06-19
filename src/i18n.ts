@@ -1,7 +1,9 @@
 import 'server-only';
+
 import { getRequestConfig } from 'next-intl/server';
 
-import message from '../messages/en.json';
+import type message from '../messages/en.json';
+
 type Messages = typeof message;
 
 export const getMessages = async (locale: string): Promise<Messages> => {

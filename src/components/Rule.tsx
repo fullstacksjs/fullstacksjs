@@ -4,7 +4,7 @@ import { isNull } from '@fullstacksjs/toolbox';
 import clsx from 'clsx';
 import { useState } from 'react';
 
-export type RuleState = 'focused' | 'faded' | 'idle';
+export type RuleState = 'faded' | 'focused' | 'idle';
 
 interface Props {
   target: string;
@@ -38,6 +38,7 @@ export const Rule = ({ state, target, children, onSelect }: Props) => {
 
 export function useRuleTarget() {
   const [activeTarget, setActive] = useState<string | undefined>();
+
   const getState = (target: string): RuleState => {
     if (isNull(activeTarget)) return 'idle';
     if (activeTarget === target) return 'focused';

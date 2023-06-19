@@ -50,7 +50,7 @@ export default function GoogleAnalytics({ trackingId, containerId }: Props) {
               fs?.parentNode?.insertBefore(s, fs);
           `,
         }}
-      ></Script>
+      />
     </>
   );
 }
