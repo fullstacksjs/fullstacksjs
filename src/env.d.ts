@@ -10,6 +10,8 @@ interface ImportMetaEnv {
   readonly PUBLIC_GA_TRACKING_ID?: string;
   readonly PUBLIC_GTM_CONTAINER?: string;
   readonly PUBLIC_FEATURES?: string;
+  readonly PUBLIC_DATO_ENDPOINT?: string;
+  readonly PUBLIC_DATO_TOKEN?: string;
 }
 
 interface ImportMeta {

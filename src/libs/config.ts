@@ -20,6 +20,10 @@ const Config = z.object({
     containerId: z.string().optional(),
     trackingId: z.string().optional(),
   }),
+  dato: z.object({
+    endpoint: z.string(),
+    token: z.string(),
+  }),
   features: z.object({
     about: z.string().optional().transform<boolean>(hasFeature('about')),
     rules: z.string().optional().transform<boolean>(hasFeature('rules')),
@@ -32,6 +36,10 @@ const Config = z.object({
 export type Config = z.infer<typeof Config>;
 
 export const config = Config.parse({
+  dato: {
+    endpoint: import.meta.env.PUBLIC_DATO_ENDPOINT,
+    token: import.meta.env.PUBLIC_DATO_TOKEN,
+  },
   auth0: {
     domain: import.meta.env.PUBLIC_AUTH0_DOMAIN,
     clientId: import.meta.env.PUBLIC_AUTH0_CLIENT_ID,

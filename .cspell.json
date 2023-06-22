@@ -10,8 +10,10 @@
     "astrojs",
     "browserconfig",
     "classname",
+    "codegen",
     "codesandbox",
     "crossorigin",
+    "datocms",
     "evenodd",
     "fullstacksjs",
     "funder",
@@ -44,7 +46,8 @@
     "علائمی",
     "لایوها",
     "لینکدین",
-    "منتورها"
+    "منتورها",
+    "تاپیک"
   ],
   "dictionaries": ["node"]
 }

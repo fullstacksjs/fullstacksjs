@@ -3,70 +3,23 @@ import { changeLanguage, t } from 'i18next';
 
 import EventsList from '../../components/EventsList.astro';
 import SeparatorLine from '../../components/SeparatorLine.astro';
+import { getEvents } from '../../data-layer/getEvents';
 import Layout from '../../layouts/Layout.astro';
 
 changeLanguage('fa');
 
-export interface Event {
-  id: number;
-  title: string;
-  date: string;
-  thumbnail: string;
-  subscribersCount: number;
-  presenterAvatar: string;
+export interface Lecturer {
+  slug: string;
+  name: string;
+  avatar: string;
 }
-const events: Event[] = [
-  {
-    id: 1,
-    title: 'How to become a pragmatic programmer',
-    date: '2024/02/27',
-    thumbnail: '/public/cardBG.png',
-    subscribersCount: 110,
-    presenterAvatar: '/public/avatar.png',
-  },
-  {
-    id: 2,
-    title: 'Nix and nixos',
-    date: '2022/02/27',
-    thumbnail: '/public/cardBG.png',
-    subscribersCount: 110,
-    presenterAvatar: '/public/avatar.png',
-  },
-  {
-    id: 3,
-    title: 'Webpack',
-    date: '2022/02/27',
-    thumbnail: '/public/cardBG.png',
-    subscribersCount: 110,
-    presenterAvatar: '/public/avatar.png',
-  },
-  {
-    id: 4,
-    title: '10X programming',
-    date: '2022/02/27',
-    thumbnail: '/public/cardBG.png',
-    subscribersCount: 110,
-    presenterAvatar: '/public/avatar.png',
-  },
-  {
-    id: 5,
-    title: 'Nix and nixos',
-    date: '2024/02/27',
-    thumbnail: '/public/cardBG.png',
-    subscribersCount: 110,
-    presenterAvatar: '/public/avatar.png',
-  },
-];
-const upcomingEvents = events.filter(
-  (event) => new Date(event.date) > new Date(),
-);
-const archivedEvents = events.filter(
-  (event) => new Date() > new Date(event.date),
-);
+const events = await getEvents();
+const upcomingEvents = events.filter((e) => e.date > new Date());
+const archivedEvents = events.filter((e) => new Date() > e.date);
 ---
 
 <Layout title="titles.events">
-  <EventsList events={upcomingEvents} title={t('upcomingEvents.title')} />
+  <EventsList events={upcomingEvents} title={t('events.upcoming.title')} />
   <SeparatorLine />
-  <EventsList events={archivedEvents} title={t('archivedEvents.title')} />
+  <EventsList events={archivedEvents} title={t('events.archived.title')} />
 </Layout>

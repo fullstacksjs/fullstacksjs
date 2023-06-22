@@ -1,0 +1,25 @@
+define: &HEADER
+  - '/* This file is generated, do not edit! */'
+  - '/* eslint-disable */'
+  - '/* cspell:disable */'
+
+schema:
+  - ${DATO_ENDPOINT}:
+      headers:
+        authorization: 'Bearer ${DATO_TOKEN}'
+
+documents: './src/data-layer/**/*.ts'
+extensions:
+  codegen:
+    emitLegacyCommonJSImports: false
+    overwrite: true
+    generates:
+      ./src/data-layer/__generated__.ts:
+        plugins:
+          - add:
+              content: *HEADER
+          - typescript
+          - typescript-operations
+    config:
+      namingConvention:
+        enumValues: './configs/pascalCaseWithUnderscores.cjs'

@@ -13,10 +13,14 @@ interface Nav {
 }
 
 const navs: Nav[] = [
-  { feature: 'about', href: '/', children: t('navigation.about') },
-  { feature: 'rules', href: '/rules', children: t('navigation.rules') },
-  { feature: 'ask', href: '/ask', children: t('navigation.ask') },
-  { feature: 'events', href: '/events', children: t('navigation.events') },
+  { feature: 'about', href: '/', children: t('header.navigation.about') },
+  { feature: 'rules', href: '/rules', children: t('header.navigation.rules') },
+  { feature: 'ask', href: '/ask', children: t('header.navigation.ask') },
+  {
+    feature: 'events',
+    href: '/events',
+    children: t('header.navigation.events'),
+  },
 ];
 ---
 

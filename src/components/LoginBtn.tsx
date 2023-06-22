@@ -1,7 +1,7 @@
 import { useAuth0 } from '@auth0/auth0-react';
 
 import useIsDeviceTablet from '../hooks/useDeviceSize';
-import GithubOutlineIcon from './Icons/GithubOutlineIcon.';
+import GithubOutlineIcon from './Icons/GithubOutlineIcon';
 import SecondaryButton from './SecondaryButton';
 
 interface Props {

@@ -13,13 +13,13 @@ interface Props {
 }
 
 const { href } = Astro.props;
-const isCurrentPath =
+const isActive =
   removeTrailingSlashes(removeLeadingSlashes(href.trim())) ===
   removeTrailingSlashes(removeLeadingSlashes(pathname.trim()));
 
 const isRtl = i18next.dir() === 'rtl';
 
-const ariaProps: HTMLAttributes<'li'> = isCurrentPath
+const ariaProps: HTMLAttributes<'li'> = isActive
   ? { 'aria-current': 'page' }
   : {};
 ---
@@ -27,10 +27,10 @@ const ariaProps: HTMLAttributes<'li'> = isCurrentPath
 <li
   {...ariaProps}
   class:list={[
-    'relative scroll-m-9 list-none uppercase transition-colors',
+    'relative scroll-m-9 list-none uppercase transition-colors after:absolute after:bottom-[-3px] after:h-[3px] after:bg-current after:transition-[width]',
     {
-      'after:w-8 text-fg-0': isCurrentPath,
-      'hover:after:w-8 text-light-muted hover:text-fg-1': !isCurrentPath,
+      'after:w-8 text-fg-0': isActive,
+      'after:w-0 hover:after:w-8 text-light-muted hover:text-fg-1': !isActive,
       'after:left-0': !isRtl,
       'after:right-0': isRtl,
     },
@@ -38,21 +38,8 @@ const ariaProps: HTMLAttributes<'li'> = isCurrentPath
 >
   <a
     href={href}
-    class={'rounded-sm text-base focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-8 focus-visible:outline-accent-0 tablet:text-md'}
+    class="rounded-sm text-base focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-8 focus-visible:outline-accent-0 tablet:text-md"
   >
     <slot />
   </a>
 </li>
-
-<style>
-  li::after {
-    content: ' ';
-    position: absolute;
-    bottom: -3px;
-    width: 0;
-    height: 3px;
-    background-color: currentColor;
-    transition-property: width;
-    transition-duration: inherit;
-  }
-</style>

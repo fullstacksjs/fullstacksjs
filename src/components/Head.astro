@@ -89,7 +89,7 @@ const isAnalyticEnabled = Boolean(trackingId) && Boolean(containerId);
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   {
     isAnalyticEnabled && (
-      <Analytics containerId={containerId} trackingId={trackingId} />
+      <Analytics containerId={containerId!} trackingId={trackingId!} />
     )
   }
 </head>
