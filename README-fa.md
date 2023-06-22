@@ -1,10 +1,7 @@
-<div align="center">
-<img src="https://raw.githubusercontent.com/fullstacksjs/fullstacksjs/main/assets/logo.svg" height="100" />
-</div>
+<h1 lang="fa" dir="rtl" align="right">FullstacksJS</h1>
 
-<h2 lang="fa" dir="rtl" align="right">FullstacksJS</h2>
+![Header](./assets/header.png)
 
-<img src="https://raw.githubusercontent.com/fullstacksjs/fullstacksjs/main/assets/header.webp" />
 
 <h2 lang="fa" dir="rtl" align="right">درباره جامعه</h2>
 <p lang="fa" dir="rtl" align="justify">
@@ -44,17 +41,12 @@
 
 ## شبکه‌های مجازی
 
+- [وبسایت](https://fullstacksjs.com)
 - [تلگرام](https://t.me/fullstacks)
-- [یوتیوب](https://www.youtube.com/c/FullstacksAcademy)
-- [لینکدین](https://www.linkedin.com/company/fullstacksjs/)
+- [یوتیوب](https://youtube.com/@FullstacksJS)
+- [لینکدین](https://linkedin.com/company/fullstacksjs/)
 - [دیسکورد](https://kutt.it/fsk-discord)
-- [توئیتچ](https://www.twitch.tv/fullstacksjs)
+- [توئیتچ](https://twitch.tv/fullstacksjs)
 - [گیت‌هاب](https://github.com/fullstacksjs)
 - [توئیتر](https://twitter.com/fullstacksjs)
-
-## میانبرها
-
-- [FullstacksJS CAMP →](./CAMP.md)
-
-![Footer](./assets/footer.png)
 
