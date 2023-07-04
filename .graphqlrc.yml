@@ -4,7 +4,7 @@ define: &HEADER
   - '/* cspell:disable */'
 
 schema:
-  - 'https://graphql.datocms.com/':
+  - ${DATO_ENDPOINT}:
       headers:
         authorization: 'Bearer ${DATO_TOKEN}'
 
@@ -22,4 +22,4 @@ extensions:
           - typescript-operations
     config:
       namingConvention:
-        enumValues: './configs/pascalCaseWithUnderscores'
+        enumValues: './configs/pascalCaseWithUnderscores.js'

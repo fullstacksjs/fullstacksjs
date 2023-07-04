@@ -5,8 +5,6 @@ import { getServerFeature } from '@/features/getServerFeatures';
 
 import EventsContent from './EventContent';
 
-export const dynamic = 'force-dynamic';
-
 export default async function EventsPage() {
   const events = await getEvents();
 

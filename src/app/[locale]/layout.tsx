@@ -95,7 +95,3 @@ export default async function LocaleLayout({ children, params }: Props) {
     </html>
   );
 }
-
-export function generateStaticParams() {
-  return [{ locale: 'en' }, { locale: 'fa' }];
-}

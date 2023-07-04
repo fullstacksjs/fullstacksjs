@@ -1,18 +1,15 @@
-export interface Media {
-  src: string;
-  alt: string;
-}
+import type { ResponsiveImageType } from 'react-datocms/image';
 
 export interface Lecturer {
   name: string;
-  avatar: Media;
+  avatar: ResponsiveImageType;
 }
 
-export interface FullstackEvent {
+export interface FullstacksJSEvent {
   slug: string;
   title: any;
   date: Date;
-  thumbnail: Media;
+  thumbnail: ResponsiveImageType;
   subscribersCount?: number;
   lecturers: Lecturer[];
 }

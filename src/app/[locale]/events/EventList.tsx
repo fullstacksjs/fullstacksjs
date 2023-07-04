@@ -1,12 +1,12 @@
 import { isEmpty } from '@fullstacksjs/toolbox';
 
 import SectionHeader from '@/components/SectionHeader';
-import type { FullstackEvent } from '@/data-layer/domain';
+import type { FullstacksJSEvent } from '@/data-layer/domain';
 
 import EventCard from './EventCard';
 
 interface Props {
-  events: FullstackEvent[];
+  events: FullstacksJSEvent[];
   title: string;
 }
 
