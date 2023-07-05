@@ -16,7 +16,7 @@ export default function EventList({ events, title }: Props) {
   return (
     <div>
       <SectionHeader>{title}</SectionHeader>
-      <div className="mt-16 grid gap-16 tablet:grid-cols-2 desktop:grid-cols-3">
+      <div className="mt-16 grid gap-16 tablet:grid-cols-2 wide:grid-cols-3">
         {events.map((event) => (
           <EventCard key={event.slug} event={event} />
         ))}
