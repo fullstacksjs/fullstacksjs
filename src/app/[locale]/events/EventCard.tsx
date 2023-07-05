@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
+import { format } from 'date-fns';
 import { useTranslations } from 'next-intl';
 import { Image } from 'react-datocms/image';
 
@@ -22,7 +23,7 @@ export default function EventCard({ event }: Props) {
         <div className="h-[89px] text-xl font-bold leading-tight">
           <EventCardTitle>{event.title}</EventCardTitle>
           <p className="text-xsm text-accent-0">
-            {event.date.toLocaleDateString('en-UK')}
+            {format(event.date, 'dd/MM/yyyy')}
           </p>
         </div>
         <div className="flex items-center justify-between">
