@@ -120,6 +120,7 @@
   },
   "events": {
     "subscribers": "{count, number} مشترک",
+    "waiting": "در حال بارگذاری",
     "upcoming": {
       "title": "رویدادهای پیش رو",
       "action": "تهیه اشتراک"
