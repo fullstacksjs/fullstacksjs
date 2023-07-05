@@ -6,11 +6,17 @@ import type message from '../messages/en.json';
 
 type Messages = typeof message;
 
-export const getMessages = async (locale: string): Promise<Messages> => {
-  const { default: messages } = await import(`../messages/${locale}.json`);
-  return messages;
+const locales: Record<Locales, any> = {
+  en: import('../messages/en.json').then((x) => x.default),
+  fa: import('../messages/fa.json').then((x) => x.default),
 };
 
+export const getMessages = async (locale: Locales): Promise<Messages> => {
+  return locales[locale] as Promise<Messages>;
+};
+
+export type Locales = 'en' | 'fa';
+
 export default getRequestConfig(async ({ locale }: { locale: string }) => {
-  return { messages: await getMessages(locale) };
+  return { messages: await getMessages(locale as Locales) };
 });
