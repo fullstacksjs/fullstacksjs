@@ -3,15 +3,13 @@ import { useTranslations } from 'next-intl';
 import { Image } from 'react-datocms/image';
 import { renderNodeRule, StructuredText } from 'react-datocms/structured-text';
 
+import { Button } from '@/components/Button';
 import { Highlight } from '@/components/Highlight';
 import type { FullstacksJSEvent } from '@/data-layer/domain';
 
 interface Props {
   event: FullstacksJSEvent;
 }
-
-const buttonClass =
-  'flex items-center justify-center rounded-lg border border-accent-0 px-12 py-4 text-sm font-semibold text-accent-0 transition-[background-color,color] hover:bg-accent-0 hover:text-bg-0 disabled:border-none disabled:bg-bg-muted disabled:text-fg-muted';
 
 export default function EventCard({ event }: Props) {
   const t = useTranslations();
@@ -51,17 +49,15 @@ export default function EventCard({ event }: Props) {
             ) : null}
           </div>
           {event.isUpcoming ? (
-            <button className="flex items-center justify-center rounded-lg border border-accent-0 px-12 py-4 text-sm font-semibold text-accent-0 transition-[background-color,color] hover:bg-accent-0 hover:text-bg-0 disabled:border-none disabled:bg-bg-muted disabled:text-fg-muted">
-              {t('events.upcoming.action')}
-            </button>
+            <Button variant="outline">{t('events.upcoming.action')}</Button>
           ) : event.mediaUrl ? (
-            <a className={buttonClass} href={event.mediaUrl}>
-              {t('events.archived.action')}
-            </a>
+            <Button variant="outline" asChild>
+              <a href={event.mediaUrl}>{t('events.archived.action')}</a>
+            </Button>
           ) : (
-            <button className={buttonClass} disabled>
+            <Button variant="outline" disabled>
               {t('events.waiting')}
-            </button>
+            </Button>
           )}
         </div>
       </div>

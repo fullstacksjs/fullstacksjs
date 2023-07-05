@@ -1,12 +1,36 @@
-import type { LinkProps } from 'next/link';
-import Link from 'next/link';
+import { Slot } from '@radix-ui/react-slot';
+import clsx from 'clsx';
+import { twMerge } from 'tailwind-merge';
 
-export const Button = (
-  props: LinkProps & { children: React.ReactNode },
-): JSX.Element => {
+interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  children: React.ReactNode;
+  className?: string;
+  variant?: 'contained' | 'outline';
+  asChild?: boolean;
+}
+
+export const Button = ({
+  variant = 'contained',
+  className,
+  asChild,
+  ...props
+}: Props) => {
+  const Comp = asChild ? Slot : 'button';
+
   return (
-    <Link
-      className="flex flex-row items-center justify-center rounded-lg bg-accent-0 px-12 py-4 text-sm font-semibold uppercase leading-snug text-dark-0 outline-1 outline-offset-4 outline-accent-0 ring-4 ring-accent-0/30 transition-shadow hover:ring-[6px] hover:ring-accent-0/40 focus:outline"
+    <Comp
+      className={twMerge(
+        clsx(
+          'flex flex-row items-center justify-center rounded-lg px-12 py-4 text-sm font-semibold leading-snug disabled:border-none disabled:bg-bg-muted disabled:text-fg-muted',
+          {
+            'border border-accent-0 text-accent-0 transition-[background-color,color] hover:bg-accent-0 hover:text-bg-0 focus:text-bg-0 focus:bg-accent-0 focus:outline-none':
+              variant === 'outline',
+            'bg-accent-0 text-dark-0 transition-shadow':
+              variant === 'contained',
+          },
+        ),
+        className,
+      )}
       {...props}
     />
   );
