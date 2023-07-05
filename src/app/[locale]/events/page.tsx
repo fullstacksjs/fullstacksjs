@@ -6,17 +6,9 @@ import { getServerFeature } from '@/features/getServerFeatures';
 import EventsContent from './EventContent';
 
 export default async function EventsPage() {
-  const events = await getEvents();
-
   if (!getServerFeature('events')) notFound();
 
-  const upcomingEvents = events.filter(
-    (event) => new Date(event.date) > new Date(),
-  );
+  const { upcoming, archived } = await getEvents();
 
-  const archivedEvents = events.filter(
-    (event) => new Date() > new Date(event.date),
-  );
-
-  return <EventsContent upcoming={upcomingEvents} archived={archivedEvents} />;
+  return <EventsContent upcoming={upcoming} archived={archived} />;
 }

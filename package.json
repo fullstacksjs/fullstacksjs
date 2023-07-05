@@ -10,8 +10,9 @@
     "codegen": "dotenv -e .env.local graphql-codegen"
   },
   "dependencies": {
-    "@fullstacksjs/toolbox": "3.3.0",
+    "@fullstacksjs/toolbox": "next",
     "clsx": "1.2.1",
+    "date-fns": "2.30.0",
     "graphql-request": "6.1.0",
     "next": "13.4.6",
     "next-auth": "4.22.1",

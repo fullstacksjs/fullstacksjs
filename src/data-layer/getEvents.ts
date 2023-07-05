@@ -1,11 +1,12 @@
 import 'server-only';
 
+import { isPast } from 'date-fns';
 import { gql } from 'graphql-request';
 import type { ResponsiveImageType } from 'react-datocms/image';
 
 import type { AllEventsQuery, ImagePartsFragment } from './__generated__';
 import { datoClient } from './datoClient';
-import type { FullstacksJSEvent, Lecturer } from './domain';
+import type { Events, FullstacksJSEvent, Lecturer } from './domain';
 
 const query = gql`
   fragment ImageParts on ResponsiveImage {
@@ -62,16 +63,26 @@ const toLecturer = (
 const toFullstacksJSEvent = (
   ev: AllEventsQuery['allEvents'][number],
 ): FullstacksJSEvent => {
+  const date = new Date(ev.startDate);
+
   return {
     slug: ev.slug!,
     title: ev.title,
     thumbnail: toMedia(ev.thumbnail!.responsiveImage!),
     lecturers: ev.lecturers.map(toLecturer),
-    date: new Date(ev.startDate),
+    date,
+    isUpcoming: !isPast(date),
   };
 };
 
-export const getEvents = async (): Promise<FullstacksJSEvent[]> => {
+export const getEvents = async (): Promise<Events> => {
   const data = await datoClient.request<AllEventsQuery>(query);
-  return data.allEvents.map(toFullstacksJSEvent);
+  return data.allEvents.map(toFullstacksJSEvent).reduce<Events>(
+    (evs, ev) => {
+      if (ev.isUpcoming) evs.upcoming.push(ev);
+      else evs.archived.push(ev);
+      return evs;
+    },
+    { upcoming: [], archived: [] },
+  );
 };

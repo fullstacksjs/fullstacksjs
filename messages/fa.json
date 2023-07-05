@@ -119,7 +119,7 @@
     }
   },
   "events": {
-    "subscribers": "مشترک",
+    "subscribers": "{count, number} مشترک",
     "upcoming": {
       "title": "رویدادهای پیش رو",
       "action": "تهیه اشتراک"

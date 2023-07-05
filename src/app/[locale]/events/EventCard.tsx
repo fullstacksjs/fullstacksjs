@@ -41,9 +41,11 @@ export default function EventCard({ event }: Props): React.JSX.Element {
         <div className="mt-auto">
           <div className="flex items-center justify-between">
             <Image className="rounded-full" data={lecturers.avatar} />
-            <span className="text-xsm text-accent-0">
-              {`0 ${t('events.subscribers')}`}
-            </span>
+            {event.isUpcoming ? (
+              <span className="text-xsm text-accent-0">
+                {t('events.subscribers', { count: 0 })}
+              </span>
+            ) : null}
           </div>
         </div>
       </div>

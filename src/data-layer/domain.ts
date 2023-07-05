@@ -12,4 +12,10 @@ export interface FullstacksJSEvent {
   thumbnail: ResponsiveImageType;
   subscribersCount?: number;
   lecturers: Lecturer[];
+  isUpcoming: boolean;
+}
+
+export interface Events {
+  upcoming: FullstacksJSEvent[];
+  archived: FullstacksJSEvent[];
 }

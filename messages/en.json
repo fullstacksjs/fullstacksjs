@@ -122,7 +122,7 @@
     "title": "Not Found"
   },
   "events": {
-    "subscribers": "Subscribers",
+    "subscribers": "{count, number} Subscribers",
     "upcoming": {
       "title": "Upcoming Events",
       "action": "Subscribe"
