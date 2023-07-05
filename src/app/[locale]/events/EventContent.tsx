@@ -1,3 +1,4 @@
+import { isEmpty } from '@fullstacksjs/toolbox';
 import { useTranslations } from 'next-intl';
 
 import { Separator } from '@/components/Separator';
@@ -11,7 +12,7 @@ export default function EventsContent({ upcoming, archived }: Events) {
   return (
     <>
       <EventList events={upcoming} title={t('upcoming.title')} />
-      <Separator />
+      {isEmpty(upcoming) || isEmpty(archived) ? null : <Separator />}
       <EventList events={archived} title={t('archived.title')} />
     </>
   );

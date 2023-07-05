@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "codegen": "dotenv -e .env.local graphql-codegen"
+    "codegen": "dotenv graphql-codegen"
   },
   "dependencies": {
     "@fullstacksjs/toolbox": "next",
@@ -26,6 +26,7 @@
     "zod": "3.21.4"
   },
   "devDependencies": {
+    "@cspell/dict-fa-ir": "2.0.0",
     "@fullstacksjs/eslint-config": "9.6.0",
     "@fullstacksjs/tsconfig": "1.1.0",
     "@graphql-codegen/add": "5.0.0",

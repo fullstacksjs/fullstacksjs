@@ -123,6 +123,7 @@
   },
   "events": {
     "subscribers": "{count, number} Subscribers",
+    "waiting": "Waiting",
     "upcoming": {
       "title": "Upcoming Events",
       "action": "Subscribe"

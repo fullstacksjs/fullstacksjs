@@ -23,6 +23,7 @@ const query = gql`
     allEvents {
       slug
       startDate
+      mediaUrl
       title {
         blocks
         links
@@ -72,6 +73,7 @@ const toFullstacksJSEvent = (
     lecturers: ev.lecturers.map(toLecturer),
     date,
     isUpcoming: !isPast(date),
+    mediaUrl: ev.mediaUrl ?? undefined,
   };
 };
 

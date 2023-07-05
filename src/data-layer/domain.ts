@@ -13,6 +13,7 @@ export interface FullstacksJSEvent {
   subscribersCount?: number;
   lecturers: Lecturer[];
   isUpcoming: boolean;
+  mediaUrl?: string;
 }
 
 export interface Events {

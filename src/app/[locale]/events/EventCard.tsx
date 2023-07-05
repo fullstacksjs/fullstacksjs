@@ -10,7 +10,10 @@ interface Props {
   event: FullstacksJSEvent;
 }
 
-export default function EventCard({ event }: Props): React.JSX.Element {
+const buttonClass =
+  'flex items-center justify-center rounded-lg border border-accent-0 px-12 py-4 text-sm font-semibold text-accent-0 transition-[background-color,color] hover:bg-accent-0 hover:text-bg-0 disabled:border-none disabled:bg-bg-muted disabled:text-fg-muted';
+
+export default function EventCard({ event }: Props) {
   const t = useTranslations();
   const lecturers = event.lecturers[0]!;
 
@@ -38,7 +41,7 @@ export default function EventCard({ event }: Props): React.JSX.Element {
             {event.date.toLocaleDateString('en-UK')}
           </p>
         </div>
-        <div className="mt-auto">
+        <div className="flex flex-col gap-8">
           <div className="flex items-center justify-between">
             <Image className="rounded-full" data={lecturers.avatar} />
             {event.isUpcoming ? (
@@ -47,6 +50,19 @@ export default function EventCard({ event }: Props): React.JSX.Element {
               </span>
             ) : null}
           </div>
+          {event.isUpcoming ? (
+            <button className="flex items-center justify-center rounded-lg border border-accent-0 px-12 py-4 text-sm font-semibold text-accent-0 transition-[background-color,color] hover:bg-accent-0 hover:text-bg-0 disabled:border-none disabled:bg-bg-muted disabled:text-fg-muted">
+              {t('events.upcoming.action')}
+            </button>
+          ) : event.mediaUrl ? (
+            <a className={buttonClass} href={event.mediaUrl}>
+              {t('events.archived.action')}
+            </a>
+          ) : (
+            <button className={buttonClass} disabled>
+              {t('events.waiting')}
+            </button>
+          )}
         </div>
       </div>
     </div>
