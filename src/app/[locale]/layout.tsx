@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { getServerSession } from 'next-auth';
 import { useLocale } from 'next-intl';
 
+import { Separator } from '@/components/Separator';
 import Socials from '@/components/Socials';
 import { serverConfig } from '@/config/serverConfig';
 import { useDirection } from '@/hooks/useDirection';
@@ -84,9 +85,10 @@ export default async function LocaleLayout({ children, params }: Props) {
       </head>
       <body>
         <AuthProvider session={session!}>
-          <div className="container flex w-full flex-col gap-24 py-8 text-base mobile:gap-40 tablet:py-40">
+          <div className="container flex w-full flex-col gap-24 py-8 text-base mobile:gap-40 desktop:py-40">
             <Header />
             <Banner />
+            <Separator />
             {children}
             <Socials />
           </div>
