@@ -23,15 +23,11 @@ export default function Navs() {
   const t = useTranslations('header.navigation');
   const direction = useDirection();
 
-  return (
-    <ul className="inline-flex gap-8 text-md font-bold leading-tight tablet:gap-16">
-      {navs
-        .filter((c) => getServerFeature(c.feature))
-        .map(({ children, href }) => (
-          <Nav key={href} href={href} direction={direction}>
-            {t(children)}
-          </Nav>
-        ))}
-    </ul>
-  );
+  return navs
+    .filter((c) => getServerFeature(c.feature))
+    .map(({ children, href }) => (
+      <Nav key={href} href={href} direction={direction}>
+        {t(children)}
+      </Nav>
+    ));
 }

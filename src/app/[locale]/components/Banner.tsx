@@ -20,7 +20,7 @@ export default function Banner(): JSX.Element {
 
         <JoinButton />
       </div>
-      <Logo className="-order-1 w-[30rem] desktop:order-none desktop:w-[40rem] wide:w-[47rem]" />
+      <Logo className="-order-1 w-[20rem] desktop:order-none desktop:w-[40rem] wide:w-[47rem]" />
     </header>
   );
 }

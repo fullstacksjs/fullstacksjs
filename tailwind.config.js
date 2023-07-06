@@ -60,7 +60,8 @@ module.exports = {
           inactive: 'rgb(255 255 255 / 0.3)',
         },
         bg: {
-          0: 'rgb(var(--bg))',
+          0: 'rgb(var(--bg) / <alpha-value>)',
+          1: 'rgb(var(--bg-1) / <alpha-value>)',
           muted: 'rgb(255 255 255 / 10%)',
         },
         fg: {
@@ -77,5 +78,6 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  // eslint-disable-next-line node/global-require
+  plugins: [require('tailwindcss-animate')],
 };

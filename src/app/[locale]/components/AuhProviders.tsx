@@ -7,9 +7,6 @@ interface Props {
   session: Session;
 }
 
-export const AuthProvider = ({
-  children,
-  session,
-}: Props): React.JSX.Element => {
+export const AuthProvider = ({ children, session }: Props) => {
   return <SessionProvider session={session}>{children}</SessionProvider>;
 };
