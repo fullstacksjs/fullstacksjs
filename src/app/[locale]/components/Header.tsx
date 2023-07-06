@@ -1,11 +1,15 @@
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
+
+import type { Locales } from '@/i18n';
 
 import { Authentication } from './Authentication';
+import { LocaleSelect } from './LocaleSelect';
 import { MobileNavs } from './MobileNavs';
 import Navs from './Navs';
 
 export default function Header(): React.JSX.Element {
   const t = useTranslations('header');
+  const locale = useLocale() as Locales;
 
   return (
     <div className="flex items-center justify-between">
@@ -15,7 +19,8 @@ export default function Header(): React.JSX.Element {
       <MobileNavs>
         <Navs />
       </MobileNavs>
-      <div className="flex items-center gap-16">
+      <div className="flex items-center gap-8 desktop:gap-16">
+        <LocaleSelect locale={locale} />
         <Authentication loginText={t('auth.login')} />
       </div>
     </div>
