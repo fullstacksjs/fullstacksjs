@@ -13,7 +13,12 @@ interface Props {
 
 export default function EventCard({ event }: Props) {
   return (
-    <a href={event.mediaUrl} className="flex flex-col gap-8">
+    <a
+      href={event.mediaUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex flex-col gap-8"
+    >
       <Image
         className="aspect-video w-full rounded-md"
         data={event.thumbnail}
@@ -21,7 +26,7 @@ export default function EventCard({ event }: Props) {
       <div className="flex gap-4">
         <LecturerStack lecturers={event.lecturers} />
         <div className="flex flex-1 flex-col gap-4">
-          <div className="flex flex-1 items-center gap-4 text-base font-bold leading-tight">
+          <div className="flex-1 text-base font-bold leading-tight">
             <EventCardTitle>{event.title}</EventCardTitle>
           </div>
           <div className="flex items-center text-xsm text-fg-1">
