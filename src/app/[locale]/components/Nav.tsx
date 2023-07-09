@@ -1,8 +1,8 @@
 'use client';
 import { comparePaths } from '@fullstacksjs/toolbox';
 import clsx from 'clsx';
-import Link from 'next/link';
 import { useSelectedLayoutSegment } from 'next/navigation';
+import Link from 'next-intl/link';
 
 import type { Direction } from '@/hooks/useDirection';
 

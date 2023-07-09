@@ -3,7 +3,6 @@ import * as Dropdown from '@radix-ui/react-dropdown-menu';
 import { usePathname } from 'next-intl/client';
 import Link from 'next-intl/link';
 
-import SecondaryButton from '@/components/SecondaryButton';
 import type { Locales } from '@/i18n';
 
 import ChevronDownIcon from './ChevronDown.svg';
