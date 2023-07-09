@@ -90,6 +90,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             <Banner />
             <Separator />
             {children}
+            <Separator />
             <Socials />
           </div>
         </AuthProvider>

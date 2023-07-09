@@ -119,7 +119,12 @@
     }
   },
   "events": {
-    "subscribers": "{count, number} مشترک",
+    "subscribers": {
+      "label": "مشترک"
+    },
+    "date": {
+      "label": "تاریخ"
+    },
     "waiting": "در حال بارگذاری",
     "upcoming": {
       "title": "رویدادهای پیش رو",

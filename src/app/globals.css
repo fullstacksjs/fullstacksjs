@@ -58,3 +58,7 @@
     max-width: 1180px;
   }
 }
+
+.bidi-plain {
+  unicode-bidi: plaintext
+}

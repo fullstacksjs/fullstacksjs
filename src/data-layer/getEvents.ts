@@ -38,7 +38,7 @@ const query = gql`
         slug
         name
         avatar {
-          responsiveImage(imgixParams: { w: 32, h: 32, auto: format }) {
+          responsiveImage(imgixParams: { w: 40, h: 40, auto: format }) {
             ...ImageParts
           }
         }

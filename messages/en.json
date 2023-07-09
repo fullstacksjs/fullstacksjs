@@ -122,7 +122,12 @@
     "title": "Not Found"
   },
   "events": {
-    "subscribers": "{count, number} Subscribers",
+    "subscribers": {
+      "label": "Subscribers"
+    },
+    "date": {
+      "label": "Date"
+    },
     "waiting": "Waiting",
     "upcoming": {
       "title": "Upcoming Events",
