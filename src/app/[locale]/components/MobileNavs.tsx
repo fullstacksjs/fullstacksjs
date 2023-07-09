@@ -8,9 +8,10 @@ import MenuIcon from './Menu.svg';
 
 interface Props {
   children: React.ReactNode;
+  direction: 'left' | 'right';
 }
 
-export const MobileNavs = ({ children }: Props) => {
+export const MobileNavs = ({ children, direction }: Props) => {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
@@ -28,7 +29,7 @@ export const MobileNavs = ({ children }: Props) => {
         <SheetContent
           onEscapeKeyDown={() => setOpen(false)}
           onClick={() => setOpen(false)}
-          direction="right"
+          direction={direction}
         >
           <ul className="flex flex-col gap-8 text-md font-bold leading-tight tablet:gap-16">
             {children}
