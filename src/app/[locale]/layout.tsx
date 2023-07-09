@@ -10,7 +10,6 @@ import { serverConfig } from '@/config/serverConfig';
 import { useDirection } from '@/hooks/useDirection';
 
 import { AuthProvider } from './components/AuhProviders';
-import Banner from './components/Banner';
 import GoogleAnalytics from './components/GoogleAnalytics';
 import Header from './components/Header';
 import {
@@ -87,8 +86,6 @@ export default async function LocaleLayout({ children, params }: Props) {
         <AuthProvider session={session!}>
           <div className="container flex w-full flex-col gap-24 py-8 text-base mobile:gap-40 desktop:py-40">
             <Header />
-            <Banner />
-            <Separator />
             {children}
             <Separator />
             <Socials />
