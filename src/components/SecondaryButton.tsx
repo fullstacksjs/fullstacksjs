@@ -14,7 +14,7 @@ function SecondaryButton({ className, asChild, ...props }: Props) {
     <Comp
       type="button"
       className={clsx(
-        `flex h-[53px] items-center gap-6 rounded-xl bg-bg-muted px-4 text-xsm font-semibold capitalize leading-tight text-fg-0 hover:cursor-pointer focus:outline`,
+        `flex h-[42px] items-center gap-6 rounded-xl bg-bg-muted px-4 text-xsm font-semibold capitalize leading-tight text-fg-0 hover:cursor-pointer focus:outline tablet:h-[53px]`,
         className,
       )}
       {...props}

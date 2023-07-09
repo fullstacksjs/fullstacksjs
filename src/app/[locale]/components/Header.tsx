@@ -21,7 +21,7 @@ export default function Header(): React.JSX.Element {
       <MobileNavs direction={direction}>
         <Navs />
       </MobileNavs>
-      <div className="flex items-center gap-8 desktop:gap-16">
+      <div className="flex items-center gap-4 tablet:gap-8 desktop:gap-16">
         <LocaleSelect locale={locale} />
         <Authentication loginText={t('auth.login')} />
       </div>
