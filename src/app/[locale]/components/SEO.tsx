@@ -1,11 +1,12 @@
+import type { OpenGraph } from 'next/dist/lib/metadata/types/opengraph-types';
 import type { Organization, WithContext } from 'schema-dts';
 
 export const title = 'FullstacksJS';
 export const description = 'We Grow together';
-export const ogImage = {
-  url: 'https://fullstacksjs.com/og.png',
+export const ogImage: OpenGraph['images'] = {
+  url: 'og.png',
   alt: 'FullstacksJS Community',
-} as const;
+};
 
 export const icons = [
   {

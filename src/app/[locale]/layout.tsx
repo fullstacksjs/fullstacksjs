@@ -38,6 +38,7 @@ export const metadata: Metadata = {
   description,
   themeColor: '#F39F47',
   manifest: '/manifest.json',
+  metadataBase: new URL('https://fullstacksjs.com'),
   openGraph: {
     title,
     description,

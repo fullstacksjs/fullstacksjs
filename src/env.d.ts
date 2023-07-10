@@ -9,6 +9,7 @@ declare namespace NodeJS {
     GITHUB_SECRET?: string;
     DATO_TOKEN: string;
     DATO_ENDPOINT: string;
+    METADATA_BASE: string;
   }
 }
 declare module '*.svg?url' {
