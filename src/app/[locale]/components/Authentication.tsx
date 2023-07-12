@@ -12,11 +12,11 @@ interface Props {
   loginText: string;
 }
 
-export const Authentication = ({ loginText }: Props): JSX.Element => {
+export const Authentication = ({ loginText }: Props) => {
   const [user, isLoading] = useAuthState(firebaseAuth);
-  const [login] = useSignInWithGithub(firebaseAuth);
+  const [login, _, isSigningIn] = useSignInWithGithub(firebaseAuth);
 
-  if (isLoading) return <AuthBtnSkeleton />;
+  if (isLoading || isSigningIn) return <AuthBtnSkeleton />;
 
   if (user != null)
     return (
@@ -29,7 +29,7 @@ export const Authentication = ({ loginText }: Props): JSX.Element => {
       alt="Github Logo"
       width={16}
       height={16}
-      onClick={() => login()}
+      onClick={() => login().catch(console.error)}
     >
       {loginText}
     </LoginButton>
