@@ -1,5 +1,7 @@
 'use client';
-import { signIn, useSession } from 'next-auth/react';
+import { useAuthState, useSignInWithGithub } from 'react-firebase-hooks/auth';
+
+import { firebaseAuth } from '@/firebase/firebase';
 
 import AuthBtnSkeleton from './AuthButtonSkeleton';
 import GithubOutlineIcon from './GithubIcon.svg?url';
@@ -11,15 +13,14 @@ interface Props {
 }
 
 export const Authentication = ({ loginText }: Props): JSX.Element => {
-  const { data, status } = useSession();
-  const isLoading = status === 'loading';
-  const login = () => signIn('github');
+  const [user, isLoading] = useAuthState(firebaseAuth);
+  const [login] = useSignInWithGithub(firebaseAuth);
 
   if (isLoading) return <AuthBtnSkeleton />;
 
-  if (data?.user)
+  if (user != null)
     return (
-      <ProfileButton avatar={data.user.image!}>{data.user.name!}</ProfileButton>
+      <ProfileButton avatar={user.photoURL!}>{user.displayName!}</ProfileButton>
     );
 
   return (
@@ -28,7 +29,7 @@ export const Authentication = ({ loginText }: Props): JSX.Element => {
       alt="Github Logo"
       width={16}
       height={16}
-      onClick={login}
+      onClick={() => login()}
     >
       {loginText}
     </LoginButton>

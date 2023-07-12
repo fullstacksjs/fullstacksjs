@@ -1,9 +1,8 @@
 'use client';
 
-import { signOut } from 'next-auth/react';
-
 import LogoutIcon from '@/components/Logout.svg';
 import SecondaryButton from '@/components/SecondaryButton';
+import { firebaseAuth } from '@/firebase/firebase';
 
 import LoginButton from './LoginButton';
 
@@ -13,7 +12,8 @@ interface Props {
 }
 
 export const ProfileButton = ({ children, avatar }: Props) => {
-  const logout = () => signOut();
+  const logout = () => firebaseAuth.signOut();
+
   return (
     <div className="flex gap-2">
       <LoginButton avatar={avatar}>{children}</LoginButton>

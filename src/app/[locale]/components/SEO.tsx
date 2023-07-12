@@ -4,7 +4,7 @@ import type { Organization, WithContext } from 'schema-dts';
 export const title = 'FullstacksJS';
 export const description = 'We Grow together';
 export const ogImage: OpenGraph['images'] = {
-  url: 'og.png',
+  url: '/og.png',
   alt: 'FullstacksJS Community',
 };
 

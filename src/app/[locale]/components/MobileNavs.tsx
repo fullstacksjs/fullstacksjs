@@ -21,7 +21,7 @@ export const MobileNavs = ({ children, direction }: Props) => {
 
   return (
     <Dialog.Root open={open}>
-      <Dialog.Trigger onClick={() => setOpen(true)} className="tablet:hidden">
+      <Dialog.Trigger onClick={() => setOpen(true)} className="desktop:hidden">
         <MenuIcon />
       </Dialog.Trigger>
       <Dialog.Portal>
@@ -31,7 +31,7 @@ export const MobileNavs = ({ children, direction }: Props) => {
           onClick={() => setOpen(false)}
           direction={direction}
         >
-          <ul className="flex flex-col gap-8 text-md font-bold leading-tight tablet:gap-16">
+          <ul className="flex flex-col gap-8 text-md font-bold leading-tight desktop:gap-16">
             {children}
           </ul>
         </SheetContent>

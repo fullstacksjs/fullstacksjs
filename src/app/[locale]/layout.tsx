@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { Rajdhani, Vazirmatn } from 'next/font/google';
 import { notFound } from 'next/navigation';
-import { getServerSession } from 'next-auth';
 import { useLocale } from 'next-intl';
 
 import { Separator } from '@/components/Separator';
@@ -9,7 +8,6 @@ import Socials from '@/components/Socials';
 import { serverConfig } from '@/config/serverConfig';
 import { useDirection } from '@/hooks/useDirection';
 
-import { AuthProvider } from './components/AuhProviders';
 import GoogleAnalytics from './components/GoogleAnalytics';
 import Header from './components/Header';
 import {
@@ -62,13 +60,12 @@ interface Props {
   params: { locale: Local };
 }
 
-export default async function LocaleLayout({ children, params }: Props) {
+export default function LocaleLayout({ children, params }: Props) {
   const locale = useLocale();
   const direction = useDirection();
   const { containerId, trackingId } = serverConfig.analytics;
   const isAnalyticsActive = containerId && trackingId;
 
-  const session = await getServerSession();
   if (params.locale !== locale) notFound();
 
   return (
@@ -84,14 +81,12 @@ export default async function LocaleLayout({ children, params }: Props) {
         ) : null}
       </head>
       <body>
-        <AuthProvider session={session!}>
-          <div className="container flex w-full flex-col gap-24 py-8 text-base mobile:gap-40 desktop:py-40">
-            <Header />
-            {children}
-            <Separator />
-            <Socials />
-          </div>
-        </AuthProvider>
+        <div className="container flex w-full flex-col gap-24 py-8 text-base mobile:gap-40 desktop:py-40">
+          <Header />
+          {children}
+          <Separator />
+          <Socials />
+        </div>
       </body>
     </html>
   );

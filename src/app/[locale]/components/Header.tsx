@@ -15,7 +15,7 @@ export default function Header(): React.JSX.Element {
 
   return (
     <div className="flex items-center justify-between">
-      <ul className="hidden gap-8 text-md font-bold leading-tight tablet:inline-flex tablet:gap-16">
+      <ul className="hidden gap-8 text-md font-bold leading-tight tablet:gap-16 desktop:inline-flex">
         <Navs />
       </ul>
       <MobileNavs direction={direction}>

@@ -4,10 +4,6 @@ import { z } from 'zod';
 
 const ServerConfig = z.object({
   metadataBase: z.string(),
-  github: z.object({
-    clientId: z.string(),
-    clientSecret: z.string(),
-  }),
   dato: z.object({
     endpoint: z.string(),
     token: z.string(),
@@ -25,10 +21,6 @@ export const serverConfig = ServerConfig.parse({
   dato: {
     endpoint: process.env.DATO_ENDPOINT,
     token: process.env.DATO_TOKEN,
-  },
-  github: {
-    clientId: process.env.GITHUB_ID,
-    clientSecret: process.env.GITHUB_SECRET,
   },
   analytics: {
     containerId: process.env.NEXT_PUBLIC_GTM_CONTAINER,

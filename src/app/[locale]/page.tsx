@@ -8,8 +8,6 @@ import { Separator } from '@/components/Separator';
 
 import Banner from './components/Banner';
 
-// export const dynamic = 'force-dynamic';
-
 export default function Home() {
   const t = useTranslations('main');
 
