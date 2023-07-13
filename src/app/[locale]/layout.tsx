@@ -3,13 +3,6 @@ import { Rajdhani, Vazirmatn } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import { useLocale } from 'next-intl';
 
-import { Separator } from '@/components/Separator';
-import Socials from '@/components/Socials';
-import { serverConfig } from '@/config/serverConfig';
-import { useDirection } from '@/hooks/useDirection';
-
-import GoogleAnalytics from './components/GoogleAnalytics';
-import Header from './components/Header';
 import {
   description,
   icons,
@@ -17,7 +10,14 @@ import {
   keywords,
   ogImage,
   title,
-} from './components/SEO';
+} from '@/components/SEO';
+import { Separator } from '@/components/Separator';
+import { Socials } from '@/components/Socials';
+import { serverConfig } from '@/config/serverConfig';
+import { useDirection } from '@/hooks/useDirection';
+
+import { GoogleAnalytics } from './components/GoogleAnalytics';
+import { Header } from './components/Header';
 
 export const rajdhani = Rajdhani({
   weight: ['500', '600', '700'],

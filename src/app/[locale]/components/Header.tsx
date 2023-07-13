@@ -8,7 +8,7 @@ import { LocaleSelect } from './LocaleSelect';
 import { MobileNavs } from './MobileNavs';
 import Navs from './Navs';
 
-export default function Header(): React.JSX.Element {
+export function Header(): React.JSX.Element {
   const t = useTranslations('header');
   const direction = useDirection() === 'ltr' ? 'left' : 'right';
   const locale = useLocale() as Locales;

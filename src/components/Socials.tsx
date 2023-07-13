@@ -42,7 +42,7 @@ const items = [
   },
 ];
 
-export default function Socials(): React.JSX.Element {
+export function Socials(): React.JSX.Element {
   const t = useTranslations();
 
   return (

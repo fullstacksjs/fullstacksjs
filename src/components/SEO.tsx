@@ -31,6 +31,8 @@ export const keywords = [
   'کانال برنامه نویسی',
   'کانال تلگرام',
   'فول‌استکس',
+  'wakatime',
+  'واکاتایم',
 ];
 
 export const jsonLd: WithContext<Organization> = {

@@ -7,7 +7,7 @@ interface Props {
   containerId: string;
 }
 
-export default function GoogleAnalytics({ trackingId, containerId }: Props) {
+export function GoogleAnalytics({ trackingId, containerId }: Props) {
   return (
     <>
       <Script
