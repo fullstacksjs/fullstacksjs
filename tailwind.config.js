@@ -13,7 +13,7 @@ module.exports = {
       md: '2.4rem',
       xl: '2.8rem',
       '2xl': '3.2rem',
-      '3xl': '1.953rem',
+      '3xl': '3.6rem',
       '4xl': '3.8rem',
       '5xl': '6.4rem',
     },
@@ -27,6 +27,7 @@ module.exports = {
     },
     fontFamily: {
       sans: ['var(--font-rajdhani)', 'var(--font-vazir)'],
+      rajdhani: ['var(--font-rajdhani)'],
     },
     screens: {
       mobile: '560px',
@@ -37,6 +38,8 @@ module.exports = {
     extend: {
       borderRadius: {
         md: '0.4rem',
+        lg: '0.8rem',
+        xl: '1.2rem',
       },
       keyframes: {
         skeleton: {

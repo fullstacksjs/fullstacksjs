@@ -30,7 +30,6 @@ export const vazir = Vazirmatn({
   subsets: ['arabic'],
   variable: '--font-vazir',
 });
-
 export const metadata: Metadata = {
   title,
   description,

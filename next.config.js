@@ -12,6 +12,11 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'www.datocms-assets.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'wakatime.com',
+        pathname: '/photo/**',
+      },
     ],
   },
   webpack(config) {
