@@ -19,13 +19,13 @@ import { useDirection } from '@/hooks/useDirection';
 import { GoogleAnalytics } from './components/GoogleAnalytics';
 import { Header } from './components/Header';
 
-export const rajdhani = Rajdhani({
+const rajdhani = Rajdhani({
   weight: ['500', '600', '700'],
   subsets: ['latin'],
   variable: '--font-rajdhani',
 });
 
-export const vazir = Vazirmatn({
+const vazir = Vazirmatn({
   weight: ['400', '700'],
   subsets: ['arabic'],
   variable: '--font-vazir',

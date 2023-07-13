@@ -1,18 +1,12 @@
 import type { Metadata } from 'next';
-import { Rajdhani, Vazirmatn } from 'next/font/google';
+import { Rajdhani } from 'next/font/google';
 
 import { description, icons, keywords, title } from '@/components/SEO';
 
-export const rajdhani = Rajdhani({
+const rajdhani = Rajdhani({
   weight: ['500', '600', '700'],
   subsets: ['latin'],
   variable: '--font-rajdhani',
-});
-
-export const vazir = Vazirmatn({
-  weight: ['400', '700'],
-  subsets: ['arabic'],
-  variable: '--font-vazir',
 });
 
 interface Props {
