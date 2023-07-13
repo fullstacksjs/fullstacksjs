@@ -13,7 +13,7 @@ const ClientConfig = z.object({
     storageBucket: z.string(),
     messagingSenderId: z.string(),
     appId: z.string(),
-    measurementId: z.string(),
+    measurementId: z.string().optional(),
   }),
 });
 
