@@ -71,7 +71,7 @@ export default function LocaleLayout({ children, params }: Props) {
     <html
       lang={locale}
       dir={direction}
-      className={`bg-dark-0 leading-normal text-light-0 ${rajdhani.variable} ${vazir.variable}`}
+      className={`${rajdhani.variable} ${vazir.variable}`}
     >
       <head>
         <JsonLd />
@@ -79,7 +79,7 @@ export default function LocaleLayout({ children, params }: Props) {
           <GoogleAnalytics containerId={containerId} trackingId={trackingId} />
         ) : null}
       </head>
-      <body>
+      <body className="bg-dark-0 leading-normal text-light-0 transition-colors duration-1000">
         <div className="container flex w-full flex-col gap-24 py-8 text-base mobile:gap-40 desktop:py-40">
           <Header />
           {children}

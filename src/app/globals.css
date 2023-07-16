@@ -91,3 +91,7 @@
 .user-bg {
   background: linear-gradient(90deg, #2a3143 0, rgb(66 98 67/ 10%) 90%);
 }
+
+.retro-bg {
+  background-color: #231d31;
+}

@@ -17,6 +17,7 @@
     "clsx": "1.2.1",
     "date-fns": "2.30.0",
     "firebase": "10.0.0",
+    "framer-motion": "10.12.21",
     "graphql-request": "6.1.0",
     "next": "13.4.9",
     "next-intl": "3.0.0-beta.7",

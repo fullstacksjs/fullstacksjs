@@ -17,6 +17,11 @@ const nextConfig = {
         hostname: 'wakatime.com',
         pathname: '/photo/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'raw.githubusercontent.com',
+        pathname: '/Tarikul-Islam-Anik/**',
+      },
     ],
   },
   webpack(config) {
