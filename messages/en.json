@@ -14,7 +14,8 @@
       "about": "about",
       "ask": "ask",
       "rules": "rules",
-      "events": "events"
+      "events": "events",
+      "guild": "TS Guild"
     },
     "auth": {
       "login": "Login with GitHub"

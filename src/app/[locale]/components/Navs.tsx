@@ -10,6 +10,7 @@ interface Nav {
   feature: Feature;
   href: string;
   children: string;
+  isNew?: boolean;
 }
 
 const navs: Nav[] = [
@@ -17,6 +18,7 @@ const navs: Nav[] = [
   { feature: 'rules', href: '/rules', children: 'rules' },
   { feature: 'ask', href: '/ask', children: 'ask' },
   { feature: 'events', href: '/events', children: 'events' },
+  { feature: 'events', href: '/guild', children: 'guild', isNew: true },
 ];
 
 export default function Navs() {
@@ -25,9 +27,9 @@ export default function Navs() {
 
   return navs
     .filter((c) => getServerFeature(c.feature))
-    .map(({ children, href }) => (
-      <Nav key={href} href={href} direction={direction}>
-        {t(children)}
+    .map((nav) => (
+      <Nav key={nav.href} direction={direction} {...nav}>
+        {t(nav.children)}
       </Nav>
     ));
 }

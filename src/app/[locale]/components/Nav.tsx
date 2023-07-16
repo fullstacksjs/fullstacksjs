@@ -6,13 +6,16 @@ import Link from 'next-intl/link';
 
 import type { Direction } from '@/hooks/useDirection';
 
+import { Badge } from './Badge';
+
 interface Props {
   href: string;
   children: React.ReactNode;
   direction: Direction;
+  isNew?: boolean;
 }
 
-export default function Nav({ href, children, direction }: Props) {
+export default function Nav({ href, isNew, children, direction }: Props) {
   const selected = useSelectedLayoutSegment() ?? '';
   const isActive = comparePaths(selected, href) === 0;
   const isRtl = direction === 'rtl';
@@ -36,6 +39,7 @@ export default function Nav({ href, children, direction }: Props) {
         className="rounded-sm text-base focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-8 focus-visible:outline-accent-0 tablet:text-md"
       >
         {children}
+        {isNew ? <Badge className="absolute right-0 top-10">New</Badge> : null}
       </Link>
     </li>
   );
