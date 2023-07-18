@@ -1,4 +1,4 @@
-import { getDayOfYear, secondsToHours } from 'date-fns';
+import { getDayOfYear, secondsToHours, secondsToMinutes } from 'date-fns';
 
 import type { WakatimeReport, WakatimeUsage } from './domain';
 
@@ -20,7 +20,7 @@ export function formatOrdinals(n: number) {
 
 export function toHumanHM(seconds: number) {
   const hours = secondsToHours(seconds);
-  const minutes = secondsToHours(seconds % 3600);
+  const minutes = secondsToMinutes(seconds % 3600);
   return `${addLeadingZero(hours)}:${addLeadingZero(minutes)}`;
 }
 

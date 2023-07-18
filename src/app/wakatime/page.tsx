@@ -1,8 +1,8 @@
 import { getReport } from '@/data-layer/getReport';
 
-import Logo from './Logo.svg';
-import { User } from './User';
-import { Winner } from './Winner';
+import Logo from './+components/Logo.svg';
+import { User } from './+components/User';
+import { Winner } from './+components/Winner';
 
 export default async function WakatimePage() {
   const { title, usages, winners } = await getReport(7);
