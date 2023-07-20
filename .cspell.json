@@ -24,6 +24,7 @@
     "iframe",
     "keyframes",
     "keyof",
+    "Leaderboards",
     "linecap",
     "linejoin",
     "msapplication",
@@ -46,7 +47,6 @@
     "vazir",
     "Vazirmatn",
     "wakatime",
-    "واکاتایم",
     "استکس",
     "برندسازی",
     "توئیتچ",
@@ -55,7 +55,8 @@
     "علائمی",
     "لایوها",
     "لینکدین",
-    "منتورها"
+    "منتورها",
+    "واکاتایم"
   ],
   "dictionaries": [
     "node"

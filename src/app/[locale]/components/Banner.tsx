@@ -3,7 +3,11 @@ import { useTranslations } from 'next-intl';
 import JoinButton from './JoinButton';
 import Logo from './Logo.svg';
 
-export default function Banner(): JSX.Element {
+interface Props {
+  title: string;
+}
+
+export const Banner = ({ title }: Props) => {
   const t = useTranslations('hero');
 
   return (
@@ -11,7 +15,7 @@ export default function Banner(): JSX.Element {
       <div className="flex flex-col items-center gap-16 desktop:items-start">
         <div className="flex flex-col items-center gap-2 desktop:items-start">
           <h1 className="text-4xl font-bold leading-tight desktop:text-5xl">
-            FullstacksJS
+            {title}
           </h1>
           <p className="text-sm uppercase text-fg-1 desktop:text-md">
             {t('vision')}
@@ -23,4 +27,4 @@ export default function Banner(): JSX.Element {
       <Logo className="-order-1 w-[28rem] desktop:order-none desktop:w-[40rem] wide:w-[47rem]" />
     </header>
   );
-}
+};

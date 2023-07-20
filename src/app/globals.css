@@ -64,28 +64,33 @@
 }
 
 .rank-1 {
-  background: linear-gradient(
-    157.76deg,
-    #61ffe3 6.15%,
-    rgb(65 55 72 / 42%) 96.39%,
-    rgb(72 55 71 / 42%) 96.39%
-  );
+  border: 1px solid #0000;
+  background: linear-gradient(0deg, #4a4021, #1e2129) padding-box,
+    linear-gradient(#62646a, #fbb131) border-box;
+  position: relative;
+  box-shadow: 0 0 30px 0 rgba(255, 187, 0, 0.2);
 }
 
 .rank-2 {
-  background: linear-gradient(
-    150.88deg,
-    #bd946e 2.22%,
-    rgb(77 54 54/ 37%) 94.37%
-  );
+  border: 1px solid #0000;
+  background: linear-gradient(0deg, #373c42, #1e2129) padding-box,
+    linear-gradient(#4b4d54, #98a1a4) border-box;
+  position: relative;
+  box-shadow: 0 0 20px 0 rgba(158, 161, 161, 0.2);
 }
 
 .rank-3 {
-  background: linear-gradient(
-    149.04deg,
-    #ef6969 1.54%,
-    rgb(72 55 66 / 53%) 98.15%
-  );
+  border: 1px solid #0000;
+  background: linear-gradient(0deg, #3d2b29, #1e2129) padding-box,
+    linear-gradient(#62646a, #be4a18) border-box;
+  position: relative;
+  box-shadow: 0 0 20px 0 rgba(190, 74, 24, 0.2);
+}
+
+.rank-silver {
+  text-shadow: -1px 2px 2px 0 rgba(0, 0, 0, 0.25);
+  color: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.5) 100%);
+  font-size: 48px;
 }
 
 .user-bg {

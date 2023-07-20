@@ -11,8 +11,8 @@ interface Props {
 
 const sizeMap: Record<Size, number> = {
   sm: 44,
-  md: 74,
-  lg: 120,
+  md: 70,
+  lg: 100,
 };
 
 export function Avatar({ src, alt, size = 'md' }: Props) {

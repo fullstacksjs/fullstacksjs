@@ -6,14 +6,14 @@ import { Highlight } from '@/components/Highlight';
 import { Paragraph } from '@/components/Paragraph';
 import { Separator } from '@/components/Separator';
 
-import Banner from './components/Banner';
+import { Banner } from './components/Banner';
 
 export default function Home() {
   const t = useTranslations('main');
 
   return (
     <>
-      <Banner />
+      <Banner title="FullstacksJS" />
       <Separator />
       <Articles>
         <Article title={t('about.title')}>

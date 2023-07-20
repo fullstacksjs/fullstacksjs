@@ -6,7 +6,7 @@ module.exports = {
   },
   theme: {
     fontSize: {
-      xs: '1.2rem',
+      xs: '1.4rem',
       xsm: '1.6rem',
       sm: '1.8rem',
       base: '2rem',
@@ -62,6 +62,7 @@ module.exports = {
           inactive: 'rgb(255 255 255 / 0.3)',
         },
         bg: {
+          darker: '#1E2129',
           0: 'rgb(var(--bg) / <alpha-value>)',
           1: 'rgb(var(--bg-1) / <alpha-value>)',
           muted: 'rgb(255 255 255 / 10%)',
