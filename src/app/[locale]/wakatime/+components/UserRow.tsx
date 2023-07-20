@@ -86,7 +86,7 @@ export function UserRow({ usage, className }: Props) {
       <Table.Cell className="min-w-[64px] text-xs font-semibold">
         {usage.humanReadableDailyAverage}
       </Table.Cell>
-      <Table.Cell className="hidden tablet:table-cell">
+      <Table.Cell className="hidden pe-8 tablet:table-cell tablet:pe-14">
         <Diff className="justify-center" diff={usage.user.diff} />
       </Table.Cell>
     </Table.Row>

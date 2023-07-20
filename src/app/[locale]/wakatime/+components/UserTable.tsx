@@ -19,7 +19,7 @@ export const UserTable = ({ usages, winners }: Props): React.JSX.Element => {
           <Table.Head className="sticky top-0 bg-bg-darker">User</Table.Head>
           <Table.Head className="sticky top-0 bg-bg-darker">Total</Table.Head>
           <Table.Head className="sticky top-0 bg-bg-darker">Daily</Table.Head>
-          <Table.Head className="sticky top-0 hidden bg-bg-darker tablet:table-cell">
+          <Table.Head className="sticky top-0 hidden bg-bg-darker pe-8 tablet:table-cell tablet:pe-14">
             Progress
           </Table.Head>
         </Table.Row>

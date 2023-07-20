@@ -23,9 +23,7 @@ export default async function WakatimeDay() {
       </div>
 
       <div className="w-full rounded-3xl bg-bg-darker px-2 pt-8">
-        <div className="">
-          <UserTable winners={[]} usages={usages} />
-        </div>
+        <UserTable winners={[]} usages={usages} />
       </div>
     </div>
   );
