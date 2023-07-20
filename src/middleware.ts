@@ -6,5 +6,5 @@ export default createMiddleware({
 });
 
 export const config = {
-  matcher: ['/((?!api|favicon|wakatime|_next|.*\\..*).*)'],
+  matcher: ['/((?!api|favicon|day|_next|.*\\..*).*)'],
 };
