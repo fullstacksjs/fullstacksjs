@@ -25,6 +25,10 @@ export default async function WakatimeDay() {
       <div className="w-full rounded-3xl bg-bg-darker px-2 pt-8">
         <UserTable winners={[]} usages={usages} />
       </div>
+
+      <div id="social-media" className="text-xsm font-bold text-accent-0">
+        FullstacksJS.com
+      </div>
     </div>
   );
 }
