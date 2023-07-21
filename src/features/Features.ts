@@ -1,1 +1,1 @@
-export type Feature = 'about' | 'ask' | 'events' | 'locale' | 'rules';
+export type Feature = 'about' | 'ask' | 'events' | 'guild' | 'locale' | 'rules';
