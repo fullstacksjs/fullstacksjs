@@ -21,7 +21,6 @@ export default async function WakatimePage() {
           <Winner className="rank-1 order-2" usage={winners[0]!} rank={1} />
           <Winner className="rank-2 order-1" usage={winners[1]!} rank={2} />
           <Winner className="rank-3 order-3" usage={winners[2]!} rank={3} />
-          Ti
         </div>
 
         <div className="w-full rounded-3xl bg-bg-darker px-2 pt-8">
