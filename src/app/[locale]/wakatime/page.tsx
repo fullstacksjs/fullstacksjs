@@ -4,24 +4,10 @@ import { Separator } from '@/components/Separator';
 import { getReport } from '@/data-layer/getReport';
 
 import { Banner } from '../components/Banner';
+import { Title } from './+components/Title';
 import { UserTable } from './+components/UserTable';
 import { WakatimeButton } from './+components/WakatimeButton';
 import { Winner } from './+components/Winner';
-
-export const Title = ({ day, year }: { day: number; year: number }) => {
-  const t = useTranslations('wakatime');
-
-  return (
-    <div className="flex flex-col items-center">
-      <p className="w-[384px] text-center text-2xl font-bold leading-snug">
-        {t('title')}
-      </p>
-      <p className="text-md font-bold text-accent-0">
-        {t('day', { day, year })}
-      </p>
-    </div>
-  );
-};
 
 export default async function WakatimePage() {
   const { day, year, usages, winners } = await getReport(50);
