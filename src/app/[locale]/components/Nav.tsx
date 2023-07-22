@@ -39,7 +39,16 @@ export default function Nav({ href, isNew, children, direction }: Props) {
         className="rounded-sm text-base focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-8 focus-visible:outline-accent-0 tablet:text-md"
       >
         {children}
-        {isNew ? <Badge className="absolute right-0 top-10">New</Badge> : null}
+        {isNew ? (
+          <Badge
+            className={clsx('absolute top-10', {
+              'right-0': !isRtl,
+              'left-0': isRtl,
+            })}
+          >
+            New
+          </Badge>
+        ) : null}
       </Link>
     </li>
   );

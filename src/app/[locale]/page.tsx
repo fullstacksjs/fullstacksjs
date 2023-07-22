@@ -7,13 +7,14 @@ import { Paragraph } from '@/components/Paragraph';
 import { Separator } from '@/components/Separator';
 
 import { Banner } from './components/Banner';
+import { JoinButton } from './components/JoinButton';
 
 export default function Home() {
   const t = useTranslations('main');
 
   return (
     <>
-      <Banner title="FullstacksJS" />
+      <Banner cta={<JoinButton />} title="FullstacksJS" />
       <Separator />
       <Articles>
         <Article title={t('about.title')}>

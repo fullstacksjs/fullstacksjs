@@ -19,6 +19,7 @@ const navs: Nav[] = [
   { feature: 'ask', href: '/ask', children: 'ask' },
   { feature: 'events', href: '/events', children: 'events' },
   { feature: 'guild', href: '/guild', children: 'guild', isNew: true },
+  { feature: 'wakatime', href: '/wakatime', children: 'wakatime', isNew: true },
 ];
 
 export default function Navs() {

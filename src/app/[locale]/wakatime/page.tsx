@@ -3,6 +3,7 @@ import { getReport } from '@/data-layer/getReport';
 
 import { Banner } from '../components/Banner';
 import { UserTable } from './+components/UserTable';
+import { WakatimeButton } from './+components/WakatimeButton';
 import { Winner } from './+components/Winner';
 
 export default async function WakatimePage() {
@@ -10,7 +11,7 @@ export default async function WakatimePage() {
 
   return (
     <>
-      <Banner title="FullstacksJS Leaderboards" />
+      <Banner cta={<WakatimeButton />} title="FullstacksJS Leaderboards" />
       <Separator />
       <div className="flex flex-col items-center gap-20">
         <div className="flex flex-col items-center">

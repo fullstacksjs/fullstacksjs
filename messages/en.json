@@ -15,7 +15,8 @@
       "ask": "ask",
       "rules": "rules",
       "events": "events",
-      "guild": "TS Guild"
+      "guild": "TS Guild",
+      "wakatime": "Wakatime"
     },
     "auth": {
       "login": "Login with GitHub"
@@ -143,5 +144,8 @@
     "desc": "Ready to join the <mark>TypeScript Guild?</mark><eflag></eflag><br></br>Here, we dive into the world of advanced TypeScript by solving daily code challenges, unleashing the full potential of this language. <eparty></eparty><br></br><br></br>Which challenges are we talking about? Well, there's an incredible GitHub Repository called <atype>Type Challenge</atype>, and as a guild, we will collaborate to conquer 100 challenges from there.<br></br><br></br>Join us if you are prepared to tackle challenging coding puzzles, master advanced concepts, and elevate your TypeScript skills alongside a community of enthusiasts.",
     "join": "I'm Ready to Join",
     "sign-in": "Wanna join? You need to <join>login</join> first."
+  },
+  "wakatime": {
+    "join": "Join Leaderboard"
   }
 }

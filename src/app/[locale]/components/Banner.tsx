@@ -1,13 +1,13 @@
 import { useTranslations } from 'next-intl';
 
-import JoinButton from './JoinButton';
 import Logo from './Logo.svg';
 
 interface Props {
   title: string;
+  cta: JSX.Element;
 }
 
-export const Banner = ({ title }: Props) => {
+export const Banner = ({ title, cta }: Props) => {
   const t = useTranslations('hero');
 
   return (
@@ -22,7 +22,7 @@ export const Banner = ({ title }: Props) => {
           </p>
         </div>
 
-        <JoinButton />
+        {cta}
       </div>
       <Logo className="-order-1 w-[28rem] desktop:order-none desktop:w-[40rem] wide:w-[47rem]" />
     </header>
