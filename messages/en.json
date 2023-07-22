@@ -6,8 +6,7 @@
     "events": "FullstacksJS - Events"
   },
   "hero": {
-    "join": "Join US on Telegram",
-    "vision": "We grow together"
+    "join": "Join US on Telegram"
   },
   "header": {
     "navigation": {
@@ -23,6 +22,7 @@
     }
   },
   "main": {
+    "vision": "We grow together",
     "about": {
       "title": "About FullstacksJS",
       "content": "<mark>FullstacksJS</mark> is an open-source community focused on knowledge sharing, exploring, and enhancing developer experience. The primary objective of this community is to establish a professional environment for in-depth contents in software development and engineering field. In order to learn and strengthen the culture of open source development and contribution, the projects that are developed in this community are entirely open source, and members are encouraged to participate."
@@ -146,6 +146,8 @@
     "sign-in": "Wanna join? You need to <join>login</join> first."
   },
   "wakatime": {
-    "join": "Join Leaderboard"
+    "join": "Join Leaderboard",
+    "title": "Wakatime Leaderboard",
+    "day": "Day {day} of the year {year}"
   }
 }

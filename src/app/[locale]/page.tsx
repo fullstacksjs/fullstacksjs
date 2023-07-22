@@ -14,7 +14,7 @@ export default function Home() {
 
   return (
     <>
-      <Banner cta={<JoinButton />} title="FullstacksJS" />
+      <Banner sub={t('vision')} cta={<JoinButton />} title="FullstacksJS" />
       <Separator />
       <Articles>
         <Article title={t('about.title')}>

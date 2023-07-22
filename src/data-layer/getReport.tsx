@@ -47,7 +47,8 @@ export const getReport = async (count: number) => {
   });
 
   return {
-    title: `${year} - Day ${day}`,
+    year,
+    day,
     winners: usages.slice(0, 3),
     usages: usages.slice(3),
   };
