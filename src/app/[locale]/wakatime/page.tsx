@@ -1,5 +1,3 @@
-import { useTranslations } from 'next-intl';
-
 import { Separator } from '@/components/Separator';
 import { getReport } from '@/data-layer/getReport';
 

@@ -5,7 +5,7 @@ import { Winner } from '../[locale]/wakatime/+components/Winner';
 import Logo from './Logo.svg';
 
 export default async function WakatimeDay() {
-  const { title, usages, winners } = await getReport(7);
+  const { day, year, usages, winners } = await getReport(7);
 
   return (
     <div className="flex w-[1000px] flex-col items-center gap-20 p-20">
@@ -14,7 +14,9 @@ export default async function WakatimeDay() {
         <p className="w-[384px] text-center text-4xl font-bold leading-tight">
           FullstacksJS Wakatime Leaderboard
         </p>
-        <p className="text-2xl font-bold text-accent-0">{title}</p>
+        <p className="text-2xl font-bold text-accent-0">
+          Day {day} of the year {year}
+        </p>
       </div>
       <div className="hidden w-full items-center justify-center gap-12 rounded-3xl bg-bg-darker py-20 desktop:flex">
         <Winner className="rank-1 order-2" usage={winners[0]!} rank={1} />

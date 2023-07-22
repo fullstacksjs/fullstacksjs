@@ -1,6 +1,11 @@
 import { useTranslations } from 'next-intl';
 
-export const Title = ({ day, year }: { day: number; year: number }) => {
+interface Props {
+  day: number;
+  year: number;
+}
+
+export const Title = ({ day, year }: Props) => {
   const t = useTranslations('wakatime');
 
   return (
