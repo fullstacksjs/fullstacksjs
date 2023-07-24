@@ -1,6 +1,7 @@
 'use client';
-import { useAuthState, useSignInWithGithub } from 'react-firebase-hooks/auth';
-import { useAuth } from 'reactfire';
+import { useUser } from 'reactfire';
+
+import { useSignIn } from '@/firebase/useSignIn';
 
 import AuthBtnSkeleton from './AuthButtonSkeleton';
 import GithubOutlineIcon from './GithubIcon.svg?url';
@@ -12,11 +13,11 @@ interface Props {
 }
 
 export const Authentication = ({ loginText }: Props) => {
-  const auth = useAuth();
-  const [user, isLoading] = useAuthState(auth);
-  const [login, _, isSigningIn] = useSignInWithGithub(auth);
+  const { data: user, status: userStatus } = useUser();
+  const { signIn, status: signInStatus } = useSignIn();
+  const isLoading = signInStatus === 'loading' || userStatus === 'loading';
 
-  if (isLoading || isSigningIn) return <AuthBtnSkeleton />;
+  if (isLoading) return <AuthBtnSkeleton />;
 
   if (user != null)
     return (
@@ -29,7 +30,7 @@ export const Authentication = ({ loginText }: Props) => {
       alt="Github Logo"
       width={16}
       height={16}
-      onClick={() => login().catch(console.error)}
+      onClick={() => signIn().catch(console.error)}
     >
       {loginText}
     </LoginButton>

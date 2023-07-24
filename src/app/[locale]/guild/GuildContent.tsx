@@ -1,19 +1,20 @@
 'use client';
 import type { Variants } from 'framer-motion';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
-import { useSignInWithGithub } from 'react-firebase-hooks/auth';
-import { useAuth } from 'reactfire';
 
 import { Button } from '@/components/Button';
 import { Emoji } from '@/components/Emoji';
 import { Highlight } from '@/components/Highlight';
 import { useCurrentUser } from '@/firebase/useCurrentUser';
+import { useSignIn } from '@/firebase/useSignIn';
+import { useSubscribeGuild } from '@/firebase/useSubscribeGuild';
 
-const JoinButton = ({ userId }: { userId: string }) => {
+const JoinButton = () => {
   const t = useTranslations();
+  const subscribe = useSubscribeGuild();
 
   const button: Variants = {
     animate: {
@@ -29,7 +30,7 @@ const JoinButton = ({ userId }: { userId: string }) => {
 
   return (
     <Button asChild>
-      <motion.button variants={button} animate="animate">
+      <motion.button onClick={subscribe} variants={button} animate="animate">
         {t('join')}
       </motion.button>
     </Button>
@@ -54,8 +55,7 @@ const NeedToJoin = ({ onClick }: { onClick: VoidFunction }) => {
 export const GuildContent = () => {
   const [isLoading, setLoading] = useState(true);
   const [isOverlay, setOverlay] = useState(true);
-  const auth = useAuth();
-  const [signIn] = useSignInWithGithub(auth);
+  const { signIn } = useSignIn();
 
   const { data: user } = useCurrentUser();
 
@@ -128,10 +128,8 @@ export const GuildContent = () => {
               {t.rich('desc', {
                 mark: (chunk) => <Highlight>{chunk}</Highlight>,
                 br: () => <br />,
-                eflag: () => <Emoji category="Symbols" name="Pirate%20Flag" />,
-                eparty: () => (
-                  <Emoji category="Activities" name="Party%20Popper" />
-                ),
+                eflag: () => <Emoji name="pirate" />,
+                eparty: () => <Emoji name="party" />,
                 atype: (chunk) => (
                   <a
                     className="text-accent-0"
@@ -146,8 +144,12 @@ export const GuildContent = () => {
             <motion.div variants={item}>
               {!user ? (
                 <NeedToJoin onClick={() => signIn()} />
+              ) : user.isGuildMember ? (
+                <div className="flex items-center">
+                  Subscribed <Emoji name="party" />
+                </div>
               ) : (
-                <JoinButton userId={user.uid} />
+                <JoinButton />
               )}
             </motion.div>
           </motion.div>

@@ -49,9 +49,9 @@ export function Sep({ className }: { className?: string }) {
 }
 
 const medals = [
-  <Emoji key={1} category="Activities" name="1st Place Medal" />,
-  <Emoji key={2} category="Activities" name="2nd Place Medal" />,
-  <Emoji key={3} category="Activities" name="3rd Place Medal" />,
+  <Emoji key={1} name="first" />,
+  <Emoji key={2} name="second" />,
+  <Emoji key={3} name="third" />,
 ];
 
 interface Props {
