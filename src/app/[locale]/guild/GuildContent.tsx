@@ -4,17 +4,58 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import React, { useEffect, useState } from 'react';
-import { useSignInWithGithub } from 'react-firebase-hooks/auth';
+import { useAuthState, useSignInWithGithub } from 'react-firebase-hooks/auth';
 
 import { Button } from '@/components/Button';
 import { Emoji } from '@/components/Emoji';
 import { Highlight } from '@/components/Highlight';
 import { firebaseAuth } from '@/firebase/firebase';
 
+const JoinButton = () => {
+  const t = useTranslations();
+
+  const button: Variants = {
+    animate: {
+      scale: [1, 1.1, 1],
+      transition: {
+        repeatDelay: 3,
+        duration: 1,
+        repeat: Infinity,
+        repeatType: 'reverse',
+      },
+    },
+  };
+
+  return (
+    <Button asChild>
+      <motion.div variants={button} animate="animate">
+        {t('join')}
+      </motion.div>
+    </Button>
+  );
+};
+
+const NeedToJoin = ({ onClick }: { onClick: VoidFunction }) => {
+  const t = useTranslations();
+  return (
+    <p className="text-fg-1">
+      {t.rich('sign-in', {
+        join: (chunk) => (
+          <button className="text-accent-0" onClick={onClick}>
+            {chunk}
+          </button>
+        ),
+      })}
+    </p>
+  );
+};
+
 export const GuildContent = () => {
   const [isLoading, setLoading] = useState(true);
   const [isOverlay, setOverlay] = useState(true);
-  const [signIn, _, isSigningIn] = useSignInWithGithub(firebaseAuth);
+  const [isSignedIn] = useAuthState(firebaseAuth);
+  const [signIn] = useSignInWithGithub(firebaseAuth);
+
   const t = useTranslations();
 
   useEffect(() => {
@@ -47,18 +88,6 @@ export const GuildContent = () => {
   const item: Variants = {
     hidden: { opacity: 0, y: 100 },
     visible: { opacity: 1, y: -50 },
-  };
-
-  const button: Variants = {
-    animate: {
-      scale: [1, 1.1, 1],
-      transition: {
-        repeatDelay: 3,
-        duration: 1,
-        repeat: Infinity,
-        repeatType: 'reverse',
-      },
-    },
   };
 
   return (
@@ -112,25 +141,10 @@ export const GuildContent = () => {
             </motion.p>
 
             <motion.div variants={item}>
-              {!isSigningIn ? (
-                <p className="text-fg-1">
-                  {t.rich('sign-in', {
-                    join: (chunk) => (
-                      <button
-                        className="text-accent-0"
-                        onClick={() => signIn()}
-                      >
-                        {chunk}
-                      </button>
-                    ),
-                  })}
-                </p>
+              {!isSignedIn ? (
+                <NeedToJoin onClick={() => signIn()} />
               ) : (
-                <Button asChild>
-                  <motion.div variants={button} animate="animate">
-                    {t('join')}
-                  </motion.div>
-                </Button>
+                <JoinButton />
               )}
             </motion.div>
           </motion.div>
