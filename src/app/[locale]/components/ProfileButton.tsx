@@ -1,8 +1,9 @@
 'use client';
 
+import { useAuth } from 'reactfire';
+
 import LogoutIcon from '@/components/Logout.svg';
 import SecondaryButton from '@/components/SecondaryButton';
-import { firebaseAuth } from '@/firebase/firebase';
 
 import LoginButton from './LoginButton';
 
@@ -12,7 +13,8 @@ interface Props {
 }
 
 export const ProfileButton = ({ children, avatar }: Props) => {
-  const logout = () => firebaseAuth.signOut();
+  const auth = useAuth();
+  const logout = () => auth.signOut();
 
   return (
     <div className="flex gap-2">

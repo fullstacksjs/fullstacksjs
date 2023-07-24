@@ -14,6 +14,7 @@ import {
 import { Separator } from '@/components/Separator';
 import { Socials } from '@/components/Socials';
 import { serverConfig } from '@/config/serverConfig';
+import { FirebaseProvider } from '@/firebase/FirebaseProvider';
 import { useDirection } from '@/hooks/useDirection';
 
 import { GoogleAnalytics } from './components/GoogleAnalytics';
@@ -80,12 +81,14 @@ export default function LocaleLayout({ children, params }: Props) {
         ) : null}
       </head>
       <body className="bg-dark-0 leading-normal text-light-0 transition-colors duration-1000">
-        <div className="container flex w-full flex-col gap-24 py-8 text-base mobile:gap-40 desktop:py-40">
-          <Header />
-          {children}
-          <Separator />
-          <Socials />
-        </div>
+        <FirebaseProvider>
+          <div className="container flex w-full flex-col gap-24 py-8 text-base mobile:gap-40 desktop:py-40">
+            <Header />
+            {children}
+            <Separator />
+            <Socials />
+          </div>
+        </FirebaseProvider>
       </body>
     </html>
   );

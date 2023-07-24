@@ -1,7 +1,6 @@
 'use client';
 import { useAuthState, useSignInWithGithub } from 'react-firebase-hooks/auth';
-
-import { firebaseAuth } from '@/firebase/firebase';
+import { useAuth } from 'reactfire';
 
 import AuthBtnSkeleton from './AuthButtonSkeleton';
 import GithubOutlineIcon from './GithubIcon.svg?url';
@@ -13,8 +12,9 @@ interface Props {
 }
 
 export const Authentication = ({ loginText }: Props) => {
-  const [user, isLoading] = useAuthState(firebaseAuth);
-  const [login, _, isSigningIn] = useSignInWithGithub(firebaseAuth);
+  const auth = useAuth();
+  const [user, isLoading] = useAuthState(auth);
+  const [login, _, isSigningIn] = useSignInWithGithub(auth);
 
   if (isLoading || isSigningIn) return <AuthBtnSkeleton />;
 

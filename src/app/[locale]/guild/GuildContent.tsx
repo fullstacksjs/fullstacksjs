@@ -1,17 +1,18 @@
 'use client';
 import type { Variants } from 'framer-motion';
 import { AnimatePresence, motion } from 'framer-motion';
-import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import React, { useEffect, useState } from 'react';
-import { useAuthState, useSignInWithGithub } from 'react-firebase-hooks/auth';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import { useSignInWithGithub } from 'react-firebase-hooks/auth';
+import { useAuth } from 'reactfire';
 
 import { Button } from '@/components/Button';
 import { Emoji } from '@/components/Emoji';
 import { Highlight } from '@/components/Highlight';
-import { firebaseAuth } from '@/firebase/firebase';
+import { useCurrentUser } from '@/firebase/useCurrentUser';
 
-const JoinButton = () => {
+const JoinButton = ({ userId }: { userId: string }) => {
   const t = useTranslations();
 
   const button: Variants = {
@@ -28,9 +29,9 @@ const JoinButton = () => {
 
   return (
     <Button asChild>
-      <motion.div variants={button} animate="animate">
+      <motion.button variants={button} animate="animate">
         {t('join')}
-      </motion.div>
+      </motion.button>
     </Button>
   );
 };
@@ -53,8 +54,10 @@ const NeedToJoin = ({ onClick }: { onClick: VoidFunction }) => {
 export const GuildContent = () => {
   const [isLoading, setLoading] = useState(true);
   const [isOverlay, setOverlay] = useState(true);
-  const [isSignedIn] = useAuthState(firebaseAuth);
-  const [signIn] = useSignInWithGithub(firebaseAuth);
+  const auth = useAuth();
+  const [signIn] = useSignInWithGithub(auth);
+
+  const { data: user } = useCurrentUser();
 
   const t = useTranslations();
 
@@ -141,10 +144,10 @@ export const GuildContent = () => {
             </motion.p>
 
             <motion.div variants={item}>
-              {!isSignedIn ? (
+              {!user ? (
                 <NeedToJoin onClick={() => signIn()} />
               ) : (
-                <JoinButton />
+                <JoinButton userId={user.uid} />
               )}
             </motion.div>
           </motion.div>
