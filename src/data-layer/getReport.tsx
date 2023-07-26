@@ -27,7 +27,7 @@ export function toHumanHM(seconds: number) {
 export const getReport = async (count: number) => {
   const res = await fetch(
     `https://wakatime.fullstacksjs.com/api/day?size=${count}`,
-    { next: { revalidate: 2 * 60 * 12, tags: ['wakatime'] } },
+    { next: { revalidate: 60 * 60, tags: ['wakatime'] } },
   );
   const report: WakatimeReport = await res.json();
   const date = new Date(report.date);
