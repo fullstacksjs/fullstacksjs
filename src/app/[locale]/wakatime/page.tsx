@@ -6,6 +6,33 @@ import { Title } from './+components/Title';
 import { UserTable } from './+components/UserTable';
 import { WakatimeButton } from './+components/WakatimeButton';
 import { Winner } from './+components/Winner';
+import type { OpenGraph } from 'next/dist/lib/metadata/types/opengraph-types';
+import type { Metadata } from 'next';
+
+const title =
+  'FullstacksJS Leaderboards: Track Your Progress and See How You Stack Up Against Your Peers';
+const description =
+  'The FullstacksJS Leaderboards track the top coders, contributors, and learners in the FullstacksJS community. See how you stack up against your peers and track your progress over time.';
+const ogImage: OpenGraph['images'] = {
+  url: '/og/guild.png',
+  alt: 'FullstacksJS - TypeScript Guild',
+};
+
+export const metadata: Metadata = {
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    images: ogImage,
+  },
+  twitter: {
+    title,
+    description,
+    images: ogImage,
+    card: 'summary_large_image',
+  },
+};
 
 export default async function WakatimePage() {
   const { day, year, usages, winners } = await getReport(50);
