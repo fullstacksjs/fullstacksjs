@@ -9,7 +9,8 @@ import { GuildContent } from './GuildContent';
 
 const title = 'FullstacksJS - TypeScript Guild';
 
-const description = 'We Grow together';
+const description =
+  "The TypeScript Guild is a community of TypeScript enthusiasts who are dedicated to mastering the language. We solve daily code challenges from the Type Challenge GitHub repository, and we collaborate to help each other learn and grow. If you're ready to take your TypeScript skills to the next level, join us today!";
 const ogImage: OpenGraph['images'] = {
   url: '/og/guild.png',
   alt: 'FullstacksJS - TypeScript Guild',

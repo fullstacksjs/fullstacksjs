@@ -41,7 +41,7 @@ export const jsonLd: WithContext<Organization> = {
   legalName: 'FullstacksJS',
   url: 'https://fullstacksjs.com',
   logo: 'https://fullstacksjs.com/maskable_icon_x512.png',
-  funder: {
+  founder: {
     '@type': 'Person',
     email: 'frontendmonster@gmail.com',
     givenName: 'Alireza',
