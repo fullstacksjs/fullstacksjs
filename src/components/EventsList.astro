@@ -1,6 +1,6 @@
 ---
 import { FullstacksJSEvent } from '../data-layer/domain';
-import EventCard from './EventCard.astro';
+import { EventCard } from './EventCard';
 import SectionHeader from './SectionHeader.astro';
 
 interface Props {
@@ -14,6 +14,6 @@ const { events, title } = Astro.props;
 <div>
   <SectionHeader>{title}</SectionHeader>
   <div class="mt-16 grid gap-16 tablet:grid-cols-2 desktop:grid-cols-3">
-    {events.map((event) => <EventCard event={event} />)}
+    {events.map((event) => <EventCard client:idle event={event} />)}
   </div>
 </div>

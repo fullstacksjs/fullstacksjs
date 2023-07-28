@@ -2,6 +2,7 @@
   "root": true,
   "extends": "@fullstacksjs/tsconfig/esm",
   "compilerOptions": {
+    "moduleResolution": "Bundler",
     "jsx": "react-jsx",
     "jsxImportSource": "react"
   },

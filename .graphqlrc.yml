@@ -4,9 +4,9 @@ define: &HEADER
   - '/* cspell:disable */'
 
 schema:
-  - ${DATO_ENDPOINT}:
+  - ${PUBLIC_DATO_ENDPOINT}:
       headers:
-        authorization: 'Bearer ${DATO_TOKEN}'
+        authorization: 'Bearer ${PUBLIC_DATO_TOKEN}'
 
 documents: './src/data-layer/**/*.ts'
 extensions:

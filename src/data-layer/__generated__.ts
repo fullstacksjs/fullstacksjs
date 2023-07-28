@@ -110,6 +110,7 @@ export type EventModelFilter = {
   createdAt?: InputMaybe<CreatedAtFilter>;
   id?: InputMaybe<ItemIdFilter>;
   lecturers?: InputMaybe<LinksFilter>;
+  mediaUrl?: InputMaybe<StringFilter>;
   slug?: InputMaybe<StringFilter>;
   startDate?: InputMaybe<DateTimeFilter>;
   thumbnail?: InputMaybe<FileFilter>;
@@ -138,6 +139,8 @@ export enum EventModelOrderBy {
   CreatedAtDesc = 'createdAt_DESC',
   IdAsc = 'id_ASC',
   IdDesc = 'id_DESC',
+  MediaUrlAsc = 'mediaUrl_ASC',
+  MediaUrlDesc = 'mediaUrl_DESC',
   SlugAsc = 'slug_ASC',
   SlugDesc = 'slug_DESC',
   StartDateAsc = 'startDate_ASC',
@@ -172,6 +175,7 @@ export type EventRecord = RecordInterface & {
   createdAt: Scalars['DateTime'];
   id: Scalars['ItemId'];
   lecturers: Array<LecturerRecord>;
+  mediaUrl?: Maybe<Scalars['String']>;
   slug?: Maybe<Scalars['String']>;
   startDate?: Maybe<Scalars['DateTime']>;
   thumbnail?: Maybe<FileField>;
@@ -2578,7 +2582,9 @@ export type FocalPoint = {
   y: Scalars['FloatType'];
 };
 
+export type ImagePartsFragment = { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, bgColor?: string | null, sizes: string };
+
 export type AllEventsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AllEventsQuery = { __typename?: 'Query', allEvents: Array<{ __typename?: 'EventRecord', slug?: string | null, startDate?: any | null, title?: { __typename?: 'EventModelTitleField', blocks: Array<string>, links: Array<string>, value: any } | null, thumbnail?: { __typename?: 'FileField', url: string, alt?: string | null, size: any, width?: any | null, height?: any | null } | null, lecturers: Array<{ __typename?: 'LecturerRecord', slug?: string | null, name?: string | null, avatar?: { __typename?: 'FileField', url: string, alt?: string | null, size: any, width?: any | null, height?: any | null } | null }> }> };
+export type AllEventsQuery = { __typename?: 'Query', allEvents: Array<{ __typename?: 'EventRecord', slug?: string | null, startDate?: any | null, title?: { __typename?: 'EventModelTitleField', blocks: Array<string>, links: Array<string>, value: any } | null, thumbnail?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, bgColor?: string | null, sizes: string } | null } | null, lecturers: Array<{ __typename?: 'LecturerRecord', slug?: string | null, name?: string | null, avatar?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, bgColor?: string | null, sizes: string } | null } | null }> }> };
