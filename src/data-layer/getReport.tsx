@@ -1,5 +1,7 @@
 import { getDayOfYear, secondsToHours, secondsToMinutes } from 'date-fns';
 
+import { serverConfig } from '@/config/serverConfig';
+import { joinPaths } from '@fullstacksjs/toolbox';
 import type { WakatimeReport, WakatimeUsage } from './domain';
 
 export const addLeadingZero = (num: number) => num.toString().padStart(2, '0');
@@ -26,7 +28,7 @@ export function toHumanHM(seconds: number) {
 
 export const getReport = async (count: number) => {
   const res = await fetch(
-    `https://wakatime.fullstacksjs.com/api/day?size=${count}`,
+    joinPaths(serverConfig.wakatime.endpoint, `day?size=${count}`),
     { cache: 'no-cache' },
   );
   const report: WakatimeReport = await res.json();

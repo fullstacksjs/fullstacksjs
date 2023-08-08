@@ -4,6 +4,9 @@ import { z } from 'zod';
 
 const ServerConfig = z.object({
   metadataBase: z.string(),
+  wakatime: z.object({
+    endpoint: z.string(),
+  }),
   dato: z.object({
     endpoint: z.string(),
     token: z.string(),
@@ -18,6 +21,9 @@ export type ServerConfig = z.infer<typeof ServerConfig>;
 
 export const serverConfig = ServerConfig.parse({
   metadataBase: process.env.METADATA_BASE,
+  wakatime: {
+    endpoint: process.env.WAKATIME_ENDPOINT,
+  },
   dato: {
     endpoint: process.env.DATO_ENDPOINT,
     token: process.env.DATO_TOKEN,

@@ -10,6 +10,7 @@ declare namespace NodeJS {
     DATO_TOKEN: string;
     DATO_ENDPOINT: string;
     METADATA_BASE: string;
+    WAKATIME_ENDPOINT: string;
 
     NEXT_PUBLIC_FIREBASE_API_KEY: string;
     NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: string;
