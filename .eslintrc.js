@@ -13,5 +13,6 @@ module.exports = init({
   },
   rules: {
     'tailwindcss/no-custom-classname': 'warn',
+    'default-case': 'off',
   },
 });
