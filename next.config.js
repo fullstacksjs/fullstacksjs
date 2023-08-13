@@ -1,5 +1,7 @@
 const withNextIntl = require('next-intl/plugin')('./src/i18n.ts');
 
+const secondsInDay = 60 * 60 * 24;
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -23,6 +25,7 @@ const nextConfig = {
         pathname: '/Tarikul-Islam-Anik/**',
       },
     ],
+    minimumCacheTTL: secondsInDay,
   },
   webpack(config) {
     // Grab the existing rule that handles SVG imports
