@@ -1,27 +1,19 @@
-'use client';
-import { useUser } from 'reactfire';
+import { useTranslations } from 'next-intl';
+import { use } from 'react';
 
-import { useSignIn } from '@/firebase/useSignIn';
+import { getProfile } from '@/supabase/SupabaseServer';
 
-import AuthBtnSkeleton from './AuthButtonSkeleton';
 import GithubOutlineIcon from './GithubIcon.svg?url';
 import LoginButton from './LoginButton';
 import { ProfileButton } from './ProfileButton';
 
-interface Props {
-  loginText: string;
-}
+export function Authentication() {
+  const t = useTranslations('header');
+  const profile = use(getProfile());
 
-export const Authentication = ({ loginText }: Props) => {
-  const { data: user, status: userStatus } = useUser();
-  const { signIn, status: signInStatus } = useSignIn();
-  const isLoading = signInStatus === 'loading' || userStatus === 'loading';
-
-  if (isLoading) return <AuthBtnSkeleton />;
-
-  if (user != null)
+  if (profile != null)
     return (
-      <ProfileButton avatar={user.photoURL!}>{user.displayName!}</ProfileButton>
+      <ProfileButton avatar={profile.avatar}>{profile.username}</ProfileButton>
     );
 
   return (
@@ -30,9 +22,8 @@ export const Authentication = ({ loginText }: Props) => {
       alt="Github Logo"
       width={16}
       height={16}
-      onClick={() => signIn().catch(console.error)}
     >
-      {loginText}
+      {t('auth.login')}
     </LoginButton>
   );
-};
+}

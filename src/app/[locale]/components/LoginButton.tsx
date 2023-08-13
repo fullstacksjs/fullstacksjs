@@ -2,26 +2,27 @@
 import Image from 'next/image';
 
 import SecondaryButton from '@/components/SecondaryButton';
+import { useSignIn } from '@/supabase/useSignIn';
 
 interface Props {
   children: string;
   avatar: string;
-  onClick?: () => void;
   alt?: string;
   width?: number;
   height?: number;
 }
 
 function LoginButton({
-  onClick,
   avatar,
   children,
   width = 35,
   height = 35,
   alt = `${children}'s avatar`,
 }: Props) {
+  const { signIn } = useSignIn();
+
   return (
-    <SecondaryButton onClick={onClick}>
+    <SecondaryButton onClick={signIn}>
       <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-full border border-fg-0 bg-dark-0 tablet:h-14 tablet:w-14">
         <Image src={avatar} width={width} height={height} alt={alt} />
       </div>

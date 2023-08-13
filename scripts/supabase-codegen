@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+npx supabase gen types typescript --project-id "$SUPABASE_PROJECT_ID" --schema public >src/superbase/Database.ts

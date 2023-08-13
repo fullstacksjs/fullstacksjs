@@ -1,15 +1,16 @@
-import { useLocale, useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
+import { Suspense } from 'react';
 
 import { useDirection } from '@/hooks/useDirection';
 import type { Locales } from '@/i18n';
 
+import AuthBtnSkeleton from './AuthButtonSkeleton';
 import { Authentication } from './Authentication';
 import { LocaleSelect } from './LocaleSelect';
 import { MobileNavs } from './MobileNavs';
 import Navs from './Navs';
 
 export function Header(): React.JSX.Element {
-  const t = useTranslations('header');
   const direction = useDirection() === 'ltr' ? 'left' : 'right';
   const locale = useLocale() as Locales;
 
@@ -23,7 +24,9 @@ export function Header(): React.JSX.Element {
       </MobileNavs>
       <div className="flex items-center gap-4 wide:gap-16">
         <LocaleSelect locale={locale} />
-        <Authentication loginText={t('auth.login')} />
+        <Suspense fallback={<AuthBtnSkeleton />}>
+          <Authentication />
+        </Suspense>
       </div>
     </div>
   );
