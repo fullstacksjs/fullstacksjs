@@ -1,8 +1,8 @@
 import { assertNotNull } from '@fullstacksjs/toolbox';
-import type { User } from '@supabase/auth-helpers-nextjs';
 import { useEffect, useReducer } from 'react';
 
 import { useSupabase } from './SupabaseProvider';
+import type { User } from './User';
 
 type AuthState =
   | { user: null; status: 'error' }
@@ -26,8 +26,6 @@ const reducer = (
     case 'Loading':
       return { user: null, status: 'loading' };
   }
-
-  return state;
 };
 
 const initialState: AuthState = {
@@ -35,7 +33,7 @@ const initialState: AuthState = {
   user: null,
 };
 
-export const useUser = () => {
+export const useCurrentUser = () => {
   const { supabase } = useSupabase();
   const [value, dispatch] = useReducer(reducer, initialState);
 

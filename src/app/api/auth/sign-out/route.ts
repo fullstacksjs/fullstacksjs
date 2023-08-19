@@ -5,10 +5,11 @@ import { NextResponse } from 'next/server';
 export const dynamic = 'force-dynamic';
 
 export async function POST(request: Request) {
-  const requestUrl = new URL(request.url);
-  const supabase = createRouteHandlerClient({ cookies });
+  const referer = request.headers.get('referer');
+  const origin = new URL(request.url).origin;
 
+  const supabase = createRouteHandlerClient({ cookies });
   await supabase.auth.signOut();
 
-  return NextResponse.redirect(requestUrl.origin, { status: 301 });
+  return NextResponse.redirect(referer ?? origin, { status: 301 });
 }

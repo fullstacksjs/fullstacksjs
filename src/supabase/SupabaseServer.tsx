@@ -29,10 +29,10 @@ export async function getProfile(): Promise<Profile | null> {
     if (data.session == null) return null;
 
     return {
-      avatar: data.session.user.app_metadata['avatar_url'],
-      email: data.session.user.app_metadata['email'],
-      name: data.session.user.app_metadata['name'],
-      username: data.session.user.app_metadata['user_name'],
+      avatar: data.session.user.user_metadata['avatar_url'],
+      email: data.session.user.user_metadata['email'],
+      name: data.session.user.user_metadata['name'],
+      username: data.session.user.user_metadata['user_name'],
     };
   } catch (error) {
     console.error('Error:', error);
