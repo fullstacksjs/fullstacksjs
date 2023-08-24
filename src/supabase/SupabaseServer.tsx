@@ -9,7 +9,7 @@ export const createServerSupabaseClient = cache(() =>
   createServerComponentClient<Database>({ cookies }),
 );
 
-export async function getSession() {
+export const getSession = cache(async () => {
   const supabase = createServerSupabaseClient();
 
   try {
@@ -19,9 +19,9 @@ export async function getSession() {
     console.error('Error:', error);
     return null;
   }
-}
+});
 
-export async function getProfile(): Promise<Profile | null> {
+export const getProfile = cache(async (): Promise<Profile | null> => {
   const supabase = createServerSupabaseClient();
 
   try {
@@ -38,4 +38,17 @@ export async function getProfile(): Promise<Profile | null> {
     console.error('Error:', error);
     return null;
   }
-}
+});
+
+export const getSubscription = cache(async () => {
+  const supabase = createServerSupabaseClient();
+  const session = await getSession();
+
+  const { data } = await supabase
+    .from('subscription')
+    .select('*')
+    .eq('user_id', session?.user.id)
+    .eq('ts_guild', true);
+
+  return !!data?.[0];
+});

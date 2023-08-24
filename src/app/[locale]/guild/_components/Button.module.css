@@ -1,0 +1,23 @@
+.button {
+  background: radial-gradient(
+    70% 100% at 50% 110%,
+    hsl(184 97% 74%),
+    hsl(197 91% 31%) 100%
+  );
+
+  box-shadow: 0 0 20rem 5rem hsl(190, 80%, 35%),
+    0 2px 0 0 hsl(190 95% 40%) inset, 0 -2px 0 0 hsl(190 97% 40%) inset;
+
+  outline: 7px solid hsl(197 87% 50% / 20%);
+}
+
+.highlight {
+  translate: -50% -10%;
+  background: conic-gradient(from 0deg, transparent 0 330deg, white 360deg);
+  mask-image: linear-gradient(white 5%, transparent 20%);
+}
+
+.border {
+  mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content, linear-gradient(#fff 0 0);
+}

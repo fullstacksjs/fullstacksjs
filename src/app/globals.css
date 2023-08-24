@@ -100,3 +100,7 @@
 .retro-bg {
   background-color: #231d31;
 }
+
+.mask-radial {
+  mask: radial-gradient(white, transparent 65%);
+}

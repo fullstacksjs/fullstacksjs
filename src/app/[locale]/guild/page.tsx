@@ -4,6 +4,7 @@ import { NextIntlClientProvider, useLocale } from 'next-intl';
 
 import type { Locales } from '@/i18n';
 import { getMessages } from '@/i18n';
+import { getSession, getSubscription } from '@/supabase/SupabaseServer';
 
 import { GuildContent } from './GuildContent';
 
@@ -35,10 +36,12 @@ export const metadata: Metadata = {
 export default async function GuildPage() {
   const locale = useLocale();
   const messages = await getMessages(locale as Locales);
+  const session = await getSession();
+  const isSubscribed = await getSubscription();
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages.guild}>
-      <GuildContent />
+      <GuildContent isSubscribed={isSubscribed} user={session?.user} />
     </NextIntlClientProvider>
   );
 }

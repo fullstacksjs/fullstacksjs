@@ -13,14 +13,20 @@ export interface Database {
         Row: {
           created_at: string
           id: number
+          ts_guild: boolean | null
+          user_id: string | null
         }
         Insert: {
           created_at?: string
           id?: number
+          ts_guild?: boolean | null
+          user_id?: string | null
         }
         Update: {
           created_at?: string
           id?: number
+          ts_guild?: boolean | null
+          user_id?: string | null
         }
         Relationships: []
       }

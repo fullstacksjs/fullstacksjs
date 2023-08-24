@@ -1,63 +1,26 @@
 'use client';
+
 import type { Variants } from 'framer-motion';
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 
-import { Button } from '@/components/Button';
 import { Emoji } from '@/components/Emoji';
 import { Highlight } from '@/components/Highlight';
-import { useCurrentUser } from '@/firebase/useCurrentUser';
-import { useSignIn } from '@/firebase/useSignIn';
-import { useSubscribeGuild } from '@/firebase/useSubscribeGuild';
+import { Stars } from '@/components/Stars';
+import type { User } from '@/supabase/User';
 
-const JoinButton = () => {
-  const t = useTranslations();
-  const subscribe = useSubscribeGuild();
+import { Subscription } from './_components/Subscription';
 
-  const button: Variants = {
-    animate: {
-      scale: [1, 1.1, 1],
-      transition: {
-        repeatDelay: 3,
-        duration: 1,
-        repeat: Infinity,
-        repeatType: 'reverse',
-      },
-    },
-  };
+interface Props {
+  user: User | undefined;
+  isSubscribed: boolean;
+}
 
-  return (
-    <Button asChild>
-      <motion.button onClick={subscribe} variants={button} animate="animate">
-        {t('join')}
-      </motion.button>
-    </Button>
-  );
-};
-
-const NeedToJoin = ({ onClick }: { onClick: VoidFunction }) => {
-  const t = useTranslations();
-  return (
-    <p className="text-fg-1">
-      {t.rich('sign-in', {
-        join: (chunk) => (
-          <button className="text-accent-0" onClick={onClick}>
-            {chunk}
-          </button>
-        ),
-      })}
-    </p>
-  );
-};
-
-export const GuildContent = () => {
+export const GuildContent = ({ user, isSubscribed }: Props) => {
   const [isLoading, setLoading] = useState(true);
   const [isOverlay, setOverlay] = useState(true);
-  const { signIn } = useSignIn();
-
-  const { data: user } = useCurrentUser();
 
   const t = useTranslations();
 
@@ -98,13 +61,24 @@ export const GuildContent = () => {
       <AnimatePresence>
         {isOverlay ? (
           <motion.div
-            transition={{ duration: 1, ease: 'easeIn' }}
-            initial={{ background: '#0000' }}
-            animate={{ background: '#111216' }}
-            className="fixed left-0 top-0 h-full w-full"
-            exit={{ background: '#0000' }}
-          />
+            animate={{
+              opacity: [0, 1],
+              transition: {
+                ease: 'linear',
+                duration: 2,
+                delay: 0,
+              },
+            }}
+            className="fixed left-0 top-0 h-full w-full bg-black"
+            exit={{ opacity: 0 }}
+          >
+            <Stars count={50} className="w-1/2 opacity-40" />
+          </motion.div>
         ) : null}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {!isLoading ? <Stars count={50} className="w-1/2 opacity-50" /> : null}
       </AnimatePresence>
 
       <AnimatePresence>
@@ -142,15 +116,7 @@ export const GuildContent = () => {
             </motion.p>
 
             <motion.div variants={item}>
-              {!user ? (
-                <NeedToJoin onClick={() => signIn()} />
-              ) : user.isGuildMember ? (
-                <div className="flex items-center">
-                  Subscribed <Emoji name="party" />
-                </div>
-              ) : (
-                <JoinButton />
-              )}
+              <Subscription user={user} isSubscribed={isSubscribed} />
             </motion.div>
           </motion.div>
         ) : null}
