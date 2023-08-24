@@ -1,3 +1,6 @@
+import type { Metadata } from 'next';
+import type { OpenGraph } from 'next/dist/lib/metadata/types/opengraph-types';
+
 import { Separator } from '@/components/Separator';
 import { getReport } from '@/data-layer/getReport';
 
@@ -6,8 +9,6 @@ import { Title } from './+components/Title';
 import { UserTable } from './+components/UserTable';
 import { WakatimeButton } from './+components/WakatimeButton';
 import { Winner } from './+components/Winner';
-import type { OpenGraph } from 'next/dist/lib/metadata/types/opengraph-types';
-import type { Metadata } from 'next';
 
 const title =
   'FullstacksJS Leaderboards: Track Your Progress and See How You Stack Up Against Your Peers';

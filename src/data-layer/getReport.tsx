@@ -1,7 +1,8 @@
+import { joinPaths } from '@fullstacksjs/toolbox';
 import { getDayOfYear, secondsToHours, secondsToMinutes } from 'date-fns';
 
 import { serverConfig } from '@/config/serverConfig';
-import { joinPaths } from '@fullstacksjs/toolbox';
+
 import type { WakatimeReport, WakatimeUsage } from './domain';
 
 export const addLeadingZero = (num: number) => num.toString().padStart(2, '0');

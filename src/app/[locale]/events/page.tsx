@@ -1,11 +1,11 @@
+import type { Metadata } from 'next';
+import type { OpenGraph } from 'next/dist/lib/metadata/types/opengraph-types';
 import { notFound } from 'next/navigation';
 
 import { getEvents } from '@/data-layer/getEvents';
 import { getServerFeature } from '@/features/getServerFeatures';
 
 import EventsContent from './EventContent';
-import type { Metadata } from 'next';
-import type { OpenGraph } from 'next/dist/lib/metadata/types/opengraph-types';
 
 const title =
   'FullstacksJS Events: Learn from the Past, Prepare for the Future';

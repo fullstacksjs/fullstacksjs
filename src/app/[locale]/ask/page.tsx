@@ -1,11 +1,11 @@
+import type { Metadata } from 'next';
+import type { OpenGraph } from 'next/dist/lib/metadata/types/opengraph-types';
 import { NextIntlClientProvider, useLocale } from 'next-intl';
 
 import type { Locales } from '@/i18n';
 import { getMessages } from '@/i18n';
 
 import AskContent from './AskContent';
-import { Metadata } from 'next';
-import { OpenGraph } from 'next/dist/lib/metadata/types/opengraph-types';
 
 const title =
   'How to Ask a Programming Question: A Guide to Getting the Help You Need';
