@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
 
-import { useSignIn } from '@/firebase/useSignIn';
+import { useSignIn } from '@/supabase/useSignIn';
 
 export const NeedToLogin = () => {
   const t = useTranslations();
