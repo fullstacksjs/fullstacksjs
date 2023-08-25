@@ -9,10 +9,12 @@ export const unsubscribe = cache(async () => {
   const session = await getSession();
 
   try {
+    if (!session) throw Error('No session');
+
     const { data, error } = await supabase
       .from('subscription')
       .upsert(
-        { user_id: session?.user.id, ts_guild: false },
+        { user_id: session.user.id, ts_guild: false },
         { onConflict: 'user_id' },
       )
       .select();

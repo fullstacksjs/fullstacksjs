@@ -52,3 +52,21 @@ export const getSubscription = cache(async () => {
 
   return !!data?.[0];
 });
+
+export const getActiveUsers = cache(async () => {
+  const supabase = createServerSupabaseClient();
+  const session = await getSession();
+
+  if (!session) return null;
+
+  const { data } = await supabase
+    .from('subscription')
+    .select(
+      `profile:user_id (
+        email
+      )`,
+    )
+    .eq('ts_guild', true);
+
+  return data;
+});

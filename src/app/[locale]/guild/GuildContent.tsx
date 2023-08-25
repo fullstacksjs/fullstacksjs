@@ -72,13 +72,15 @@ export const GuildContent = ({ user, isSubscribed }: Props) => {
             className="fixed left-0 top-0 h-full w-full bg-black"
             exit={{ opacity: 0 }}
           >
-            <Stars count={50} className="w-1/2 opacity-40" />
+            <Stars count={50} className="w-[800px] opacity-40" />
           </motion.div>
         ) : null}
       </AnimatePresence>
 
       <AnimatePresence>
-        {!isLoading ? <Stars count={50} className="w-1/2 opacity-50" /> : null}
+        {!isLoading ? (
+          <Stars count={50} className="w-[800px] opacity-50" />
+        ) : null}
       </AnimatePresence>
 
       <AnimatePresence>
