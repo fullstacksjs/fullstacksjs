@@ -40,7 +40,16 @@ export default async function WakatimePage() {
 
   return (
     <>
-      <Banner cta={<WakatimeButton />} title="FullstacksJS Leaderboards" />
+      <Banner
+        cta={<WakatimeButton />}
+        title={
+          <div>
+            FullstacksJS
+            <br />
+            Leaderboards
+          </div>
+        }
+      />
       <Separator />
       <div className="flex flex-col items-center gap-20">
         <Title year={year} day={day} />

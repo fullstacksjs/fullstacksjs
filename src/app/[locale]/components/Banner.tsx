@@ -1,7 +1,7 @@
 import Logo from './Logo.svg';
 
 interface Props {
-  title: string;
+  title: JSX.Element;
   cta: JSX.Element;
   sub?: string;
 }
