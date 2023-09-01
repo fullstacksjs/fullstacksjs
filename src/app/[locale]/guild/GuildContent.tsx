@@ -3,6 +3,7 @@
 import type { Variants } from 'framer-motion';
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
+import type { RichTranslationValues } from 'next-intl';
 import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 
@@ -17,6 +18,21 @@ interface Props {
   user: User | undefined;
   isSubscribed: boolean;
 }
+
+const components: RichTranslationValues = {
+  mark: (chunk) => <Highlight>{chunk}</Highlight>,
+  br: () => <br />,
+  eflag: () => <Emoji name="pirate" />,
+  eparty: () => <Emoji name="party" />,
+  atype: (chunk) => (
+    <a
+      className="text-accent-0"
+      href="https://github.com/type-challenges/type-challenges"
+    >
+      {chunk}
+    </a>
+  ),
+};
 
 export const GuildContent = ({ user, isSubscribed }: Props) => {
   const [isLoading, setLoading] = useState(true);
@@ -63,11 +79,7 @@ export const GuildContent = ({ user, isSubscribed }: Props) => {
           <motion.div
             animate={{
               opacity: [0, 1],
-              transition: {
-                ease: 'linear',
-                duration: 2,
-                delay: 0,
-              },
+              transition: { ease: 'linear', duration: 2, delay: 0 },
             }}
             className="fixed left-0 top-0 h-full w-full bg-black"
             exit={{ opacity: 0 }}
@@ -89,7 +101,7 @@ export const GuildContent = ({ user, isSubscribed }: Props) => {
             transition={{ duration: 1 }}
             initial="hidden"
             animate="visible"
-            className="flex flex-col items-center justify-center gap-16"
+            className="flex flex-col items-center justify-center gap-20"
             variants={container}
           >
             <motion.div variants={item}>
@@ -101,20 +113,7 @@ export const GuildContent = ({ user, isSubscribed }: Props) => {
               />
             </motion.div>
             <motion.p variants={item} className="max-w-6xl">
-              {t.rich('desc', {
-                mark: (chunk) => <Highlight>{chunk}</Highlight>,
-                br: () => <br />,
-                eflag: () => <Emoji name="pirate" />,
-                eparty: () => <Emoji name="party" />,
-                atype: (chunk) => (
-                  <a
-                    className="text-accent-0"
-                    href="https://github.com/type-challenges/type-challenges"
-                  >
-                    {chunk}
-                  </a>
-                ),
-              })}
+              {t.rich('desc', components)}
             </motion.p>
 
             <motion.div variants={item}>
