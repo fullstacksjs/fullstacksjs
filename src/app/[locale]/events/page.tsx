@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import type { OpenGraph } from 'next/dist/lib/metadata/types/opengraph-types';
 import { notFound } from 'next/navigation';
 
-import { getEvents } from '@/data-layer/getEvents';
-import { getServerFeature } from '@/features/getServerFeatures';
+import { getServerFeature } from '@/config/features/getServerFeatures';
+import { getEvents } from '@/data-layer/datocms/getEvents';
 
 import EventsContent from './EventContent';
 

@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl';
 
+import { unsubscribe } from '@/data-layer/supabase/unsubscribe';
 import { useServerActions } from '@/hooks/useServerActions';
-import { unsubscribe } from '@/supabase/unsubscribe';
 
 import { SpaceButton } from './SpaceButton';
 

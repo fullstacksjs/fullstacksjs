@@ -4,7 +4,7 @@ import Image from 'next/image';
 import type { ResponsiveImageType } from 'react-datocms/image';
 import { twMerge } from 'tailwind-merge';
 
-import type { Lecturer } from '@/data-layer/domain';
+import type { Lecturer } from '@/data-layer/datocms/Event';
 
 interface Props {
   className?: string;

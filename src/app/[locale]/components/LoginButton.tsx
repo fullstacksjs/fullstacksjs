@@ -2,7 +2,7 @@
 import Image from 'next/image';
 
 import SecondaryButton from '@/components/SecondaryButton';
-import { useSignIn } from '@/supabase/useSignIn';
+import { useSignIn } from '@/data-layer/supabase/useSignIn';
 
 interface Props {
   children: string;

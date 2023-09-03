@@ -1,4 +1,4 @@
-import '@total-typescript/ts-reset';
+/// <reference types="@total-typescript/ts-reset" />
 
 declare module '*.svg?url' {
   const content: import('next/image').StaticImageData;

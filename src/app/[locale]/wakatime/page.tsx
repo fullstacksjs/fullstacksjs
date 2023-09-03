@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import type { OpenGraph } from 'next/dist/lib/metadata/types/opengraph-types';
 
 import { Separator } from '@/components/Separator';
-import { getReport } from '@/data-layer/getReport';
+import { getReport } from '@/data-layer/wakatime/getReport';
 
 import { Banner } from '../components/Banner';
 import { Title } from './+components/Title';

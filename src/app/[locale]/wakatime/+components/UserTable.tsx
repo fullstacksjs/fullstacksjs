@@ -1,5 +1,5 @@
 import * as Table from '@/components/Table';
-import type { WakatimeUsage } from '@/data-layer/domain';
+import type { WakatimeUsage } from '@/data-layer/wakatime/Wakatime';
 
 import { UserRow } from './UserRow';
 

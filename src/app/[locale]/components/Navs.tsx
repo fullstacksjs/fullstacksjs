@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl';
 
-import type { Feature } from '@/features';
-import { getServerFeature } from '@/features/getServerFeatures';
+import type { Feature } from '@/config/features';
+import { getServerFeature } from '@/config/features/getServerFeatures';
 import { useDirection } from '@/hooks/useDirection';
 
 import Nav from './Nav';

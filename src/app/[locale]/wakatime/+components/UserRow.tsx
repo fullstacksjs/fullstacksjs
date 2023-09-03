@@ -2,7 +2,10 @@ import { twMerge } from 'tailwind-merge';
 
 import { Emoji } from '@/components/Emoji';
 import * as Table from '@/components/Table';
-import type { WakatimeUsage, WakatimeUser } from '@/data-layer/domain';
+import type {
+  WakatimeUsage,
+  WakatimeUser,
+} from '@/data-layer/wakatime/Wakatime';
 
 import { Avatar } from './Avatar';
 import { Diff } from './Diff';

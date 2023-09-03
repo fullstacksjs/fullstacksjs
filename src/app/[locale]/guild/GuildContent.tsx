@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react';
 import { Emoji } from '@/components/Emoji';
 import { Highlight } from '@/components/Highlight';
 import { Stars } from '@/components/Stars';
-import type { User } from '@/supabase/User';
+import type { User } from '@/data-layer/supabase/User';
 
 import { Subscription } from './_components/Subscription';
 

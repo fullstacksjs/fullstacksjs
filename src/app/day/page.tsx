@@ -1,4 +1,4 @@
-import { getReport } from '@/data-layer/getReport';
+import { getReport } from '@/data-layer/wakatime/getReport';
 
 import { UserTable } from '../[locale]/wakatime/+components/UserTable';
 import { Winner } from '../[locale]/wakatime/+components/Winner';

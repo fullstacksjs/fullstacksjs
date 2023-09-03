@@ -1,2 +1,2 @@
 /node_modules
-/src/supabase/Database.ts
+/src/data-layer/supabase/Database.ts

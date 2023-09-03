@@ -4,9 +4,9 @@ import { isPast } from 'date-fns';
 import { gql } from 'graphql-request';
 import type { ResponsiveImageType } from 'react-datocms/image';
 
-import type { AllEventsQuery, ImagePartsFragment } from './__generated__';
 import { datoClient } from './datoClient';
-import type { Events, FullstacksJSEvent, Lecturer } from './domain';
+import type { AllEventsQuery, ImagePartsFragment } from './DatoCMS';
+import type { Events, FullstacksJSEvent, Lecturer } from './Event';
 
 const query = gql`
   fragment ImageParts on ResponsiveImage {

@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import type { WakatimeUsage } from '@/data-layer/domain';
+import type { WakatimeUsage } from '@/data-layer/wakatime/Wakatime';
 
 import { Avatar } from './Avatar';
 import Crown from './Crown.svg';

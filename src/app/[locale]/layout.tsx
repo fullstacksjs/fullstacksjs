@@ -14,8 +14,8 @@ import {
 import { Separator } from '@/components/Separator';
 import { Socials } from '@/components/Socials';
 import { serverConfig } from '@/config/serverConfig';
+import { SupabaseProvider } from '@/data-layer/supabase/SupabaseProvider';
 import { useDirection } from '@/hooks/useDirection';
-import { SupabaseProvider } from '@/supabase/SupabaseProvider';
 
 import { GoogleAnalytics } from './components/GoogleAnalytics';
 import { Header } from './components/Header';

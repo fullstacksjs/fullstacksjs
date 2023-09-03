@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import { useTranslations } from 'next-intl';
 
+import { subscribe } from '@/data-layer/supabase/subscribe';
 import { useServerActions } from '@/hooks/useServerActions';
-import { subscribe } from '@/supabase/subscribe';
 
 import { SpaceButton } from './SpaceButton';
 

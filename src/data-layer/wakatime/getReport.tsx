@@ -3,7 +3,7 @@ import { getDayOfYear, secondsToHours, secondsToMinutes } from 'date-fns';
 
 import { serverConfig } from '@/config/serverConfig';
 
-import type { WakatimeReport, WakatimeUsage } from './domain';
+import type { WakatimeReport, WakatimeUsage } from './Wakatime';
 
 export const addLeadingZero = (num: number) => num.toString().padStart(2, '0');
 
@@ -32,7 +32,7 @@ export const getReport = async (count: number) => {
     joinPaths(serverConfig.wakatime.endpoint, `day?size=${count}`),
     { cache: 'no-cache' },
   );
-  const report: WakatimeReport = await res.json();
+  const report = (await res.json()) as WakatimeReport;
   const date = new Date(report.date);
 
   const year = date.getFullYear();

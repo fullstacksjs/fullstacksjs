@@ -2,7 +2,7 @@ import { isEmpty } from '@fullstacksjs/toolbox';
 import { useTranslations } from 'next-intl';
 
 import { Separator } from '@/components/Separator';
-import type { Events } from '@/data-layer/domain';
+import type { Events } from '@/data-layer/datocms/Event';
 
 import EventList from './EventList';
 

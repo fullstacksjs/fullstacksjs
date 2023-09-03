@@ -2,7 +2,7 @@
 import { format } from 'date-fns';
 import { Image } from 'react-datocms/image';
 
-import type { FullstacksJSEvent } from '@/data-layer/domain';
+import type { FullstacksJSEvent } from '@/data-layer/datocms/Event';
 
 import { EventCardTitle } from './EventCardTitle';
 import { LecturerStack } from './LecturerStack';

@@ -3,7 +3,11 @@
   "language": "en,fa",
   "useGitignore": true,
   "import": ["@cspell/dict-fa-ir/cspell-ext.json"],
-  "ignorePaths": ["**/*.svg", "./supabase/migrations/*.json"],
+  "ignorePaths": [
+    "**/*.svg",
+    "./supabase/migrations/*.json",
+    "./src/data-layer/supabase/Database.ts"
+  ],
   "dictionaryDefinitions": [
     {
       "name": "fullstacksjs",

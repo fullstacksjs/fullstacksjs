@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl';
 import { use } from 'react';
 
-import { getProfile } from '@/supabase/SupabaseServer';
+import { getProfile } from '@/data-layer/supabase/SupabaseServer';
 
 import GithubOutlineIcon from './GithubIcon.svg?url';
 import LoginButton from './LoginButton';

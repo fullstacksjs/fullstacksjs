@@ -2,9 +2,12 @@ import type { Metadata } from 'next';
 import type { OpenGraph } from 'next/dist/lib/metadata/types/opengraph-types';
 import { NextIntlClientProvider, useLocale } from 'next-intl';
 
+import {
+  getSession,
+  getSubscription,
+} from '@/data-layer/supabase/SupabaseServer';
 import type { Locales } from '@/i18n';
 import { getMessages } from '@/i18n';
-import { getSession, getSubscription } from '@/supabase/SupabaseServer';
 
 import { GuildContent } from './GuildContent';
 

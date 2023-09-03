@@ -14,7 +14,7 @@ extensions:
     emitLegacyCommonJSImports: false
     overwrite: true
     generates:
-      ./src/data-layer/__generated__.ts:
+      ./src/data-layer/datocms/DatoCMS.ts:
         plugins:
           - add:
               content: *HEADER
