@@ -16,8 +16,3 @@ declare namespace NodeJS {
     NEXT_PUBLIC_SUPABASE_ANON_KEY?: string;
   }
 }
-
-declare module '*.svg?url' {
-  const content: import('next/image').StaticImageData;
-  export default content;
-}
