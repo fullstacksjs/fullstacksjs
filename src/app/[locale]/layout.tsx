@@ -16,6 +16,7 @@ import { Socials } from '@/components/Socials';
 import { serverConfig } from '@/config/serverConfig';
 import { SupabaseProvider } from '@/data-layer/supabase/SupabaseProvider';
 import { useDirection } from '@/hooks/useDirection';
+import { JotaiProvider } from '@/store/JotaiProvider';
 
 import { GoogleAnalytics } from './components/GoogleAnalytics';
 import { Header } from './components/Header';
@@ -81,14 +82,16 @@ export default function LocaleLayout({ children, params }: Props) {
         ) : null}
       </head>
       <body className="bg-dark-0 leading-normal text-light-0 transition-colors duration-1000">
-        <SupabaseProvider>
-          <div className="container flex w-full flex-col gap-24 py-8 text-base mobile:gap-40 desktop:py-40">
-            <Header />
-            {children}
-            <Separator />
-            <Socials />
-          </div>
-        </SupabaseProvider>
+        <JotaiProvider>
+          <SupabaseProvider>
+            <div className="container flex w-full flex-col gap-24 py-8 text-base mobile:gap-40 desktop:py-40">
+              <Header />
+              {children}
+              <Separator />
+              <Socials />
+            </div>
+          </SupabaseProvider>
+        </JotaiProvider>
       </body>
     </html>
   );

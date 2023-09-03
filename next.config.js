@@ -6,6 +6,7 @@ const secondsInDay = 60 * 60 * 24;
 const nextConfig = {
   experimental: {
     serverActions: true,
+    swcPlugins: [['@swc-jotai/react-refresh', {}]],
   },
   images: {
     remotePatterns: [

@@ -16,6 +16,7 @@ module.exports = {
       '3xl': '3.6rem',
       '4xl': '3.8rem',
       '5xl': '5.4rem',
+      '6xl': '10rem',
     },
     lineHeight: {
       none: '1',
@@ -68,9 +69,11 @@ module.exports = {
           muted: 'rgb(255 255 255 / 10%)',
         },
         fg: {
-          0: 'rgb(var(--fg-0) / <alpha-value> )',
-          1: 'rgb(var(--fg-1) / <alpha-value> )',
+          0: 'rgb(var(--fg-0) / <alpha-value>)',
+          1: 'rgb(var(--fg-1) / <alpha-value>)',
           muted: 'var(--fg-muted)',
+          error: 'rgb(255 117 117 / <alpha-value>)',
+          success: 'rgb(134 239 172 / <alpha-value>)',
         },
         dark: {
           0: 'rgb(var(--bg) / <alpha-value>)',

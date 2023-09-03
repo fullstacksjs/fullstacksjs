@@ -2,10 +2,9 @@ import { joinPaths } from '@fullstacksjs/toolbox';
 import { getDayOfYear, secondsToHours, secondsToMinutes } from 'date-fns';
 
 import { serverConfig } from '@/config/serverConfig';
+import { addLeadingZero } from '@/utils/number';
 
 import type { WakatimeReport, WakatimeUsage } from './Wakatime';
-
-export const addLeadingZero = (num: number) => num.toString().padStart(2, '0');
 
 const pr = new Intl.PluralRules('en-US', { type: 'ordinal' });
 const suffixes = new Map([
