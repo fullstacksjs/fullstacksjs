@@ -21,8 +21,7 @@ export const Game = () => {
             <Letter
               key={letter}
               active={letter === activeLetter}
-              correct={status === 'correct'}
-              error={status === 'error'}
+              status={status}
             >
               {letter}
             </Letter>

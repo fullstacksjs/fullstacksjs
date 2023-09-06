@@ -7,14 +7,15 @@ import type { Alphabet } from './alphabet';
 import { alphabets } from './alphabet';
 import { audios } from './audio';
 
-export interface LetterItem {
-  letter: Alphabet;
-  status: 'correct' | 'error' | 'idle';
-}
-
+export type LetterStatus = 'correct' | 'corrected' | 'error' | 'idle';
 export type GameStatus = 'finished' | 'idle' | 'typing';
 
-const initialLetters = alphabets.map((char) => ({
+export interface LetterItem {
+  letter: Alphabet;
+  status: LetterStatus;
+}
+
+const initialLetters = alphabets.map<LetterItem>((char) => ({
   letter: char,
   status: 'idle',
 }));
@@ -73,6 +74,7 @@ export const handleSubmitLetter = atom(null, (get, set, update: Alphabet) => {
   const isCorrect = get(activeLetterAtom) === update;
   const shouldFinish = get(isFinalStepAtom);
   const nextStep = Math.min(alphabets.length - 1, get(stepAtom) + 1);
+  const activeLetter = get(activeLetterAtom);
 
   if (get(gameStateAtom) === 'idle') {
     set(startTimeAtom, Date.now());
@@ -85,14 +87,27 @@ export const handleSubmitLetter = atom(null, (get, set, update: Alphabet) => {
   }
 
   set(stepAtom, nextStep);
+  const currentLetter = get(lettersAtom).find((l) => l.letter === activeLetter);
+
+  if (!isCorrect && currentLetter?.status !== 'error')
+    set(mistakesAtom, (p) => p + 1);
+  else if (isCorrect && currentLetter?.status === 'error')
+    set(mistakesAtom, (p) => p - 1);
+
   set(lettersAtom, (prev) =>
-    prev.map((value) =>
-      value.letter === get(activeLetterAtom)
-        ? { letter: value.letter, status: isCorrect ? 'correct' : 'error' }
-        : value,
+    prev.map((l) =>
+      l.letter === get(activeLetterAtom)
+        ? {
+            letter: l.letter,
+            status: !isCorrect
+              ? 'error'
+              : l.status === 'error'
+              ? 'corrected'
+              : 'correct',
+          }
+        : l,
     ),
   );
-  if (!isCorrect) set(mistakesAtom, (p) => p + 1);
 });
 
 export const handleCorrectAtom = atom(null, (get, set) => {
