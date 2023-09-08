@@ -11,6 +11,7 @@ export async function GET(request: NextRequest) {
 
     const guideNumber: string =
       request.nextUrl.searchParams.get('guideNumber') || '0';
+
     const title: string =
       request.nextUrl.searchParams.get('title') || defaultTitle;
     const desc: string =

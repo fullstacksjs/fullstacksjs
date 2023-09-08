@@ -2,6 +2,7 @@
 
 import { isNull } from '@fullstacksjs/toolbox';
 import clsx from 'clsx';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 export type RuleState = 'faded' | 'focused' | 'idle';
@@ -14,6 +15,8 @@ interface Props {
 }
 
 export const Rule = ({ state, target, children, onSelect }: Props) => {
+  const router = useRouter();
+
   return (
     <li
       id={target}
@@ -28,6 +31,7 @@ export const Rule = ({ state, target, children, onSelect }: Props) => {
         href={`#${target}`}
         onClick={() => {
           onSelect?.(target);
+          router.replace(`/ask?focus=${target}`, { scroll: false });
         }}
       >
         {children}
