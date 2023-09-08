@@ -5,4 +5,5 @@ export type Feature =
   | 'guild'
   | 'locale'
   | 'rules'
+  | 'type'
   | 'wakatime';

@@ -38,9 +38,5 @@ export default function TypePage() {
     correct();
   });
 
-  return (
-    <main className="flex w-full flex-col justify-center gap-4 overflow-x-hidden">
-      {isFinished ? <Result /> : <Game />}
-    </main>
-  );
+  return isFinished ? <Result /> : <Game />;
 }

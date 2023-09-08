@@ -7,13 +7,15 @@ import type { Feature } from './Features';
 
 const FeatureContext = createContext<(s: Feature) => boolean>(() => true);
 
+interface Props {
+  features: string[];
+  children: React.ReactNode;
+}
+
 export const FeatureProvider = ({
   children,
   features = clientConfig.features,
-}: {
-  features: string[];
-  children: React.ReactNode;
-}) => {
+}: Props) => {
   const hasFeature = useCallback(
     (feature: Feature) => features.includes(feature),
     [features],
