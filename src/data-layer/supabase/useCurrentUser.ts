@@ -47,7 +47,7 @@ export const useCurrentUser = () => {
       .catch((error) => {
         dispatch({ type: 'Error', payload: { error } });
       });
-  });
+  }, [supabase]);
 
   return value;
 };
