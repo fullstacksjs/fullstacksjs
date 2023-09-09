@@ -58,7 +58,7 @@ export async function GET(request: NextRequest) {
           <img
             tw="absolute bottom-0 left-1/2"
             style={{ transform: 'translateX(-25%)' }}
-            src="http://localhost:3000/image/og-logo.png"
+            src="https://fullstacksjs.com/image/og-logo.png"
             width="400"
           />
         </div>
