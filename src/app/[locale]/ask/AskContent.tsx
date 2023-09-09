@@ -6,19 +6,7 @@ import { Articles } from '@/components/Articles';
 import { Rule, useRuleTarget } from '@/components/Rule';
 import { RuleSet } from '@/components/RuleSet';
 
-const asks = [
-  'precise',
-  'environment',
-  'diagnostic',
-  'sandbox',
-  'courteous',
-  'topic',
-  'xy',
-  'rush',
-  'guess',
-  'pv',
-  'homework',
-];
+import { asks } from './asks';
 
 export default function AskContent(): React.JSX.Element {
   const t = useTranslations();
