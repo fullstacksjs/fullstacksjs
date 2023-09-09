@@ -2,7 +2,12 @@ import { formatStopWatch } from '@/utils/date';
 import { useAsyncEffect } from 'ahooks';
 import { useAtom } from 'jotai';
 
-import { isFinishedAtom, useTimeEllipses, recordAtom } from '../atoms';
+import {
+  isFinishedAtom,
+  useTimeEllipses,
+  recordAtom,
+  isPerfectAtom,
+} from '../atoms';
 import { useSupabase } from '@/data-layer/supabase/SupabaseProvider';
 
 export const Timer = ({ className }: { className?: string }) => {
@@ -10,27 +15,34 @@ export const Timer = ({ className }: { className?: string }) => {
   const [isFinished] = useAtom(isFinishedAtom);
   const { supabase } = useSupabase();
   const [record, setRecord] = useAtom(recordAtom);
+  const [isPerfect] = useAtom(isPerfectAtom);
 
   useAsyncEffect(async () => {
     const session = (await supabase.auth.getSession()).data.session;
 
     if (session === null) return;
 
-    const lastRecord = (await supabase.from('records').select('best_record'))
-      .data?.[0]?.best_record;
-    const bestRecord =
-      diff && lastRecord ? Math.min(diff, lastRecord) : lastRecord || diff;
+    const lastRecord =
+      (await supabase.from('records').select('best_record')).data?.[0]
+        ?.best_record || null;
 
-    setRecord(bestRecord);
+    if (isPerfect && isFinished) {
+      const bestRecord =
+        diff && lastRecord ? Math.min(diff, lastRecord) : lastRecord || diff;
 
-    await supabase.from('records').upsert(
-      {
-        best_record: bestRecord,
-        user_id: session.user.id,
-      },
-      { onConflict: 'user_id' },
-    );
-  }, [isFinished]);
+      setRecord(bestRecord);
+
+      await supabase.from('records').upsert(
+        {
+          best_record: bestRecord,
+          user_id: session.user.id,
+        },
+        { onConflict: 'user_id' },
+      );
+    } else {
+      setRecord(lastRecord);
+    }
+  }, [isPerfect, isFinished]);
 
   return (
     <>
