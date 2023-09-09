@@ -1,4 +1,3 @@
-import type { OpenGraph } from 'next/dist/lib/metadata/types/opengraph-types';
 import type { Organization, WithContext } from 'schema-dts';
 
 export const title = 'FullstacksJS';
