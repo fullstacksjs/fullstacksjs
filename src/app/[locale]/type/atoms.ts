@@ -29,6 +29,7 @@ export const isFinalStepAtom = atom(
 export const gameStateAtom = atom<GameStatus>('idle');
 export const isFinishedAtom = atom((get) => get(gameStateAtom) === 'finished');
 export const activeLetterAtom = atom((get) => alphabets[get(stepAtom)]);
+export const recordAtom = atom<number | null>(null);
 
 const startTimeAtom = atom(Date.now());
 const endTimeAtom = atom(Date.now());
