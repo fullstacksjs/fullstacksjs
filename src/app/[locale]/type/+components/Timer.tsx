@@ -2,33 +2,30 @@ import { formatStopWatch } from '@/utils/date';
 import { useAsyncEffect } from 'ahooks';
 import { useAtom } from 'jotai';
 
-import {
-  isFinishedAtom,
-  useTimeEllipses,
-  recordAtom,
-  isPerfectAtom,
-} from '../atoms';
+import { useTimeEllipses, recordAtom } from '../atoms';
 import { useSupabase } from '@/data-layer/supabase/SupabaseProvider';
 
-export const Timer = ({ className }: { className?: string }) => {
+export const Timer = ({
+  className,
+  isPerfect,
+}: {
+  className?: string;
+  isPerfect?: boolean;
+}) => {
   const diff = useTimeEllipses();
-  const [isFinished] = useAtom(isFinishedAtom);
   const { supabase } = useSupabase();
   const [record, setRecord] = useAtom(recordAtom);
-  const [isPerfect] = useAtom(isPerfectAtom);
 
   useAsyncEffect(async () => {
     const session = (await supabase.auth.getSession()).data.session;
 
     if (session === null) return;
 
-    const lastRecord =
-      (await supabase.from('records').select('best_record')).data?.[0]
-        ?.best_record || null;
+    const lastRecord = (await supabase.from('records').select('best_record'))
+      .data?.[0]?.best_record;
 
-    if (isPerfect && isFinished) {
-      const bestRecord =
-        diff && lastRecord ? Math.min(diff, lastRecord) : lastRecord || diff;
+    if (isPerfect) {
+      const bestRecord = diff && lastRecord ? Math.min(diff, lastRecord) : diff;
 
       setRecord(bestRecord);
 
@@ -39,10 +36,10 @@ export const Timer = ({ className }: { className?: string }) => {
         },
         { onConflict: 'user_id' },
       );
-    } else {
+    } else if (!record && lastRecord) {
       setRecord(lastRecord);
     }
-  }, [isPerfect, isFinished]);
+  }, [isPerfect]);
 
   return (
     <>
