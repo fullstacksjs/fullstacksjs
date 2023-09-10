@@ -11,7 +11,7 @@ export const Result = () => {
   return (
     <div className="w-full text-center">
       <div className="flex w-full flex-col items-center gap-2 text-5xl font-semibold">
-        <Timer />
+        <Timer isPerfect={isPerfect} />
         {isPerfect ? (
           <span className="text-sm text-fg-success">Perfect</span>
         ) : (
