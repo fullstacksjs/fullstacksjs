@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-cat $1 | sed -r "s/#(.*)//g" | npx --no-install cspell stdin
+cat $1 | sed -r "s/#(.*)//g" | pnpm dlx cspell stdin
