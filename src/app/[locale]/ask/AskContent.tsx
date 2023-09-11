@@ -10,7 +10,7 @@ import { asks } from './asks';
 
 export default function AskContent(): React.JSX.Element {
   const t = useTranslations();
-  const { handleSelect, getState: isActive } = useRuleTarget();
+  const { handleSelect, getState: isActive } = useRuleTarget('/ask');
 
   return (
     <Articles>
@@ -23,7 +23,7 @@ export default function AskContent(): React.JSX.Element {
               key={ask}
               target={ask}
             >
-              <p className="mb-2 text-accent-1">{t(`guides.${ask}.title`)}:</p>
+              <p className="mb-2">{t(`guides.${ask}.title`)}:</p>
               <p className="text-light-0">{t(`guides.${ask}.desc`)}</p>
               <br />
             </Rule>

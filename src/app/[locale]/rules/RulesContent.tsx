@@ -25,7 +25,7 @@ const i18nMapper = { b: (chunk: React.ReactNode) => <b>{chunk}</b> };
 
 export default function RulesContent(): React.JSX.Element {
   const t = useTranslations();
-  const { handleSelect, getState: isActive } = useRuleTarget();
+  const { handleSelect, getState: isActive } = useRuleTarget('/rules');
 
   return (
     <Articles>

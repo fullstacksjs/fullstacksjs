@@ -3,5 +3,5 @@ interface Props {
 }
 
 export const RuleSet = ({ children }: Props) => {
-  return <ul className="ms-4">{children}</ul>;
+  return <ol className="ms-4">{children}</ol>;
 };

@@ -2,8 +2,11 @@
 
 import { isNull } from '@fullstacksjs/toolbox';
 import clsx from 'clsx';
-import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useEffect } from 'react';
+import { usePress } from 'react-aria';
+
+import { cn } from '@/utils/cn';
 
 export type RuleState = 'faded' | 'focused' | 'idle';
 
@@ -15,33 +18,42 @@ interface Props {
 }
 
 export const Rule = ({ state, target, children, onSelect }: Props) => {
-  const router = useRouter();
+  const { pressProps } = usePress({
+    onPress: () => onSelect?.(target),
+  });
 
   return (
     <li
       id={target}
-      className="group relative mb-3 ms-6 cursor-pointer scroll-m-10 list-dot leading-tight motion-reduce:transition-none"
+      className={cn(
+        'group text-accent-1 mb-3 ms-6 scroll-m-10 list-decimal leading-tight motion-reduce:transition-none transition-all',
+        {
+          'hover:text-fg-0': state === 'idle',
+          'opacity-25 focus-within:opacity-75 hover:opacity-50':
+            state === 'faded',
+        },
+      )}
     >
-      <a
-        className={clsx('block w-full transition-[color]', {
-          'text-accent-1 hover:text-fg-0': state === 'idle',
-          'text-accent-1': state === 'focused',
-          'opacity-25': state === 'faded',
-        })}
-        href={`#${target}`}
-        onClick={() => {
-          onSelect?.(target);
-          router.replace(`/ask?focus=${target}`, { scroll: false });
-        }}
+      <button
+        className={clsx('w-full text-start outline-none')}
+        {...pressProps}
       >
         {children}
-      </a>
+      </button>
     </li>
   );
 };
 
-export function useRuleTarget() {
-  const [activeTarget, setActive] = useState<string | undefined>();
+export function useRuleTarget(url: string) {
+  const searchParams = useSearchParams();
+  const activeTarget = searchParams.get('focus');
+  const router = useRouter();
+
+  useEffect(() => {
+    document
+      .getElementById(activeTarget ?? '')
+      ?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
 
   const getState = (target: string): RuleState => {
     if (isNull(activeTarget)) return 'idle';
@@ -50,8 +62,8 @@ export function useRuleTarget() {
   };
 
   const handleSelect = (target: string) => {
-    if (target === activeTarget) setActive(undefined);
-    else setActive(target);
+    if (target === activeTarget) router.push(url, { scroll: false });
+    else router.push(`${url}?focus=${target}`, { scroll: false });
   };
 
   return { handleSelect, getState };
