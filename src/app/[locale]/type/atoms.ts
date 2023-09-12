@@ -3,6 +3,8 @@ import { useForceUpdate } from 'framer-motion';
 import { atom, useAtom } from 'jotai';
 import { useEffect } from 'react';
 
+import { submitRecord } from '@/data-layer/supabase/submitRecord';
+
 import type { Alphabet } from './alphabet';
 import { alphabets } from './alphabet';
 import { audios } from './audio';
@@ -83,8 +85,9 @@ export const handleSubmitLetter = atom(null, (get, set, update: Alphabet) => {
   }
 
   if (shouldFinish) {
+    const endTime = Date.now();
     set(gameStateAtom, 'finished');
-    set(endTimeAtom, Date.now());
+    set(endTimeAtom, endTime);
   }
 
   set(stepAtom, nextStep);

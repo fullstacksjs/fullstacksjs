@@ -1,4 +1,4 @@
-import { twMerge } from 'tailwind-merge';
+import { cn } from '@/utils/cn';
 
 interface Props {
   children: string;
@@ -8,7 +8,7 @@ interface Props {
 export const Badge = ({ children, className }: Props) => {
   return (
     <div
-      className={twMerge(
+      className={cn(
         'inline-flex items-center rounded-md bg-accent-0 px-2 py-0 text-xs font-bold text-bg-0',
         className,
       )}

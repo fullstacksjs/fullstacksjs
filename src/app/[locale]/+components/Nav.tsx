@@ -1,10 +1,11 @@
 'use client';
+
 import { comparePaths } from '@fullstacksjs/toolbox';
-import clsx from 'clsx';
 import { useSelectedLayoutSegment } from 'next/navigation';
 import Link from 'next-intl/link';
 
 import type { Direction } from '@/hooks/useDirection';
+import { cn } from '@/utils/cn';
 
 import { Badge } from './Badge';
 
@@ -23,7 +24,7 @@ export default function Nav({ href, isNew, children, direction }: Props) {
   return (
     <li
       aria-current={isActive ? 'page' : undefined}
-      className={clsx(
+      className={cn(
         'relative scroll-m-9 list-none uppercase transition-colors after:absolute after:bottom-[-3px] after:h-[3px] after:bg-current after:transition-[width]',
         {
           'after:w-8 text-fg-0': isActive,
@@ -41,7 +42,7 @@ export default function Nav({ href, isNew, children, direction }: Props) {
         {children}
         {isNew ? (
           <Badge
-            className={clsx('desktop:absolute desktop:top-10', {
+            className={cn('desktop:absolute desktop:top-10', {
               'desktop:right-0': !isRtl,
               'desktop:left-0': isRtl,
             })}

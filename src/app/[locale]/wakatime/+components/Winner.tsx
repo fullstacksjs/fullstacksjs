@@ -1,6 +1,5 @@
-import clsx from 'clsx';
-
 import type { WakatimeUsage } from '@/data-layer/wakatime/Wakatime';
+import { cn } from '@/utils/cn';
 
 import { Avatar } from './Avatar';
 import Crown from './Crown.svg';
@@ -16,7 +15,7 @@ interface Props {
 export function Winner({ usage, rank, className }: Props) {
   return (
     <div
-      className={clsx(
+      className={cn(
         'flex grow-0 flex-col items-center rounded-xl border-[#60657dcb]',
         {
           'w-[250px] mb-8 gap-8 py-8': rank === 1,
@@ -26,7 +25,7 @@ export function Winner({ usage, rank, className }: Props) {
       )}
     >
       <p
-        className={clsx({
+        className={cn({
           'text-yellow-400': rank === 1,
           'font-bold rank-silver leading-tight': rank !== 1,
         })}
@@ -43,7 +42,7 @@ export function Winner({ usage, rank, className }: Props) {
         <Diff diff={usage.user.diff} />
 
         <UserInfo
-          className={clsx('items-center', { 'text-xsm': rank === 1 })}
+          className={cn('items-center', { 'text-xsm': rank === 1 })}
           user={usage.user}
         />
       </div>

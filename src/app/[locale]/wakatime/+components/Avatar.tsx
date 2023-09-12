@@ -1,5 +1,6 @@
-import clsx from 'clsx';
 import Image from 'next/image';
+
+import { cn } from '@/utils/cn';
 
 type Size = 'lg' | 'md' | 'sm';
 
@@ -22,7 +23,7 @@ export function Avatar({ src, alt, size = 'md' }: Props) {
       alt={alt}
       width={sizeMap[size]}
       height={sizeMap[size]}
-      className={clsx('rounded-full border-2 border-fg-0 bg-fg-0')}
+      className={cn('rounded-full border-2 border-fg-0 bg-fg-0')}
     />
   );
 }

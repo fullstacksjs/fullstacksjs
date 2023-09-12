@@ -1,11 +1,10 @@
-import { twMerge } from 'tailwind-merge';
-
 import { Emoji } from '@/components/Emoji';
 import * as Table from '@/components/Table';
 import type {
   WakatimeUsage,
   WakatimeUser,
 } from '@/data-layer/wakatime/Wakatime';
+import { cn } from '@/utils/cn';
 
 import { Avatar } from './Avatar';
 import { Diff } from './Diff';
@@ -40,7 +39,7 @@ export function UserInfo({
   user: WakatimeUser;
 }) {
   return (
-    <div className={twMerge('flex flex-col text-xs', className)}>
+    <div className={cn('flex flex-col text-xs', className)}>
       <p className="font-bold leading-none text-fg-0">{user.name}</p>
       <p className="text-xs font-semibold text-fg-1">@{user.username}</p>
     </div>
@@ -48,7 +47,7 @@ export function UserInfo({
 }
 
 export function Sep({ className }: { className?: string }) {
-  return <div className={twMerge('h-[34px] w-[1px] bg-bg-muted', className)} />;
+  return <div className={cn('h-[34px] w-[1px] bg-bg-muted', className)} />;
 }
 
 const medals = [

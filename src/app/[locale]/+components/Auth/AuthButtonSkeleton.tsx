@@ -1,6 +1,6 @@
-import SecondaryButton from '@/components/SecondaryButton';
+import { SecondaryButton } from '@/components/SecondaryButton';
 
-function AuthBtnSkeleton() {
+export function AuthBtnSkeleton() {
   return (
     <SecondaryButton className="relative overflow-hidden p-4">
       <div className="absolute inset-y-0 w-1/2 translate-x-[-200px] skew-x-[-30deg] animate-[skeleton_.9s_infinite] bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.08)] to-transparent" />
@@ -9,5 +9,3 @@ function AuthBtnSkeleton() {
     </SecondaryButton>
   );
 }
-
-export default AuthBtnSkeleton;

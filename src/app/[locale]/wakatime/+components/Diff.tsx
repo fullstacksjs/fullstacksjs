@@ -1,4 +1,4 @@
-import { twMerge } from 'tailwind-merge';
+import { cn } from '@/utils/cn';
 
 import TwoDown from './ranks/2down.svg';
 import TwoUp from './ranks/2up.svg';
@@ -22,7 +22,7 @@ interface Props {
 export function Diff({ diff, className }: Props) {
   const Icon = getIcon(diff);
   return (
-    <div className={twMerge('flex items-center gap-1', className)}>
+    <div className={cn('flex items-center gap-1', className)}>
       <span className="flex items-center">
         {<Icon width={16} height={16} />}
       </span>

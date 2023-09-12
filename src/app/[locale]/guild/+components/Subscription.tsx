@@ -1,4 +1,4 @@
-import type { User } from '@/data-layer/supabase/User';
+import type { User } from '@/data-layer/supabase/models/User';
 
 import { NeedToLogin } from './NeedToLogin';
 import { SubscribeButton } from './SubscribeButton';

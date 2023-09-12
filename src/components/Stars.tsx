@@ -1,7 +1,8 @@
 import { randomInt, range } from '@fullstacksjs/toolbox';
 import type { Variants } from 'framer-motion';
 import { motion } from 'framer-motion';
-import { twMerge } from 'tailwind-merge';
+
+import { cn } from '@/utils/cn';
 
 export const starAnim: Variants = {
   init: () => ({
@@ -42,13 +43,15 @@ export const Stars = ({ count, className }: Props) => (
   <motion.div
     initial="init"
     animate="anim"
-    className={twMerge(
+    className={cn(
       'pointer-events-none mask-radial absolute left-1/2 top-1/2 -z-10 aspect-square -translate-x-1/2 -translate-y-1/2 overflow-hidden',
       className,
     )}
   >
     {range(count).map((i) => (
       <motion.svg
+        // @ts-expect-error Weak typing
+        suppressHydrationWarning
         variants={starAnim}
         key={i}
         custom={i}

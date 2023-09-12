@@ -18,8 +18,8 @@ import { SupabaseProvider } from '@/data-layer/supabase/SupabaseProvider';
 import { useDirection } from '@/hooks/useDirection';
 import { JotaiProvider } from '@/store/JotaiProvider';
 
-import { GoogleAnalytics } from './components/GoogleAnalytics';
-import { Header } from './components/Header';
+import { GoogleAnalytics } from './+components/GoogleAnalytics';
+import { Header } from './+components/Header';
 
 const rajdhani = Rajdhani({
   weight: ['500', '600', '700'],

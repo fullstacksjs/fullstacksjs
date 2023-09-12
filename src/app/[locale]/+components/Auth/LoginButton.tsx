@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 
-import SecondaryButton from '@/components/SecondaryButton';
+import { SecondaryButton } from '@/components/SecondaryButton';
 import { useSignIn } from '@/data-layer/supabase/useSignIn';
 
 interface Props {
@@ -12,7 +12,7 @@ interface Props {
   height?: number;
 }
 
-function LoginButton({
+export function LoginButton({
   avatar,
   children,
   width = 35,

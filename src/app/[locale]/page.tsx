@@ -6,8 +6,8 @@ import { Highlight } from '@/components/Highlight';
 import { Paragraph } from '@/components/Paragraph';
 import { Separator } from '@/components/Separator';
 
-import { Banner } from './components/Banner';
-import { JoinButton } from './components/JoinButton';
+import { Banner } from './+components/Banner';
+import { JoinButton } from './+components/JoinButton';
 
 export default function Home() {
   const t = useTranslations('main');

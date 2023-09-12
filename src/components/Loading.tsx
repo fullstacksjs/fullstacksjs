@@ -1,6 +1,7 @@
-import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import type { DetailedHTMLProps, HTMLAttributes } from 'react';
+
+import { cn } from '@/utils/cn';
 
 export interface LoaderSizeProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement> {
@@ -29,7 +30,7 @@ export function Loader({
       initial="hidden"
       animate="visible"
       exit="hidden"
-      className={clsx('relative', className)}
+      className={cn('relative', className)}
       style={{ width: size, height: size }}
     >
       <motion.span

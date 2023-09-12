@@ -4,8 +4,8 @@ import { Suspense } from 'react';
 import { useDirection } from '@/hooks/useDirection';
 import type { Locales } from '@/i18n';
 
-import AuthBtnSkeleton from './AuthButtonSkeleton';
-import { Authentication } from './Authentication';
+import { AuthBtnSkeleton } from './Auth/AuthButtonSkeleton';
+import { Authentication } from './Auth/Authentication';
 import { LocaleSelect } from './LocaleSelect';
 import { MobileNavs } from './MobileNavs';
 import Navs from './Navs';

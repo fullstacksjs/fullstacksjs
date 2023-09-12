@@ -1,10 +1,10 @@
 import { useTranslations } from 'next-intl';
 import { use } from 'react';
 
-import { getProfile } from '@/data-layer/supabase/SupabaseServer';
+import { getProfile } from '@/data-layer/supabase/getProfile';
 
 import GithubOutlineIcon from './GithubIcon.svg?url';
-import LoginButton from './LoginButton';
+import { LoginButton } from './LoginButton';
 import { ProfileButton } from './ProfileButton';
 
 export function Authentication() {

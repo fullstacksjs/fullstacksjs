@@ -1,9 +1,9 @@
 'use client';
 
 import LogoutIcon from '@/components/Logout.svg';
-import SecondaryButton from '@/components/SecondaryButton';
+import { SecondaryButton } from '@/components/SecondaryButton';
 
-import LoginButton from './LoginButton';
+import { LoginButton } from './LoginButton';
 
 interface Props {
   children: string;

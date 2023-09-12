@@ -1,6 +1,6 @@
 import { Slot } from '@radix-ui/react-slot';
-import clsx from 'clsx';
-import { twMerge } from 'tailwind-merge';
+
+import { cn } from '@/utils/cn';
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
@@ -19,16 +19,13 @@ export const Button = ({
 
   return (
     <Comp
-      className={twMerge(
-        clsx(
-          'flex flex-row items-center justify-center rounded-lg px-12 py-4 text-sm font-semibold leading-snug disabled:border-none disabled:bg-bg-muted disabled:text-fg-muted',
-          {
-            'border border-accent-0 text-accent-0 transition-[background-color,color] hover:bg-accent-0 hover:text-bg-0 focus:text-bg-0 focus:bg-accent-0 focus:outline-none':
-              variant === 'outline',
-            'bg-accent-0 text-dark-0 transition-shadow':
-              variant === 'contained',
-          },
-        ),
+      className={cn(
+        'flex flex-row items-center justify-center rounded-lg px-12 py-4 text-sm font-semibold leading-snug disabled:border-none disabled:bg-bg-muted disabled:text-fg-muted',
+        {
+          'border border-accent-0 text-accent-0 transition-[background-color,color] hover:bg-accent-0 hover:text-bg-0 focus:text-bg-0 focus:bg-accent-0 focus:outline-none':
+            variant === 'outline',
+          'bg-accent-0 text-dark-0 transition-shadow': variant === 'contained',
+        },
         className,
       )}
       {...props}

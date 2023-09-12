@@ -10,9 +10,9 @@ import { useEffect, useState } from 'react';
 import { Emoji } from '@/components/Emoji';
 import { Highlight } from '@/components/Highlight';
 import { Stars } from '@/components/Stars';
-import type { User } from '@/data-layer/supabase/User';
+import type { User } from '@/data-layer/supabase/models/User';
 
-import { Subscription } from './_components/Subscription';
+import { Subscription } from './+components/Subscription';
 
 interface Props {
   user: User | undefined;

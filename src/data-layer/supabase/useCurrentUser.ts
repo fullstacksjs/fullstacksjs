@@ -1,8 +1,8 @@
 import { assertNotNull } from '@fullstacksjs/toolbox';
 import { useEffect, useReducer } from 'react';
 
+import type { User } from './models/User';
 import { useSupabase } from './SupabaseProvider';
-import type { User } from './User';
 
 type AuthState =
   | { user: null; status: 'error' }

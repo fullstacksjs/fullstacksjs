@@ -3,7 +3,7 @@ import { cookies } from 'next/headers';
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
-import type { Database } from '@/data-layer/supabase/Database';
+import type { Database } from '@/data-layer/supabase/models/Database';
 
 export async function GET(request: NextRequest) {
   const requestUrl = new URL(request.url);

@@ -1,9 +1,9 @@
-import clsx from 'clsx';
 import type { HTMLMotionProps, Variants } from 'framer-motion';
 import { motion } from 'framer-motion';
 
 import { Loader } from '@/components/Loading';
 import { Stars } from '@/components/Stars';
+import { cn } from '@/utils/cn';
 
 import styles from './Button.module.css';
 
@@ -75,7 +75,7 @@ export const SpaceButton = ({
         animate="anim"
         type="button"
         disabled={!!disabled || loading}
-        className={clsx(
+        className={cn(
           'relative flex cursor-pointer items-center gap-4 rounded-full px-8 py-6 text-sm font-semibold transition-all',
           styles['button'],
         )}
@@ -83,21 +83,21 @@ export const SpaceButton = ({
       >
         <motion.div
           variants={highlightContainerAnim}
-          className={clsx(
+          className={cn(
             'absolute inset-0 overflow-hidden rounded-[inherit] pt-[2px]',
             styles['border'],
           )}
         >
           <motion.div
             variants={highlightAnim}
-            className={clsx(
+            className={cn(
               `absolute left-1/2 top-0 -z-10 aspect-square w-[200%] rounded-[inherit]`,
               styles['highlight'],
             )}
           />
         </motion.div>
         <motion.span
-          className={clsx(
+          className={cn(
             'flex flex-1 items-start justify-center gap-4 overflow-hidden whitespace-nowrap transition-all',
             className,
           )}

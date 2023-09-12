@@ -1,7 +1,6 @@
 'use client';
 
 import { isNull } from '@fullstacksjs/toolbox';
-import clsx from 'clsx';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 import { usePress } from 'react-aria';
@@ -34,10 +33,7 @@ export const Rule = ({ state, target, children, onSelect }: Props) => {
         },
       )}
     >
-      <button
-        className={clsx('w-full text-start outline-none')}
-        {...pressProps}
-      >
+      <button className={cn('w-full text-start outline-none')} {...pressProps}>
         {children}
       </button>
     </li>

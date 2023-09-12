@@ -1,5 +1,6 @@
 import { forwardRef } from 'react';
-import { twMerge } from 'tailwind-merge';
+
+import { cn } from '@/utils/cn';
 
 const Table = forwardRef<
   HTMLTableElement,
@@ -8,7 +9,7 @@ const Table = forwardRef<
   <div className="w-full">
     <table
       ref={ref}
-      className={twMerge('w-full caption-bottom text-sm', className)}
+      className={cn('w-full caption-bottom text-sm', className)}
       {...props}
     />
   </div>
@@ -21,7 +22,7 @@ const TableHeader = forwardRef<
 >(({ className, ...props }, ref) => (
   <thead
     ref={ref}
-    className={twMerge('text-xs text-fg-1 font-semibold', className)}
+    className={cn('text-xs text-fg-1 font-semibold', className)}
     {...props}
   />
 ));
@@ -33,7 +34,7 @@ const TableBody = forwardRef<
 >(({ className, ...props }, ref) => (
   <tbody
     ref={ref}
-    className={twMerge('[&_tr:last-child]:border-0', className)}
+    className={cn('[&_tr:last-child]:border-0', className)}
     {...props}
   />
 ));
@@ -45,10 +46,7 @@ const TableFooter = forwardRef<
 >(({ className, ...props }, ref) => (
   <tfoot
     ref={ref}
-    className={twMerge(
-      'bg-primary font-medium text-primary-foreground',
-      className,
-    )}
+    className={cn('bg-primary font-medium text-primary-foreground', className)}
     {...props}
   />
 ));
@@ -60,7 +58,7 @@ const TableRow = forwardRef<
 >(({ className, ...props }, ref) => (
   <tr
     ref={ref}
-    className={twMerge('border-b border-bg-muted transition-colors', className)}
+    className={cn('border-b border-bg-muted transition-colors', className)}
     {...props}
   />
 ));
@@ -72,7 +70,7 @@ const TableHead = forwardRef<
 >(({ className, ...props }, ref) => (
   <th
     ref={ref}
-    className={twMerge('text-start font-semibold align-middle pb-4', className)}
+    className={cn('text-start font-semibold align-middle pb-4', className)}
     {...props}
   />
 ));
@@ -82,11 +80,7 @@ const TableCell = forwardRef<
   HTMLTableCellElement,
   React.TdHTMLAttributes<HTMLTableCellElement>
 >(({ className, ...props }, ref) => (
-  <td
-    ref={ref}
-    className={twMerge('align-middle py-6', className)}
-    {...props}
-  />
+  <td ref={ref} className={cn('align-middle py-6', className)} {...props} />
 ));
 TableCell.displayName = 'TableCell';
 
@@ -96,7 +90,7 @@ const TableCaption = forwardRef<
 >(({ className, ...props }, ref) => (
   <caption
     ref={ref}
-    className={twMerge('mt-4 text-sm text-muted-foreground', className)}
+    className={cn('mt-4 text-sm text-muted-foreground', className)}
     {...props}
   />
 ));

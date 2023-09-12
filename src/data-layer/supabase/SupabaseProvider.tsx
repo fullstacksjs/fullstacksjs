@@ -7,7 +7,7 @@ import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 
 import { clientConfig } from '@/config/clientConfig';
 
-import type { Database } from './Database';
+import type { Database } from './models/Database';
 
 interface SupabaseContext {
   supabase: SupabaseClient<Database>;

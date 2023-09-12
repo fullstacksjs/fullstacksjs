@@ -6,7 +6,7 @@
   "ignorePaths": [
     "**/*.svg",
     "./supabase/migrations/*.json",
-    "./src/data-layer/supabase/Database.ts",
+    "./src/data-layer/supabase/models/Database.ts",
     "**/pnpm-lock.yaml"
   ],
   "dictionaryDefinitions": [

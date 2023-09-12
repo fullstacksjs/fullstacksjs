@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import { twMerge } from 'tailwind-merge';
+
+import { cn } from '@/utils/cn';
 
 const emojiMaps = {
   pirate: { path: 'Symbols/Pirate Flag', className: undefined },
@@ -19,7 +20,7 @@ export const Emoji = ({ className, name }: Props) => {
     <Image
       src={`https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/${emojiMaps[name].path}.png`}
       alt={`${name} Emoji`}
-      className={twMerge('inline', emojiMaps[name].className, className)}
+      className={cn('inline', emojiMaps[name].className, className)}
       width={30}
       height={30}
     />

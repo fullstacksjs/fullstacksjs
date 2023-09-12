@@ -1,10 +1,9 @@
 /* eslint-disable jsx-a11y/alt-text */
-import clsx from 'clsx';
 import Image from 'next/image';
 import type { ResponsiveImageType } from 'react-datocms/image';
-import { twMerge } from 'tailwind-merge';
 
 import type { Lecturer } from '@/data-layer/datocms/Event';
+import { cn } from '@/utils/cn';
 
 interface Props {
   className?: string;
@@ -20,7 +19,7 @@ export const Avatar = ({
 }) => {
   return (
     <Image
-      className={twMerge('rounded-full border-4 border-bg-0', className)}
+      className={cn('rounded-full border-4 border-bg-0', className)}
       src={image.src!}
       alt={image.alt!}
       width={image.width}
@@ -33,7 +32,7 @@ export const LecturerStack = ({ lecturers, className }: Props) => {
   const isSingle = lecturers.length === 1;
   return (
     <div
-      className={clsx(
+      className={cn(
         'flex flex-col items-start',
         { 'mt-6': !isSingle },
         className,

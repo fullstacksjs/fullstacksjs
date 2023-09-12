@@ -4,7 +4,7 @@ import type { OpenGraph } from 'next/dist/lib/metadata/types/opengraph-types';
 import { Separator } from '@/components/Separator';
 import { getReport } from '@/data-layer/wakatime/getReport';
 
-import { Banner } from '../components/Banner';
+import { Banner } from '../+components/Banner';
 import { Title } from './+components/Title';
 import { UserTable } from './+components/UserTable';
 import { WakatimeButton } from './+components/WakatimeButton';
