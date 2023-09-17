@@ -41,21 +41,24 @@ export interface Database {
       }
       records: {
         Row: {
-          created_at: string | null
+          created_at: string
+          duration: number | null
+          id: string
           mistakes: number | null
-          time: number | null
           user_id: string
         }
         Insert: {
-          created_at?: string | null
+          created_at?: string
+          duration?: number | null
+          id?: string
           mistakes?: number | null
-          time?: number | null
           user_id: string
         }
         Update: {
-          created_at?: string | null
+          created_at?: string
+          duration?: number | null
+          id?: string
           mistakes?: number | null
-          time?: number | null
           user_id?: string
         }
         Relationships: [
@@ -97,7 +100,15 @@ export interface Database {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_best_time: {
+        Args: {
+          p_user_id: string
+        }
+        Returns: {
+          user_id: string
+          duration: number
+        }[]
+      }
     }
     Enums: {
       [_ in never]: never

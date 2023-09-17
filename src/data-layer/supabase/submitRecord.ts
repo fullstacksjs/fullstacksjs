@@ -1,34 +1,22 @@
 'use server';
 
+import { getRecord } from './getRecord';
 import { createServerSupabaseClient, getSession } from './SupabaseServer';
 
 interface Record {
-  time: number;
-  isPerfect: boolean;
+  duration: number;
+  mistakes: number;
 }
 
-export const submitRecord = async ({ time, isPerfect }: Record) => {
+export const submitRecord = async ({ duration, mistakes }: Record) => {
   const supabase = createServerSupabaseClient();
   const session = await getSession();
 
   if (session === null) return;
 
-  const { data: records } = await supabase
+  await supabase
     .from('records')
-    .select('time')
-    .single();
-  const record = records?.time;
+    .insert({ user_id: session.user.id, duration, mistakes });
 
-  const bestRecord = Math.min(time, record ?? Infinity);
-
-  await supabase.from('records').upsert(
-    {
-      best_record: bestRecord,
-      user_id: session.user.id,
-      is_perfect: isPerfect,
-    },
-    { onConflict: 'user_id' },
-  );
-
-  return bestRecord;
+  return getRecord();
 };

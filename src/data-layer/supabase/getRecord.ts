@@ -9,9 +9,11 @@ export const getRecord = cache(async () => {
     const { data } = await supabase.auth.getSession();
     if (data.session == null) return null;
 
-    const { data: records } = await supabase.from('records').select('*');
+    const { data: records } = await supabase
+      .rpc('get_best_time', { p_user_id: data.session.user.id })
+      .single();
 
-    return records?.[0];
+    return records;
   } catch (error) {
     console.error('Error:', error);
     return null;

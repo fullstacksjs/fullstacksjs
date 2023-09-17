@@ -2,6 +2,7 @@
 
 import { useKeyPress } from 'ahooks';
 import { useAtom } from 'jotai';
+import { useEffect } from 'react';
 
 import { Game } from './+components/Game';
 import { Result } from './+components/Result';
@@ -12,14 +13,24 @@ import {
   handleCorrectAtom,
   handleSubmitLetter,
   isFinishedAtom,
+  recordAtom,
 } from './atoms';
 import { audios } from './audio';
 
-export const TypeContent = ({ record }: { record: number | null }) => {
+interface Props {
+  initialRecord: number | undefined;
+}
+
+export const TypeContent = ({ initialRecord }: Props) => {
   const [activeLetter] = useAtom(activeLetterAtom);
   const [isFinished] = useAtom(isFinishedAtom);
   const [, correct] = useAtom(handleCorrectAtom);
   const [, submit] = useAtom(handleSubmitLetter);
+  const [record, setRecord] = useAtom(recordAtom);
+
+  useEffect(() => {
+    if (initialRecord) setRecord(initialRecord);
+  }, [initialRecord, setRecord]);
 
   useKeyPress(
     (event) => isAlphabet(event.key),
@@ -30,7 +41,7 @@ export const TypeContent = ({ record }: { record: number | null }) => {
 
       const sfx = isCorrect ? audios.click : audios.wrong;
       sfx.play();
-      submit(pressedKey);
+      void submit(pressedKey);
     },
   );
 

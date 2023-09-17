@@ -31,7 +31,7 @@ export const isFinalStepAtom = atom(
 export const gameStateAtom = atom<GameStatus>('idle');
 export const isFinishedAtom = atom((get) => get(gameStateAtom) === 'finished');
 export const activeLetterAtom = atom((get) => alphabets[get(stepAtom)]);
-export const recordAtom = atom<number | null>(null);
+export const recordAtom = atom<number | undefined>(undefined);
 
 const startTimeAtom = atom(Date.now());
 const endTimeAtom = atom(Date.now());
@@ -72,47 +72,61 @@ export const useTimeEllipses = () => {
 };
 
 export const isPerfectAtom = atom((get) => get(mistakesAtom) === 0);
+export const newRecordAtom = atom(Infinity);
 
-export const handleSubmitLetter = atom(null, (get, set, update: Alphabet) => {
-  const isCorrect = get(activeLetterAtom) === update;
-  const shouldFinish = get(isFinalStepAtom);
-  const nextStep = Math.min(alphabets.length - 1, get(stepAtom) + 1);
-  const activeLetter = get(activeLetterAtom);
+export const handleSubmitLetter = atom(
+  null,
+  async (get, set, update: Alphabet) => {
+    const isCorrect = get(activeLetterAtom) === update;
+    const shouldFinish = get(isFinalStepAtom);
+    const nextStep = Math.min(alphabets.length - 1, get(stepAtom) + 1);
+    const activeLetter = get(activeLetterAtom);
 
-  if (get(gameStateAtom) === 'idle') {
-    set(startTimeAtom, Date.now());
-    set(gameStateAtom, 'typing');
-  }
+    if (get(gameStateAtom) === 'idle') {
+      set(startTimeAtom, Date.now());
+      set(gameStateAtom, 'typing');
+    }
 
-  if (shouldFinish) {
-    const endTime = Date.now();
-    set(gameStateAtom, 'finished');
-    set(endTimeAtom, endTime);
-  }
+    if (shouldFinish) {
+      const endTime = Date.now();
+      set(gameStateAtom, 'finished');
+      set(endTimeAtom, endTime);
+      const duration = endTime - get(startTimeAtom);
+      const newRecord = await submitRecord({
+        duration,
+        mistakes: get(mistakesAtom),
+      })
+        .then((d) => d?.duration)
+        .catch(() => undefined);
+      set(newRecordAtom, newRecord ?? Infinity);
+    }
 
-  set(stepAtom, nextStep);
-  const currentLetter = get(lettersAtom).find((l) => l.letter === activeLetter);
+    set(stepAtom, nextStep);
+    const currentLetter = get(lettersAtom).find(
+      (l) => l.letter === activeLetter,
+    );
 
-  if (!isCorrect && currentLetter?.status !== 'error')
-    set(mistakesAtom, (p) => p + 1);
-  else if (isCorrect && currentLetter?.status === 'error')
-    set(mistakesAtom, (p) => p - 1);
+    if (!isCorrect && currentLetter?.status !== 'error')
+      set(mistakesAtom, (p) => p + 1);
+    else if (isCorrect && currentLetter?.status === 'error')
+      set(mistakesAtom, (p) => p - 1);
 
-  set(lettersAtom, (prev) =>
-    prev.map((l) =>
-      l.letter === get(activeLetterAtom)
-        ? {
-            letter: l.letter,
-            status: !isCorrect
-              ? 'error'
-              : l.status === 'error'
-              ? 'corrected'
-              : 'correct',
-          }
-        : l,
-    ),
-  );
-});
+    set(lettersAtom, (prev) =>
+      prev.map((l) =>
+        l.letter === get(activeLetterAtom)
+          ? {
+              letter: l.letter,
+              status: !isCorrect
+                ? 'error'
+                : l.status === 'error'
+                ? 'corrected'
+                : 'correct',
+            }
+          : l,
+      ),
+    );
+  },
+);
 
 export const handleCorrectAtom = atom(null, (get, set) => {
   if (get(gameStateAtom) === 'typing' && get(stepAtom) > 0)

@@ -2,18 +2,19 @@ import { useAtom } from 'jotai';
 
 import { formatStopWatch } from '@/utils/date';
 
-import { isPerfectAtom, mistakesAtom } from '../atoms';
+import { isPerfectAtom, mistakesAtom, newRecordAtom } from '../atoms';
 import { Retry } from './Retry';
 import { Timer } from './Timer';
 
 interface Props {
-  record: number | null;
+  record?: number;
   loading?: boolean;
 }
 
 export const Result = ({ record, loading }: Props) => {
   const [mistakes] = useAtom(mistakesAtom);
   const [isPerfect] = useAtom(isPerfectAtom);
+  const [newRecord] = useAtom(newRecordAtom);
 
   return (
     <div className="w-full text-center">
@@ -21,7 +22,11 @@ export const Result = ({ record, loading }: Props) => {
         <Timer />
         {record ? (
           <span className="text-sm">
-            {loading ? 'Loading' : `Your best time ${formatStopWatch(record)}`}
+            {loading
+              ? 'Loading'
+              : `Your best time ${formatStopWatch(
+                  Math.min(record, newRecord),
+                )}`}
           </span>
         ) : null}
         {isPerfect ? (
