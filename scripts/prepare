@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 
-[ -d .git/ ] && pnpm dlx husky install configs/husky
+[ -d .git/ ] && pnpm exec husky install configs/husky
 exit 0
