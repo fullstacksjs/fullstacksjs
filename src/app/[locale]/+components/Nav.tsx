@@ -37,14 +37,14 @@ export default function Nav({ href, isNew, children, direction }: Props) {
     >
       <Link
         href={href}
-        className="flex items-center gap-2 rounded-sm text-base focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-8 focus-visible:outline-accent-0 tablet:text-md"
+        className="flex items-center gap-2 whitespace-nowrap rounded-sm text-base focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-8 focus-visible:outline-accent-0 tablet:text-md"
       >
         {children}
         {isNew ? (
           <Badge
             className={cn('desktop:absolute desktop:top-10', {
-              'desktop:right-0': !isRtl,
-              'desktop:left-0': isRtl,
+              'desktop:right-0 translate-x-6': !isRtl,
+              'desktop:left-0 -translate-x-6': isRtl,
             })}
           >
             New

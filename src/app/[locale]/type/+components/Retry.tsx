@@ -24,7 +24,7 @@ export const Retry = ({ className, onClick, ...props }: Props) => {
     >
       <svg
         className={cn(
-          'm-0 w-10 fill-none cursor-pointer stroke-current',
+          'w-10 fill-none cursor-pointer stroke-current',
           className,
         )}
         viewBox="0 0 40 40"

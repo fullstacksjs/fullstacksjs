@@ -1,8 +1,6 @@
 import { noop } from '@fullstacksjs/toolbox';
 import { useAtom } from 'jotai';
 
-import { cn } from '@/utils/cn';
-
 import { activeLetterAtom, gameStateAtom, lettersAtom } from '../atoms';
 import { Letter } from './Letter';
 import { Retry } from './Retry';
@@ -14,19 +12,13 @@ export const Game = () => {
   const [gameState] = useAtom(gameStateAtom);
 
   return (
-    <div>
-      <div className={cn('flex w-full')}>
-        <div className="relative flex flex-wrap gap-4">
-          {letters.map(({ letter, status }) => (
-            <Letter
-              key={letter}
-              active={letter === activeLetter}
-              status={status}
-            >
-              {letter}
-            </Letter>
-          ))}
-        </div>
+    <div className="flex flex-col gap-12">
+      <div className="relative flex w-full flex-wrap gap-4 text-5xl tablet:text-5xl">
+        {letters.map(({ letter, status }) => (
+          <Letter key={letter} active={letter === activeLetter} status={status}>
+            {letter}
+          </Letter>
+        ))}
       </div>
       <div className="flex w-full flex-col items-center gap-2 text-center">
         <Timer />

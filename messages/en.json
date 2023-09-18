@@ -15,7 +15,8 @@
       "rules": "rules",
       "events": "events",
       "guild": "TS Guild",
-      "wakatime": "Wakatime"
+      "wakatime": "Wakatime",
+      "type": "Type"
     },
     "auth": {
       "login": "Login with GitHub"

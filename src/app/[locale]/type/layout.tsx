@@ -11,7 +11,7 @@ export default function TypeLayout({ children }: Props) {
   if (!feature) return notFound();
 
   return (
-    <main className="flex w-full flex-col justify-center gap-4 overflow-x-hidden">
+    <main className="flex w-full flex-col justify-center overflow-x-hidden">
       {children}
     </main>
   );

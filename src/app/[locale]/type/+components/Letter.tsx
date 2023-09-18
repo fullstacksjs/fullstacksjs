@@ -12,7 +12,7 @@ export const Letter = ({ children, active, status }: Props) => {
   return (
     <div
       className={cn(
-        `text-5xl tablet:text-6xl leading-none inline-block uppercase w-32 select-none text-center font-semibold`,
+        `leading-none inline-block uppercase w-32 select-none text-center font-semibold`,
         {
           'opacity-25': !active,
           'opacity-100': active,

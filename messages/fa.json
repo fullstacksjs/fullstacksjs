@@ -15,7 +15,8 @@
       "rules": "قوانین",
       "events": "رویدادها",
       "guild": "TS Guild",
-      "wakatime": "واکاتایم"
+      "wakatime": "واکاتایم",
+      "type": "تایپ"
     },
     "auth": {
       "login": "ورود با گیت‌هاب"
