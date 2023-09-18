@@ -4,6 +4,8 @@ import { useKeyPress } from 'ahooks';
 import { useAtom } from 'jotai';
 import { useEffect } from 'react';
 
+import type { User } from '@/data-layer/supabase/models/User';
+
 import { Game } from './+components/Game';
 import { Result } from './+components/Result';
 import type { Alphabet } from './alphabet';
@@ -19,9 +21,10 @@ import { audios } from './audio';
 
 interface Props {
   initialRecord: number | undefined;
+  user: User | undefined;
 }
 
-export const TypeContent = ({ initialRecord }: Props) => {
+export const TypeContent = ({ initialRecord, user }: Props) => {
   const [activeLetter] = useAtom(activeLetterAtom);
   const [isFinished] = useAtom(isFinishedAtom);
   const [, correct] = useAtom(handleCorrectAtom);
@@ -50,5 +53,5 @@ export const TypeContent = ({ initialRecord }: Props) => {
     correct();
   });
 
-  return isFinished ? <Result record={record} /> : <Game />;
+  return isFinished ? <Result user={user} record={record} /> : <Game />;
 };

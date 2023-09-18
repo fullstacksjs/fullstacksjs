@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl';
 import { use } from 'react';
 
-import { getProfile } from '@/data-layer/supabase/getProfile';
+import { getUser } from '@/data-layer/supabase/getUser';
 
 import GithubOutlineIcon from './GithubIcon.svg?url';
 import { LoginButton } from './LoginButton';
@@ -9,7 +9,7 @@ import { ProfileButton } from './ProfileButton';
 
 export function Authentication() {
   const t = useTranslations('header');
-  const profile = use(getProfile());
+  const profile = use(getUser());
 
   if (profile != null)
     return (

@@ -3,12 +3,12 @@ import { cache } from 'react';
 import type { Profile } from './models/Profile';
 import { createServerSupabaseClient } from './SupabaseServer';
 
-export const getProfile = cache(async (): Promise<Profile | null> => {
+export const getUser = cache(async (): Promise<Profile | undefined> => {
   const supabase = createServerSupabaseClient();
 
   try {
     const { data } = await supabase.auth.getSession();
-    if (data.session == null) return null;
+    if (data.session == null) return undefined;
 
     return {
       avatar: data.session.user.user_metadata['avatar_url'],
@@ -18,6 +18,6 @@ export const getProfile = cache(async (): Promise<Profile | null> => {
     };
   } catch (error) {
     console.error('Error:', error);
-    return null;
+    return undefined;
   }
 });

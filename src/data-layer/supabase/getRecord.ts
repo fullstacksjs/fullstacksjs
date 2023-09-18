@@ -7,7 +7,7 @@ export const getRecord = cache(async () => {
 
   try {
     const { data } = await supabase.auth.getSession();
-    if (data.session == null) return null;
+    if (data.session == null) return undefined;
 
     const { data: records } = await supabase
       .rpc('get_best_time', { p_user_id: data.session.user.id })
@@ -16,6 +16,6 @@ export const getRecord = cache(async () => {
     return records;
   } catch (error) {
     console.error('Error:', error);
-    return null;
+    return undefined;
   }
 });

@@ -1,5 +1,6 @@
 import { useAtom } from 'jotai';
 
+import type { User } from '@/data-layer/supabase/models/User';
 import { formatStopWatch } from '@/utils/date';
 
 import { isPerfectAtom, mistakesAtom } from '../atoms';
@@ -9,9 +10,10 @@ import { Timer } from './Timer';
 
 interface Props {
   record?: number;
+  user?: User;
 }
 
-export const Result = ({ record }: Props) => {
+export const Result = ({ record, user }: Props) => {
   const [mistakes] = useAtom(mistakesAtom);
   const [isPerfect] = useAtom(isPerfectAtom);
 
@@ -21,9 +23,9 @@ export const Result = ({ record }: Props) => {
         <Timer className="text-5xl" />
         {record ? (
           <span>Your best time {formatStopWatch(record)}</span>
-        ) : (
+        ) : !user ? (
           <NeedToLogin />
-        )}
+        ) : null}
         {isPerfect ? (
           <span className="text-fg-success">Perfect</span>
         ) : (
