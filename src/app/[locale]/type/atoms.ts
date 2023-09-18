@@ -31,7 +31,6 @@ export const isFinalStepAtom = atom(
 export const gameStateAtom = atom<GameStatus>('idle');
 export const isFinishedAtom = atom((get) => get(gameStateAtom) === 'finished');
 export const activeLetterAtom = atom((get) => alphabets[get(stepAtom)]);
-export const recordAtom = atom<number | undefined>(undefined);
 
 const startTimeAtom = atom(Date.now());
 const endTimeAtom = atom(Date.now());
@@ -72,7 +71,7 @@ export const useTimeEllipses = () => {
 };
 
 export const isPerfectAtom = atom((get) => get(mistakesAtom) === 0);
-export const newRecordAtom = atom(Infinity);
+export const newRecordAtom = atom<number | undefined>(undefined);
 
 export const handleSubmitLetter = atom(
   null,
@@ -98,7 +97,7 @@ export const handleSubmitLetter = atom(
       })
         .then((d) => d?.duration)
         .catch(() => undefined);
-      set(newRecordAtom, newRecord ?? Infinity);
+      set(newRecordAtom, newRecord);
     }
 
     set(stepAtom, nextStep);

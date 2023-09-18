@@ -13,7 +13,7 @@ import {
   handleCorrectAtom,
   handleSubmitLetter,
   isFinishedAtom,
-  recordAtom,
+  newRecordAtom,
 } from './atoms';
 import { audios } from './audio';
 
@@ -26,7 +26,7 @@ export const TypeContent = ({ initialRecord }: Props) => {
   const [isFinished] = useAtom(isFinishedAtom);
   const [, correct] = useAtom(handleCorrectAtom);
   const [, submit] = useAtom(handleSubmitLetter);
-  const [record, setRecord] = useAtom(recordAtom);
+  const [record, setRecord] = useAtom(newRecordAtom);
 
   useEffect(() => {
     if (initialRecord) setRecord(initialRecord);

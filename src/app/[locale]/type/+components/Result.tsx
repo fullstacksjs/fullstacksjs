@@ -2,37 +2,33 @@ import { useAtom } from 'jotai';
 
 import { formatStopWatch } from '@/utils/date';
 
-import { isPerfectAtom, mistakesAtom, newRecordAtom } from '../atoms';
+import { isPerfectAtom, mistakesAtom } from '../atoms';
+import { NeedToLogin } from './NeedToLogin';
 import { Retry } from './Retry';
 import { Timer } from './Timer';
 
 interface Props {
   record?: number;
-  loading?: boolean;
 }
 
-export const Result = ({ record, loading }: Props) => {
+export const Result = ({ record }: Props) => {
   const [mistakes] = useAtom(mistakesAtom);
   const [isPerfect] = useAtom(isPerfectAtom);
-  const [newRecord] = useAtom(newRecordAtom);
+  console.log(record);
 
   return (
     <div className="w-full text-center">
-      <div className="flex w-full flex-col items-center gap-2 text-5xl font-semibold">
-        <Timer />
+      <div className="flex w-full flex-col items-center gap-2 text-sm font-semibold">
+        <Timer className="text-5xl" />
         {record ? (
-          <span className="text-sm">
-            {loading
-              ? 'Loading'
-              : `Your best time ${formatStopWatch(
-                  Math.min(record, newRecord),
-                )}`}
-          </span>
-        ) : null}
-        {isPerfect ? (
-          <span className="text-sm text-fg-success">Perfect</span>
+          <span>Your best time {formatStopWatch(record)}</span>
         ) : (
-          <span className="text-sm text-fg-error">Mistakes: {mistakes}</span>
+          <NeedToLogin />
+        )}
+        {isPerfect ? (
+          <span className="text-fg-success">Perfect</span>
+        ) : (
+          <span className="text-fg-error">Mistakes: {mistakes}</span>
         )}
         <Retry />
       </div>
