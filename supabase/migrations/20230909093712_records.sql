@@ -2,7 +2,7 @@ CREATE TABLE IF NOT EXISTS  "public"."records" (
   "id" uuid primary key DEFAULT uuid_generate_v4(),
   "user_id" uuid not null,
   "created_at" timestamp with time zone DEFAULT "now"() NOT NULL,
-  "time" numeric,
+  "duration" numeric,
   "mistakes" numeric DEFAULT 0
 );
 
