@@ -14,9 +14,11 @@ export const submitRecord = async ({ duration, mistakes }: Record) => {
 
   if (session === null) return;
 
-  await supabase
+  const { error } = await supabase
     .from('records')
     .insert({ user_id: session.user.id, duration, mistakes });
+
+  if (error) throw error;
 
   return getRecord();
 };

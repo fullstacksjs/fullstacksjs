@@ -96,7 +96,10 @@ export const handleSubmitLetter = atom(
         mistakes: get(mistakesAtom),
       })
         .then((d) => d?.duration)
-        .catch(() => undefined);
+        .catch((e) => {
+          console.error(e);
+          return undefined;
+        });
       set(newRecordAtom, newRecord);
     }
 
