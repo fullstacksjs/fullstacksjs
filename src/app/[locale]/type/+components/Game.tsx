@@ -12,7 +12,7 @@ export const Game = () => {
   const [gameState] = useAtom(gameStateAtom);
 
   return (
-    <div className="flex flex-col gap-12">
+    <div dir="ltr" className="flex flex-col gap-12">
       <div className="relative flex w-full flex-wrap gap-4 text-5xl tablet:text-5xl">
         {letters.map(({ letter, status }) => (
           <Letter key={letter} active={letter === activeLetter} status={status}>

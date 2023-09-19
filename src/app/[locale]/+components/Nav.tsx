@@ -14,9 +14,10 @@ interface Props {
   children: React.ReactNode;
   direction: Direction;
   isNew?: boolean;
+  tNew: string;
 }
 
-export default function Nav({ href, isNew, children, direction }: Props) {
+export default function Nav({ href, tNew, isNew, children, direction }: Props) {
   const selected = useSelectedLayoutSegment() ?? '';
   const isActive = comparePaths(selected, href) === 0;
   const isRtl = direction === 'rtl';
@@ -47,7 +48,7 @@ export default function Nav({ href, isNew, children, direction }: Props) {
               'desktop:left-0 -translate-x-6': isRtl,
             })}
           >
-            New
+            {tNew}
           </Badge>
         ) : null}
       </Link>

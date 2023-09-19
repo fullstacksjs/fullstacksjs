@@ -14,23 +14,28 @@ interface Nav {
 }
 
 const navs: Nav[] = [
-  { feature: 'about', href: '/', children: 'about' },
-  { feature: 'rules', href: '/rules', children: 'rules' },
-  { feature: 'ask', href: '/ask', children: 'ask' },
-  { feature: 'events', href: '/events', children: 'events' },
-  { feature: 'wakatime', href: '/wakatime', children: 'wakatime' },
-  { feature: 'guild', href: '/guild', children: 'guild', isNew: true },
-  { feature: 'type', href: '/type', children: 'type', isNew: true },
+  { feature: 'about', href: '/', children: 'navigation.about' },
+  { feature: 'rules', href: '/rules', children: 'navigation.rules' },
+  { feature: 'ask', href: '/ask', children: 'navigation.ask' },
+  { feature: 'events', href: '/events', children: 'navigation.events' },
+  { feature: 'wakatime', href: '/wakatime', children: 'navigation.wakatime' },
+  {
+    feature: 'guild',
+    href: '/guild',
+    children: 'navigation.guild',
+    isNew: true,
+  },
+  { feature: 'type', href: '/type', children: 'navigation.type', isNew: true },
 ];
 
 export default function Navs() {
-  const t = useTranslations('header.navigation');
+  const t = useTranslations('header');
   const direction = useDirection();
 
   return navs
     .filter((c) => getServerFeature(c.feature))
     .map((nav) => (
-      <Nav key={nav.href} direction={direction} {...nav}>
+      <Nav key={nav.href} tNew={t('new')} direction={direction} {...nav}>
         {t(nav.children)}
       </Nav>
     ));

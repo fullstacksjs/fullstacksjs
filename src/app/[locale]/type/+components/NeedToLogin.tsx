@@ -1,14 +1,20 @@
+import { useTranslations } from 'next-intl';
+
 import { useSignIn } from '@/data-layer/supabase/useSignIn';
 
 export const NeedToLogin = () => {
   const { signIn } = useSignIn();
+  const t = useTranslations<'type'>();
 
   return (
     <p className="text-fg-1">
-      <button className="text-accent-0" onClick={signIn}>
-        Log in
-      </button>{' '}
-      to submit your record
+      {t.rich('sign-in', {
+        join: (chunk) => (
+          <button className="text-accent-0" onClick={signIn}>
+            {chunk}
+          </button>
+        ),
+      })}
     </p>
   );
 };
