@@ -6,7 +6,7 @@ import { useServerActions } from '@/hooks/useServerActions';
 import { SpaceButton } from './SpaceButton';
 
 export const Unsubscribe = () => {
-  const t = useTranslations();
+  const t = useTranslations<'guild'>();
   const { loading, mutate } = useServerActions(unsubscribe, {
     keepLoading: true,
   });

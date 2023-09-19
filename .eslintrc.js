@@ -15,4 +15,12 @@ module.exports = init({
     'tailwindcss/no-custom-classname': 'warn',
     'default-case': 'off',
   },
+  overrides: [
+    {
+      files: './src/data-layer/supabase/**/*.ts',
+      rules: {
+        '@typescript-eslint/no-throw-literal': 'off',
+      },
+    },
+  ],
 });

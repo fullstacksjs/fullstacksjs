@@ -18,13 +18,13 @@ const rules = [
   'spam',
   'dm',
   'advocate',
-];
+] as const;
 
-const guidelines = ['kind', 'topic', 'cross', 'opinion'];
+const guidelines = ['kind', 'topic', 'cross', 'opinion'] as const;
 const i18nMapper = { b: (chunk: React.ReactNode) => <b>{chunk}</b> };
 
 export default function RulesContent(): React.JSX.Element {
-  const t = useTranslations();
+  const t = useTranslations<'rules'>();
   const { handleSelect, getState: isActive } = useRuleTarget('/rules');
 
   return (

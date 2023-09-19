@@ -10,4 +10,4 @@ export const asks = [
   'guess',
   'pv',
   'homework',
-];
+] as const;

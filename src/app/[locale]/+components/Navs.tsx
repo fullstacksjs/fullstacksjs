@@ -6,10 +6,12 @@ import { useDirection } from '@/hooks/useDirection';
 
 import Nav from './Nav';
 
+type Keys = `navigation.${keyof IntlMessages['header']['navigation']}`;
+
 interface Nav {
   feature: Feature;
   href: string;
-  children: string;
+  children: Keys;
   isNew?: boolean;
 }
 

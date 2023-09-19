@@ -13,32 +13,32 @@ const items = [
   {
     icon: Telegram,
     href: 'https://t.me/fullstacksjs',
-    children: 'telegram',
+    children: 'telegram' as const,
   },
   {
     icon: Youtube,
     href: 'https://youtube.com/@fullstacksjs',
-    children: 'youtube',
+    children: 'youtube' as const,
   },
   {
     icon: Twitter,
     href: 'https://twitter.com/fullstacksjs',
-    children: 'twitter',
+    children: 'twitter' as const,
   },
   {
     icon: Github,
     href: 'https://github.com/fullstacksjs',
-    children: 'github',
+    children: 'github' as const,
   },
   {
     icon: Discord,
     href: 'https://discord.gg/rRKPzR4SY4',
-    children: 'discord',
+    children: 'discord' as const,
   },
   {
     icon: Twitch,
     href: 'https://twitch.tv/fullstacksjs',
-    children: 'twitch',
+    children: 'twitch' as const,
   },
 ];
 
