@@ -50,7 +50,6 @@ export const Stars = ({ count, className }: Props) => (
   >
     {range(count).map((i) => (
       <motion.svg
-        // @ts-expect-error Weak typing
         suppressHydrationWarning
         variants={starAnim}
         key={i}

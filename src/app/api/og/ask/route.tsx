@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/alt-text, @next/next/no-img-element */
+/* eslint-disable react/no-unknown-property, jsx-a11y/alt-text, @next/next/no-img-element */
 import type { NextRequest } from 'next/server';
 import { ImageResponse } from 'next/server';
 
