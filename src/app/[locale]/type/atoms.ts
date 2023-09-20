@@ -43,7 +43,7 @@ export const useTimeEllipses = () => {
 
   useEffect(() => {
     // eslint-disable-next-line fp/no-let
-    let interval: NodeJS.Timer | undefined;
+    let interval: NodeJS.Timeout | undefined;
 
     if (gameState === 'typing')
       interval = setInterval(() => {
