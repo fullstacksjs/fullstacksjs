@@ -28,7 +28,7 @@ export const Result = ({ record, user }: Props) => {
         ) : !user ? (
           <NeedToLogin />
         ) : null}
-        {!isPerfect ? (
+        {isPerfect ? (
           <span className="text-fg-success">{t('perfect')}</span>
         ) : (
           <span className="text-fg-error">{t('mistakes', { mistakes })}</span>

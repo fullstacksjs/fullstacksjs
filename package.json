@@ -13,6 +13,9 @@
     "gen:supabase": "dotenv ./scripts/supabase-codegen",
     "prepare": "./scripts/prepare"
   },
+  "sideEffects": [
+    "*.css"
+  ],
   "dependencies": {
     "@fullstacksjs/toolbox": "4.6.0",
     "@radix-ui/react-dialog": "1.0.4",

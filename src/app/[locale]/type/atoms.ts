@@ -103,7 +103,6 @@ export const handleSubmitLetter = atom(
       set(newRecordAtom, newRecord);
     }
 
-    set(stepAtom, nextStep);
     const currentLetter = get(lettersAtom).find(
       (l) => l.letter === activeLetter,
     );
@@ -127,6 +126,8 @@ export const handleSubmitLetter = atom(
           : l,
       ),
     );
+
+    set(stepAtom, nextStep);
   },
 );
 
