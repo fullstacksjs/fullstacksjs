@@ -45,6 +45,11 @@ export default function Home() {
               b: (chunk) => <b>{chunk}</b>,
             })}
           </Paragraph>
+          <Paragraph>
+            {t.rich('values.professionalism', {
+              b: (chunk) => <b>{chunk}</b>,
+            })}
+          </Paragraph>
         </Article>
       </Articles>
     </>
