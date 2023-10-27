@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unknown-property, jsx-a11y/alt-text, @next/next/no-img-element */
+import { ImageResponse } from 'next/og';
 import type { NextRequest } from 'next/server';
-import { ImageResponse } from 'next/server';
 
 import { asks } from '@/app/[locale]/ask/asks';
 
