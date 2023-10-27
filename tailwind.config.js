@@ -27,6 +27,7 @@ module.exports = {
       loose: '2.4',
     },
     fontFamily: {
+      fa: ['var(--font-vazir)', 'var(--font-rajdhani)'],
       sans: ['var(--font-rajdhani)', 'var(--font-vazir)'],
       rajdhani: ['var(--font-rajdhani)'],
     },

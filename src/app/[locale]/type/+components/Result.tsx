@@ -24,7 +24,9 @@ export const Result = ({ record, user }: Props) => {
       <div className="flex w-full flex-col items-center gap-2 text-sm font-semibold">
         <Timer className="text-5xl" />
         {record ? (
-          <span>{t('best', { duration: formatStopWatch(record) })}</span>
+          <span className="font-rajdhani">
+            {t('best', { duration: formatStopWatch(record) })}
+          </span>
         ) : !user ? (
           <NeedToLogin />
         ) : null}
