@@ -28,6 +28,12 @@ const navs: Nav[] = [
     isNew: true,
   },
   { feature: 'type', href: '/type', children: 'navigation.type', isNew: true },
+  {
+    feature: 'advent',
+    href: '/advent',
+    children: 'navigation.advent',
+    isNew: true,
+  },
 ];
 
 export default function Navs() {

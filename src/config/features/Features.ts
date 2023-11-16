@@ -1,5 +1,6 @@
 export type Feature =
   | 'about'
+  | 'advent'
   | 'ask'
   | 'events'
   | 'guild'
