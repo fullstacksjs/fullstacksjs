@@ -1,9 +1,8 @@
 'use client';
 import * as Dropdown from '@radix-ui/react-dropdown-menu';
-import { usePathname } from 'next-intl/client';
-import Link from 'next-intl/link';
 
-import type { Locales } from '@/i18n';
+import type { Locales } from '@/locales';
+import { Link, usePathname } from '@/navigation';
 
 import ChevronDownIcon from './ChevronDown.svg';
 import ENFlag from './EN.svg';

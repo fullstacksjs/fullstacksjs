@@ -120,8 +120,8 @@ export const handleSubmitLetter = atom(
               status: !isCorrect
                 ? 'error'
                 : l.status === 'error'
-                ? 'corrected'
-                : 'correct',
+                  ? 'corrected'
+                  : 'correct',
             }
           : l,
       ),

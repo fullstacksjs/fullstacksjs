@@ -2,9 +2,9 @@
 
 import { comparePaths } from '@fullstacksjs/toolbox';
 import { useSelectedLayoutSegment } from 'next/navigation';
-import Link from 'next-intl/link';
 
 import type { Direction } from '@/hooks/useDirection';
+import { Link } from '@/navigation';
 import { cn } from '@/utils/cn';
 
 import { Badge } from './Badge';

@@ -7,7 +7,7 @@ import { cn } from '@/utils/cn';
 import { SpaceButton } from './SpaceButton';
 
 export const SubscribeButton = () => {
-  const t = useTranslations<'guild'>();
+  const t = useTranslations('guild');
   const { mutate, loading } = useServerActions(subscribe, {
     keepLoading: true,
   });

@@ -38,7 +38,7 @@ export const GuildContent = ({ user, isSubscribed }: Props) => {
   const [isLoading, setLoading] = useState(true);
   const [isOverlay, setOverlay] = useState(true);
 
-  const t = useTranslations<'guild'>();
+  const t = useTranslations('guild');
 
   useEffect(() => {
     setTimeout(() => {

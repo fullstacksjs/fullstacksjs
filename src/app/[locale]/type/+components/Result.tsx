@@ -17,7 +17,7 @@ interface Props {
 export const Result = ({ record, user }: Props) => {
   const [mistakes] = useAtom(mistakesAtom);
   const [isPerfect] = useAtom(isPerfectAtom);
-  const t = useTranslations<'type'>();
+  const t = useTranslations('type');
 
   return (
     <div className="w-full text-center">

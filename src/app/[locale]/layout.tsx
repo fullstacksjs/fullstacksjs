@@ -1,21 +1,14 @@
 import type { Metadata } from 'next';
 import { Rajdhani, Vazirmatn } from 'next/font/google';
 import { notFound } from 'next/navigation';
-import { useLocale } from 'next-intl';
 
-import {
-  description,
-  icons,
-  JsonLd,
-  keywords,
-  ogImage,
-  title,
-} from '@/components/SEO';
+import { generatePageOG, icons, JsonLd, keywords } from '@/components/SEO';
 import { Separator } from '@/components/Separator';
 import { Socials } from '@/components/Socials';
 import { serverConfig } from '@/config/serverConfig';
 import { SupabaseProvider } from '@/data-layer/supabase/SupabaseProvider';
 import { useDirection } from '@/hooks/useDirection';
+import { locales } from '@/locales';
 import { JotaiProvider } from '@/store/JotaiProvider';
 import { cn } from '@/utils/cn';
 
@@ -33,22 +26,15 @@ const vazir = Vazirmatn({
   subsets: ['arabic'],
   variable: '--font-vazir',
 });
+
 export const metadata: Metadata = {
-  title,
-  description,
+  ...generatePageOG({
+    title: 'FullstacksJS',
+    description: 'We Grow together',
+    images: '/og/og.png',
+  }),
   manifest: '/manifest.json',
   metadataBase: new URL('https://fullstacksjs.com'),
-  openGraph: {
-    title,
-    description,
-    images: ogImage,
-  },
-  twitter: {
-    title,
-    description,
-    images: ogImage,
-    card: 'summary_large_image',
-  },
   icons,
   keywords,
   authors: [{ name: 'ASafaeirad', url: 'https://github.com/ASafaeirad/' }],
@@ -62,16 +48,15 @@ interface Props {
 }
 
 export default function LocaleLayout({ children, params }: Props) {
-  const locale = useLocale();
   const direction = useDirection();
   const { containerId, trackingId } = serverConfig.analytics;
   const isAnalyticsActive = containerId && trackingId;
 
-  if (params.locale !== locale) notFound();
+  if (!locales.includes(params.locale)) notFound();
 
   return (
     <html
-      lang={locale}
+      lang={params.locale}
       dir={direction}
       className={`${rajdhani.variable} ${vazir.variable}`}
     >
@@ -84,7 +69,7 @@ export default function LocaleLayout({ children, params }: Props) {
       <body
         className={cn(
           'bg-dark-0 leading-normal text-light-0 transition-colors duration-1000',
-          { 'font-fa': locale === 'fa' },
+          { 'font-fa': params.locale === 'fa' },
         )}
       >
         <JotaiProvider>

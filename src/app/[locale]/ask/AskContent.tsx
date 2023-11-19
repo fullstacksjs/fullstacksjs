@@ -9,7 +9,7 @@ import { RuleSet } from '@/components/RuleSet';
 import { asks } from './asks';
 
 export default function AskContent(): React.JSX.Element {
-  const t = useTranslations<'ask'>();
+  const t = useTranslations('ask');
   const { handleSelect, getState: isActive } = useRuleTarget('/ask');
 
   return (

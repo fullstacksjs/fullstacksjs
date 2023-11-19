@@ -3,7 +3,7 @@ import { useTranslations } from 'next-intl';
 import { useSignIn } from '@/data-layer/supabase/useSignIn';
 
 export const NeedToLogin = () => {
-  const t = useTranslations<'guild'>();
+  const t = useTranslations('guild');
   const { signIn } = useSignIn();
 
   return (

@@ -1,6 +1,6 @@
 interface Props {
   children: React.ReactNode;
-  title: string;
+  title: React.ReactElement | string;
   id?: string;
 }
 

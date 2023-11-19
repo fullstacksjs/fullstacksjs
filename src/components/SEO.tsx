@@ -1,11 +1,5 @@
+import type { Metadata } from 'next';
 import type { Organization, WithContext } from 'schema-dts';
-
-export const title = 'FullstacksJS';
-export const description = 'We Grow together';
-export const ogImage = {
-  url: '/og/og.png',
-  alt: 'FullstacksJS Community',
-};
 
 export const icons = [
   {
@@ -33,6 +27,40 @@ export const keywords = [
   'wakatime',
   'واکاتایم',
 ];
+
+export type OGImages = NonNullable<Metadata['openGraph']>['images'];
+interface OGProps {
+  title: string;
+  description: string;
+  images: string;
+}
+
+export function generatePageOG({
+  description,
+  images,
+  title,
+}: OGProps): Metadata {
+  return {
+    title,
+    description,
+    openGraph: {
+      description,
+      images: {
+        url: images,
+        alt: title,
+      },
+      title,
+    },
+    twitter: {
+      images: {
+        url: images,
+        alt: title,
+      },
+      title,
+      card: 'summary_large_image',
+    },
+  };
+}
 
 export const jsonLd: WithContext<Organization> = {
   '@context': 'https://schema.org',

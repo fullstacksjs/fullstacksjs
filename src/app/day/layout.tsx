@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Rajdhani } from 'next/font/google';
 
-import { description, icons, keywords, title } from '@/components/SEO';
+import { icons, keywords } from '@/components/SEO';
 
 const rajdhani = Rajdhani({
   weight: ['500', '600', '700'],
@@ -14,8 +14,8 @@ interface Props {
 }
 
 export const metadata: Metadata = {
-  title,
-  description,
+  title: 'FullstacksJS',
+  description: 'We Grow together',
   themeColor: '#F39F47',
   manifest: '/manifest.json',
   icons,

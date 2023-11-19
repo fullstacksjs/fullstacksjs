@@ -2,7 +2,7 @@ import { useLocale } from 'next-intl';
 import { Suspense } from 'react';
 
 import { useDirection } from '@/hooks/useDirection';
-import type { Locales } from '@/i18n';
+import type { Locales } from '@/locales';
 
 import { AuthBtnSkeleton } from './Auth/AuthButtonSkeleton';
 import { Authentication } from './Auth/Authentication';
