@@ -154,6 +154,10 @@
     "title": "تابلوی امتیازات واکاتایم",
     "day": "روز {day} سال {year}"
   },
+  "advent": {
+    "title": "Advent of Code 2023",
+    "desc": ""
+  },
   "type": {
     "sign-in": "برای ثبت رکورد خود <join>وارد شوید</join>",
     "mistakes": "اشتباهات: {mistakes}",

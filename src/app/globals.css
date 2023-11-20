@@ -104,3 +104,7 @@
 .mask-radial {
   mask: radial-gradient(white, transparent 65%);
 }
+
+.aoc-bg {
+  background-color: #2C2727;
+}

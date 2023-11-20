@@ -157,6 +157,12 @@
     "title": "Wakatime Leaderboard",
     "day": "Day {day} of the year {year}"
   },
+  "advent": {
+    "title": "<e-tree></e-tree> Advent of Code 2023",
+    "desc": "Get Ready for <mark>Advent of Code 2023</mark> with <mark>FullstacksJS!</mark>",
+    "kick-off": "<b>Kick-Off</b>: Friday, 1 December, 08:30 IR Time",
+    "fun": "<b>Daily Fun Until</b>: Christmas Day, Monday, 25 December"
+  },
   "type": {
     "sign-in": "<join>Log in</join> to submit your record",
     "mistakes": "Mistakes: {mistakes}",
