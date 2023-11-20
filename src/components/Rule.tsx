@@ -1,10 +1,11 @@
 'use client';
 
 import { isNull } from '@fullstacksjs/toolbox';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 import { usePress } from 'react-aria';
 
+import { useRouter } from '@/navigation';
 import { cn } from '@/utils/cn';
 
 export type RuleState = 'faded' | 'focused' | 'idle';
@@ -58,7 +59,9 @@ export function useRuleTarget(url: string) {
   };
 
   const handleSelect = (target: string) => {
+    // @ts-expect-error Poor typing
     if (target === activeTarget) router.push(url, { scroll: false });
+    // @ts-expect-error Poor typing
     else router.push(`${url}?focus=${target}`, { scroll: false });
   };
 

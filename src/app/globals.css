@@ -20,6 +20,10 @@
   font-size: 0.625rem;
 }
 
+:root[lang='fa'] {
+  font-size: 0.525rem;
+}
+
 * {
   scrollbar-color: var(--fg-muted) transparent;
   scrollbar-width: thin;
@@ -65,7 +69,8 @@
 
 .rank-1 {
   border: 1px solid #0000;
-  background: linear-gradient(0deg, #4a4021, #1e2129) padding-box,
+  background:
+    linear-gradient(0deg, #4a4021, #1e2129) padding-box,
     linear-gradient(#62646a, #fbb131) border-box;
   position: relative;
   box-shadow: 0 0 30px 0 rgba(255, 187, 0, 0.2);
@@ -73,7 +78,8 @@
 
 .rank-2 {
   border: 1px solid #0000;
-  background: linear-gradient(0deg, #373c42, #1e2129) padding-box,
+  background:
+    linear-gradient(0deg, #373c42, #1e2129) padding-box,
     linear-gradient(#4b4d54, #98a1a4) border-box;
   position: relative;
   box-shadow: 0 0 20px 0 rgba(158, 161, 161, 0.2);
@@ -81,7 +87,8 @@
 
 .rank-3 {
   border: 1px solid #0000;
-  background: linear-gradient(0deg, #3d2b29, #1e2129) padding-box,
+  background:
+    linear-gradient(0deg, #3d2b29, #1e2129) padding-box,
     linear-gradient(#62646a, #be4a18) border-box;
   position: relative;
   box-shadow: 0 0 20px 0 rgba(190, 74, 24, 0.2);
@@ -106,5 +113,5 @@
 }
 
 .aoc-bg {
-  background-color: #2C2727;
+  background-color: #2c2727;
 }

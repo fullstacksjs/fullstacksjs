@@ -16,7 +16,7 @@ import { GoogleAnalytics } from './+components/GoogleAnalytics';
 import { Header } from './+components/Header';
 
 const rajdhani = Rajdhani({
-  weight: ['500', '600', '700'],
+  weight: ['400', '500', '600', '700'],
   subsets: ['latin'],
   variable: '--font-rajdhani',
 });
