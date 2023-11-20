@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { cn } from '@/utils/cn';
 
 const emojiMaps = {
+  tree: { path: 'Activities/Christmas Tree', className: '-translate-y-1' },
   pirate: { path: 'Symbols/Pirate Flag', className: undefined },
   party: { path: 'Activities/Party Popper', className: '-translate-y-2' },
   first: { path: 'Activities/1st Place Medal', className: undefined },
