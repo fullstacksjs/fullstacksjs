@@ -66,3 +66,4 @@ ahooks
 فرای
 تشویقِ
 radash
+Smilies
