@@ -161,7 +161,16 @@
     "title": "<e-tree></e-tree> Advent of Code 2023",
     "desc": "Get Ready for <mark>Advent of Code 2023</mark> with <mark>FullstacksJS!</mark>",
     "kick-off": "<b>Kick-Off</b>: Friday, 1 December, 08:30 IR Time",
-    "fun": "<b>Daily Fun Until</b>: Christmas Day, Monday, 25 December"
+    "fun": "<b>Daily Fun Until</b>: Christmas Day, Monday, 25 December",
+    "how-works": "<g-star></g-star> How it works?",
+    "puzzles": "<b>Daily Puzzles</b>: Each puzzle consists of two parts. Solve the first part to unlock the second, more challenging variant.",
+    "stars": "<b>Earn Stars</b>: For each part you solve correctly, you earn a star - a great way to track your progress!",
+    "how-join": "<medal></medal> How to join?",
+    "engage": "Engage with fellow coders on the <mark>FullstacksJS channel (war topic)</mark>. Share challenges, and tips—keeping in mind our <mark>spoiler-free rules</mark>!",
+    "already-member": "Already a member? Great! If not, <atype>join here</atype> with the code <mark>2243425-96bc66fc</mark>.",
+    "follow": "Follow our progress on the <atype-two>company private leaderboard</atype-two>.",
+    "ai": "<robot></robot> Can I use AI?",
+    "ai-des": "Absolutely, feel free to use it as a learning tool! However, please avoid employing AI for leaderboard competition, just to keep things fair and fun for everyone!"
   },
   "type": {
     "sign-in": "<join>Log in</join> to submit your record",
