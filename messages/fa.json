@@ -17,7 +17,8 @@
       "guild": "TS Guild",
       "wakatime": "واکاتایم",
       "type": "تایپ",
-      "advent": "ظهور"
+      "advent": "ظهور",
+      "war": "جنگ"
     },
     "auth": {
       "login": "ورود با گیت‌هاب"
@@ -182,5 +183,6 @@
     "mistakes": "اشتباهات: {mistakes}",
     "perfect": "کامل!",
     "best": "بهترین زمان شما: {duration}"
-  }
+  },
+  "war": {}
 }

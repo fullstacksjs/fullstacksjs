@@ -17,7 +17,8 @@
       "guild": "TS Guild",
       "wakatime": "Wakatime",
       "type": "Type",
-      "advent": "Advent"
+      "advent": "Advent",
+      "war": "War"
     },
     "auth": {
       "login": "Login with GitHub"
@@ -185,5 +186,6 @@
     "mistakes": "Mistakes: {mistakes}",
     "perfect": "Perfect!",
     "best": "Your best time is {duration}"
-  }
+  },
+  "war": {}
 }
