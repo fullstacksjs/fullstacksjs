@@ -7,4 +7,5 @@ export type Feature =
   | 'locale'
   | 'rules'
   | 'type'
-  | 'wakatime';
+  | 'wakatime'
+  | 'war';

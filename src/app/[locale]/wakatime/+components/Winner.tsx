@@ -1,7 +1,7 @@
+import { Avatar } from '@/components/Avatar';
 import type { WakatimeUsage } from '@/data-layer/wakatime/Wakatime';
 import { cn } from '@/utils/cn';
 
-import { Avatar } from './Avatar';
 import Crown from './Crown.svg';
 import { Diff } from './Diff';
 import { Report, ReportItem, Sep, UserInfo } from './UserRow';

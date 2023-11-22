@@ -21,13 +21,13 @@ const navs: Nav[] = [
   { feature: 'ask', href: '/ask', children: 'navigation.ask' },
   { feature: 'events', href: '/events', children: 'navigation.events' },
   { feature: 'wakatime', href: '/wakatime', children: 'navigation.wakatime' },
+  { feature: 'war', href: '/war', children: 'navigation.war' },
   {
     feature: 'guild',
     href: '/guild',
     children: 'navigation.guild',
-    isNew: true,
   },
-  { feature: 'type', href: '/type', children: 'navigation.type', isNew: true },
+  { feature: 'type', href: '/type', children: 'navigation.type' },
   {
     feature: 'advent',
     href: '/advent',

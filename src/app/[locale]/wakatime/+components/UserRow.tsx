@@ -1,3 +1,4 @@
+import { Avatar } from '@/components/Avatar';
 import { Emoji } from '@/components/Emoji';
 import * as Table from '@/components/Table';
 import type {
@@ -6,7 +7,6 @@ import type {
 } from '@/data-layer/wakatime/Wakatime';
 import { cn } from '@/utils/cn';
 
-import { Avatar } from './Avatar';
 import { Diff } from './Diff';
 
 interface ReportItemProps {
