@@ -1,23 +1,17 @@
-'use client';
 import Image from 'next/image';
-import { useEffect } from 'react';
 
 import { Separator } from '@/components/Separator';
 
 import Banner from './+components/Advent.png';
-import { AdventTable } from './+components/AdventTable';
+import { AdventOfCodeLoader } from './+components/AdventOfCodeLoader';
 
-export function WarContent() {
-  useEffect(() => {
-    document.body.classList.add('aoc-bg');
+interface Props {
+  children: React.ReactNode;
+}
 
-    return () => {
-      document.body.classList.remove('aoc-bg');
-    };
-  }, []);
-
+export default function WarLayout({ children }: Props) {
   return (
-    <>
+    <AdventOfCodeLoader>
       <Image
         className="self-center"
         src={Banner.src}
@@ -25,10 +19,8 @@ export function WarContent() {
         width={500}
         alt="FullstacksJS Advent of Code"
       />
-
       <Separator />
-
-      <AdventTable />
-    </>
+      {children}
+    </AdventOfCodeLoader>
   );
 }

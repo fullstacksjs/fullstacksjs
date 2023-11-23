@@ -4,10 +4,10 @@ import { pick } from 'radash';
 
 import { generatePageOG } from '@/components/SEO';
 
-import { WarContent } from './WarContent';
+import { AdventTable } from './+components/AdventTable';
 
 export const metadata = generatePageOG({
-  title: 'Advent of Code: FullstacksJS',
+  title: 'Advent of Code: FullstacksJS Board',
   description: 'Join the FullstacksJS Advent of Code leaderboard',
   images: '/og/advent.png',
 });
@@ -17,7 +17,7 @@ export default async function WarPage() {
 
   return (
     <NextIntlClientProvider messages={pick(messages, ['war'])}>
-      <WarContent />
+      <AdventTable />
     </NextIntlClientProvider>
   );
 }
