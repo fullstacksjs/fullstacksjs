@@ -1,5 +1,5 @@
 import { Avatar } from '@/components/Avatar';
-import { Emoji } from '@/components/Emoji';
+import { Medal } from '@/components/Medal';
 import * as Table from '@/components/Table';
 import type {
   WakatimeUsage,
@@ -50,27 +50,16 @@ export function Sep({ className }: { className?: string }) {
   return <div className={cn('h-[34px] w-[1px] bg-bg-muted', className)} />;
 }
 
-const medals = [
-  <Emoji key={1} name="first" />,
-  <Emoji key={2} name="second" />,
-  <Emoji key={3} name="third" />,
-];
-
 interface Props {
   usage: WakatimeUsage;
   className?: string;
 }
 
 export function UserRow({ usage, className }: Props) {
-  const rankIcon =
-    usage.user.lastRank < 4
-      ? medals[usage.user.lastRank - 1]
-      : usage.user.ordinalRank;
-
   return (
     <Table.Row className={className}>
       <Table.Cell className="min-w-[40px] px-8 text-xsm font-semibold tablet:px-14">
-        {rankIcon}
+        <Medal rank={usage.user.lastRank} fallback={usage.user.ordinalRank} />
       </Table.Cell>
       <Table.Cell className="w-full">
         <div className="flex items-center gap-5">

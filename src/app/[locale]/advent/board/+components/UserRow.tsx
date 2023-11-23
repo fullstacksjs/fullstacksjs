@@ -1,9 +1,9 @@
 import { Avatar } from '@/components/Avatar';
-import { Emoji } from '@/components/Emoji';
+import { Medal } from '@/components/Medal';
 import * as Table from '@/components/Table';
 import { cn } from '@/utils/cn';
 
-import type { AdventOfCodeUser } from './AdventOfCodeClient';
+import type { AdventOfCodeUser } from '../../+components/AdventOfCodeClient';
 import { Stars } from './Stars';
 
 interface UserInfoProps {
@@ -26,24 +26,16 @@ export function UserInfo({ name, stars, avatar }: Readonly<UserInfoProps>) {
   );
 }
 
-const medals = [
-  <Emoji key={1} name="first" />,
-  <Emoji key={2} name="second" />,
-  <Emoji key={3} name="third" />,
-];
-
 interface UserRowProps {
   user: AdventOfCodeUser;
   className?: string;
 }
 
 export function UserRow({ user, className }: Readonly<UserRowProps>) {
-  const rankIcon = medals[user.local_score - 1] ?? user.local_score;
-
   return (
     <Table.Row className={cn('border-none', className)}>
       <Table.Cell className="min-w-[40px] px-8 text-xsm font-semibold tablet:px-14">
-        {rankIcon}
+        <Medal rank={user.local_score} fallback={user.local_score} />
       </Table.Cell>
       <Table.Cell className="w-full">
         <UserInfo stars={user.stars} name={user.name} avatar={user.avatar} />

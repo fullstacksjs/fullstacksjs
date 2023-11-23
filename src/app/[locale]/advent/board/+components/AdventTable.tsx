@@ -1,5 +1,5 @@
-import type { AdventOfCodeUser } from './AdventOfCodeClient';
-import { AdventOfCodeClient } from './AdventOfCodeClient';
+import type { AdventOfCodeUser } from '../../+components/AdventOfCodeClient';
+import { AdventOfCodeClient } from '../../+components/AdventOfCodeClient';
 import { UserTable } from './UserTable';
 
 export function AdventTable() {
@@ -14,7 +14,7 @@ export function AdventTable() {
   );
 
   return (
-    <div className="flex flex-col items-center gap-20">
+    <div dir="ltr" className="flex flex-col items-center gap-20">
       <div className="w-full rounded-3xl bg-[#262222] px-2 pt-8">
         <div className="max-h-[500px] overflow-y-auto">
           <UserTable users={sortedMembers} />
