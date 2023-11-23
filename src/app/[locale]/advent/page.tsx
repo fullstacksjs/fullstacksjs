@@ -1,5 +1,5 @@
-import { NextIntlClientProvider, useTranslations } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages, getTranslations } from 'next-intl/server';
 import { pick } from 'radash';
 
 import { Article } from '@/components/Article';
@@ -17,7 +17,7 @@ export const metadata = generatePageOG({
 
 export default async function AdventOfCodePage() {
   const messages = await getMessages();
-  const t = useTranslations('advent');
+  const t = await getTranslations('advent');
   const title = t.rich('title', i18nMap) as React.ReactElement;
   const howWorks = t.rich('how-works', i18nMap) as React.ReactElement;
   const ai = t.rich('ai.title', i18nMap) as React.ReactElement;

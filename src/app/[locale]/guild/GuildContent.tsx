@@ -7,7 +7,7 @@ import type { RichTranslationValues } from 'next-intl';
 import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 
-import { Emoji } from '@/components/Emoji';
+import { emojiTranslation } from '@/components/Emoji';
 import { Highlight } from '@/components/Highlight';
 import { Stars } from '@/components/Stars';
 import type { User } from '@/data-layer/supabase/models/User';
@@ -20,10 +20,9 @@ interface Props {
 }
 
 const components: RichTranslationValues = {
+  ...emojiTranslation,
   mark: (chunk) => <Highlight>{chunk}</Highlight>,
   br: () => <br />,
-  eflag: () => <Emoji name="pirate" />,
-  eparty: () => <Emoji name="party" />,
   atype: (chunk) => (
     <a
       className="text-accent-0"
