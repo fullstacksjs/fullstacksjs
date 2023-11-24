@@ -4,10 +4,10 @@ import type { AdventOfCodeUser } from '../../+components/AdventOfCodeClient';
 import { UserRow } from './UserRow';
 
 interface Props {
-  users: AdventOfCodeUser[];
+  leaderboard: AdventOfCodeUser[];
 }
 
-export const UserTable = ({ users }: Props) => {
+export const Leaderboard = ({ leaderboard }: Props) => {
   return (
     <Table.Root className="relative">
       <Table.Header>
@@ -22,8 +22,8 @@ export const UserTable = ({ users }: Props) => {
         </Table.Row>
       </Table.Header>
       <Table.Body>
-        {users.map((user) => (
-          <UserRow key={user.global_score} user={user} />
+        {leaderboard.map((user) => (
+          <UserRow key={user.id} user={user} />
         ))}
       </Table.Body>
     </Table.Root>
