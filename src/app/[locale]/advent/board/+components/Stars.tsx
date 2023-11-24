@@ -11,15 +11,13 @@ interface Props {
 
 export function Stars({ stars, className }: Props) {
   return (
-    <span
-      className={cn('items-center text-xs font-semibold text-fg-1', className)}
-    >
+    <span className={cn('flex flex-wrap tablet:flex-nowrap', className)}>
       {range(25).map((i) => (
         <Star
           key={i}
           className={cn({
             'text-accent-0': stars >= i,
-            'text-bg-muted': stars < i,
+            'text-advent-2': stars < i,
           })}
         />
       ))}

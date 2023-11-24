@@ -53,6 +53,11 @@ module.exports = {
         ctaBorder: '0px 0px 0 1px rgb(var(--accent-0))',
       },
       colors: {
+        advent: {
+          0: 'rgb(var(--advent-0) / <alpha-value>)',
+          1: 'rgb(var(--advent-1) / <alpha-value>)',
+          2: 'rgb(var(--advent-2) / <alpha-value>)',
+        },
         accent: {
           0: 'rgb(var(--accent-0) / <alpha-value>)',
           1: 'rgb(var(--accent-1) / <alpha-value>)',

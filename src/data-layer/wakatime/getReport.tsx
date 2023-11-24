@@ -2,23 +2,9 @@ import { joinPaths } from '@fullstacksjs/toolbox';
 import { getDayOfYear, secondsToHours, secondsToMinutes } from 'date-fns';
 
 import { serverConfig } from '@/config/serverConfig';
-import { addLeadingZero } from '@/utils/number';
+import { addLeadingZero, formatOrdinals } from '@/utils/number';
 
 import type { WakatimeReport, WakatimeUsage } from './Wakatime';
-
-const pr = new Intl.PluralRules('en-US', { type: 'ordinal' });
-const suffixes = new Map([
-  ['one', 'st'],
-  ['two', 'nd'],
-  ['few', 'rd'],
-  ['other', 'th'],
-]);
-
-export function formatOrdinals(n: number) {
-  const rule = pr.select(n);
-  const suffix = suffixes.get(rule) ?? 'th';
-  return `${n}${suffix}`;
-}
 
 export function toHumanHM(seconds: number) {
   const hours = secondsToHours(seconds);
