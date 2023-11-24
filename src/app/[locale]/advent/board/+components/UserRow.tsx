@@ -1,6 +1,7 @@
 import { Medal } from '@/components/Medal';
 import * as Table from '@/components/Table';
 import { cn } from '@/utils/cn';
+import { formatOrdinals } from '@/utils/number';
 
 import type { AdventOfCodeUser } from '../../+components/AdventOfCodeClient';
 import { Stars } from './Stars';
@@ -9,23 +10,22 @@ import { UserInfo } from './UserInfo';
 interface Props {
   user: AdventOfCodeUser;
   className?: string;
+  rank: number;
 }
 
-export function UserRow({ user, className }: Props) {
+export function UserRow({ user, className, rank }: Props) {
   return (
     <Table.Row className={cn('border-none', className)}>
-      <Table.Cell className="min-w-[40px] px-8 text-xsm font-semibold tablet:px-14">
-        <Medal rank={user.score} fallback={user.score} />
+      <Table.Cell className="text-center text-xsm font-semibold">
+        <Medal rank={rank} fallback={formatOrdinals(rank)} />
       </Table.Cell>
-      <Table.Cell className="w-full">
+      <Table.Cell className="w-full whitespace-nowrap">
         <UserInfo {...user} />
       </Table.Cell>
-      <Table.Cell className="px-16">
+      <Table.Cell className="hidden tablet:table-cell tablet:w-full">
         <Stars stars={user.stars} className="hidden tablet:flex" />
       </Table.Cell>
-      <Table.Cell>
-        <span className="ml-3 w-[40px]">{user.score}pt</span>
-      </Table.Cell>
+      <Table.Cell className="text-center text-xsm">{user.score}pt</Table.Cell>
     </Table.Row>
   );
 }

@@ -19,12 +19,11 @@ export default async function WarPage() {
 
   return (
     <NextIntlClientProvider messages={pick(messages, ['war'])}>
-      <div dir="ltr" className="flex flex-col items-center gap-20">
-        <div className="w-full rounded-3xl bg-[#262222] px-2 pt-8">
-          <div className="max-h-[500px] overflow-y-auto">
-            <Leaderboard leaderboard={leaderboard} />
-          </div>
-        </div>
+      <div
+        dir="ltr"
+        className="max-h-[500px] w-full overflow-y-auto rounded-3xl bg-advent-1 pe-10 ps-4"
+      >
+        <Leaderboard leaderboard={leaderboard} />
       </div>
     </NextIntlClientProvider>
   );
