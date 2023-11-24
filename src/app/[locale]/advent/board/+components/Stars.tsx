@@ -4,28 +4,25 @@ import { cn } from '@/utils/cn';
 
 import Star from './Star.svg';
 
-interface StarsProps {
+interface Props {
   stars: number;
   className: string;
 }
 
-export function Stars({ stars, className }: Readonly<StarsProps>) {
+export function Stars({ stars, className }: Props) {
   return (
-    <p
+    <span
       className={cn('items-center text-xs font-semibold text-fg-1', className)}
     >
       {range(25).map((i) => (
-        <span
+        <Star
           key={i}
           className={cn({
             'text-accent-0': stars >= i,
             'text-bg-muted': stars < i,
           })}
-        >
-          <Star />
-        </span>
+        />
       ))}
-      <span className="ml-3 w-[40px]">120 pt</span>
-    </p>
+    </span>
   );
 }
