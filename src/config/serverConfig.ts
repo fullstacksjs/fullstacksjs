@@ -15,6 +15,10 @@ const ServerConfig = z.object({
     containerId: z.string().optional(),
     trackingId: z.string().optional(),
   }),
+  advent: z.object({
+    session: z.string(),
+    url: z.string().url(),
+  }),
 });
 
 export type ServerConfig = z.infer<typeof ServerConfig>;
@@ -31,5 +35,9 @@ export const serverConfig = ServerConfig.parse({
   analytics: {
     containerId: process.env.NEXT_PUBLIC_GTM_CONTAINER,
     trackingId: process.env.NEXT_PUBLIC_GA_TRACKING_ID,
+  },
+  advent: {
+    session: process.env.ADVENT_OF_CODE_SESSION,
+    url: 'https://adventofcode.com/2023/leaderboard/private/view/3205245.json',
   },
 });

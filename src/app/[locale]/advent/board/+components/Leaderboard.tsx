@@ -1,7 +1,7 @@
 import * as Table from '@/components/Table';
+import type { AdventOfCodeUser } from '@/data-layer/advent';
 import { cn } from '@/utils/cn';
 
-import type { AdventOfCodeUser } from '../../+components/AdventOfCodeClient';
 import { UserRow } from './UserRow';
 
 interface Props {

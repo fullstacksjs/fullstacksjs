@@ -11,8 +11,8 @@ interface Props {
 
 export function Stars({ stars, className }: Props) {
   return (
-    <span className={cn('flex flex-wrap tablet:flex-nowrap', className)}>
-      {range(25).map((i) => (
+    <span className={cn('flex flex-wrap tablet:flex-nowrap gap-1', className)}>
+      {range(25, 1).map((i) => (
         <Star
           key={i}
           className={cn({

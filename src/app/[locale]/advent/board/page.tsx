@@ -3,8 +3,8 @@ import { getMessages } from 'next-intl/server';
 import { pick } from 'radash';
 
 import { generatePageOG } from '@/components/SEO';
+import { getAdventLeaderboard } from '@/data-layer/advent';
 
-import { AdventOfCodeClient } from '../+components/AdventOfCodeClient';
 import { Leaderboard } from './+components/Leaderboard';
 
 export const metadata = generatePageOG({
@@ -15,7 +15,7 @@ export const metadata = generatePageOG({
 
 export default async function WarPage() {
   const messages = await getMessages();
-  const leaderboard = AdventOfCodeClient.getLeaderboard();
+  const leaderboard = await getAdventLeaderboard();
 
   return (
     <NextIntlClientProvider messages={pick(messages, ['war'])}>
