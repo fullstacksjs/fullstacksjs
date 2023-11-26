@@ -40,7 +40,6 @@ export async function getAdventLeaderboard(): Promise<AdventOfCodeUser[]> {
     const json = (await res.json()) as AdventOfCodeResponse;
     const apiResponse = Object.values(json.members);
     const members = apiResponse.map(toAdventOfCodeUser);
-    console.log({ members });
 
     return members.sort((a, b) => b.score - a.score);
   } catch {
