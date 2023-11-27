@@ -9,8 +9,8 @@
     "start:supabase": "supabase start",
     "stop:supabase": "supabase stop",
     "lint": "next lint",
-    "codegen": "NODE_OPTIONS=--env-file=.env graphql-codegen",
-    "gen:supabase": "NODE_OPTIONS=--env-file=.env ./scripts/supabase-codegen",
+    "codegen": "dotenv -e .env graphql-codegen",
+    "gen:supabase": "dotenv -e .env ./scripts/supabase-codegen",
     "prepare": "./scripts/prepare"
   },
   "sideEffects": [
@@ -77,6 +77,6 @@
   },
   "volta": {
     "pnpm": "8.10.4",
-    "node": "20.9.0"
+    "node": "21.2.0"
   }
 }

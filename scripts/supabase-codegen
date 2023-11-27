@@ -1,3 +1,6 @@
 #!/usr/bin/env bash
 
-pnpm exec supabase gen types typescript --local --schema public >./src/data-layer/supabase/models/Database.ts
+FILE="./src/data-layer/supabase/models/Database.ts"
+
+pnpm exec supabase gen types typescript --local --schema public >$FILE
+pnpm eslint --fix --no-ignore $FILE
