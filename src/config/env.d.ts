@@ -16,5 +16,6 @@ declare namespace NodeJS {
     NEXT_PUBLIC_SUPABASE_ANON_KEY?: string;
 
     ADVENT_OF_CODE_SESSION?: string;
+    ADVENT_OF_CODE_SYNC_TOKEN?: string;
   }
 }

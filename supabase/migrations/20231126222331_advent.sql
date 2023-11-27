@@ -1,24 +1,25 @@
-create table "public"."advent" (
-  "user_id" uuid not null,
+CREATE TABLE "public"."advent" (
+  "user_id" uuid,
   "created_at" timestamp with time zone not null default now(),
-  "id" character varying,
-  "year" numeric not null
+  "id" character varying NOT NULL,
+  "year" numeric NOT NULL
 );
 
-alter table
-  "public"."advent" enable row level security;
+GRANT ALL ON TABLE "public"."records" TO "anon";
+GRANT ALL ON TABLE "public"."records" TO "authenticated";
+GRANT ALL ON TABLE "public"."records" TO "service_role";
 
-CREATE UNIQUE INDEX advent_pkey ON public.advent USING btree (user_id, year);
+CREATE UNIQUE INDEX advent_pkey ON public.advent USING btree (id, year);
 
-alter table
+ALTER TABLE
   "public"."advent"
-add
-  constraint "advent_pkey" PRIMARY KEY using index "advent_pkey";
+ADD
+  CONSTRAINT "advent_pkey" PRIMARY KEY USING INDEX "advent_pkey";
 
-alter table
+ALTER TABLE
   "public"."advent"
-add
-  constraint "advent_user_id_fkey" FOREIGN KEY (user_id) REFERENCES auth.users(id) not valid;
+ADD
+  CONSTRAINT "advent_user_id_fkey" FOREIGN KEY (user_id) REFERENCES auth.users(id) NOT valid;
 
-alter table
-  "public"."advent" validate constraint "advent_user_id_fkey";
+ALTER TABLE
+  "public"."advent" validate CONSTRAINT "advent_user_id_fkey";

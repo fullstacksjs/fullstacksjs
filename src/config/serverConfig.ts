@@ -18,6 +18,8 @@ const ServerConfig = z.object({
   advent: z.object({
     session: z.string(),
     url: z.string().url(),
+    year: z.number(),
+    token: z.string(),
   }),
 });
 
@@ -37,7 +39,9 @@ export const serverConfig = ServerConfig.parse({
     trackingId: process.env.NEXT_PUBLIC_GA_TRACKING_ID,
   },
   advent: {
+    token: process.env.ADVENT_OF_CODE_SYNC_TOKEN,
     session: process.env.ADVENT_OF_CODE_SESSION,
     url: 'https://adventofcode.com/2023/leaderboard/private/view/3205245.json',
+    year: 2023,
   },
 });
