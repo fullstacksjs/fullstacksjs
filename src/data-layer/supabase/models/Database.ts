@@ -12,40 +12,31 @@ export interface Database {
       advent: {
         Row: {
           created_at: string;
-          email: string | null;
           id: string;
           name: string | null;
-          user_id: string | null;
+          username: string | null;
           year: number;
         };
         Insert: {
           created_at?: string;
-          email?: string | null;
           id: string;
           name?: string | null;
-          user_id?: string | null;
+          username?: string | null;
           year: number;
         };
         Update: {
           created_at?: string;
-          email?: string | null;
           id?: string;
           name?: string | null;
-          user_id?: string | null;
+          username?: string | null;
           year?: number;
         };
         Relationships: [
           {
-            foreignKeyName: 'advent_email_fkey';
-            columns: ['email'];
+            foreignKeyName: 'advent_username_fkey';
+            columns: ['username'];
             referencedRelation: 'profiles';
-            referencedColumns: ['email'];
-          },
-          {
-            foreignKeyName: 'advent_user_id_fkey';
-            columns: ['user_id'];
-            referencedRelation: 'users';
-            referencedColumns: ['id'];
+            referencedColumns: ['github'];
           },
         ];
       };
@@ -54,6 +45,7 @@ export interface Database {
           avatar_url: string | null;
           email: string | null;
           full_name: string | null;
+          github: string | null;
           id: string;
           updated_at: string | null;
         };
@@ -61,6 +53,7 @@ export interface Database {
           avatar_url?: string | null;
           email?: string | null;
           full_name?: string | null;
+          github?: string | null;
           id: string;
           updated_at?: string | null;
         };
@@ -68,6 +61,7 @@ export interface Database {
           avatar_url?: string | null;
           email?: string | null;
           full_name?: string | null;
+          github?: string | null;
           id?: string;
           updated_at?: string | null;
         };
