@@ -3,5 +3,5 @@ export interface AdventOfCodeUser {
   name: string;
   stars: number;
   score: number;
-  avatar: string | null;
+  avatar: string | undefined;
 }
