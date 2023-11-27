@@ -12,23 +12,35 @@ export interface Database {
       advent: {
         Row: {
           created_at: string;
-          id: string | null;
-          user_id: string;
+          email: string | null;
+          id: string;
+          name: string | null;
+          user_id: string | null;
           year: number;
         };
         Insert: {
           created_at?: string;
-          id?: string | null;
-          user_id: string;
+          email?: string | null;
+          id: string;
+          name?: string | null;
+          user_id?: string | null;
           year: number;
         };
         Update: {
           created_at?: string;
-          id?: string | null;
-          user_id?: string;
+          email?: string | null;
+          id?: string;
+          name?: string | null;
+          user_id?: string | null;
           year?: number;
         };
         Relationships: [
+          {
+            foreignKeyName: 'advent_email_fkey';
+            columns: ['email'];
+            referencedRelation: 'profiles';
+            referencedColumns: ['email'];
+          },
           {
             foreignKeyName: 'advent_user_id_fkey';
             columns: ['user_id'];
