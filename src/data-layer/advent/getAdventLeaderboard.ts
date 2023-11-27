@@ -73,7 +73,7 @@ export async function getAdventLeaderboard(): Promise<AdventOfCodeUser[]> {
           if (!adventUser) return null;
 
           return {
-            avatar: d.profiles!.avatar_url,
+            avatar: d.profiles!.avatar_url ?? undefined,
             id: d.id,
             name: adventUser.name!,
             score: adventUser.local_score,
