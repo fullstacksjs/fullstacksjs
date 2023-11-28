@@ -186,13 +186,13 @@
     "ai": {
       "title": "<e-robot></e-robot> Can I use AI?",
       "desc": "Absolutely, feel free to use it as a learning tool! However, please avoid employing AI for leaderboard competition, just to keep things fair and fun for everyone!"
-    }
+    },
+    "update-delay": "The board updates every 15 minutes, please wait if you can't see the fresh data"
   },
   "type": {
     "sign-in": "<join>Log in</join> to submit your record",
     "mistakes": "Mistakes: {mistakes}",
     "perfect": "Perfect!",
     "best": "Your best time is {duration}"
-  },
-  "war": {}
+  }
 }

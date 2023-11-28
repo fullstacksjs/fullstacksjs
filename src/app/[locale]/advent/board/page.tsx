@@ -1,5 +1,5 @@
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import { getMessages, getTranslations } from 'next-intl/server';
 import { pick } from 'radash';
 
 import { generatePageOG } from '@/components/SEO';
@@ -15,16 +15,22 @@ export const metadata = generatePageOG({
 
 export default async function WarPage() {
   const messages = await getMessages();
+  const t = await getTranslations();
   const leaderboard = await getAdventLeaderboard();
 
   return (
-    <NextIntlClientProvider messages={pick(messages, ['war'])}>
-      <div
-        dir="ltr"
-        className="max-h-[500px] w-full overflow-y-auto rounded-3xl bg-advent-1 pe-10 ps-4"
-      >
-        <Leaderboard leaderboard={leaderboard} />
-      </div>
-    </NextIntlClientProvider>
+    <div className="flex flex-col gap-4">
+      <NextIntlClientProvider messages={pick(messages, ['advent'])}>
+        <div
+          dir="ltr"
+          className="max-h-[500px] overflow-y-auto rounded-3xl bg-advent-1 pe-10 ps-4"
+        >
+          <Leaderboard leaderboard={leaderboard} />
+        </div>
+        <div className="overflow-y-auto rounded-3xl bg-advent-1 px-10 py-12 text-center text-advent-2">
+          {t('advent.update-delay')}
+        </div>
+      </NextIntlClientProvider>
+    </div>
   );
 }
