@@ -4,17 +4,19 @@ import * as Dialog from '@radix-ui/react-dialog';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-import { MenuOverlay, SheetContent } from './Menu';
+import { useDirection } from '@/hooks/useDirection';
+
+import { MenuOverlay, SheetContent } from '../Menu';
 import MenuIcon from './Menu.svg';
 
 interface Props {
   children: React.ReactNode;
-  direction: 'left' | 'right';
 }
 
-export const MobileNavs = ({ children, direction }: Props) => {
+export const MobileNavs = ({ children }: Props) => {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const direction = useDirection();
 
   useEffect(() => {
     setOpen(false);

@@ -1,11 +1,11 @@
 import { cn } from '@/utils/cn';
 
 interface Props {
-  children: string;
+  children?: string;
   className?: string;
 }
 
-export const Badge = ({ children, className }: Props) => {
+export const TextBadge = ({ children, className }: Props) => {
   return (
     <div
       className={cn(

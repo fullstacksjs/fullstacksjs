@@ -2,25 +2,24 @@
 
 import { comparePaths } from '@fullstacksjs/toolbox';
 import { useSelectedLayoutSegment } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 
-import type { Direction } from '@/hooks/useDirection';
+import { TextBadge } from '@/components/TextBadge';
+import { useIsRTL } from '@/hooks/useDirection';
 import { Link } from '@/navigation';
 import { cn } from '@/utils/cn';
-
-import { Badge } from './Badge';
 
 interface Props {
   href: string;
   children: React.ReactNode;
-  direction: Direction;
   isNew?: boolean;
-  tNew: string;
 }
 
-export default function Nav({ href, tNew, isNew, children, direction }: Props) {
+export function NavLink({ href, isNew, children }: Props) {
+  const t = useTranslations();
   const selected = useSelectedLayoutSegment() ?? '';
   const isActive = comparePaths(selected, href) === 0;
-  const isRtl = direction === 'rtl';
+  const isRtl = useIsRTL();
 
   return (
     <li
@@ -38,19 +37,10 @@ export default function Nav({ href, tNew, isNew, children, direction }: Props) {
     >
       <Link
         href={href}
-        className="flex items-center gap-2 whitespace-nowrap rounded-sm text-base focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-8 focus-visible:outline-accent-0 tablet:text-md"
+        className="flex items-center gap-4 whitespace-nowrap rounded-sm text-base focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-8 focus-visible:outline-accent-0 rtl:text-md"
       >
-        {children}
-        {isNew ? (
-          <Badge
-            className={cn('desktop:absolute desktop:top-10', {
-              'desktop:right-0 translate-x-6': !isRtl,
-              'desktop:left-0 -translate-x-6': isRtl,
-            })}
-          >
-            {tNew}
-          </Badge>
-        ) : null}
+        {children}{' '}
+        {isNew ? <TextBadge>{t('header.navigation.new')}</TextBadge> : null}
       </Link>
     </li>
   );

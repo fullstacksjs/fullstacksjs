@@ -15,7 +15,6 @@ export const metadata = generatePageOG({
 
 export default async function RulesPage() {
   const messages = await getMessages();
-  console.log(pick(messages, ['rules']));
 
   return (
     <NextIntlClientProvider messages={pick(messages, ['rules'])}>

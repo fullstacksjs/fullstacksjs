@@ -1,10 +1,10 @@
 'use client';
 import * as Dropdown from '@radix-ui/react-dropdown-menu';
 
+import ChevronDownIcon from '@/components/Icons/ChevronDown.svg';
 import type { Locales } from '@/locales';
 import { Link, usePathname } from '@/navigation';
 
-import ChevronDownIcon from './ChevronDown.svg';
 import ENFlag from './EN.svg';
 import IRFlag from './IR.svg';
 

@@ -1,25 +1,22 @@
 import { useLocale } from 'next-intl';
 import { Suspense } from 'react';
 
-import { useDirection } from '@/hooks/useDirection';
 import type { Locales } from '@/locales';
 
 import { AuthBtnSkeleton } from './Auth/AuthButtonSkeleton';
 import { Authentication } from './Auth/Authentication';
 import { LocaleSelect } from './LocaleSelect';
-import { MobileNavs } from './MobileNavs';
-import Navs from './Navs';
+import { DesktopNavs } from './Navigation/DesktopNavs';
+import { MobileNavs } from './Navigation/MobileNavs';
+import { Navs } from './Navigation/Navs';
 
 export function Header(): React.JSX.Element {
-  const direction = useDirection() === 'ltr' ? 'left' : 'right';
   const locale = useLocale() as Locales;
 
   return (
     <div className="flex items-center justify-between">
-      <ul className="hidden gap-8 text-md font-bold leading-tight tablet:gap-16 desktop:inline-flex">
-        <Navs />
-      </ul>
-      <MobileNavs direction={direction}>
+      <DesktopNavs />
+      <MobileNavs>
         <Navs />
       </MobileNavs>
       <div className="flex items-center gap-4 wide:gap-16">

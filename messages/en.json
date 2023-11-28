@@ -10,20 +10,27 @@
   },
   "header": {
     "navigation": {
-      "about": "about",
-      "ask": "ask",
-      "rules": "rules",
+      "new": "New",
+      "community": {
+        "title": "community",
+        "about": "about",
+        "ask": "ask",
+        "rules": "rules"
+      },
+      "war": "war",
       "events": "events",
       "guild": "TS Guild",
       "wakatime": "Wakatime",
       "type": "Type",
-      "advent": "Advent",
-      "war": "War"
+      "advent": {
+        "title": "Advent of Code",
+        "about": "Join",
+        "board": "Leaderboard"
+      }
     },
     "auth": {
       "login": "Login with GitHub"
-    },
-    "new": "New"
+    }
   },
   "main": {
     "vision": "We grow together",

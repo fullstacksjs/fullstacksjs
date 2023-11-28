@@ -22,7 +22,7 @@ MenuOverlay.displayName = Dialog.Overlay.displayName;
 
 interface MenuContentProps
   extends React.ComponentPropsWithoutRef<typeof Dialog.Content> {
-  direction: 'left' | 'right';
+  direction: 'ltr' | 'rtl';
 }
 
 const SheetContent = forwardRef<
@@ -35,9 +35,9 @@ const SheetContent = forwardRef<
       'fixed inset-y-0 z-50 h-full w-[300px] gap-4 bg-bg-0 p-12 outline-none transition duration-300 ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out',
       {
         'left-0 data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left':
-          direction === 'left',
+          direction === 'ltr',
         'right-0 data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right':
-          direction === 'right',
+          direction === 'rtl',
       },
       className,
     )}
