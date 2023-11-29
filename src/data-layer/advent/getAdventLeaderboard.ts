@@ -36,14 +36,22 @@ export async function syncLeaderboard() {
       name: acc.name,
     }));
 
-  await supabase.from('advent').upsert(members, { onConflict: 'id,year' });
+  const { data, error } = await supabase
+    .from('advent')
+    .upsert(members, { onConflict: 'id,year' })
+    .select();
+
+  if (error) throw error;
+
+  console.log('Sync Advent:', data);
+  return data;
 }
 
 async function fetchLeaderboard() {
   const { url, session } = serverConfig.advent;
   const headers = new Headers();
   headers.set('cookie', `session=${session}`);
-  const res = await fetch(url, { headers, next: { revalidate: 1800 } });
+  const res = await fetch(url, { headers, next: { revalidate: 900 } });
   const json = (await res.json()) as AdventOfCodeResponse;
 
   return Object.values(json.members)
