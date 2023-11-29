@@ -1,7 +1,7 @@
 'use client';
 
 import { comparePaths } from '@fullstacksjs/toolbox';
-import { useSelectedLayoutSegment } from 'next/navigation';
+import { useSelectedLayoutSegments } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 
 import { TextBadge } from '@/components/TextBadge';
@@ -17,7 +17,7 @@ interface Props {
 
 export function NavLink({ href, isNew, children }: Props) {
   const t = useTranslations();
-  const selected = useSelectedLayoutSegment() ?? '';
+  const selected = useSelectedLayoutSegments().join('/');
   const isActive = comparePaths(selected, href) === 0;
   const isRtl = useIsRTL();
 
