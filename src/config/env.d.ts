@@ -1,5 +1,7 @@
 declare namespace NodeJS {
   export interface ProcessEnv {
+    CRON_SECRET?: string;
+
     NEXT_PUBLIC_AUTH0_CLIENT_ID?: string;
     NEXT_PUBLIC_AUTH0_DOMAIN?: string;
     NEXT_PUBLIC_FEATURES?: string;

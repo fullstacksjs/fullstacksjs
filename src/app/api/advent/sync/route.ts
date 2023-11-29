@@ -5,11 +5,13 @@ import { serverConfig } from '@/config/serverConfig';
 import { syncLeaderboard } from '@/data-layer/advent/getAdventLeaderboard';
 
 export async function POST(request: Request) {
-  const token = serverConfig.advent.token;
+  const token = serverConfig.cronSecret;
   const auth = request.headers.get('Authorization');
 
-  if (auth !== token)
-    return NextResponse.json({ message: 'not.authorized' }, { status: 401 });
+  if (!token) return new Response('Disabled', { status: 418 });
+
+  if (auth !== `Bearer ${token}`)
+    return new Response('Unauthorized', { status: 401 });
 
   try {
     await syncLeaderboard();
