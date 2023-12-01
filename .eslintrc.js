@@ -16,13 +16,6 @@ module.exports = init({
     'tailwindcss/no-custom-classname': 'warn',
     'default-case': 'off',
     '@typescript-eslint/naming-convention': 'off',
+    '@typescript-eslint/no-throw-literal': 'off',
   },
-  overrides: [
-    {
-      files: './src/data-layer/supabase/**/*.ts',
-      rules: {
-        '@typescript-eslint/no-throw-literal': 'off',
-      },
-    },
-  ],
 });

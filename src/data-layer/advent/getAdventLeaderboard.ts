@@ -54,9 +54,7 @@ async function fetchLeaderboard() {
   const res = await fetch(url, { headers, next: { revalidate: 900 } });
   const json = (await res.json()) as AdventOfCodeResponse;
 
-  return Object.values(json.members)
-    .filter((m) => m.name)
-    .sort((a, b) => b.local_score - a.local_score);
+  return Object.values(json.members).filter((m) => m.name);
 }
 
 export async function getAdventLeaderboard(): Promise<AdventOfCodeUser[]> {
@@ -89,7 +87,7 @@ export async function getAdventLeaderboard(): Promise<AdventOfCodeUser[]> {
           };
         })
         .filter(Boolean) ?? []
-    );
+    ).sort((b, a) => b.score - a.score);
   } catch {
     return [];
   }
