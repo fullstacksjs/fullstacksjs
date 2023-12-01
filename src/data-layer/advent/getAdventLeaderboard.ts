@@ -87,7 +87,7 @@ export async function getAdventLeaderboard(): Promise<AdventOfCodeUser[]> {
           };
         })
         .filter(Boolean) ?? []
-    ).sort((b, a) => b.score - a.score);
+    ).sort((b, a) => a.score - b.score);
   } catch {
     return [];
   }

@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+curl https://next.fullstacksjs.com/api/advent/sync -H "Authorization: Bearer ${CRON_SECRET}"
+curl http://localhost:3000/api/advent/sync -H "Authorization: Bearer ${CRON_SECRET}"
