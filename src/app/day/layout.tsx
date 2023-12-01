@@ -16,7 +16,6 @@ interface Props {
 export const metadata: Metadata = {
   title: 'FullstacksJS',
   description: 'We Grow together',
-  themeColor: '#F39F47',
   manifest: '/manifest.json',
   icons,
   keywords,
@@ -26,9 +25,7 @@ export const metadata: Metadata = {
 export default function WakatimeLayout({ children }: Props) {
   return (
     <html lang="en" className={`${rajdhani.variable}`}>
-      <body className="flex min-h-screen flex-col items-center overflow-x-hidden bg-bg-0 font-rajdhani text-base text-fg-0">
-        {children}
-      </body>
+      {children}
     </html>
   );
 }
