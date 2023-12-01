@@ -1,23 +1,25 @@
-import { range } from '@fullstacksjs/toolbox';
+import { isNull, range } from '@fullstacksjs/toolbox';
 
+import { Star } from '@/data-layer/advent/AdventOfCodeUser';
 import { cn } from '@/utils/cn';
 
-import Star from './Star.svg';
+import StarIcon from './Star.svg';
 
 interface Props {
-  stars: number;
+  stars: Star[];
   className: string;
 }
 
 export function Stars({ stars, className }: Props) {
   return (
     <span className={cn('flex flex-wrap tablet:flex-nowrap gap-1', className)}>
-      {range(25, 1).map((i) => (
-        <Star
+      {range(25).map((i) => (
+        <StarIcon
           key={i}
           className={cn({
-            'text-accent-0': stars >= i,
-            'text-advent-2': stars < i,
+            'text-advent-2': isNull(stars[i]),
+            'text-fg-0': stars[i] === Star.Silver,
+            'text-accent-0': stars[i] === Star.Gold,
           })}
         />
       ))}

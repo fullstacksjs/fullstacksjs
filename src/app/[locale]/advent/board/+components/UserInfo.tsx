@@ -1,10 +1,11 @@
 import { Avatar } from '@/components/Avatar';
+import type { Star } from '@/data-layer/advent/AdventOfCodeUser';
 
 import { Stars } from './Stars';
 
 interface Props {
   name: string | undefined;
-  stars: number;
+  stars: Star[];
   avatar: string | undefined;
 }
 

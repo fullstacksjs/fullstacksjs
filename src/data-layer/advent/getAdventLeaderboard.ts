@@ -3,10 +3,16 @@ import { serverConfig } from '@/config/serverConfig';
 import type { Database } from '../supabase/models/Database';
 import { createServerSupabaseClient } from '../supabase/SupabaseServer';
 import type { AdventOfCodeUser } from './AdventOfCodeUser';
+import { Star } from './AdventOfCodeUser';
+
+interface Day {
+  get_star_ts: number;
+  star_index: number;
+}
 
 interface AdventOfCodeResponseUser {
   owner_id?: number;
-  completion_day_level: unknown;
+  completion_day_level: Record<number, Record<number, Day>>;
   global_score: number;
   id: number;
   last_star_ts: number;
@@ -22,6 +28,7 @@ interface AdventOfCodeResponse {
 }
 
 type InsertAdvent = Database['public']['Tables']['advent']['Insert'];
+const starMap = [Star.None, Star.Silver, Star.Gold];
 
 export async function syncLeaderboard() {
   const { year } = serverConfig.advent;
@@ -78,13 +85,17 @@ export async function getAdventLeaderboard(): Promise<AdventOfCodeUser[]> {
           const adventUser = leaderboard.find((l) => l.id.toString() === d.id);
           if (!adventUser) return null;
 
-          return {
+          const a = {
             avatar: d.profiles!.avatar_url ?? undefined,
             id: d.id,
             name: adventUser.name!,
             score: adventUser.local_score,
-            stars: adventUser.stars,
-          };
+            stars: Object.values(adventUser.completion_day_level).map(
+              (s) => starMap[Object.values(s).length] ?? Star.None,
+            ),
+          } satisfies AdventOfCodeUser;
+
+          return a;
         })
         .filter(Boolean) ?? []
     ).sort((b, a) => a.score - b.score);
