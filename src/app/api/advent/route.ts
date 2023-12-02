@@ -1,11 +1,11 @@
 import { isObject } from '@fullstacksjs/toolbox';
 import { NextResponse } from 'next/server';
 
-import { getAdventLeaderboard } from '@/data-layer/advent/getAdventLeaderboard';
+import { fetchLeaderboard } from '@/data-layer/advent/getAdventLeaderboard';
 
 export async function GET() {
   try {
-    const leaderboard = await getAdventLeaderboard();
+    const leaderboard = await fetchLeaderboard();
     return NextResponse.json(leaderboard);
   } catch (e) {
     return NextResponse.json(

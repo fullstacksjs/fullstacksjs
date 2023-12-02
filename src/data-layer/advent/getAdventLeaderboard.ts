@@ -54,7 +54,7 @@ export async function syncLeaderboard() {
   return data;
 }
 
-async function fetchLeaderboard() {
+export async function fetchLeaderboard() {
   const { url, session } = serverConfig.advent;
   const headers = new Headers();
   headers.set('cookie', `session=${session}`);
