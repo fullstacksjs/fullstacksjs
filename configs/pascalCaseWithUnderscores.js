@@ -1,7 +1,7 @@
-const { pascalCase } = require('change-case-all');
+const { toPascalCase } = require('@fullstacksjs/toolbox');
 
 function pascalCaseWithUnderscores(str) {
-  const result = pascalCase(str);
+  const result = toPascalCase(str);
 
   if (!result) {
     return str;
