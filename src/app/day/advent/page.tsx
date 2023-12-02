@@ -6,7 +6,7 @@ import Banner from '../../[locale]/advent/+components/Advent.png';
 import { Leaderboard } from '../../[locale]/advent/board/+components/Leaderboard';
 
 export default async function WakatimeDay() {
-  const leaderboard = await getAdventLeaderboard();
+  const leaderboard = (await getAdventLeaderboard()).slice(0, 10);
 
   return (
     <body className="container flex min-h-screen w-full flex-col items-center gap-12 overflow-x-hidden bg-advent-0 py-12 font-rajdhani text-base text-fg-0">
