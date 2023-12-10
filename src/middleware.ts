@@ -16,5 +16,5 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/', '/(fa|en)/:path*'],
+  matcher: ['/((?!api|favicon|day|_next|.*\\..*).*)'],
 };
