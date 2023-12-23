@@ -12,8 +12,8 @@ import { locales } from '@/locales';
 import { JotaiProvider } from '@/store/JotaiProvider';
 import { cn } from '@/utils/cn';
 
-import { GoogleAnalytics } from './+components/GoogleAnalytics';
 import { Header } from './+components/Header';
+import { Tracking } from './+components/Tracking';
 
 const rajdhani = Rajdhani({
   weight: ['400', '500', '600', '700'],
@@ -63,7 +63,7 @@ export default function LocaleLayout({ children, params }: Props) {
       <head>
         <JsonLd />
         {isAnalyticsActive ? (
-          <GoogleAnalytics containerId={containerId} trackingId={trackingId} />
+          <Tracking containerId={containerId} trackingId={trackingId} />
         ) : null}
       </head>
       <body
