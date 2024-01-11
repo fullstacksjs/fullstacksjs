@@ -17,6 +17,7 @@ const rules = [
   'copyright',
   'spam',
   'dm',
+  'controversial',
   'advocate',
 ] as const;
 
