@@ -59,9 +59,7 @@ export function useRuleTarget(url: string) {
   };
 
   const handleSelect = (target: string) => {
-    // @ts-expect-error Poor typing
     if (target === activeTarget) router.push(url, { scroll: false });
-    // @ts-expect-error Poor typing
     else router.push(`${url}?focus=${target}`, { scroll: false });
   };
 
