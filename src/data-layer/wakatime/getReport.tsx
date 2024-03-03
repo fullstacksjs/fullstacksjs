@@ -13,16 +13,20 @@ export function toHumanHM(seconds: number) {
 }
 
 export const getReport = async (count: number) => {
-  const res = await fetch(
-    joinPaths(serverConfig.wakatime.endpoint, `day?size=${count}`),
-    { cache: 'no-cache' },
-  );
+  const url = joinPaths(serverConfig.wakatime.endpoint, `day?size=${count}`);
+  const res = await fetch(joinPaths(url), { cache: 'no-cache' });
+
+  if (!res.ok)
+    throw new Error(
+      `Failed to fetch Wakatime report "${res.status}: ${res.statusText}"`,
+    );
+
   const report = (await res.json()) as WakatimeReport;
   const date = new Date(report.date);
 
   const year = date.getFullYear();
   const day = getDayOfYear(date);
-  const usages: WakatimeUsage[] = report.usages.map((u) => {
+  const usages = report.usages.map<WakatimeUsage>((u) => {
     return {
       ...u,
       humanReadableTotalSeconds: toHumanHM(u.totalSeconds),
