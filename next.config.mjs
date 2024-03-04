@@ -1,4 +1,6 @@
-const withNextIntl = require('next-intl/plugin')('./src/i18n.ts');
+import createNextIntlPlugin from 'next-intl/plugin';
+
+const withNextIntl = createNextIntlPlugin('./src/i18n.ts');
 
 const secondsInDay = 60 * 60 * 24;
 
@@ -58,4 +60,4 @@ function addSvgr(config) {
   fileLoaderRule.exclude = /\.svg$/i;
 }
 
-module.exports = withNextIntl(nextConfig);
+export default withNextIntl(nextConfig);

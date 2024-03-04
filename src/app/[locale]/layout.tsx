@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { Rajdhani, Vazirmatn } from 'next/font/google';
-import { notFound } from 'next/navigation';
 
 import { generatePageOG, icons, JsonLd, keywords } from '@/components/SEO';
 import { Separator } from '@/components/Separator';
@@ -8,7 +7,7 @@ import { Socials } from '@/components/Socials';
 import { serverConfig } from '@/config/serverConfig';
 import { SupabaseProvider } from '@/data-layer/supabase/SupabaseProvider';
 import { useDirection } from '@/hooks/useDirection';
-import { locales } from '@/locales';
+import type { Locale } from '@/locales';
 import { JotaiProvider } from '@/store/JotaiProvider';
 import { cn } from '@/utils/cn';
 
@@ -40,19 +39,15 @@ export const metadata: Metadata = {
   authors: [{ name: 'ASafaeirad', url: 'https://github.com/ASafaeirad/' }],
 };
 
-type Local = 'en' | 'fa';
-
 interface Props {
   children: React.ReactNode;
-  params: { locale: Local };
+  params: { locale: Locale };
 }
 
 export default function LocaleLayout({ children, params }: Props) {
   const direction = useDirection();
   const { containerId, trackingId } = serverConfig.analytics;
   const isAnalyticsActive = containerId && trackingId;
-
-  if (!locales.includes(params.locale)) notFound();
 
   return (
     <html

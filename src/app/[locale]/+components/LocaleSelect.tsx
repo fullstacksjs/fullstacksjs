@@ -2,18 +2,18 @@
 import * as Dropdown from '@radix-ui/react-dropdown-menu';
 
 import ChevronDownIcon from '@/components/Icons/ChevronDown.svg';
-import type { Locales } from '@/locales';
+import type { Locale } from '@/locales';
 import { Link, usePathname } from '@/navigation';
 
 import ENFlag from './EN.svg';
 import IRFlag from './IR.svg';
 
-const localeMap: Record<Locales, { icon: JSX.Element; label: string }> = {
+const localeMap: Record<Locale, { icon: JSX.Element; label: string }> = {
   fa: { icon: <IRFlag />, label: 'FA' },
   en: { icon: <ENFlag />, label: 'EN' },
 };
 
-export const LocaleSelect = ({ locale }: { locale: Locales }) => {
+export const LocaleSelect = ({ locale }: { locale: Locale }) => {
   const otherLocale = locale === 'en' ? 'fa' : 'en';
   const { icon, label } = localeMap[locale];
   const { icon: otherIcon, label: otherLabel } = localeMap[otherLocale];
