@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/alt-text */
 import { format } from 'date-fns';
 import { Image } from 'react-datocms/image';
 

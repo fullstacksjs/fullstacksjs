@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/alt-text */
 import Image from 'next/image';
 import type { ResponsiveImageType } from 'react-datocms/image';
 

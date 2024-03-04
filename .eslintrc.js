@@ -13,7 +13,7 @@ module.exports = init({
     },
   },
   rules: {
-    'tailwindcss/no-custom-classname': 'warn',
+    'tailwindcss/no-custom-classname': ['warn', { whitelist: ['size\\-.*'] }],
     'default-case': 'off',
     '@typescript-eslint/naming-convention': 'off',
     '@typescript-eslint/no-throw-literal': 'off',

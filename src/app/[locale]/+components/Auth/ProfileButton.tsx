@@ -16,7 +16,7 @@ export const ProfileButton = ({ children, avatar }: Props) => {
       <LoginButton avatar={avatar}>{children}</LoginButton>
       <form action="/api/auth/sign-out" method="POST">
         <SecondaryButton type="submit" className="aspect-square justify-center">
-          <LogoutIcon className="h-10 w-10" />
+          <LogoutIcon className="size-10" />
         </SecondaryButton>
       </form>
     </div>

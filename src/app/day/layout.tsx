@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 
 export default function WakatimeLayout({ children }: Props) {
   return (
-    <html lang="en" className={`${rajdhani.variable}`}>
+    <html lang="en" className={rajdhani.variable}>
       {children}
     </html>
   );

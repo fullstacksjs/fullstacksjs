@@ -80,7 +80,7 @@ export const GuildContent = ({ user, isSubscribed }: Props) => {
               opacity: [0, 1],
               transition: { ease: 'linear', duration: 2, delay: 0 },
             }}
-            className="fixed left-0 top-0 h-full w-full bg-black"
+            className="size-full fixed left-0 top-0 bg-black"
             exit={{ opacity: 0 }}
           >
             <Stars count={50} className="w-[800px] opacity-40" />

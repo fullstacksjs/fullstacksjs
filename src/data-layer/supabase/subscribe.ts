@@ -19,7 +19,6 @@ export const subscribe = cache(async () => {
       )
       .select();
 
-    // eslint-disable-next-line @typescript-eslint/no-throw-literal
     if (error) throw error;
 
     return data;
