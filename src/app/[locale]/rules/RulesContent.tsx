@@ -19,6 +19,7 @@ const rules = [
   'dm',
   'controversial',
   'advocate',
+  'disturb',
 ] as const;
 
 const guidelines = ['kind', 'topic', 'cross', 'opinion'] as const;

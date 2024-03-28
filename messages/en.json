@@ -72,7 +72,8 @@
       "spam": "<b>Spam</b>/<b>Flooding</b>.",
       "dm": "Do not <b>direct message</b> someone unless they've granted permission.",
       "advocate": "Advocating for, or encouraging, any of the above behavior.",
-      "controversial": "Discussions on controversial religious or political topics"
+      "controversial": "Discussions on controversial religious or political topics.",
+      "disturb": "Attempts to send messages with the intent to blackmail, annoy, scam, or disturb others."
     },
     "guidelines": {
       "title": "Community Guidelines",
