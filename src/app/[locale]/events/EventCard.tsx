@@ -17,6 +17,7 @@ export default function EventCard({ event }: Props) {
       target="_blank"
       rel="noopener noreferrer"
       className="flex flex-col gap-8"
+      aria-label={event.title}
     >
       <Image
         className="aspect-video w-full rounded-md"

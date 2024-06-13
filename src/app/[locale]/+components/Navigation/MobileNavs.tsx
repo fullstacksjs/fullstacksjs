@@ -24,7 +24,11 @@ export const MobileNavs = ({ children }: Props) => {
 
   return (
     <Dialog.Root open={open}>
-      <Dialog.Trigger onClick={() => setOpen(true)} className="desktop:hidden">
+      <Dialog.Trigger
+        aria-label="toggle navigation menu"
+        onClick={() => setOpen(true)}
+        className="desktop:hidden"
+      >
         <MenuIcon />
       </Dialog.Trigger>
       <Dialog.Portal>
