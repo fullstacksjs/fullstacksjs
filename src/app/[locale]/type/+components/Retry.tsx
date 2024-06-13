@@ -15,6 +15,7 @@ export const Retry = ({ className, onClick, ...props }: Props) => {
   const [, reset] = useAtom(handleReset);
   return (
     <button
+      type="button"
       onClick={(e) => {
         audios.restart.play();
         reset();

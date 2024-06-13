@@ -34,7 +34,11 @@ export const Rule = ({ state, target, children, onSelect }: Props) => {
         },
       )}
     >
-      <button className={cn('w-full text-start outline-none')} {...pressProps}>
+      <button
+        type="button"
+        className={cn('w-full text-start outline-none')}
+        {...pressProps}
+      >
         {children}
       </button>
     </li>

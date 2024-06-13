@@ -10,7 +10,7 @@ export const NeedToLogin = () => {
     <p className="text-fg-1">
       {t.rich('sign-in', {
         join: (chunk) => (
-          <button className="text-accent-0" onClick={signIn}>
+          <button type="submit" className="text-accent-0" onClick={signIn}>
             {chunk}
           </button>
         ),

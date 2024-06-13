@@ -32,6 +32,7 @@ export const NavGroup = ({ text, children }: Props) => {
   return (
     <div key={text} className="group relative">
       <button
+        type="button"
         className={cn(
           'flex gap-4 rtl:text-xl items-center justify-between uppercase min-w-[100px]',
           {

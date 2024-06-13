@@ -27,7 +27,7 @@ export const Unsubscribe = () => {
           ),
         })}
       </div>
-      <button className="text-sm text-red-400" onClick={mutate}>
+      <button type="button" className="text-sm text-red-400" onClick={mutate}>
         {t('unsubscribe')}
       </button>
     </div>

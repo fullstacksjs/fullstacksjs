@@ -23,7 +23,7 @@ export const HowToJoin = () => {
   const i18n: RichTranslationValues = {
     ...i18nMap,
     login: (chunk) => (
-      <button className="text-accent-0" onClick={signIn}>
+      <button type="submit" className="text-accent-0" onClick={signIn}>
         {chunk}
       </button>
     ),
