@@ -7,9 +7,9 @@ import GithubOutlineIcon from './GithubIcon.svg?url';
 import { LoginButton } from './LoginButton';
 import { ProfileButton } from './ProfileButton';
 
-export function Authentication() {
+export async function Authentication() {
   const t = useTranslations('header');
-  const profile = use(getUser());
+  const profile = await getUser();
 
   if (profile != null)
     return (

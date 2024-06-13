@@ -1,5 +1,5 @@
 import { useRouter } from 'next/navigation';
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 
 import { useSupabase } from './SupabaseProvider';
 
@@ -15,5 +15,5 @@ export const useSignIn = () => {
     router.refresh();
   }, [router, supabase.auth]);
 
-  return { signIn, status: 'success' };
+  return { signIn };
 };

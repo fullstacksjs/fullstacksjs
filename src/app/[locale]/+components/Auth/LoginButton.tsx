@@ -4,6 +4,8 @@ import Image from 'next/image';
 import { SecondaryButton } from '@/components/SecondaryButton';
 import { useSignIn } from '@/data-layer/supabase/useSignIn';
 
+import { AuthBtnSkeleton } from './AuthButtonSkeleton';
+
 interface Props {
   children: string;
   avatar: string;

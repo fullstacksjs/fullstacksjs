@@ -2,6 +2,7 @@
 
 import LogoutIcon from '@/components/Logout.svg';
 import { SecondaryButton } from '@/components/SecondaryButton';
+import { useSupabase } from '@/data-layer/supabase/SupabaseProvider';
 
 import { LoginButton } from './LoginButton';
 
@@ -11,14 +12,18 @@ interface Props {
 }
 
 export const ProfileButton = ({ children, avatar }: Props) => {
+  const { supabase } = useSupabase();
+
   return (
     <div className="flex gap-2">
       <LoginButton avatar={avatar}>{children}</LoginButton>
-      <form action="/api/auth/sign-out" method="POST">
-        <SecondaryButton type="submit" className="aspect-square justify-center">
-          <LogoutIcon className="size-10" />
-        </SecondaryButton>
-      </form>
+      <SecondaryButton
+        type="submit"
+        className="aspect-square justify-center"
+        onClick={() => supabase.auth.signOut()}
+      >
+        <LogoutIcon className="size-10" />
+      </SecondaryButton>
     </div>
   );
 };
