@@ -72,7 +72,7 @@ export const Navs = () => {
       ...n,
       children: n.children?.filter(isActive),
     }))
-    .filter((c) => isActive(c) || !isEmptyGroup(c));
+    .filter((c) => isActive(c) && !isEmptyGroup(c));
 
   return (
     <NextIntlClientProvider messages={pick(t, ['header'])}>

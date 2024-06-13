@@ -23,7 +23,7 @@ export function LoginButton({
 
   return (
     <SecondaryButton onClick={signIn}>
-      <div className="size-12 tablet:size-14 flex shrink-0 items-center justify-center overflow-hidden rounded-full border border-fg-0 bg-dark-0">
+      <div className="flex size-12 shrink-0 items-center justify-center overflow-hidden rounded-full border border-fg-0 bg-dark-0 tablet:size-14">
         <Image src={avatar} width={width} height={height} alt={alt} />
       </div>
       <p className="hidden tablet:me-2 tablet:block desktop:hidden wide:block">

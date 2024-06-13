@@ -1,5 +1,5 @@
 import { format } from 'date-fns';
-import { Image } from 'react-datocms/image';
+import { SRCImage } from 'react-datocms';
 
 import type { FullstacksJSEvent } from '@/data-layer/datocms/Event';
 
@@ -19,7 +19,7 @@ export default function EventCard({ event }: Props) {
       className="flex flex-col gap-8"
       aria-label={event.title}
     >
-      <Image
+      <SRCImage
         className="aspect-video w-full rounded-md"
         data={event.thumbnail}
       />
