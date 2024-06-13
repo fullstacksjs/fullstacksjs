@@ -1,10 +1,11 @@
 import { cache } from 'react';
 
-import { createServerSupabaseClient, getSession } from './SupabaseServer';
+import { getUser } from './getUser';
+import { createServerSupabaseClient } from './SupabaseServer';
 
 export const getGuildMembers = cache(async () => {
   const supabase = createServerSupabaseClient();
-  const session = await getSession();
+  const session = await getUser();
 
   if (!session) return null;
 

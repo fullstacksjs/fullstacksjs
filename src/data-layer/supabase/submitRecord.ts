@@ -1,7 +1,8 @@
 'use server';
 
 import { getRecord } from './getRecord';
-import { createServerSupabaseClient, getSession } from './SupabaseServer';
+import { getUser } from './getUser';
+import { createServerSupabaseClient } from './SupabaseServer';
 
 interface Record {
   duration: number;
@@ -10,13 +11,13 @@ interface Record {
 
 export const submitRecord = async ({ duration, mistakes }: Record) => {
   const supabase = createServerSupabaseClient();
-  const session = await getSession();
+  const user = await getUser();
 
-  if (session === null) return;
+  if (user == null) return;
 
   const { error } = await supabase
     .from('records')
-    .insert({ user_id: session.user.id, duration, mistakes });
+    .insert({ user_id: user.id, duration, mistakes });
 
   if (error) throw error;
 

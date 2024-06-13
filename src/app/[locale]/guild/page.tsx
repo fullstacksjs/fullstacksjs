@@ -4,7 +4,7 @@ import { pick } from 'radash';
 
 import { generatePageOG } from '@/components/SEO';
 import { getSubscription } from '@/data-layer/supabase/getSubscription';
-import { getSession } from '@/data-layer/supabase/SupabaseServer';
+import { getUser } from '@/data-layer/supabase/getUser';
 
 import { GuildContent } from './GuildContent';
 
@@ -17,12 +17,12 @@ export const metadata = generatePageOG({
 
 export default async function GuildPage() {
   const messages = await getMessages();
-  const session = await getSession();
+  const user = await getUser();
   const isSubscribed = await getSubscription();
 
   return (
     <NextIntlClientProvider messages={pick(messages, ['guild'])}>
-      <GuildContent isSubscribed={isSubscribed} user={session?.user} />
+      <GuildContent isSubscribed={isSubscribed} user={user} />
     </NextIntlClientProvider>
   );
 }

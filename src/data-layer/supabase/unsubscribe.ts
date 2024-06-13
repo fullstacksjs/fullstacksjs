@@ -2,21 +2,19 @@
 
 import { cache } from 'react';
 
-import { createServerSupabaseClient, getSession } from './SupabaseServer';
+import { getUser } from './getUser';
+import { createServerSupabaseClient } from './SupabaseServer';
 
 export const unsubscribe = cache(async () => {
   const supabase = createServerSupabaseClient();
-  const session = await getSession();
+  const user = await getUser();
 
   try {
-    if (!session) throw Error('No session');
+    if (!user) throw Error('No session');
 
     const { data, error } = await supabase
       .from('subscription')
-      .upsert(
-        { user_id: session.user.id, ts_guild: false },
-        { onConflict: 'user_id' },
-      )
+      .upsert({ user_id: user.id, ts_guild: false }, { onConflict: 'user_id' })
       .select();
 
     if (error) throw error;
