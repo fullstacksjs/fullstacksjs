@@ -1,5 +1,4 @@
 import { useTranslations } from 'next-intl';
-import { use } from 'react';
 
 import { getUser } from '@/data-layer/supabase/getUser';
 

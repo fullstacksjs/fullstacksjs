@@ -1,5 +1,5 @@
 import { useRouter } from 'next/navigation';
-import { useCallback, useState } from 'react';
+import { useCallback } from 'react';
 
 import { useSupabase } from './SupabaseProvider';
 

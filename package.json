@@ -68,6 +68,7 @@
     "dotenv-cli": "7.4.2",
     "encoding": "0.1.13",
     "eslint": "8.57.0",
+    "eslint-plugin-react-compiler": "0.0.0-experimental-51a85ea-20240601",
     "husky": "9.0.11",
     "lint-staged": "15.2.7",
     "postcss": "8.4.38",

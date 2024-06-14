@@ -12,10 +12,12 @@ module.exports = init({
       resolverProject: './tsconfig.json',
     },
   },
+  plugins: ['eslint-plugin-react-compiler'],
   rules: {
     'tailwindcss/no-custom-classname': ['warn', { whitelist: ['size\\-.*'] }],
     'default-case': 'off',
     '@typescript-eslint/naming-convention': 'off',
     '@typescript-eslint/no-throw-literal': 'off',
+    'react-compiler/react-compiler': 'error',
   },
 });
