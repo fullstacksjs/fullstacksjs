@@ -3,32 +3,27 @@ import { useTranslations } from 'next-intl';
 
 import { Article } from '@/components/Article';
 import { Articles } from '@/components/Articles';
-import { Rule, useRuleTarget } from '@/components/Rule';
-import { RuleSet } from '@/components/RuleSet';
+import { FocusItemList } from '@/components/FocusItemList';
+import { useScrollToFocused } from '@/hooks/useRuleTarget';
 
 import { asks } from './asks';
 
-export default function AskContent(): React.JSX.Element {
+export function AskContent() {
   const t = useTranslations('ask');
-  const { handleSelect, getState: isActive } = useRuleTarget('/ask');
+  useScrollToFocused();
 
   return (
     <Articles>
       <Article title={t('title')}>
-        <RuleSet>
+        <FocusItemList>
           {asks.map((ask) => (
-            <Rule
-              onSelect={handleSelect}
-              state={isActive(ask)}
-              key={ask}
-              target={ask}
-            >
+            <FocusItemList.Item key={ask} target={ask}>
               <p className="mb-2">{t(`guides.${ask}.title`)}:</p>
               <p className="text-light-0">{t(`guides.${ask}.desc`)}</p>
               <br />
-            </Rule>
+            </FocusItemList.Item>
           ))}
-        </RuleSet>
+        </FocusItemList>
       </Article>
     </Articles>
   );

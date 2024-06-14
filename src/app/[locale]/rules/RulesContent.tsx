@@ -3,64 +3,41 @@ import { useTranslations } from 'next-intl';
 
 import { Article } from '@/components/Article';
 import { Articles } from '@/components/Articles';
+import { FocusItemList } from '@/components/FocusItemList';
 import { Paragraph } from '@/components/Paragraph';
-import { Rule, useRuleTarget } from '@/components/Rule';
-import { RuleSet } from '@/components/RuleSet';
+import { useScrollToFocused } from '@/hooks/useRuleTarget';
 
-const rules = [
-  'violence',
-  'name-calling',
-  'nsfw',
-  'personal',
-  'insult',
-  'sex',
-  'copyright',
-  'spam',
-  'dm',
-  'controversial',
-  'advocate',
-  'disturb',
-] as const;
+import { guidelines } from './guidlines';
+import { rules } from './rules';
 
-const guidelines = ['kind', 'topic', 'cross', 'opinion'] as const;
 const i18nMapper = { b: (chunk: React.ReactNode) => <b>{chunk}</b> };
 
 export default function RulesContent() {
   const t = useTranslations('rules');
-  const { handleSelect, getState: isActive } = useRuleTarget('/rules');
+  useScrollToFocused();
 
   return (
     <Articles>
       <Article id="rules" title={t('title')}>
         <Paragraph>{t.rich('desc', i18nMapper)}</Paragraph>
 
-        <RuleSet>
+        <FocusItemList>
           {rules.map((rule) => (
-            <Rule
-              key={rule}
-              onSelect={handleSelect}
-              state={isActive(rule)}
-              target={rule}
-            >
+            <FocusItemList.Item key={rule} target={rule}>
               {t.rich(`items.${rule}`, i18nMapper)}
-            </Rule>
+            </FocusItemList.Item>
           ))}
-        </RuleSet>
+        </FocusItemList>
       </Article>
 
       <Article id="guides" title={t('guidelines.title')}>
-        <RuleSet>
+        <FocusItemList>
           {guidelines.map((guide) => (
-            <Rule
-              key={guide}
-              onSelect={handleSelect}
-              state={isActive(guide)}
-              target={guide}
-            >
+            <FocusItemList.Item key={guide} target={guide}>
               {t(`guidelines.items.${guide}`)}
-            </Rule>
+            </FocusItemList.Item>
           ))}
-        </RuleSet>
+        </FocusItemList>
       </Article>
     </Articles>
   );

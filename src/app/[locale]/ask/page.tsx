@@ -5,7 +5,7 @@ import { pick } from 'radash';
 
 import { generatePageOG } from '@/components/SEO';
 
-import AskContent from './AskContent';
+import { AskContent } from './AskContent';
 
 interface MetaDataProps {
   searchParams: Record<string, string>;

@@ -1,4 +1,5 @@
-export const asks = [
+export type Ask = keyof IntlMessages['ask']['guides'];
+export const asks: Ask[] = [
   'precise',
   'environment',
   'diagnostic',
@@ -10,4 +11,4 @@ export const asks = [
   'guess',
   'pv',
   'homework',
-] as const;
+];

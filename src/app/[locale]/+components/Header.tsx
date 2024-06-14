@@ -1,4 +1,4 @@
-import { useLocale } from 'next-intl';
+import { getLocale } from 'next-intl/server';
 import { Suspense } from 'react';
 
 import type { Locale } from '@/locales';
@@ -10,8 +10,8 @@ import { DesktopNavs } from './Navigation/DesktopNavs';
 import { MobileNavs } from './Navigation/MobileNavs';
 import { Navs } from './Navigation/Navs';
 
-export function Header(): React.JSX.Element {
-  const locale = useLocale() as Locale;
+export async function Header() {
+  const locale = (await getLocale()) as Locale;
 
   return (
     <div className="flex items-center justify-between">
