@@ -69,7 +69,7 @@ export default function LocaleLayout({ children, params }: Props) {
       >
         <JotaiProvider>
           <SupabaseProvider>
-            <div className="container flex w-full flex-col gap-24 py-8 text-base mobile:gap-40 desktop:py-40">
+            <div className="container flex w-full flex-col gap-24 py-8 text-base mobile:gap-44 desktop:py-40">
               <Header />
               {children}
               <Separator />
