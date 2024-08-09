@@ -45,7 +45,7 @@ export const NavGroup = ({ text, children }: Props) => {
         {t(text)}
         <ChevronDownIcon />
       </button>
-      <div className="static top-full flex w-full flex-col gap-4 py-4 ps-2 desktop:absolute desktop:hidden desktop:ps-0 desktop:group-hover:flex rtl:gap-6 rtl:py-8 rtl:ps-4">
+      <div className="static top-full flex w-full flex-col gap-4 py-4 ps-2 desktop:absolute desktop:hidden desktop:ps-0 desktop:group-hover:flex rtl:ps-4">
         {children?.map((c) => (
           <NavLink key={c.href} {...c}>
             {t(c.text)}
