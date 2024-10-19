@@ -24,7 +24,7 @@ export function Diff({ diff, className }: Props) {
   return (
     <div className={cn('flex items-center gap-1', className)}>
       <span className="flex items-center">
-        {<Icon width={16} height={16} />}
+        {<Icon height={16} width={16} />}
       </span>
       <span className="text-xs font-semibold leading-none">{diff}</span>
     </div>

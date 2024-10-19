@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion';
 import type { DetailedHTMLProps, HTMLAttributes } from 'react';
 
 import { cn } from '@/utils/cn';
+import { motion } from 'framer-motion';
 
 export interface LoaderSizeProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement> {
@@ -27,16 +27,16 @@ export function Loader({
 
   return (
     <motion.div
-      initial="hidden"
       animate="visible"
-      exit="hidden"
       className={cn('relative', className)}
+      exit="hidden"
+      initial="hidden"
       style={{ width: size, height: size }}
     >
       <motion.span
-        variants={variants}
-        transition={{ duration, repeat: Infinity }}
         className="absolute left-0 rounded-full"
+        transition={{ duration, repeat: Infinity }}
+        variants={variants}
         style={{
           height: size,
           width: size,

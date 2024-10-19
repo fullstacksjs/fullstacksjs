@@ -77,12 +77,12 @@ const TableCaption = ({
 );
 
 export {
+  Table as Root,
   TableBody as Body,
   TableCaption as Caption,
   TableCell as Cell,
   TableFooter as Footer,
   TableHead as Head,
   TableHeader as Header,
-  Table as Root,
   TableRow as Row,
 };

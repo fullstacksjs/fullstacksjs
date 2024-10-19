@@ -1,7 +1,7 @@
+import type { FullstacksJSEvent } from '@/data-layer/datocms/Event';
+
 import { format } from 'date-fns';
 import { SRCImage } from 'react-datocms';
-
-import type { FullstacksJSEvent } from '@/data-layer/datocms/Event';
 
 import { EventCardTitle } from './EventCardTitle';
 import { LecturerStack } from './LecturerStack';
@@ -13,11 +13,11 @@ interface Props {
 export default function EventCard({ event }: Props) {
   return (
     <a
-      href={event.mediaUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="flex flex-col gap-8"
       aria-label={event.title}
+      className="flex flex-col gap-8"
+      href={event.mediaUrl}
+      rel="noopener noreferrer"
+      target="_blank"
     >
       <SRCImage
         className="aspect-video w-full rounded-md"

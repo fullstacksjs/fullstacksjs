@@ -1,10 +1,9 @@
-import { useTranslations } from 'next-intl';
-
 import { Article } from '@/components/Article';
 import { Articles } from '@/components/Articles';
 import { Highlight } from '@/components/Highlight';
 import { Paragraph } from '@/components/Paragraph';
 import { Separator } from '@/components/Separator';
+import { useTranslations } from 'next-intl';
 
 import { Banner } from './+components/Banner';
 import { JoinButton } from './+components/JoinButton';
@@ -14,7 +13,7 @@ export default function Home() {
 
   return (
     <>
-      <Banner sub={t('vision')} cta={<JoinButton />} title="FullstacksJS" />
+      <Banner cta={<JoinButton />} sub={t('vision')} title="FullstacksJS" />
       <Separator />
       <Articles>
         <Article title={t('about.title')}>

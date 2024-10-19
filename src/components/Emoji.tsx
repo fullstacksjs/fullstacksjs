@@ -1,6 +1,5 @@
-import Image from 'next/image';
-
 import { cn } from '@/utils/cn';
+import Image from 'next/image';
 
 const emojiMaps = {
   tree: { path: 'Activities/Christmas Tree', className: '-translate-y-1' },
@@ -21,11 +20,11 @@ interface Props {
 export const Emoji = ({ className, name }: Props) => {
   return (
     <Image
-      src={`https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/${emojiMaps[name].path}.png`}
+      height={30}
+      width={30}
       alt={`${name} Emoji`}
       className={cn('inline', emojiMaps[name].className, className)}
-      width={30}
-      height={30}
+      src={`https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/${emojiMaps[name].path}.png`}
     />
   );
 };

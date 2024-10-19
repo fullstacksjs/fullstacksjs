@@ -1,13 +1,12 @@
 'use client';
 
-import { comparePaths } from '@fullstacksjs/toolbox';
-import { useSelectedLayoutSegments } from 'next/navigation';
-import { useTranslations } from 'next-intl';
-
 import { TextBadge } from '@/components/TextBadge';
 import { useIsRTL } from '@/hooks/useDirection';
 import { Link } from '@/navigation';
 import { cn } from '@/utils/cn';
+import { comparePaths } from '@fullstacksjs/toolbox';
+import { useTranslations } from 'next-intl';
+import { useSelectedLayoutSegments } from 'next/navigation';
 
 interface Props {
   href: string;
@@ -36,8 +35,8 @@ export function NavLink({ href, isNew, children }: Props) {
       )}
     >
       <Link
-        href={href}
         className="flex items-center gap-4 whitespace-nowrap rounded-sm text-base focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-8 focus-visible:outline-accent-0 rtl:text-md"
+        href={href}
       >
         {children}{' '}
         {isNew ? <TextBadge>{t('header.navigation.new')}</TextBadge> : null}

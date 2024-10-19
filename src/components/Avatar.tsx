@@ -1,6 +1,5 @@
-import Image from 'next/image';
-
 import { cn } from '@/utils/cn';
+import Image from 'next/image';
 
 type Size = 'lg' | 'md' | 'sm';
 
@@ -19,11 +18,11 @@ const sizeMap: Record<Size, number> = {
 export function Avatar({ src, alt, size = 'md' }: Props) {
   return (
     <Image
-      src={`${src}?s=420`}
-      alt={alt}
-      width={sizeMap[size]}
       height={sizeMap[size]}
+      width={sizeMap[size]}
+      alt={alt}
       className={cn('rounded-full border-2 border-fg-0 bg-fg-0')}
+      src={`${src}?s=420`}
     />
   );
 }

@@ -1,5 +1,6 @@
-import * as Table from '@/components/Table';
 import type { AdventOfCodeUser } from '@/data-layer/advent';
+
+import * as Table from '@/components/Table';
 import { cn } from '@/utils/cn';
 
 import { UserRow } from './UserRow';
@@ -31,7 +32,7 @@ export const Leaderboard = ({ leaderboard }: Props) => {
       </Table.Header>
       <Table.Body>
         {leaderboard.map((user, rank) => (
-          <UserRow rank={rank + 1} key={user.id} user={user} />
+          <UserRow key={user.id} rank={rank + 1} user={user} />
         ))}
       </Table.Body>
     </Table.Root>

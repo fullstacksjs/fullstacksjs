@@ -1,16 +1,16 @@
 'use client';
 
+import type { User } from '@/data-layer/supabase/models/User';
 import type { Variants } from 'framer-motion';
-import { AnimatePresence, motion } from 'framer-motion';
-import Image from 'next/image';
 import type { RichTranslationValues } from 'next-intl';
-import { useTranslations } from 'next-intl';
-import { useEffect, useState } from 'react';
 
 import { emojiTranslation } from '@/components/Emoji';
 import { Highlight } from '@/components/Highlight';
 import { Stars } from '@/components/Stars';
-import type { User } from '@/data-layer/supabase/models/User';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 import { Subscription } from './+components/Subscription';
 
@@ -76,47 +76,47 @@ export const GuildContent = ({ user, isSubscribed }: Props) => {
       <AnimatePresence>
         {isOverlay ? (
           <motion.div
+            className="fixed left-0 top-0 size-full bg-black"
+            exit={{ opacity: 0 }}
             animate={{
               opacity: [0, 1],
               transition: { ease: 'linear', duration: 2, delay: 0 },
             }}
-            className="fixed left-0 top-0 size-full bg-black"
-            exit={{ opacity: 0 }}
           >
-            <Stars count={50} className="w-[800px] opacity-40" />
+            <Stars className="w-[800px] opacity-40" count={50} />
           </motion.div>
         ) : null}
       </AnimatePresence>
 
       <AnimatePresence>
         {!isLoading ? (
-          <Stars count={50} className="w-[800px] opacity-50" />
+          <Stars className="w-[800px] opacity-50" count={50} />
         ) : null}
       </AnimatePresence>
 
       <AnimatePresence>
         {!isLoading ? (
           <motion.div
-            transition={{ duration: 1 }}
-            initial="hidden"
             animate="visible"
             className="flex flex-col items-center justify-center gap-20"
+            initial="hidden"
+            transition={{ duration: 1 }}
             variants={container}
           >
             <motion.div variants={item}>
               <Image
-                src="/image/guild.png"
-                width={550}
                 height={550}
+                width={550}
                 alt="Guild Logo"
+                src="/image/guild.png"
               />
             </motion.div>
-            <motion.p variants={item} className="max-w-6xl">
+            <motion.p className="max-w-6xl" variants={item}>
               {t.rich('desc', components)}
             </motion.p>
 
             <motion.div variants={item}>
-              <Subscription user={user} isSubscribed={isSubscribed} />
+              <Subscription isSubscribed={isSubscribed} user={user} />
             </motion.div>
           </motion.div>
         ) : null}

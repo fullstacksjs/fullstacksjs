@@ -1,14 +1,15 @@
 'use client';
 
+import type { User } from '@/data-layer/supabase/models/User';
+
 import { useKeyPress } from 'ahooks';
 import { useAtom } from 'jotai';
 import { useEffect } from 'react';
 
-import type { User } from '@/data-layer/supabase/models/User';
+import type { Alphabet } from './alphabet';
 
 import { Game } from './+components/Game';
 import { Result } from './+components/Result';
-import type { Alphabet } from './alphabet';
 import { isAlphabet } from './alphabet';
 import {
   activeLetterAtom,
@@ -53,5 +54,5 @@ export const TypeContent = ({ initialRecord, user }: Props) => {
     correct();
   });
 
-  return isFinished ? <Result user={user} record={record} /> : <Game />;
+  return isFinished ? <Result record={record} user={user} /> : <Game />;
 };

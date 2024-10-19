@@ -1,8 +1,7 @@
 'use client';
 
-import * as Dialog from '@radix-ui/react-dialog';
-
 import { cn } from '@/utils/cn';
+import * as Dialog from '@radix-ui/react-dialog';
 
 const MenuOverlay = ({
   className,

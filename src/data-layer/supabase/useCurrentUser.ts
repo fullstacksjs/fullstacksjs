@@ -2,6 +2,7 @@ import { assertNotNull } from '@fullstacksjs/toolbox';
 import { useEffect, useReducer } from 'react';
 
 import type { User } from './models/User';
+
 import { useSupabase } from './SupabaseProvider';
 
 type AuthState =
@@ -19,12 +20,12 @@ const reducer = (
   { type, payload }: AuthAction,
 ): AuthState => {
   switch (type) {
-    case 'Success':
-      return { user: payload.user, status: 'success' };
     case 'Error':
       return { user: null, status: 'error' };
     case 'Loading':
       return { user: null, status: 'loading' };
+    case 'Success':
+      return { user: payload.user, status: 'success' };
   }
 };
 

@@ -1,6 +1,5 @@
-import { useTranslations } from 'next-intl';
-
 import { Button } from '@/components/Button';
+import { useTranslations } from 'next-intl';
 
 export const WakatimeButton = () => {
   const t = useTranslations('wakatime');
@@ -12,8 +11,8 @@ export const WakatimeButton = () => {
     >
       <a
         href="https://kutt.it/fsk-waka"
-        target="_blank"
         rel="noopener noreferrer"
+        target="_blank"
       >
         {t('join')}
       </a>

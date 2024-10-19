@@ -1,6 +1,7 @@
 import { cache } from 'react';
 
 import type { Profile } from './models/Profile';
+
 import { createServerSupabaseClient } from './SupabaseServer';
 
 export const getUser = cache(async (): Promise<Profile | undefined> => {

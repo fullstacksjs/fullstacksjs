@@ -1,10 +1,9 @@
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, getTranslations } from 'next-intl/server';
-import { pick } from 'radash';
-
 import { Article } from '@/components/Article';
 import { Paragraph } from '@/components/Paragraph';
 import { generatePageOG } from '@/components/SEO';
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages, getTranslations } from 'next-intl/server';
+import { pick } from 'radash';
 
 import { HowToJoin } from './+components/HowToJoin';
 import { i18nMap } from './+components/i18nMap';

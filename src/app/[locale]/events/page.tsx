@@ -1,8 +1,7 @@
-import { notFound } from 'next/navigation';
-
 import { generatePageOG } from '@/components/SEO';
 import { getServerFeature } from '@/config/features/getServerFeatures';
 import { getEvents } from '@/data-layer/datocms/getEvents';
+import { notFound } from 'next/navigation';
 
 import EventsContent from './EventContent';
 
@@ -18,5 +17,5 @@ export default async function EventsPage() {
 
   const { upcoming, archived } = await getEvents();
 
-  return <EventsContent upcoming={upcoming} archived={archived} />;
+  return <EventsContent archived={archived} upcoming={upcoming} />;
 }

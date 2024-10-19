@@ -1,8 +1,7 @@
-import { useTranslations } from 'next-intl';
-
 import { subscribe } from '@/data-layer/supabase/subscribe';
 import { useServerActions } from '@/hooks/useServerActions';
 import { cn } from '@/utils/cn';
+import { useTranslations } from 'next-intl';
 
 import { SpaceButton } from './SpaceButton';
 

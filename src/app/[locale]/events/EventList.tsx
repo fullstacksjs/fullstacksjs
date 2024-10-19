@@ -1,7 +1,7 @@
-import { isEmpty } from '@fullstacksjs/toolbox';
+import type { FullstacksJSEvent } from '@/data-layer/datocms/Event';
 
 import SectionHeader from '@/components/SectionHeader';
-import type { FullstacksJSEvent } from '@/data-layer/datocms/Event';
+import { isEmpty } from '@fullstacksjs/toolbox';
 
 import EventCard from './EventCard';
 
@@ -18,7 +18,7 @@ export default function EventList({ events, title }: Props) {
       <SectionHeader>{title}</SectionHeader>
       <div className="mt-16 grid gap-16 tablet:grid-cols-2 wide:grid-cols-3">
         {events.map((event) => (
-          <EventCard key={event.slug} event={event} />
+          <EventCard event={event} key={event.slug} />
         ))}
       </div>
     </div>

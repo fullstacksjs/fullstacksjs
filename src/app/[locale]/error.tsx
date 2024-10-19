@@ -1,8 +1,7 @@
 'use client';
 
-import { useEffect } from 'react';
-
 import { Button } from '@/components/Button';
+import { useEffect } from 'react';
 
 interface Props {
   error: Error & {

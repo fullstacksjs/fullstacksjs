@@ -1,5 +1,6 @@
-import { revalidatePath, revalidateTag } from 'next/cache';
 import type { NextRequest } from 'next/server';
+
+import { revalidatePath, revalidateTag } from 'next/cache';
 import { NextResponse } from 'next/server';
 
 export function POST(request: NextRequest) {

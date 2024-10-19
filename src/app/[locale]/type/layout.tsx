@@ -1,7 +1,6 @@
-import { notFound } from 'next/navigation';
-
 import { generatePageOG } from '@/components/SEO';
 import { getServerFeature } from '@/config/features/getServerFeatures';
+import { notFound } from 'next/navigation';
 
 export const metadata = generatePageOG({
   title: 'FullstacksJS AlphaType: Alphabet Typing Speed Competition',

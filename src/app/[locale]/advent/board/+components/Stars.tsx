@@ -1,7 +1,6 @@
-import { isNull, range } from '@fullstacksjs/toolbox';
-
 import { Star } from '@/data-layer/advent/AdventOfCodeUser';
 import { cn } from '@/utils/cn';
+import { isNull, range } from '@fullstacksjs/toolbox';
 
 import StarIcon from './Star.svg';
 

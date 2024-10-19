@@ -1,8 +1,7 @@
-import { joinPaths } from '@fullstacksjs/toolbox';
-import { getDayOfYear, secondsToHours, secondsToMinutes } from 'date-fns';
-
 import { serverConfig } from '@/config/serverConfig';
 import { addLeadingZero, formatOrdinals } from '@/utils/number';
+import { joinPaths } from '@fullstacksjs/toolbox';
+import { getDayOfYear, secondsToHours, secondsToMinutes } from 'date-fns';
 
 import type { WakatimeReport, WakatimeUsage } from './Wakatime';
 

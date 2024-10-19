@@ -1,13 +1,13 @@
 'use client';
 
-import { comparePaths } from '@fullstacksjs/toolbox';
-import { useSelectedLayoutSegment } from 'next/navigation';
 import type { MessageKeys, NestedKeyOf } from 'next-intl';
-import { useTranslations } from 'next-intl';
 
 import { CircleBadge } from '@/components/CircleBadge';
 import ChevronDownIcon from '@/components/Icons/ChevronDown.svg';
 import { cn } from '@/utils/cn';
+import { comparePaths } from '@fullstacksjs/toolbox';
+import { useTranslations } from 'next-intl';
+import { useSelectedLayoutSegment } from 'next/navigation';
 
 import { NavLink } from './NavLink';
 
@@ -30,7 +30,7 @@ export const NavGroup = ({ text, children }: Props) => {
   const isNew = children?.some((c) => c.isNew);
 
   return (
-    <div key={text} className="group relative">
+    <div className="group relative" key={text}>
       <button
         type="button"
         className={cn(

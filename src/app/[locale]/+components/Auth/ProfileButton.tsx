@@ -18,8 +18,8 @@ export const ProfileButton = ({ children, avatar }: Props) => {
     <div className="flex gap-2">
       <LoginButton avatar={avatar}>{children}</LoginButton>
       <SecondaryButton
-        type="submit"
         className="aspect-square justify-center"
+        type="submit"
         onClick={() => supabase.auth.signOut()}
       >
         <LogoutIcon className="size-10" />

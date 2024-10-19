@@ -20,16 +20,16 @@ export default async function WakatimeDay() {
           </p>
         </div>
         <div className="hidden w-full items-center justify-center gap-12 rounded-3xl bg-bg-darker py-20 desktop:flex">
-          <Winner className="rank-1 order-2" usage={winners[0]!} rank={1} />
-          <Winner className="rank-2 order-1" usage={winners[1]!} rank={2} />
-          <Winner className="rank-3 order-3" usage={winners[2]!} rank={3} />
+          <Winner className="rank-1 order-2" rank={1} usage={winners[0]!} />
+          <Winner className="rank-2 order-1" rank={2} usage={winners[1]!} />
+          <Winner className="rank-3 order-3" rank={3} usage={winners[2]!} />
         </div>
 
         <div className="w-full rounded-3xl bg-bg-darker px-2 pt-8">
-          <UserTable winners={[]} usages={usages} />
+          <UserTable usages={usages} winners={[]} />
         </div>
 
-        <div id="social-media" className="text-xsm font-bold text-accent-0">
+        <div className="text-xsm font-bold text-accent-0" id="social-media">
           FullstacksJS.com
         </div>
       </div>

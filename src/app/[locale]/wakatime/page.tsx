@@ -33,17 +33,17 @@ export default async function WakatimePage() {
       />
       <Separator />
       <div className="flex flex-col items-center gap-20">
-        <Title year={year} day={day} />
+        <Title day={day} year={year} />
 
         <div className="hidden w-full items-center justify-center gap-12 rounded-3xl bg-bg-darker py-20 desktop:flex">
-          <Winner className="rank-1 order-2" usage={winners[0]!} rank={1} />
-          <Winner className="rank-2 order-1" usage={winners[1]!} rank={2} />
-          <Winner className="rank-3 order-3" usage={winners[2]!} rank={3} />
+          <Winner className="rank-1 order-2" rank={1} usage={winners[0]!} />
+          <Winner className="rank-2 order-1" rank={2} usage={winners[1]!} />
+          <Winner className="rank-3 order-3" rank={3} usage={winners[2]!} />
         </div>
 
         <div className="w-full rounded-3xl bg-bg-darker px-2 pt-8">
           <div className="max-h-[500px] overflow-y-auto">
-            <UserTable winners={winners} usages={usages} />
+            <UserTable usages={usages} winners={winners} />
           </div>
         </div>
       </div>

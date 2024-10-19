@@ -1,10 +1,9 @@
 'use client';
-import { useTranslations } from 'next-intl';
-
 import { Article } from '@/components/Article';
 import { Articles } from '@/components/Articles';
 import { FocusItemList } from '@/components/FocusItemList';
 import { useScrollToFocused } from '@/hooks/useRuleTarget';
+import { useTranslations } from 'next-intl';
 
 import { asks } from './asks';
 

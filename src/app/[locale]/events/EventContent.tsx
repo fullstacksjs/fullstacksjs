@@ -1,8 +1,8 @@
-import { isEmpty } from '@fullstacksjs/toolbox';
-import { useTranslations } from 'next-intl';
+import type { Events } from '@/data-layer/datocms/Event';
 
 import { Separator } from '@/components/Separator';
-import type { Events } from '@/data-layer/datocms/Event';
+import { isEmpty } from '@fullstacksjs/toolbox';
+import { useTranslations } from 'next-intl';
 
 import EventList from './EventList';
 

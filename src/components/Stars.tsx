@@ -1,8 +1,8 @@
-import { randomInt, range } from '@fullstacksjs/toolbox';
 import type { Variants } from 'framer-motion';
-import { motion } from 'framer-motion';
 
 import { cn } from '@/utils/cn';
+import { randomInt, range } from '@fullstacksjs/toolbox';
+import { motion } from 'framer-motion';
 
 export const starAnim: Variants = {
   init: () => ({
@@ -41,8 +41,8 @@ interface Props {
 
 export const Stars = ({ count, className }: Props) => (
   <motion.div
-    initial="init"
     animate="anim"
+    initial="init"
     className={cn(
       'pointer-events-none mask-radial absolute left-1/2 top-1/2 -z-10 aspect-square -translate-x-1/2 -translate-y-1/2 overflow-hidden',
       className,
@@ -51,12 +51,12 @@ export const Stars = ({ count, className }: Props) => (
     {range(count).map((i) => (
       <motion.svg
         suppressHydrationWarning
-        variants={starAnim}
-        key={i}
-        custom={i}
-        viewBox="0 0 12 13"
-        fill="none"
         className="absolute -z-10 fill-white"
+        custom={i}
+        fill="none"
+        key={i}
+        variants={starAnim}
+        viewBox="0 0 12 13"
       >
         <motion.path
           animate={{ rotate: 360 }}

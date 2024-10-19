@@ -1,5 +1,6 @@
-import { Avatar } from '@/components/Avatar';
 import type { WakatimeUsage } from '@/data-layer/wakatime/Wakatime';
+
+import { Avatar } from '@/components/Avatar';
 import { cn } from '@/utils/cn';
 
 import Crown from './Crown.svg';
@@ -35,9 +36,9 @@ export function Winner({ usage, rank, className }: Props) {
 
       <div className="flex flex-col items-center gap-4">
         <Avatar
-          src={usage.user.avatar}
           size={rank === 1 ? 'lg' : 'md'}
           alt={`${usage.user.name}'s avatar`}
+          src={usage.user.avatar}
         />
         <Diff diff={usage.user.diff} />
 

@@ -1,10 +1,10 @@
 'use client';
 
 import type { RichTranslationValues } from 'next-intl';
-import { useTranslations } from 'next-intl';
 
 import { Article } from '@/components/Article';
 import { useSignIn } from '@/data-layer/supabase/useSignIn';
+import { useTranslations } from 'next-intl';
 
 import { i18nMap } from './i18nMap';
 
@@ -23,7 +23,7 @@ export const HowToJoin = () => {
   const i18n: RichTranslationValues = {
     ...i18nMap,
     login: (chunk) => (
-      <button type="submit" className="text-accent-0" onClick={signIn}>
+      <button className="text-accent-0" type="submit" onClick={signIn}>
         {chunk}
       </button>
     ),

@@ -1,8 +1,9 @@
-/* eslint-disable react/no-unknown-property, jsx-a11y/alt-text, @next/next/no-img-element */
-import { ImageResponse } from 'next/og';
+/* eslint-disable jsx-a11y/alt-text, next/no-img-element */
+
 import type { NextRequest } from 'next/server';
 
 import { asks } from '@/app/[locale]/ask/asks';
+import { ImageResponse } from 'next/og';
 
 import enMessages from '../../../../../messages/en.json';
 
@@ -46,20 +47,20 @@ export async function GET(request: NextRequest) {
           }}
         >
           <div
-            tw="flex flex-col text-[#D19A67] text-5xl"
             style={{ fontFamily: 'Bold' }}
+            tw="flex flex-col text-[#D19A67] text-5xl"
           >
             <div tw="flex text-3xl">GUIDE #{index + 1}</div>
             <div>{title}</div>
           </div>
-          <div tw="text-3xl text-white" style={{ fontFamily: 'SemiBold' }}>
+          <div style={{ fontFamily: 'SemiBold' }} tw="text-3xl text-white">
             {desc}
           </div>
           <img
-            tw="absolute bottom-0 left-1/2"
-            style={{ transform: 'translateX(-25%)' }}
-            src="https://fullstacksjs.com/image/og-logo.png"
             width="400"
+            src="https://fullstacksjs.com/image/og-logo.png"
+            style={{ transform: 'translateX(-25%)' }}
+            tw="absolute bottom-0 left-1/2"
           />
         </div>
       ),

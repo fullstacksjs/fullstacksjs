@@ -1,7 +1,7 @@
+import type { Locale } from '@/locales';
+
 import { getLocale } from 'next-intl/server';
 import { Suspense } from 'react';
-
-import type { Locale } from '@/locales';
 
 import { AuthBtnSkeleton } from './Auth/AuthButtonSkeleton';
 import { Authentication } from './Auth/Authentication';

@@ -1,11 +1,11 @@
+import { submitRecord } from '@/data-layer/supabase/submitRecord';
 import { differenceInMilliseconds } from 'date-fns';
 import { useForceUpdate } from 'framer-motion';
 import { atom, useAtom } from 'jotai';
 import { useEffect } from 'react';
 
-import { submitRecord } from '@/data-layer/supabase/submitRecord';
-
 import type { Alphabet } from './alphabet';
+
 import { alphabets } from './alphabet';
 import { audios } from './audio';
 
@@ -42,7 +42,6 @@ export const useTimeEllipses = () => {
   const [forceUpdate] = useForceUpdate();
 
   useEffect(() => {
-    // eslint-disable-next-line fp/no-let
     let interval: NodeJS.Timeout | undefined;
 
     if (gameState === 'typing')

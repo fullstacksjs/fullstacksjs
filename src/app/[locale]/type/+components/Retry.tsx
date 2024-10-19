@@ -1,6 +1,5 @@
-import { useAtom } from 'jotai';
-
 import { cn } from '@/utils/cn';
+import { useAtom } from 'jotai';
 
 import { handleReset } from '../atoms';
 import { audios } from '../audio';
@@ -24,14 +23,14 @@ export const Retry = ({ className, onClick, ...props }: Props) => {
       {...props}
     >
       <svg
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        viewBox="0 0 40 40"
         className={cn(
           'w-10 fill-none cursor-pointer stroke-current',
           className,
         )}
-        viewBox="0 0 40 40"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
       >
         <path d="M1.6666 6.87006V16.8701H11.6666" />
         <path d="M38.3333 33.5366V23.5366H28.3333" />

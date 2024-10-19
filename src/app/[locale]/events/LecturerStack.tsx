@@ -1,8 +1,8 @@
-import Image from 'next/image';
+import type { Lecturer } from '@/data-layer/datocms/Event';
 import type { ResponsiveImageType } from 'react-datocms/image';
 
-import type { Lecturer } from '@/data-layer/datocms/Event';
 import { cn } from '@/utils/cn';
+import Image from 'next/image';
 
 interface Props {
   className?: string;
@@ -18,11 +18,11 @@ export const Avatar = ({
 }) => {
   return (
     <Image
+      height={image.height!}
+      width={image.width}
+      alt={image.alt!}
       className={cn('rounded-full border-4 border-bg-0', className)}
       src={image.src!}
-      alt={image.alt!}
-      width={image.width}
-      height={image.height!}
     />
   );
 };
@@ -39,7 +39,7 @@ export const LecturerStack = ({ lecturers, className }: Props) => {
     >
       {!isSingle ? (
         lecturers.map(({ avatar, name }) => (
-          <Avatar className="-mt-6 " key={name} image={avatar} />
+          <Avatar className="-mt-6 " image={avatar} key={name} />
         ))
       ) : (
         <Avatar className="shrink-0" image={lecturers[0]!.avatar} />

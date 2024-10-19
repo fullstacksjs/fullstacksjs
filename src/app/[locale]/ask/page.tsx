@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
+
+import { generatePageOG } from '@/components/SEO';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { pick } from 'radash';
-
-import { generatePageOG } from '@/components/SEO';
 
 import { AskContent } from './AskContent';
 

@@ -1,11 +1,10 @@
-import { useTranslations } from 'next-intl';
-
 import Discord from '@/components/Icons/Discord.svg';
 import Github from '@/components/Icons/Github.svg';
 import Telegram from '@/components/Icons/Telegram.svg';
 import Twitch from '@/components/Icons/Twitch.svg';
 import Twitter from '@/components/Icons/Twitter.svg';
 import Youtube from '@/components/Icons/Youtube.svg';
+import { useTranslations } from 'next-intl';
 
 import { SocialItem } from './SocialItem';
 
@@ -49,7 +48,7 @@ export function Socials(): React.JSX.Element {
     <footer>
       <ul className="flex flex-wrap place-content-between gap-8">
         {items.map(({ children, href, icon: Icon }) => (
-          <li key={children} className="list-none text-accent-0">
+          <li className="list-none text-accent-0" key={children}>
             <SocialItem href={href}>
               <Icon className="shrink-0" />
               <span className="w-40 text-light-0 transition-colors hover:text-accent-0 mobile:w-64 tablet:w-auto wide:w-full">

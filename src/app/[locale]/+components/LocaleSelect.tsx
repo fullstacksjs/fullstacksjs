@@ -1,9 +1,9 @@
 'use client';
-import * as Dropdown from '@radix-ui/react-dropdown-menu';
+import type { Locale } from '@/locales';
 
 import ChevronDownIcon from '@/components/Icons/ChevronDown.svg';
-import type { Locale } from '@/locales';
 import { Link, usePathname } from '@/navigation';
+import * as Dropdown from '@radix-ui/react-dropdown-menu';
 
 import ENFlag from './EN.svg';
 import IRFlag from './IR.svg';
@@ -22,10 +22,10 @@ export const LocaleSelect = ({ locale }: { locale: Locale }) => {
   return (
     <Dropdown.Root>
       <Dropdown.Trigger
-        tabIndex={-1}
         dir="ltr"
-        className="flex h-[42px] w-[64px] select-none items-center justify-between rounded-xl bg-bg-muted px-4 text-xsm font-bold capitalize leading-tight text-fg-0 outline-none hover:cursor-pointer hover:bg-bg-1 hover:text-accent-0 focus:bg-bg-1 focus:text-accent-0 focus:outline data-[state=open]:rounded-b-none tablet:h-[53px] tablet:w-[100px]"
         aria-label="Locale"
+        className="flex h-[42px] w-[64px] select-none items-center justify-between rounded-xl bg-bg-muted px-4 text-xsm font-bold capitalize leading-tight text-fg-0 outline-none hover:cursor-pointer hover:bg-bg-1 hover:text-accent-0 focus:bg-bg-1 focus:text-accent-0 focus:outline data-[state=open]:rounded-b-none tablet:h-[53px] tablet:w-[100px]"
+        tabIndex={-1}
       >
         <div className="flex items-center gap-4">
           {icon}
@@ -38,8 +38,8 @@ export const LocaleSelect = ({ locale }: { locale: Locale }) => {
           <Dropdown.Item asChild>
             <Link
               className="relative flex h-[53px] w-[64px] select-none items-center gap-4 rounded-b-xl bg-transparent px-4 text-xsm font-bold capitalize leading-tight text-fg-0 outline-none hover:cursor-pointer hover:bg-bg-1 hover:text-accent-0 focus:bg-bg-1 focus:text-accent-0 focus:outline tablet:w-[100px]"
-              locale={otherLocale}
               href={pathname}
+              locale={otherLocale}
             >
               {otherIcon}
               <span className="hidden tablet:block">{otherLabel}</span>

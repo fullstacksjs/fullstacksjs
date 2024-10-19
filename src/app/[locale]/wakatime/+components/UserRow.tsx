@@ -1,10 +1,11 @@
-import { Avatar } from '@/components/Avatar';
-import { Medal } from '@/components/Medal';
-import * as Table from '@/components/Table';
 import type {
   WakatimeUsage,
   WakatimeUser,
 } from '@/data-layer/wakatime/Wakatime';
+
+import { Avatar } from '@/components/Avatar';
+import { Medal } from '@/components/Medal';
+import * as Table from '@/components/Table';
 import { cn } from '@/utils/cn';
 
 import { Diff } from './Diff';
@@ -59,14 +60,14 @@ export function UserRow({ usage, className }: Props) {
   return (
     <Table.Row className={className}>
       <Table.Cell className="min-w-[40px] px-8 text-xsm font-semibold tablet:px-14">
-        <Medal rank={usage.user.lastRank} fallback={usage.user.ordinalRank} />
+        <Medal fallback={usage.user.ordinalRank} rank={usage.user.lastRank} />
       </Table.Cell>
       <Table.Cell className="w-full">
         <div className="flex items-center gap-5">
           <Avatar
             size="sm"
-            src={usage.user.avatar}
             alt={`${usage.user.name}'s avatar`}
+            src={usage.user.avatar}
           />
           <UserInfo className="w-[200px]" user={usage.user} />
         </div>

@@ -1,4 +1,5 @@
 import type { NextRequest } from 'next/server';
+
 import createMiddleware from 'next-intl/middleware';
 
 import { updateSession } from './data-layer/supabase/updateSession';

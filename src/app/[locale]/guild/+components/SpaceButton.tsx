@@ -1,9 +1,9 @@
 import type { HTMLMotionProps, Variants } from 'framer-motion';
-import { motion } from 'framer-motion';
 
 import { Loader } from '@/components/Loading';
 import { Stars } from '@/components/Stars';
 import { cn } from '@/utils/cn';
+import { motion } from 'framer-motion';
 
 import styles from './Button.module.css';
 
@@ -70,11 +70,11 @@ export const SpaceButton = ({
     <div className="relative flex items-center justify-center">
       <Stars className="w-[400px]" count={30} />
       <motion.button
-        variants={buttonAnim}
-        initial="init"
         animate="anim"
-        type="button"
         disabled={!!disabled || loading}
+        initial="init"
+        type="button"
+        variants={buttonAnim}
         className={cn(
           'relative flex cursor-pointer items-center gap-4 rounded-full px-8 py-6 text-sm font-semibold transition-all',
           styles['button'],

@@ -1,6 +1,5 @@
-import { useTranslations } from 'next-intl';
-
 import { Button } from '@/components/Button';
+import { useTranslations } from 'next-intl';
 
 export const JoinButton = () => {
   const t = useTranslations('hero');
@@ -12,8 +11,8 @@ export const JoinButton = () => {
     >
       <a
         href="https://t.me/fullstacksjs"
-        target="_blank"
         rel="noopener noreferrer"
+        target="_blank"
       >
         {t('join')}
       </a>

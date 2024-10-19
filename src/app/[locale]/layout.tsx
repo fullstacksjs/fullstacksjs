@@ -1,5 +1,5 @@
+import type { Locale } from '@/locales';
 import type { Metadata } from 'next';
-import { Rajdhani, Vazirmatn } from 'next/font/google';
 
 import { generatePageOG, icons, JsonLd, keywords } from '@/components/SEO';
 import { Separator } from '@/components/Separator';
@@ -7,9 +7,9 @@ import { Socials } from '@/components/Socials';
 import { serverConfig } from '@/config/serverConfig';
 import { SupabaseProvider } from '@/data-layer/supabase/SupabaseProvider';
 import { useDirection } from '@/hooks/useDirection';
-import type { Locale } from '@/locales';
 import { JotaiProvider } from '@/store/JotaiProvider';
 import { cn } from '@/utils/cn';
+import { Rajdhani, Vazirmatn } from 'next/font/google';
 
 import { Header } from './+components/Header';
 import { Tracking } from './+components/Tracking';
@@ -51,8 +51,8 @@ export default function LocaleLayout({ children, params }: Props) {
 
   return (
     <html
-      lang={params.locale}
       dir={direction}
+      lang={params.locale}
       className={`${rajdhani.variable} ${vazir.variable}`}
     >
       <head>

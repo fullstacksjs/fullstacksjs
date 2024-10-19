@@ -1,9 +1,8 @@
+import { generatePageOG } from '@/components/SEO';
+import { getAdventLeaderboard } from '@/data-layer/advent';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
 import { pick } from 'radash';
-
-import { generatePageOG } from '@/components/SEO';
-import { getAdventLeaderboard } from '@/data-layer/advent';
 
 import { Leaderboard } from './+components/Leaderboard';
 

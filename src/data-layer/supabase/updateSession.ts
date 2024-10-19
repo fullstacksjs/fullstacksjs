@@ -1,12 +1,11 @@
 import type { CookieOptions } from '@supabase/ssr';
-import { createServerClient } from '@supabase/ssr';
 import type { NextRequest } from 'next/server';
-import { NextResponse } from 'next/server';
 
 import { clientConfig } from '@/config/clientConfig';
+import { createServerClient } from '@supabase/ssr';
+import { NextResponse } from 'next/server';
 
 export async function updateSession(request: NextRequest) {
-  // eslint-disable-next-line fp/no-let
   let response = NextResponse.next({
     request: { headers: request.headers },
   });

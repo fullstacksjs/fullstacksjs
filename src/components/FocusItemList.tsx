@@ -1,8 +1,7 @@
 'use client';
-import { usePress } from 'react-aria';
-
 import { useFocusState, useHandleFocusItem } from '@/hooks/useRuleTarget';
 import { cn } from '@/utils/cn';
+import { usePress } from 'react-aria';
 
 export const FocusItemList = (
   props: React.DetailedHTMLProps<
@@ -41,8 +40,8 @@ export const FocusItem = ({ target, children }: FocusItemProps) => {
       )}
     >
       <button
-        type="button"
         className={cn('w-full text-start outline-none')}
+        type="button"
         {...pressProps}
       >
         {children}

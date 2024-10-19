@@ -1,7 +1,6 @@
 'use client';
-import { createContext, useCallback, useContext } from 'react';
-
 import { clientConfig } from '@/config/clientConfig';
+import { createContext, useCallback, useContext } from 'react';
 
 import type { Feature } from './Features';
 

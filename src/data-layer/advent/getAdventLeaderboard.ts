@@ -1,8 +1,9 @@
 import { serverConfig } from '@/config/serverConfig';
 
 import type { Database } from '../supabase/models/Database';
-import { createServerSupabaseClient } from '../supabase/SupabaseServer';
 import type { AdventOfCodeUser } from './AdventOfCodeUser';
+
+import { createServerSupabaseClient } from '../supabase/SupabaseServer';
 import { Star } from './AdventOfCodeUser';
 
 interface Day {

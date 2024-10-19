@@ -1,8 +1,7 @@
+import { usePathname, useRouter } from '@/navigation';
 import { isNull } from '@fullstacksjs/toolbox';
 import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
-
-import { usePathname, useRouter } from '@/navigation';
 
 function useFocused() {
   const search = useSearchParams();

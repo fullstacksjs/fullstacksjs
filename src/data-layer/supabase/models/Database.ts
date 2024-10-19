@@ -1,8 +1,8 @@
 export type Json =
-  | Json[]
   | boolean
   | number
   | string
+  | Json[]
   | { [key: string]: Json | undefined }
   | null;
 

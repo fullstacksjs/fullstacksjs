@@ -15,7 +15,7 @@ export const Game = () => {
     <div dir="ltr" className="flex flex-col gap-12 font-rajdhani">
       <div className="relative flex w-full flex-wrap gap-4 text-5xl tablet:text-5xl">
         {letters.map(({ letter, status }) => (
-          <Letter key={letter} active={letter === activeLetter} status={status}>
+          <Letter active={letter === activeLetter} key={letter} status={status}>
             {letter}
           </Letter>
         ))}

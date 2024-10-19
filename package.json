@@ -8,7 +8,7 @@
     "start": "next start",
     "start:supabase": "supabase start",
     "stop:supabase": "supabase stop",
-    "lint": "next lint",
+    "lint": "eslint",
     "codegen": "dotenv -e .env graphql-codegen",
     "gen:supabase": "dotenv -e .env ./scripts/supabase-codegen",
     "prepare": "./scripts/prepare"
@@ -49,7 +49,7 @@
   },
   "devDependencies": {
     "@cspell/dict-fa-ir": "4.0.0",
-    "@fullstacksjs/eslint-config": "10.11.1",
+    "@fullstacksjs/eslint-config": "11.3.1",
     "@fullstacksjs/tsconfig": "1.1.0",
     "@graphql-codegen/add": "5.0.3",
     "@graphql-codegen/cli": "5.0.2",
@@ -67,8 +67,8 @@
     "dotenv": "16.4.5",
     "dotenv-cli": "7.4.2",
     "encoding": "0.1.13",
-    "eslint": "8.57.0",
-    "eslint-plugin-react-compiler": "0.0.0-experimental-51a85ea-20240601",
+    "eslint": "9.11.1",
+    "globals": "15.10.0",
     "husky": "9.0.11",
     "lint-staged": "15.2.7",
     "postcss": "8.4.38",
@@ -80,5 +80,6 @@
   "volta": {
     "pnpm": "8.15.4",
     "node": "20.11.1"
-  }
+  },
+  "packageManager": "pnpm@9.7.1+sha512.faf344af2d6ca65c4c5c8c2224ea77a81a5e8859cbc4e06b1511ddce2f0151512431dd19e6aff31f2c6a8f5f2aced9bd2273e1fed7dd4de1868984059d2c4247"
 }
