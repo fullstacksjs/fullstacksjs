@@ -22,7 +22,7 @@ const query = gql`
     sizes
   }
   query AllEvents {
-    allEvents(orderBy: startDate_DESC) {
+    allEvents(orderBy: startDate_DESC, first: 100) {
       slug
       startDate
       mediaUrl
