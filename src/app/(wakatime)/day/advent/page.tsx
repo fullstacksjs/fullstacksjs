@@ -1,8 +1,8 @@
 import { getAdventLeaderboard } from '@/data-layer/advent';
 import Image from 'next/image';
 
-import Banner from '../../[locale]/advent/+components/Advent.png';
-import { Leaderboard } from '../../[locale]/advent/board/+components/Leaderboard';
+import Banner from '../../../[locale]/advent/+components/Advent.png';
+import { Leaderboard } from '../../../[locale]/advent/board/+components/Leaderboard';
 
 export default async function WakatimeDay() {
   const leaderboard = (await getAdventLeaderboard()).slice(0, 10);

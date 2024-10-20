@@ -1,7 +1,7 @@
 import { getReport } from '@/data-layer/wakatime/getReport';
 
-import { UserTable } from '../[locale]/wakatime/+components/UserTable';
-import { Winner } from '../[locale]/wakatime/+components/Winner';
+import { UserTable } from '../../[locale]/wakatime/+components/UserTable';
+import { Winner } from '../../[locale]/wakatime/+components/Winner';
 import Logo from './Logo.svg';
 
 export default async function WakatimeDay() {
