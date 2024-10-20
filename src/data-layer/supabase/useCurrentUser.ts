@@ -11,7 +11,7 @@ type AuthState =
   | { user: User; status: 'success' };
 
 type AuthAction =
-  | { type: 'Error'; payload: { error: Error } }
+  | { type: 'Error'; payload: { error: unknown } }
   | { type: 'Loading'; payload: never }
   | { type: 'Success'; payload: { user: User } };
 
