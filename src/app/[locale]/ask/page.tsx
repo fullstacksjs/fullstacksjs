@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 
+import { Article } from '@/components/Article';
+import { Articles } from '@/components/Articles';
+import { FocusItem, FocusItemList } from '@/components/FocusItemList';
 import { generatePageOG } from '@/components/SEO';
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
-import { pick } from 'radash';
+import { getTranslations } from 'next-intl/server';
 
-import { AskContent } from './AskContent';
+import { AskHydration } from './AskHydration';
+import { asks } from './asks';
 
 interface MetaDataProps {
   searchParams: Record<string, string>;
@@ -26,11 +28,22 @@ export function generateMetadata({ searchParams }: MetaDataProps): Metadata {
 }
 
 export default async function AskPage() {
-  const messages = await getMessages();
+  const t = await getTranslations('ask');
 
   return (
-    <NextIntlClientProvider messages={pick(messages, ['ask'])}>
-      <AskContent />
-    </NextIntlClientProvider>
+    <Articles>
+      <AskHydration />
+      <Article title={t('title')}>
+        <FocusItemList>
+          {asks.map((ask) => (
+            <FocusItem key={ask} target={ask}>
+              <p className="mb-2 text-accent-1">{t(`guides.${ask}.title`)}</p>
+              <p className="text-light-0">{t(`guides.${ask}.desc`)}</p>
+              <br />
+            </FocusItem>
+          ))}
+        </FocusItemList>
+      </Article>
+    </Articles>
   );
 }

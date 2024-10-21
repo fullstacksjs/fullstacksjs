@@ -1,9 +1,13 @@
+import { Article } from '@/components/Article';
+import { Articles } from '@/components/Articles';
+import { FocusItem, FocusItemList } from '@/components/FocusItemList';
+import { Paragraph } from '@/components/Paragraph';
 import { generatePageOG } from '@/components/SEO';
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
-import { pick } from 'radash';
+import { getTranslations } from 'next-intl/server';
 
-import RulesContent from './RulesContent';
+import { guidelines } from './guidelines';
+import { RulesHydration } from './RuleHydration';
+import { rules } from './rules';
 
 export const metadata = generatePageOG({
   title: 'FullstacksJS Community Rules: A Guide to Respectful Conduct',
@@ -13,11 +17,32 @@ export const metadata = generatePageOG({
 });
 
 export default async function RulesPage() {
-  const messages = await getMessages();
+  const t = await getTranslations('rules');
 
   return (
-    <NextIntlClientProvider messages={pick(messages, ['rules'])}>
-      <RulesContent />
-    </NextIntlClientProvider>
+    <Articles>
+      <RulesHydration />
+      <Article id="rules" title={t('title')}>
+        <Paragraph>{t.rich('desc')}</Paragraph>
+
+        <FocusItemList>
+          {rules.map((rule) => (
+            <FocusItem key={rule} target={rule}>
+              {t.rich(`items.${rule}`)}
+            </FocusItem>
+          ))}
+        </FocusItemList>
+      </Article>
+
+      <Article id="guides" title={t('guidelines.title')}>
+        <FocusItemList>
+          {guidelines.map((guide) => (
+            <FocusItem key={guide} target={guide}>
+              {t(`guidelines.items.${guide}`)}
+            </FocusItem>
+          ))}
+        </FocusItemList>
+      </Article>
+    </Articles>
   );
 }

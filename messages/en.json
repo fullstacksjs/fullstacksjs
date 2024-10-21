@@ -177,7 +177,7 @@
     "puzzles": "<b>Daily Puzzles</b>: Each puzzle consists of two parts. Solve the first part to unlock the second, more challenging variant.",
     "stars": "<b>Earn Stars</b>: For each part you solve correctly, you earn a star - a great way to track your progress!",
     "join": {
-      "title": "<e-medal></e-medal> How to join?",
+      "title": "<b>How to join?</b>",
       "login-aoc": "Login with <b>GitHub</b> on <a-advent>adventofcode.com</a-advent>",
       "join": "Join the leaderboard by entering <mark>3205245-83e376a6</mark> in the <a-leader>leaderboard page</a-leader>.",
       "engage": "Engage with fellow coders on the <a-tg>FullstacksJS channel (war topic)</a-tg>.",

@@ -4,9 +4,8 @@ import type { User } from '@/data-layer/supabase/models/User';
 import type { Variants } from 'framer-motion';
 import type { RichTranslationValues } from 'next-intl';
 
-import { emojiTranslation } from '@/components/Emoji';
-import { Highlight } from '@/components/Highlight';
 import { Stars } from '@/components/Stars';
+import { i18nComponents } from '@/i18n/i18nComponents';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
@@ -19,10 +18,8 @@ interface Props {
   isSubscribed: boolean;
 }
 
-const components: RichTranslationValues = {
-  ...emojiTranslation,
-  mark: (chunk) => <Highlight>{chunk}</Highlight>,
-  br: () => <br />,
+const i18nMap: RichTranslationValues = {
+  ...i18nComponents,
   atype: (chunk) => (
     <a
       className="text-accent-0"
@@ -112,7 +109,7 @@ export const GuildContent = ({ user, isSubscribed }: Props) => {
               />
             </motion.div>
             <motion.p className="max-w-6xl" variants={item}>
-              {t.rich('desc', components)}
+              {t.rich('desc', i18nMap)}
             </motion.p>
 
             <motion.div variants={item}>

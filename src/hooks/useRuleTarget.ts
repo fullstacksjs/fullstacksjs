@@ -1,3 +1,5 @@
+'use client';
+
 import { usePathname, useRouter } from '@/navigation';
 import { isNull } from '@fullstacksjs/toolbox';
 import { useSearchParams } from 'next/navigation';

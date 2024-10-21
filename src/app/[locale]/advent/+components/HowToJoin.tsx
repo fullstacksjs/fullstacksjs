@@ -2,11 +2,10 @@
 
 import type { RichTranslationValues } from 'next-intl';
 
-import { Article } from '@/components/Article';
+import { Anchor } from '@/components/Link';
 import { useSignIn } from '@/data-layer/supabase/useSignIn';
+import { Link } from '@/navigation';
 import { useTranslations } from 'next-intl';
-
-import { i18nMap } from './i18nMap';
 
 const items = [
   'login-aoc',
@@ -17,11 +16,30 @@ const items = [
   'follow',
 ] as const;
 
-export const HowToJoin = () => {
+export const HowToJoinItems = () => {
   const t = useTranslations('advent');
   const { signIn } = useSignIn();
+
   const i18n: RichTranslationValues = {
-    ...i18nMap,
+    'l-leader': (chunk) => (
+      <Anchor asChild>
+        <Link href="/advent/board">{chunk}</Link>
+      </Anchor>
+    ),
+    'a-tg': (chunk) => (
+      <Anchor href="https://t.me/fullstacksjs/163643">{chunk}</Anchor>
+    ),
+    'a-settings': (chunk) => (
+      <Anchor href="https://adventofcode.com/2023/settings">{chunk}</Anchor>
+    ),
+    'a-leader': (chunk) => (
+      <Anchor href="https://adventofcode.com/2023/leaderboard/private/view/3205245">
+        {chunk}
+      </Anchor>
+    ),
+    'a-advent': (chunk) => (
+      <Anchor href="https://adventofcode.com/2023">{chunk}</Anchor>
+    ),
     login: (chunk) => (
       <button className="text-accent-0" type="submit" onClick={signIn}>
         {chunk}
@@ -29,15 +47,11 @@ export const HowToJoin = () => {
     ),
   };
 
-  const howJoin = t.rich('join.title', i18n) as React.ReactElement;
-
   return (
-    <Article id="advent" title={howJoin}>
-      <ol className="ms-10 list-decimal text-fg-1">
-        {items.map((l) => (
-          <li key={l}>{t.rich(`join.${l}`, i18n)}</li>
-        ))}
-      </ol>
-    </Article>
+    <ol className="ms-10 list-decimal text-fg-1">
+      {items.map((l) => (
+        <li key={l}>{t.rich(`join.${l}`, i18n)}</li>
+      ))}
+    </ol>
   );
 };

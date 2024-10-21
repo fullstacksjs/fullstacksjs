@@ -5,8 +5,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
 import { pick } from 'radash';
 
-import { HowToJoin } from './+components/HowToJoin';
-import { i18nMap } from './+components/i18nMap';
+import { HowToJoinItems } from './+components/HowToJoin';
 
 export const metadata = generatePageOG({
   title: 'Advent of Code: FullstacksJS',
@@ -17,30 +16,32 @@ export const metadata = generatePageOG({
 export default async function AdventOfCodePage() {
   const messages = await getMessages();
   const t = await getTranslations('advent');
-  const title = t.rich('title', i18nMap) as React.ReactElement;
-  const howWorks = t.rich('how-works', i18nMap) as React.ReactElement;
-  const ai = t.rich('ai.title', i18nMap) as React.ReactElement;
 
   return (
     <NextIntlClientProvider messages={pick(messages, ['advent'])}>
       <div className="flex flex-col gap-16">
-        <Article id="advent" title={title}>
-          <Paragraph>{t.rich('desc', i18nMap)}</Paragraph>
+        <Article id="advent" title={t.rich('title')}>
+          <Paragraph>{t.rich('desc')}</Paragraph>
           <div>
-            <Paragraph>{t.rich('kick-off', i18nMap)}</Paragraph>
-            <Paragraph>{t.rich('fun', i18nMap)}</Paragraph>
+            <Paragraph>{t.rich('kick-off')}</Paragraph>
+            <Paragraph>{t.rich('fun')}</Paragraph>
           </div>
-          <Paragraph>{t.rich('desc-2', i18nMap)}</Paragraph>
+          <Paragraph>{t.rich('desc-2')}</Paragraph>
         </Article>
-        <Article id="advent" title={howWorks}>
+
+        <Article id="advent" title={t.rich('how-works')}>
           <div>
-            <Paragraph>{t.rich('puzzles', i18nMap)}</Paragraph>
-            <Paragraph>{t.rich('stars', i18nMap)}</Paragraph>
+            <Paragraph>{t.rich('puzzles')}</Paragraph>
+            <Paragraph>{t.rich('stars')}</Paragraph>
           </div>
         </Article>
-        <HowToJoin />
-        <Article id="ai" title={ai}>
-          <Paragraph>{t.rich('ai.desc', i18nMap)}</Paragraph>
+
+        <Article id="advent" title={t.rich('join.title')}>
+          <HowToJoinItems />
+        </Article>
+
+        <Article id="ai" title={t.rich('ai.title')}>
+          <Paragraph>{t.rich('ai.desc')}</Paragraph>
         </Article>
       </div>
     </NextIntlClientProvider>

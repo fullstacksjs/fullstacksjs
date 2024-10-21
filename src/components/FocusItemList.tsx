@@ -1,4 +1,5 @@
 'use client';
+
 import { useFocusState, useHandleFocusItem } from '@/hooks/useRuleTarget';
 import { cn } from '@/utils/cn';
 import { usePress } from 'react-aria';
@@ -31,16 +32,17 @@ export const FocusItem = ({ target, children }: FocusItemProps) => {
     <li
       id={target}
       className={cn(
-        'group text-accent-1 mb-3 ms-6 scroll-m-10 list-decimal leading-tight motion-reduce:transition-none transition-all',
+        'group mb-3 ms-6 scroll-m-10 list-decimal leading-tight motion-reduce:transition-none transition-all',
         {
-          'hover:text-fg-0': state === 'idle',
+          'hover:text-accent-1': state === 'idle',
+          'text-accent-1': state === 'focused',
           'opacity-25 focus-within:opacity-75 hover:opacity-50':
             state === 'faded',
         },
       )}
     >
       <button
-        className={cn('w-full text-start outline-none')}
+        className={cn('w-full block text-start outline-none')}
         type="button"
         {...pressProps}
       >
@@ -49,5 +51,3 @@ export const FocusItem = ({ target, children }: FocusItemProps) => {
     </li>
   );
 };
-
-FocusItemList.Item = FocusItem;
