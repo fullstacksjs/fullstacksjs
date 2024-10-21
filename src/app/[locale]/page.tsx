@@ -2,13 +2,22 @@ import { Article } from '@/components/Article';
 import { Articles } from '@/components/Articles';
 import { Paragraph } from '@/components/Paragraph';
 import { Separator } from '@/components/Separator';
-import { useTranslations } from 'next-intl';
+import { routing } from '@/i18n/routing';
+import {
+  getTranslations,
+  unstable_setRequestLocale as setRequestLocale,
+} from 'next-intl/server';
 
 import { Banner } from './+components/Banner';
 import { JoinButton } from './+components/JoinButton';
 
-export default function Home() {
-  const t = useTranslations('main');
+interface Props {
+  params: { locale: string };
+}
+
+export default async function Home({ params: { locale } }: Props) {
+  setRequestLocale(locale);
+  const t = await getTranslations('main');
 
   return (
     <>
@@ -32,4 +41,8 @@ export default function Home() {
       </Articles>
     </>
   );
+}
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
 }

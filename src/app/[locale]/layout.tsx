@@ -9,6 +9,7 @@ import { SupabaseProvider } from '@/data-layer/supabase/SupabaseProvider';
 import { getDirection } from '@/i18n/direction';
 import { JotaiProvider } from '@/store/JotaiProvider';
 import { cn } from '@/utils/cn';
+import { unstable_setRequestLocale as setRequestLocale } from 'next-intl/server';
 import { Rajdhani, Vazirmatn } from 'next/font/google';
 
 import { Header } from './+components/Header';
@@ -44,9 +45,9 @@ interface Props {
   params: { locale: Locale };
 }
 
-export default function LocaleLayout({ children, params }: Props) {
-  const locale = params.locale;
+export default function LocaleLayout({ children, params: { locale } }: Props) {
   const direction = getDirection(locale);
+  setRequestLocale(locale);
 
   const { containerId, trackingId } = serverConfig.analytics;
   const isAnalyticsActive = containerId && trackingId;

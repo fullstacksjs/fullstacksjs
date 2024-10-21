@@ -1,12 +1,17 @@
 import { Article } from '@/components/Article';
 import { Articles } from '@/components/Articles';
-import { FocusItem, FocusItemList } from '@/components/FocusItemList';
+import { FocusItem } from '@/components/FocusItemList/FocusItem';
+import { FocusItemList } from '@/components/FocusItemList/FocusItemList';
+import { FocusItemListSkeleton } from '@/components/FocusItemList/FocusItemListSkeleton';
 import { Paragraph } from '@/components/Paragraph';
 import { generatePageOG } from '@/components/SEO';
-import { getTranslations } from 'next-intl/server';
+import { routing } from '@/i18n/routing';
+import {
+  getTranslations,
+  unstable_setRequestLocale as setRequestLocale,
+} from 'next-intl/server';
 
 import { guidelines } from './guidelines';
-import { RulesHydration } from './RuleHydration';
 import { rules } from './rules';
 
 export const metadata = generatePageOG({
@@ -16,16 +21,22 @@ export const metadata = generatePageOG({
   images: '/og/og.png',
 });
 
-export default async function RulesPage() {
+interface Props {
+  params: { locale: string };
+}
+
+export default async function RulesPage({ params: { locale } }: Props) {
+  setRequestLocale(locale);
   const t = await getTranslations('rules');
 
   return (
     <Articles>
-      <RulesHydration />
       <Article id="rules" title={t('title')}>
         <Paragraph>{t.rich('desc')}</Paragraph>
 
-        <FocusItemList>
+        <FocusItemList
+          fallback={<FocusItemListSkeleton lines={rules.length} />}
+        >
           {rules.map((rule) => (
             <FocusItem key={rule} target={rule}>
               {t.rich(`items.${rule}`)}
@@ -35,7 +46,9 @@ export default async function RulesPage() {
       </Article>
 
       <Article id="guides" title={t('guidelines.title')}>
-        <FocusItemList>
+        <FocusItemList
+          fallback={<FocusItemListSkeleton lines={guidelines.length} />}
+        >
           {guidelines.map((guide) => (
             <FocusItem key={guide} target={guide}>
               {t(`guidelines.items.${guide}`)}
@@ -45,4 +58,8 @@ export default async function RulesPage() {
       </Article>
     </Articles>
   );
+}
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
 }

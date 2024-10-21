@@ -2,11 +2,16 @@ import type { Metadata } from 'next';
 
 import { Article } from '@/components/Article';
 import { Articles } from '@/components/Articles';
-import { FocusItem, FocusItemList } from '@/components/FocusItemList';
+import { FocusItem } from '@/components/FocusItemList/FocusItem';
+import { FocusItemList } from '@/components/FocusItemList/FocusItemList';
+import { FocusItemListSkeleton } from '@/components/FocusItemList/FocusItemListSkeleton';
 import { generatePageOG } from '@/components/SEO';
-import { getTranslations } from 'next-intl/server';
+import { routing } from '@/i18n/routing';
+import {
+  getTranslations,
+  unstable_setRequestLocale as setRequestLocale,
+} from 'next-intl/server';
 
-import { AskHydration } from './AskHydration';
 import { asks } from './asks';
 
 interface MetaDataProps {
@@ -27,14 +32,22 @@ export function generateMetadata({ searchParams }: MetaDataProps): Metadata {
   });
 }
 
-export default async function AskPage() {
+interface Props {
+  params: { locale: string };
+}
+
+export default async function AskPage({ params: { locale } }: Props) {
+  setRequestLocale(locale);
   const t = await getTranslations('ask');
 
   return (
     <Articles>
-      <AskHydration />
       <Article title={t('title')}>
-        <FocusItemList>
+        <FocusItemList
+          fallback={
+            <FocusItemListSkeleton className="h-44" lines={asks.length} />
+          }
+        >
           {asks.map((ask) => (
             <FocusItem key={ask} target={ask}>
               <p className="mb-2 text-accent-1">{t(`guides.${ask}.title`)}</p>
@@ -46,4 +59,8 @@ export default async function AskPage() {
       </Article>
     </Articles>
   );
+}
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
 }
