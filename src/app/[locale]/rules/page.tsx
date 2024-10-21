@@ -21,11 +21,7 @@ export const metadata = generatePageOG({
   images: '/og/og.png',
 });
 
-interface Props {
-  params: { locale: string };
-}
-
-export default async function RulesPage({ params: { locale } }: Props) {
+export default async function RulesPage({ params: { locale } }: PageProps) {
   setRequestLocale(locale);
   const t = await getTranslations('rules');
 

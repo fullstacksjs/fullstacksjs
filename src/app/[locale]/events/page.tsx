@@ -19,15 +19,11 @@ export const metadata = generatePageOG({
   images: '/og/og.png',
 });
 
-interface Props {
-  params: { locale: string };
-}
-
-export default async function EventsPage({ params: { locale } }: Props) {
+export default async function EventsPage({ params: { locale } }: PageProps) {
   if (!getServerFeature('events')) notFound();
+  setRequestLocale(locale);
   const t = await getTranslations('events');
 
-  setRequestLocale(locale);
   const { upcoming, archived } = await getEvents();
 
   return (

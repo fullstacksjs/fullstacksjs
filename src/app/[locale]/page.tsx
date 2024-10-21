@@ -11,11 +11,7 @@ import {
 import { Banner } from './+components/Banner';
 import { JoinButton } from './+components/JoinButton';
 
-interface Props {
-  params: { locale: string };
-}
-
-export default async function Home({ params: { locale } }: Props) {
+export default async function Home({ params: { locale } }: PageProps) {
   setRequestLocale(locale);
   const t = await getTranslations('main');
 

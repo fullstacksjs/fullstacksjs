@@ -28,7 +28,7 @@
     "babel-plugin-react-compiler": "0.0.0-experimental-938cd9a-20240601",
     "clsx": "2.1.1",
     "date-fns": "3.6.0",
-    "framer-motion": "11.2.10",
+    "framer-motion": "11.11.9",
     "graphql": "16.9.0",
     "graphql-request": "7.1.0",
     "howler": "2.2.4",

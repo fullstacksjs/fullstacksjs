@@ -1,8 +1,13 @@
 import { Article } from '@/components/Article';
 import { Paragraph } from '@/components/Paragraph';
 import { generatePageOG } from '@/components/SEO';
+import { routing } from '@/i18n/routing';
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, getTranslations } from 'next-intl/server';
+import {
+  getMessages,
+  getTranslations,
+  unstable_setRequestLocale as setRequestLocale,
+} from 'next-intl/server';
 import { pick } from 'radash';
 
 import { HowToJoinItems } from './+components/HowToJoin';
@@ -13,7 +18,10 @@ export const metadata = generatePageOG({
   images: '/og/advent.png',
 });
 
-export default async function AdventOfCodePage() {
+export default async function AdventOfCodePage({
+  params: { locale },
+}: PageProps) {
+  setRequestLocale(locale);
   const messages = await getMessages();
   const t = await getTranslations('advent');
 
@@ -46,4 +54,8 @@ export default async function AdventOfCodePage() {
       </div>
     </NextIntlClientProvider>
   );
+}
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
 }

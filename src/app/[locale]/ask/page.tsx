@@ -32,11 +32,7 @@ export function generateMetadata({ searchParams }: MetaDataProps): Metadata {
   });
 }
 
-interface Props {
-  params: { locale: string };
-}
-
-export default async function AskPage({ params: { locale } }: Props) {
+export default async function AskPage({ params: { locale } }: PageProps) {
   setRequestLocale(locale);
   const t = await getTranslations('ask');
 
