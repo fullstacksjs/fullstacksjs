@@ -6,9 +6,12 @@ const directions: Record<string, Direction> = {
   fa: 'rtl',
 };
 
+export const getDirection = (locale: string): Direction =>
+  directions[locale] ?? 'ltr';
+
 export const useDirection = (): Direction => {
   const locale = useLocale();
-  return directions[locale] ?? 'ltr';
+  return getDirection(locale);
 };
 
 export const useIsRTL = () => {

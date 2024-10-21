@@ -4,3 +4,6 @@ declare module '*.svg?url' {
   const content: import('next/image').StaticImageData;
   export default content;
 }
+
+type Messages = typeof import('../messages/en.json');
+declare interface IntlMessages extends Messages {}

@@ -1,4 +1,4 @@
-import type { Locale } from '@/locales';
+import type { Locale } from '@/i18n/locales';
 import type { Metadata } from 'next';
 
 import { generatePageOG, icons, JsonLd, keywords } from '@/components/SEO';
@@ -6,7 +6,7 @@ import { Separator } from '@/components/Separator';
 import { Socials } from '@/components/Socials';
 import { serverConfig } from '@/config/serverConfig';
 import { SupabaseProvider } from '@/data-layer/supabase/SupabaseProvider';
-import { useDirection } from '@/hooks/useDirection';
+import { getDirection } from '@/i18n/direction';
 import { JotaiProvider } from '@/store/JotaiProvider';
 import { cn } from '@/utils/cn';
 import { Rajdhani, Vazirmatn } from 'next/font/google';
@@ -45,14 +45,16 @@ interface Props {
 }
 
 export default function LocaleLayout({ children, params }: Props) {
-  const direction = useDirection();
+  const locale = params.locale;
+  const direction = getDirection(locale);
+
   const { containerId, trackingId } = serverConfig.analytics;
   const isAnalyticsActive = containerId && trackingId;
 
   return (
     <html
       dir={direction}
-      lang={params.locale}
+      lang={locale}
       className={`${rajdhani.variable} ${vazir.variable}`}
     >
       <head>
@@ -64,7 +66,7 @@ export default function LocaleLayout({ children, params }: Props) {
       <body
         className={cn(
           'bg-dark-0 leading-normal text-light-0 transition-colors duration-1000',
-          { 'font-fa': params.locale === 'fa' },
+          { 'font-fa': locale === 'fa' },
         )}
       >
         <JotaiProvider>

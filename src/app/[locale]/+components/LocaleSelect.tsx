@@ -1,5 +1,5 @@
 'use client';
-import type { Locale } from '@/locales';
+import type { Locale } from '@/i18n/locales';
 
 import ChevronDownIcon from '@/components/Icons/ChevronDown.svg';
 import { Link, usePathname } from '@/navigation';

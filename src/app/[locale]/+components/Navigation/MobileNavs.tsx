@@ -1,6 +1,6 @@
 'use client';
 
-import { useDirection } from '@/hooks/useDirection';
+import { useDirection } from '@/i18n/direction';
 import * as Dialog from '@radix-ui/react-dialog';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';

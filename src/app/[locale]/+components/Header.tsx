@@ -1,4 +1,4 @@
-import type { Locale } from '@/locales';
+import type { Locale } from '@/i18n/locales';
 
 import { getLocale } from 'next-intl/server';
 import { Suspense } from 'react';

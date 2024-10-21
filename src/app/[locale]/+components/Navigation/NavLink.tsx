@@ -1,7 +1,7 @@
 'use client';
 
 import { TextBadge } from '@/components/TextBadge';
-import { useIsRTL } from '@/hooks/useDirection';
+import { useIsRTL } from '@/i18n/direction';
 import { Link } from '@/navigation';
 import { cn } from '@/utils/cn';
 import { comparePaths } from '@fullstacksjs/toolbox';
