@@ -4,6 +4,7 @@ import type { RichTranslationValues } from 'next-intl';
 
 import { Anchor } from '@/components/Link';
 import { useSignIn } from '@/data-layer/supabase/useSignIn';
+import { i18nComponents } from '@/i18n/i18nComponents';
 import { Link } from '@/navigation';
 import { useTranslations } from 'next-intl';
 
@@ -17,10 +18,11 @@ const items = [
 ] as const;
 
 export const HowToJoinItems = () => {
-  const t = useTranslations('advent');
+  const t = useTranslations('advent.join');
   const { signIn } = useSignIn();
 
   const i18n: RichTranslationValues = {
+    ...i18nComponents,
     'l-leader': (chunk) => (
       <Anchor asChild>
         <Link href="/advent/board">{chunk}</Link>
@@ -50,7 +52,7 @@ export const HowToJoinItems = () => {
   return (
     <ol className="ms-10 list-decimal text-fg-1">
       {items.map((l) => (
-        <li key={l}>{t.rich(`join.${l}`, i18n)}</li>
+        <li key={l}>{t.rich(l, i18n)}</li>
       ))}
     </ol>
   );

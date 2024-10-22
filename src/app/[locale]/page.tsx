@@ -3,10 +3,7 @@ import { Articles } from '@/components/Articles';
 import { Paragraph } from '@/components/Paragraph';
 import { Separator } from '@/components/Separator';
 import { routing } from '@/i18n/routing';
-import {
-  getTranslations,
-  unstable_setRequestLocale as setRequestLocale,
-} from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import { Banner } from './+components/Banner';
 import { JoinButton } from './+components/JoinButton';

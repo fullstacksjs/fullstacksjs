@@ -6,7 +6,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import {
   getMessages,
   getTranslations,
-  unstable_setRequestLocale as setRequestLocale,
+  setRequestLocale,
 } from 'next-intl/server';
 import { pick } from 'radash';
 
@@ -22,37 +22,39 @@ export default async function AdventOfCodePage({
   params: { locale },
 }: PageProps) {
   setRequestLocale(locale);
-  const messages = await getMessages();
+  const messages = (await getMessages()) as IntlMessages;
   const t = await getTranslations('advent');
 
   return (
-    <NextIntlClientProvider messages={pick(messages, ['advent'])}>
-      <div className="flex flex-col gap-16">
-        <Article id="advent" title={t.rich('title')}>
-          <Paragraph>{t.rich('desc')}</Paragraph>
-          <div>
-            <Paragraph>{t.rich('kick-off')}</Paragraph>
-            <Paragraph>{t.rich('fun')}</Paragraph>
-          </div>
-          <Paragraph>{t.rich('desc-2')}</Paragraph>
-        </Article>
+    <div className="flex flex-col gap-16">
+      <Article id="advent" title={t.rich('title')}>
+        <Paragraph>{t.rich('desc')}</Paragraph>
+        <div>
+          <Paragraph>{t.rich('kick-off')}</Paragraph>
+          <Paragraph>{t.rich('fun')}</Paragraph>
+        </div>
+        <Paragraph>{t.rich('desc-2')}</Paragraph>
+      </Article>
 
-        <Article id="advent" title={t.rich('how-works')}>
-          <div>
-            <Paragraph>{t.rich('puzzles')}</Paragraph>
-            <Paragraph>{t.rich('stars')}</Paragraph>
-          </div>
-        </Article>
+      <Article id="advent" title={t.rich('how-works')}>
+        <div>
+          <Paragraph>{t.rich('puzzles')}</Paragraph>
+          <Paragraph>{t.rich('stars')}</Paragraph>
+        </div>
+      </Article>
 
-        <Article id="advent" title={t.rich('join.title')}>
+      <Article id="advent" title={t.rich('join.title')}>
+        <NextIntlClientProvider
+          messages={{ advent: pick(messages.advent, ['join']) }}
+        >
           <HowToJoinItems />
-        </Article>
+        </NextIntlClientProvider>
+      </Article>
 
-        <Article id="ai" title={t.rich('ai.title')}>
-          <Paragraph>{t.rich('ai.desc')}</Paragraph>
-        </Article>
-      </div>
-    </NextIntlClientProvider>
+      <Article id="ai" title={t.rich('ai.title')}>
+        <Paragraph>{t.rich('ai.desc')}</Paragraph>
+      </Article>
+    </div>
   );
 }
 

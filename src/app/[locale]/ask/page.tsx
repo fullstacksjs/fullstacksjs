@@ -7,10 +7,7 @@ import { FocusItemList } from '@/components/FocusItemList/FocusItemList';
 import { FocusItemListSkeleton } from '@/components/FocusItemList/FocusItemListSkeleton';
 import { generatePageOG } from '@/components/SEO';
 import { routing } from '@/i18n/routing';
-import {
-  getTranslations,
-  unstable_setRequestLocale as setRequestLocale,
-} from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import { asks } from './asks';
 

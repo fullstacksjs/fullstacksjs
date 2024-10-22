@@ -3,10 +3,7 @@ import { getServerFeature } from '@/config/features/getServerFeatures';
 import { getEvents } from '@/data-layer/datocms/getEvents';
 import { routing } from '@/i18n/routing';
 import { Separator } from '@radix-ui/react-dropdown-menu';
-import {
-  getTranslations,
-  unstable_setRequestLocale as setRequestLocale,
-} from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { isEmpty } from 'radash';
 
