@@ -28,7 +28,7 @@ export const Retry = ({ className, onClick, ...props }: Props) => {
         strokeWidth="2"
         viewBox="0 0 40 40"
         className={cn(
-          'w-10 fill-none cursor-pointer stroke-current',
+          'w-10 cursor-pointer fill-none stroke-current',
           className,
         )}
       >

@@ -44,7 +44,7 @@ export const Stars = ({ count, className }: Props) => (
     animate="anim"
     initial="init"
     className={cn(
-      'pointer-events-none mask-radial absolute left-1/2 top-1/2 -z-10 aspect-square -translate-x-1/2 -translate-y-1/2 overflow-hidden',
+      'mask-radial pointer-events-none absolute left-1/2 top-1/2 -z-10 aspect-square -translate-x-1/2 -translate-y-1/2 overflow-hidden',
       className,
     )}
   >

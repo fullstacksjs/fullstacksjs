@@ -34,7 +34,7 @@ export const NavGroup = ({ text, children }: Props) => {
       <button
         type="button"
         className={cn(
-          'flex gap-4 rtl:text-xl items-center justify-between uppercase min-w-[100px]',
+          'flex min-w-[100px] items-center justify-between gap-4 uppercase rtl:text-xl',
           {
             'text-fg-0': activeChild,
             'text-light-muted': !activeChild,

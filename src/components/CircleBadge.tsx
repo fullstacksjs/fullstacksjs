@@ -5,5 +5,5 @@ interface Props {
 }
 
 export const CircleBadge = ({ className }: Props) => {
-  return <div className={cn('rounded-full w-4 h-4 bg-accent-0', className)} />;
+  return <div className={cn('size-4 rounded-full bg-accent-0', className)} />;
 };

@@ -35,7 +35,7 @@ export const FocusItem = ({ target, children }: Props) => {
       })}
     >
       <button
-        className={cn('w-full block text-start outline-none')}
+        className={cn('block w-full text-start outline-none')}
         type="button"
         {...pressProps}
       >

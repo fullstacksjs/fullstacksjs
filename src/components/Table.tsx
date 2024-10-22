@@ -17,7 +17,7 @@ const TableHeader = ({
   ...props
 }: React.HTMLAttributes<HTMLTableSectionElement>) => (
   <thead
-    className={cn('text-xs text-fg-1 font-semibold', className)}
+    className={cn('text-xs font-semibold text-fg-1', className)}
     {...props}
   />
 );
@@ -33,10 +33,7 @@ const TableFooter = ({
   className,
   ...props
 }: React.HTMLAttributes<HTMLTableSectionElement>) => (
-  <tfoot
-    className={cn('bg-primary font-medium text-primary-foreground', className)}
-    {...props}
-  />
+  <tfoot className={cn('font-medium', className)} {...props} />
 );
 
 const TableRow = ({
@@ -54,7 +51,7 @@ const TableHead = ({
   ...props
 }: React.ThHTMLAttributes<HTMLTableCellElement>) => (
   <th
-    className={cn('text-start font-semibold align-middle pb-4', className)}
+    className={cn('pb-4 text-start align-middle font-semibold', className)}
     {...props}
   />
 );
@@ -63,7 +60,7 @@ const TableCell = ({
   className,
   ...props
 }: React.TdHTMLAttributes<HTMLTableCellElement>) => (
-  <td className={cn('align-middle py-6', className)} {...props} />
+  <td className={cn('py-6 align-middle', className)} {...props} />
 );
 
 const TableCaption = ({
@@ -71,7 +68,7 @@ const TableCaption = ({
   ...props
 }: React.HTMLAttributes<HTMLTableCaptionElement>) => (
   <caption
-    className={cn('mt-4 text-sm text-muted-foreground', className)}
+    className={cn('text-muted-foreground mt-4 text-sm', className)}
     {...props}
   />
 );

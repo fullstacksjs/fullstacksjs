@@ -14,7 +14,7 @@ const Head = ({
   ...props
 }: React.ComponentProps<typeof Table.Head>) => (
   <Table.Head
-    className={cn('bg-advent-1 pt-8 top-0 sticky', className)}
+    className={cn('sticky top-0 bg-advent-1 pt-8', className)}
     {...props}
   />
 );

@@ -98,8 +98,8 @@ devDependencies:
     specifier: 4.0.3
     version: 4.0.3
   '@fullstacksjs/eslint-config':
-    specifier: 11.3.1
-    version: 11.3.1(@typescript-eslint/parser@8.10.0)(eslint@9.13.0)(prettier@3.3.3)(react@18.3.1)(tailwindcss@3.4.14)(typescript@5.6.3)
+    specifier: 11.4.0
+    version: 11.4.0(@typescript-eslint/parser@8.10.0)(eslint@9.13.0)(prettier@3.3.3)(react@18.3.1)(tailwindcss@3.4.14)(typescript@5.6.3)
   '@fullstacksjs/tsconfig':
     specifier: 1.1.0
     version: 1.1.0(typescript@5.6.3)
@@ -2084,8 +2084,8 @@ packages:
       tslib: 2.8.0
     dev: false
 
-  /@fullstacksjs/eslint-config@11.3.1(@typescript-eslint/parser@8.10.0)(eslint@9.13.0)(prettier@3.3.3)(react@18.3.1)(tailwindcss@3.4.14)(typescript@5.6.3):
-    resolution: {integrity: sha512-jIbtHeVt9kDl5hjv4DYvLiDTlyI8oM2Tb0HWh3n526bQ4CTZCEnarbai9EdeiRBhvWo+e4e1biOaR7q9m8lmHA==}
+  /@fullstacksjs/eslint-config@11.4.0(@typescript-eslint/parser@8.10.0)(eslint@9.13.0)(prettier@3.3.3)(react@18.3.1)(tailwindcss@3.4.14)(typescript@5.6.3):
+    resolution: {integrity: sha512-T6hgoq8iqAkIJu+j+pPDT68RAmztozRiGTvdOBQO8CruD8ovIFX4KRyCN6XSPWMmR7HYbtOkUz1V3WoZW71T1A==}
     peerDependencies:
       cypress: '>=8'
       eslint: ^9
