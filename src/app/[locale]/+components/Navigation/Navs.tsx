@@ -40,7 +40,10 @@ const navs: NavGroup[] = [
   {
     feature: 'events',
     text: 'events',
-    children: [{ feature: 'events', href: '/events', text: 'events' }],
+    children: [
+      { feature: 'events', href: '/events', text: 'events' },
+      { feature: 'wus', href: '/wus', text: 'wus', isNew: true },
+    ],
   },
   {
     text: 'war',

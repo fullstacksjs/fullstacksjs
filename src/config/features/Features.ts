@@ -8,4 +8,5 @@ export type Feature =
   | 'rules'
   | 'type'
   | 'wakatime'
-  | 'war';
+  | 'war'
+  | 'wus';
