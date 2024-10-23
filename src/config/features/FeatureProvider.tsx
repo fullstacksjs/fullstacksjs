@@ -1,20 +1,16 @@
 'use client';
-import { clientConfig } from '@/config/clientConfig';
 import { createContext, useCallback, useContext } from 'react';
 
 import type { Feature } from './Features';
 
-const FeatureContext = createContext<(s: Feature) => boolean>(() => true);
+const FeatureContext = createContext<(s: Feature) => boolean>(() => false);
 
 interface Props {
   features: string[];
   children: React.ReactNode;
 }
 
-export const FeatureProvider = ({
-  children,
-  features = clientConfig.features,
-}: Props) => {
+export const FeatureProvider = ({ children, features }: Props) => {
   const hasFeature = useCallback(
     (feature: Feature) => features.includes(feature),
     [features],

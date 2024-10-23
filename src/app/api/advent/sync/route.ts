@@ -4,7 +4,7 @@ import { isObject } from '@fullstacksjs/toolbox';
 import { NextResponse } from 'next/server';
 
 export async function GET(request: Request) {
-  const token = serverConfig.cronSecret;
+  const token = serverConfig.get('cronSecret');
   const auth = request.headers.get('Authorization');
 
   if (!token) return new Response('Disabled', { status: 418 });

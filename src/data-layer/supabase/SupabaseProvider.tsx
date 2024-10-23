@@ -22,8 +22,8 @@ interface Props {
 export function SupabaseProvider({ children }: Props) {
   const [supabase] = useState(() =>
     createBrowserClient<Database>(
-      clientConfig.supabase.url,
-      clientConfig.supabase.key,
+      clientConfig.get('supabase.url'),
+      clientConfig.get('supabase.key'),
     ),
   );
   const router = useRouter();

@@ -1,28 +1,26 @@
 import 'server-only';
-import { z } from 'zod';
+import { Config } from '@fullstacksjs/config';
 
-const ServerConfig = z.object({
-  metadataBase: z.string(),
-  cronSecret: z.string().optional(),
-  wakatime: z.object({
-    endpoint: z.string(),
+const ServerConfig = new Config({
+  metadataBase: Config.string().required(),
+  cronSecret: Config.string(),
+  wakatime: Config.object({
+    endpoint: Config.string().required(),
   }),
-  dato: z.object({
-    endpoint: z.string(),
-    token: z.string(),
+  dato: Config.object({
+    endpoint: Config.string().required(),
+    token: Config.string().required(),
   }),
-  analytics: z.object({
-    containerId: z.string().optional(),
-    trackingId: z.string().optional(),
+  analytics: Config.object({
+    containerId: Config.string(),
+    trackingId: Config.string(),
   }),
-  advent: z.object({
-    session: z.string(),
-    url: z.string().url(),
-    year: z.number(),
+  advent: Config.object({
+    session: Config.string().required(),
+    url: Config.string().required(),
+    year: Config.number().required(),
   }),
 });
-
-export type ServerConfig = z.infer<typeof ServerConfig>;
 
 export const serverConfig = ServerConfig.parse({
   metadataBase: process.env.METADATA_BASE,

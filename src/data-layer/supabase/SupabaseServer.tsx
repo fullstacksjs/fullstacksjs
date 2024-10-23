@@ -10,8 +10,8 @@ export function createServerSupabaseClient() {
   const cookieStore = cookies();
 
   return createServerClient<Database>(
-    clientConfig.supabase.url,
-    clientConfig.supabase.key,
+    clientConfig.get('supabase.url'),
+    clientConfig.get('supabase.key'),
     {
       cookies: {
         get(name: string) {

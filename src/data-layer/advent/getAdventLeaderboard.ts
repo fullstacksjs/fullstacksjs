@@ -32,7 +32,7 @@ type InsertAdvent = Database['public']['Tables']['advent']['Insert'];
 const starMap = [Star.None, Star.Silver, Star.Gold];
 
 export async function syncLeaderboard() {
-  const { year } = serverConfig.advent;
+  const { year } = serverConfig.get('advent');
   const supabase = createServerSupabaseClient();
 
   const leaderboard = await fetchLeaderboard();
@@ -56,7 +56,7 @@ export async function syncLeaderboard() {
 }
 
 export async function fetchLeaderboard() {
-  const { url, session } = serverConfig.advent;
+  const { url, session } = serverConfig.get('advent');
   const headers = new Headers();
   headers.set('cookie', `session=${session}`);
   const res = await fetch(url, { headers, next: { revalidate: 900 } });

@@ -49,7 +49,7 @@ export default function LocaleLayout({ children, params: { locale } }: Props) {
   const direction = getDirection(locale);
   setRequestLocale(locale);
 
-  const { containerId, trackingId } = serverConfig.analytics;
+  const { containerId, trackingId } = serverConfig.get('analytics');
   const isAnalyticsActive = containerId && trackingId;
 
   return (

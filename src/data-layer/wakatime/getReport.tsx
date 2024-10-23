@@ -12,7 +12,10 @@ export function toHumanHM(seconds: number) {
 }
 
 export const getReport = async (count: number) => {
-  const url = joinPaths(serverConfig.wakatime.endpoint, `day?size=${count}`);
+  const url = joinPaths(
+    serverConfig.get('wakatime.endpoint'),
+    `day?size=${count}`,
+  );
   const res = await fetch(joinPaths(url), { cache: 'no-cache' });
 
   if (!res.ok)

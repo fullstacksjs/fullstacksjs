@@ -1,22 +1,15 @@
-import { z } from 'zod';
+import { Config } from '@fullstacksjs/config';
 
-const ClientConfig = z.object({
-  features: z
-    .string()
-    .optional()
-    .transform((i) => i?.split(',') ?? []),
-
-  supabase: z.object({
-    url: z.string(),
-    key: z.string(),
+const ClientConfig = new Config({
+  features: Config.array(Config.string()),
+  supabase: Config.object({
+    url: Config.string().required(),
+    key: Config.string().required(),
   }),
 });
 
-export type ClientConfig = z.infer<typeof ClientConfig>;
-
 export const clientConfig = ClientConfig.parse({
-  features: process.env.NEXT_PUBLIC_FEATURES,
-
+  features: process.env.NEXT_PUBLIC_FEATURES?.split(',') ?? [],
   supabase: {
     url: process.env.NEXT_PUBLIC_SUPABASE_URL,
     key: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,

@@ -17,6 +17,7 @@
     "*.css"
   ],
   "dependencies": {
+    "@fullstacksjs/config": "1.1.0",
     "@fullstacksjs/toolbox": "4.15.1",
     "@next/third-parties": "14.2.15",
     "@radix-ui/react-dialog": "1.1.2",
@@ -43,8 +44,7 @@
     "server-only": "0.0.1",
     "sharp": "0.33.5",
     "tailwind-merge": "2.5.4",
-    "tailwindcss-animate": "1.0.7",
-    "zod": "3.23.8"
+    "tailwindcss-animate": "1.0.7"
   },
   "devDependencies": {
     "@cspell/dict-fa-ir": "4.0.3",
