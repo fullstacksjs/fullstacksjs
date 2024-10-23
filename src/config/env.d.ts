@@ -19,5 +19,8 @@ declare namespace NodeJS {
 
     ADVENT_OF_CODE_SESSION?: string;
     ADVENT_OF_CODE_SYNC_TOKEN?: string;
+
+    REVALIDATE_AUTH_USERNAME?: string;
+    REVALIDATE_AUTH_PASSWORD?: string;
   }
 }

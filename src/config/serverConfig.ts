@@ -20,6 +20,10 @@ const ServerConfig = new Config({
     url: Config.string().required(),
     year: Config.number().required(),
   }),
+  revalidation: Config.object({
+    username: Config.string().required(),
+    password: Config.string().required(),
+  }),
 });
 
 export const serverConfig = ServerConfig.parse({
@@ -40,5 +44,9 @@ export const serverConfig = ServerConfig.parse({
     session: process.env.ADVENT_OF_CODE_SESSION,
     url: 'https://adventofcode.com/2023/leaderboard/private/view/3205245.json',
     year: 2023,
+  },
+  revalidation: {
+    username: process.env.REVALIDATE_AUTH_USERNAME,
+    password: process.env.REVALIDATE_AUTH_PASSWORD,
   },
 });
