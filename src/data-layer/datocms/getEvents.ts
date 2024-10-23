@@ -1,39 +1,29 @@
 import 'server-only';
-
-import type { ResponsiveImageType } from 'react-datocms/image';
-
 import { isPast } from 'date-fns';
 import { gql } from 'graphql-request';
 
-import type { AllEventsQuery, ImagePartsFragment } from './DatoCMS';
+import type { AllEventsQuery } from './DatoCMS';
 import type { Events, FullstacksJSEvent, Lecturer } from './Event';
 
 import { datoClient } from './datoClient';
+import { ImagePatsFragment } from './Fragments';
 
 const query = gql`
-  fragment ImageParts on ResponsiveImage {
-    src
-    width
-    height
-    alt
-    title
-    base64
-    bgColor
-    sizes
-  }
+  ${ImagePatsFragment}
+
   query AllEvents {
     allEvents(orderBy: startDate_DESC, first: 100) {
       slug
       startDate
       mediaUrl
       title {
-        blocks
-        links
         value
+        links
+        blocks
       }
       thumbnail {
         responsiveImage {
-          ...ImageParts
+          ...Image
         }
       }
       lecturers {
@@ -41,7 +31,7 @@ const query = gql`
         name
         avatar {
           responsiveImage(imgixParams: { w: 40, h: 40, auto: format }) {
-            ...ImageParts
+            ...Image
           }
         }
       }
@@ -49,18 +39,11 @@ const query = gql`
   }
 `;
 
-const toMedia = (media: ImagePartsFragment): ResponsiveImageType => {
-  return {
-    ...media,
-    width: media.width,
-  };
-};
-
 const toLecturer = (
   l: AllEventsQuery['allEvents'][number]['lecturers'][number],
 ): Lecturer => ({
   name: l.name!,
-  avatar: toMedia(l.avatar!.responsiveImage!),
+  avatar: l.avatar!.responsiveImage!,
 });
 
 const toFullstacksJSEvent = (
@@ -71,7 +54,7 @@ const toFullstacksJSEvent = (
   return {
     slug: ev.slug!,
     title: ev.title,
-    thumbnail: toMedia(ev.thumbnail!.responsiveImage!),
+    thumbnail: ev.thumbnail!.responsiveImage!,
     lecturers: ev.lecturers.map(toLecturer),
     date,
     isUpcoming: !isPast(date),

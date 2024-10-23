@@ -14,7 +14,7 @@ export default function EventCard({ event }: Props) {
   return (
     <a
       aria-label={event.title}
-      className="flex flex-col gap-8"
+      className="flex flex-col gap-8 font-fa"
       href={event.mediaUrl}
       rel="noopener noreferrer"
       target="_blank"

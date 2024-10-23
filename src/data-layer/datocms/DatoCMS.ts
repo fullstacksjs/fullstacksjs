@@ -2120,6 +2120,53 @@ export type LecturerRecord_SeoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
 
+export type LinkModelFilter = {
+  AND?: InputMaybe<Array<InputMaybe<LinkModelFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<LinkModelFilter>>>;
+  _createdAt?: InputMaybe<CreatedAtFilter>;
+  _firstPublishedAt?: InputMaybe<PublishedAtFilter>;
+  _isValid?: InputMaybe<BooleanFilter>;
+  _publicationScheduledAt?: InputMaybe<PublishedAtFilter>;
+  _publishedAt?: InputMaybe<PublishedAtFilter>;
+  _status?: InputMaybe<StatusFilter>;
+  _unpublishingScheduledAt?: InputMaybe<PublishedAtFilter>;
+  _updatedAt?: InputMaybe<UpdatedAtFilter>;
+  createdAt?: InputMaybe<CreatedAtFilter>;
+  id?: InputMaybe<ItemIdFilter>;
+  updatedAt?: InputMaybe<UpdatedAtFilter>;
+  wusCalendar?: InputMaybe<StringFilter>;
+  wusSession?: InputMaybe<StringFilter>;
+};
+
+export enum LinkModelOrderBy {
+  _CreatedAtAsc = '_createdAt_ASC',
+  _CreatedAtDesc = '_createdAt_DESC',
+  _FirstPublishedAtAsc = '_firstPublishedAt_ASC',
+  _FirstPublishedAtDesc = '_firstPublishedAt_DESC',
+  _IsValidAsc = '_isValid_ASC',
+  _IsValidDesc = '_isValid_DESC',
+  _PublicationScheduledAtAsc = '_publicationScheduledAt_ASC',
+  _PublicationScheduledAtDesc = '_publicationScheduledAt_DESC',
+  _PublishedAtAsc = '_publishedAt_ASC',
+  _PublishedAtDesc = '_publishedAt_DESC',
+  _StatusAsc = '_status_ASC',
+  _StatusDesc = '_status_DESC',
+  _UnpublishingScheduledAtAsc = '_unpublishingScheduledAt_ASC',
+  _UnpublishingScheduledAtDesc = '_unpublishingScheduledAt_DESC',
+  _UpdatedAtAsc = '_updatedAt_ASC',
+  _UpdatedAtDesc = '_updatedAt_DESC',
+  CreatedAtAsc = 'createdAt_ASC',
+  CreatedAtDesc = 'createdAt_DESC',
+  IdAsc = 'id_ASC',
+  IdDesc = 'id_DESC',
+  UpdatedAtAsc = 'updatedAt_ASC',
+  UpdatedAtDesc = 'updatedAt_DESC',
+  WusCalendarAsc = 'wusCalendar_ASC',
+  WusCalendarDesc = 'wusCalendar_DESC',
+  WusSessionAsc = 'wusSession_ASC',
+  WusSessionDesc = 'wusSession_DESC'
+}
+
 /** Record of type Link (link) */
 export type LinkRecord = RecordInterface & {
   __typename?: 'LinkRecord';
@@ -2202,6 +2249,8 @@ export type Query = {
   _allEventsMeta: CollectionMetadata;
   /** Returns meta information regarding a record collection */
   _allLecturersMeta: CollectionMetadata;
+  /** Returns meta information regarding a record collection */
+  _allLinksMeta: CollectionMetadata;
   /** Returns meta information regarding an assets collection */
   _allUploadsMeta: CollectionMetadata;
   /** Returns the single instance record */
@@ -2210,16 +2259,20 @@ export type Query = {
   allEvents: Array<EventRecord>;
   /** Returns a collection of records */
   allLecturers: Array<LecturerRecord>;
+  /** Returns a collection of records */
+  allLinks: Array<LinkRecord>;
   /** Returns a collection of assets */
   allUploads: Array<FileField>;
   /** Returns a specific record */
   event?: Maybe<EventRecord>;
   /** Returns a specific record */
   lecturer?: Maybe<LecturerRecord>;
-  /** Returns the single instance record */
+  /** Returns a specific record */
   link?: Maybe<LinkRecord>;
   /** Returns a specific asset */
   upload?: Maybe<FileField>;
+  /** Returns the single instance record */
+  whatsup?: Maybe<WhatsupRecord>;
 };
 
 
@@ -2235,6 +2288,14 @@ export type Query_AllEventsMetaArgs = {
 export type Query_AllLecturersMetaArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   filter?: InputMaybe<LecturerModelFilter>;
+  locale?: InputMaybe<SiteLocale>;
+};
+
+
+/** The query root for this schema */
+export type Query_AllLinksMetaArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  filter?: InputMaybe<LinkModelFilter>;
   locale?: InputMaybe<SiteLocale>;
 };
 
@@ -2276,6 +2337,17 @@ export type QueryAllLecturersArgs = {
 
 
 /** The query root for this schema */
+export type QueryAllLinksArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  filter?: InputMaybe<LinkModelFilter>;
+  first?: InputMaybe<Scalars['IntType']['input']>;
+  locale?: InputMaybe<SiteLocale>;
+  orderBy?: InputMaybe<Array<InputMaybe<LinkModelOrderBy>>>;
+  skip?: InputMaybe<Scalars['IntType']['input']>;
+};
+
+
+/** The query root for this schema */
 export type QueryAllUploadsArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   filter?: InputMaybe<UploadFilter>;
@@ -2307,7 +2379,9 @@ export type QueryLecturerArgs = {
 /** The query root for this schema */
 export type QueryLinkArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  filter?: InputMaybe<LinkModelFilter>;
   locale?: InputMaybe<SiteLocale>;
+  orderBy?: InputMaybe<Array<InputMaybe<LinkModelOrderBy>>>;
 };
 
 
@@ -2317,6 +2391,13 @@ export type QueryUploadArgs = {
   filter?: InputMaybe<UploadFilter>;
   locale?: InputMaybe<SiteLocale>;
   orderBy?: InputMaybe<Array<InputMaybe<UploadOrderBy>>>;
+};
+
+
+/** The query root for this schema */
+export type QueryWhatsupArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  locale?: InputMaybe<SiteLocale>;
 };
 
 export type RecordInterface = {
@@ -2874,20 +2955,65 @@ export enum VideoMp4Res {
   Medium = 'medium'
 }
 
+export type WhatsupModelDescriptionField = {
+  __typename?: 'WhatsupModelDescriptionField';
+  blocks: Array<Scalars['String']['output']>;
+  links: Array<Scalars['String']['output']>;
+  value: Scalars['JsonField']['output'];
+};
+
+export type WhatsupModelHeadingField = {
+  __typename?: 'WhatsupModelHeadingField';
+  blocks: Array<Scalars['String']['output']>;
+  links: Array<Scalars['String']['output']>;
+  value: Scalars['JsonField']['output'];
+};
+
+/** Record of type Whatsup (whatsup) */
+export type WhatsupRecord = RecordInterface & {
+  __typename?: 'WhatsupRecord';
+  _createdAt: Scalars['DateTime']['output'];
+  /** Editing URL */
+  _editingUrl?: Maybe<Scalars['String']['output']>;
+  _firstPublishedAt?: Maybe<Scalars['DateTime']['output']>;
+  _isValid: Scalars['BooleanType']['output'];
+  _modelApiKey: Scalars['String']['output'];
+  _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>;
+  _publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  /** Generates SEO and Social card meta tags to be used in your frontend */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>;
+  _updatedAt: Scalars['DateTime']['output'];
+  createdAt: Scalars['DateTime']['output'];
+  description?: Maybe<WhatsupModelDescriptionField>;
+  heading?: Maybe<WhatsupModelHeadingField>;
+  id: Scalars['ItemId']['output'];
+  links?: Maybe<LinkRecord>;
+  thumbnail?: Maybe<FileField>;
+  updatedAt: Scalars['DateTime']['output'];
+};
+
+
+/** Record of type Whatsup (whatsup) */
+export type WhatsupRecord_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
+};
+
 export type FocalPoint = {
   __typename?: 'focalPoint';
   x: Scalars['FloatType']['output'];
   y: Scalars['FloatType']['output'];
 };
 
-export type ImagePartsFragment = { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, bgColor?: string | null, sizes: string };
+export type ImageFragment = { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, bgColor?: string | null, sizes: string };
 
 export type AllEventsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AllEventsQuery = { __typename?: 'Query', allEvents: Array<{ __typename?: 'EventRecord', slug?: string | null, startDate?: any | null, mediaUrl?: string | null, title?: { __typename?: 'EventModelTitleField', blocks: Array<string>, links: Array<string>, value: any } | null, thumbnail?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, bgColor?: string | null, sizes: string } | null } | null, lecturers: Array<{ __typename?: 'LecturerRecord', slug?: string | null, name?: string | null, avatar?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, bgColor?: string | null, sizes: string } | null } | null }> }> };
+export type AllEventsQuery = { __typename?: 'Query', allEvents: Array<{ __typename?: 'EventRecord', slug?: string | null, startDate?: any | null, mediaUrl?: string | null, title?: { __typename?: 'EventModelTitleField', value: any, links: Array<string>, blocks: Array<string> } | null, thumbnail?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, bgColor?: string | null, sizes: string } | null } | null, lecturers: Array<{ __typename?: 'LecturerRecord', slug?: string | null, name?: string | null, avatar?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, bgColor?: string | null, sizes: string } | null } | null }> }> };
 
-export type WusLinksQueryVariables = Exact<{ [key: string]: never; }>;
+export type WhatsupQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type WusLinksQuery = { __typename?: 'Query', link?: { __typename?: 'LinkRecord', wusSession?: string | null, wusCalendar?: string | null } | null };
+export type WhatsupQuery = { __typename?: 'Query', whatsup?: { __typename?: 'WhatsupRecord', thumbnail?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, bgColor?: string | null, sizes: string } | null } | null, heading?: { __typename?: 'WhatsupModelHeadingField', value: any, links: Array<string>, blocks: Array<string> } | null, description?: { __typename?: 'WhatsupModelDescriptionField', value: any, links: Array<string>, blocks: Array<string> } | null, links?: { __typename?: 'LinkRecord', wusSession?: string | null, wusCalendar?: string | null } | null } | null };
