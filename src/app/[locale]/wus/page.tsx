@@ -1,8 +1,20 @@
+import type { Metadata } from 'next';
+
 import { Button } from '@/components/Button';
 import { Highlight } from '@/components/Highlight';
+import { generatePageOG } from '@/components/SEO';
 import { getWusEvent } from '@/data-layer/datocms/getWusLinks';
 import { notFound } from 'next/navigation';
 import { SRCImage, StructuredText } from 'react-datocms';
+
+export const metadata: Metadata = {
+  ...generatePageOG({
+    title: "What's up S-Kill",
+    description:
+      'Bi-weekly stream about the latest news in the world of web development',
+    images: '/og/wus.png',
+  }),
+};
 
 export default async function Page() {
   const event = await getWusEvent();
