@@ -28,7 +28,7 @@ export default async function Page() {
       <article className="flex flex-col gap-16">
         <StructuredText
           data={event.heading}
-          renderNode={(type, key, children) => {
+          renderNode={(type, { key }, children) => {
             if (type === 'h1')
               return (
                 <h1 className="text-xl font-bold" key={key}>
@@ -40,7 +40,7 @@ export default async function Page() {
         ></StructuredText>
         <StructuredText
           data={event.description}
-          renderNode={(type, key, children) => {
+          renderNode={(type, { key }, children) => {
             if (type === 'p')
               return (
                 <p className="text-fg-1" key={key}>

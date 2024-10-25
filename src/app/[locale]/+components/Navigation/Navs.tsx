@@ -3,7 +3,8 @@ import type { MessageKeys, NestedKeyOf } from 'next-intl';
 
 import { getServerFeature } from '@/config/features/getServerFeatures';
 import { isEmpty, isNull } from '@fullstacksjs/toolbox';
-import { NextIntlClientProvider, useMessages } from 'next-intl';
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
 import { pick } from 'radash';
 
 import { NavGroup } from './NavGroup';
@@ -68,8 +69,8 @@ const isActive = (c: Nav | NavGroup) =>
 const isEmptyGroup = (c: Nav | NavGroup) =>
   !isNull(c.children) && isEmpty(c.children);
 
-export const Navs = () => {
-  const t = useMessages();
+export const Navs = async () => {
+  const messages = await getMessages();
   const activeNavs = navs
     .map((n) => ({
       ...n,
@@ -78,7 +79,7 @@ export const Navs = () => {
     .filter((c) => isActive(c) && !isEmptyGroup(c));
 
   return (
-    <NextIntlClientProvider messages={pick(t, ['header'])}>
+    <NextIntlClientProvider messages={pick(messages, ['header'])}>
       {activeNavs.map((nav) => (
         <NavGroup key={nav.text} {...nav} />
       ))}
