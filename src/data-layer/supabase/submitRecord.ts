@@ -10,7 +10,7 @@ interface Record {
 }
 
 export const submitRecord = async ({ duration, mistakes }: Record) => {
-  const supabase = createServerSupabaseClient();
+  const supabase = await createServerSupabaseClient();
   const user = await getUser();
 
   if (user == null) return;

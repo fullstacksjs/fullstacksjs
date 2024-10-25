@@ -1,10 +1,11 @@
-import type { DetailedHTMLProps, HTMLAttributes } from 'react';
-
 import { cn } from '@/utils/cn';
 import { motion } from 'framer-motion';
 
 export interface LoaderSizeProps
-  extends DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement> {
+  extends React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLSpanElement>,
+    HTMLSpanElement
+  > {
   size?: string;
   color?: string;
   loading?: boolean;
@@ -17,7 +18,7 @@ export function Loader({
   duration = 2,
   className,
   size = '30px',
-}: LoaderSizeProps): JSX.Element | null {
+}: LoaderSizeProps): React.JSX.Element | null {
   if (!loading) return null;
 
   const variants = {

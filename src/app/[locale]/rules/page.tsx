@@ -18,7 +18,9 @@ export const metadata = generatePageOG({
   images: '/og/og.png',
 });
 
-export default async function RulesPage({ params: { locale } }: PageProps) {
+export default async function RulesPage({ params }: PageProps) {
+  const { locale } = await params;
+
   setRequestLocale(locale);
   const t = await getTranslations('rules');
 

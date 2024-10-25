@@ -5,7 +5,7 @@ import type { Profile } from './models/Profile';
 import { createServerSupabaseClient } from './SupabaseServer';
 
 export const getUser = cache(async (): Promise<Profile | undefined> => {
-  const supabase = createServerSupabaseClient();
+  const supabase = await createServerSupabaseClient();
 
   try {
     const { data } = await supabase.auth.getUser();

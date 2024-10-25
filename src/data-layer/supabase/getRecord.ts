@@ -4,7 +4,7 @@ import { getUser } from './getUser';
 import { createServerSupabaseClient } from './SupabaseServer';
 
 export const getRecord = cache(async () => {
-  const supabase = createServerSupabaseClient();
+  const supabase = await createServerSupabaseClient();
 
   try {
     const user = await getUser();

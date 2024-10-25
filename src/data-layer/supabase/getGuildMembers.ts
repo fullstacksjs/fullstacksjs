@@ -4,7 +4,7 @@ import { getUser } from './getUser';
 import { createServerSupabaseClient } from './SupabaseServer';
 
 export const getGuildMembers = cache(async () => {
-  const supabase = createServerSupabaseClient();
+  const supabase = await createServerSupabaseClient();
   const session = await getUser();
 
   if (!session) return null;

@@ -18,9 +18,9 @@ export const metadata = generatePageOG({
   images: '/og/advent.png',
 });
 
-export default async function AdventOfCodePage({
-  params: { locale },
-}: PageProps) {
+export default async function AdventOfCodePage({ params }: PageProps) {
+  const { locale } = await params;
+
   setRequestLocale(locale);
   const messages = (await getMessages()) as IntlMessages;
   const t = await getTranslations('advent');

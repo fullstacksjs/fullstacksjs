@@ -4,7 +4,7 @@ import { getUser } from './getUser';
 import { createServerSupabaseClient } from './SupabaseServer';
 
 export const getSubscription = cache(async (): Promise<boolean> => {
-  const supabase = createServerSupabaseClient();
+  const supabase = await createServerSupabaseClient();
   const user = await getUser();
 
   if (!user) return false;

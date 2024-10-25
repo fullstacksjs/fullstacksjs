@@ -19,7 +19,7 @@
   "dependencies": {
     "@fullstacksjs/config": "1.1.0",
     "@fullstacksjs/toolbox": "4.15.1",
-    "@next/third-parties": "14.2.15",
+    "@next/third-parties": "15.0.1",
     "@radix-ui/react-dialog": "1.1.2",
     "@radix-ui/react-dropdown-menu": "2.1.2",
     "@radix-ui/react-slot": "1.1.0",
@@ -33,13 +33,13 @@
     "graphql-request": "7.1.0",
     "howler": "2.2.4",
     "jotai": "2.8.3",
-    "next": "14.2.15",
-    "next-intl": "3.23.2",
+    "next": "15.0.1",
+    "next-intl": "3.23.5",
     "radash": "12.1.0",
-    "react": "18.3.1",
+    "react": "19.0.0-rc-69d4b800-20241021",
     "react-aria": "3.35.1",
     "react-datocms": "6.0.6",
-    "react-dom": "18.3.1",
+    "react-dom": "19.0.0-rc-69d4b800-20241021",
     "schema-dts": "1.1.2",
     "server-only": "0.0.1",
     "sharp": "0.33.5",
@@ -59,8 +59,8 @@
     "@total-typescript/ts-reset": "0.6.1",
     "@types/howler": "2.2.12",
     "@types/node": "22.7.9",
-    "@types/react": "18.3.12",
-    "@types/react-dom": "18.3.1",
+    "@types/react": "npm:types-react@19.0.0-rc.1",
+    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
     "autoprefixer": "10.4.20",
     "cspell": "8.15.4",
     "dotenv": "16.4.5",
@@ -80,5 +80,11 @@
     "pnpm": "8.15.4",
     "node": "20.11.1"
   },
-  "packageManager": "pnpm@9.7.1+sha512.faf344af2d6ca65c4c5c8c2224ea77a81a5e8859cbc4e06b1511ddce2f0151512431dd19e6aff31f2c6a8f5f2aced9bd2273e1fed7dd4de1868984059d2c4247"
+  "packageManager": "pnpm@9.7.1+sha512.faf344af2d6ca65c4c5c8c2224ea77a81a5e8859cbc4e06b1511ddce2f0151512431dd19e6aff31f2c6a8f5f2aced9bd2273e1fed7dd4de1868984059d2c4247",
+  "pnpm": {
+    "overrides": {
+      "@types/react": "npm:types-react@19.0.0-rc.1",
+      "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
+    }
+  }
 }

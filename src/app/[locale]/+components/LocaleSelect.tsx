@@ -8,7 +8,7 @@ import * as Dropdown from '@radix-ui/react-dropdown-menu';
 import ENFlag from './EN.svg';
 import IRFlag from './IR.svg';
 
-const localeMap: Record<Locale, { icon: JSX.Element; label: string }> = {
+const localeMap: Record<Locale, { icon: React.JSX.Element; label: string }> = {
   fa: { icon: <IRFlag />, label: 'FA' },
   en: { icon: <ENFlag />, label: 'EN' },
 };

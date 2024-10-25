@@ -12,10 +12,13 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { asks } from './asks';
 
 interface MetaDataProps {
-  searchParams: Record<string, string>;
+  searchParams: Promise<Record<string, string>>;
 }
 
-export function generateMetadata({ searchParams }: MetaDataProps): Metadata {
+export async function generateMetadata(
+  props: MetaDataProps,
+): Promise<Metadata> {
+  const searchParams = await props.searchParams;
   const params = new URLSearchParams(searchParams);
 
   return generatePageOG({
@@ -29,7 +32,9 @@ export function generateMetadata({ searchParams }: MetaDataProps): Metadata {
   });
 }
 
-export default async function AskPage({ params: { locale } }: PageProps) {
+export default async function AskPage({ params }: PageProps) {
+  const { locale } = await params;
+
   setRequestLocale(locale);
   const t = await getTranslations('ask');
 

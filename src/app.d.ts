@@ -9,7 +9,5 @@ type Messages = typeof import('../messages/en.json');
 declare interface IntlMessages extends Messages {}
 
 interface PageProps {
-  params: {
-    locale: string;
-  };
+  params: Promise<{ locale: string }>;
 }

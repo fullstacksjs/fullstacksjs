@@ -7,7 +7,7 @@ const secondsInDay = 60 * 60 * 24;
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    swcPlugins: [['@swc-jotai/react-refresh', {}]],
+    // swcPlugins: [['@swc-jotai/react-refresh', {}]],
   },
   images: {
     remotePatterns: [

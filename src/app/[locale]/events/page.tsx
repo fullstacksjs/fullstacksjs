@@ -16,7 +16,9 @@ export const metadata = generatePageOG({
   images: '/og/og.png',
 });
 
-export default async function EventsPage({ params: { locale } }: PageProps) {
+export default async function EventsPage({ params }: PageProps) {
+  const { locale } = await params;
+
   if (!getServerFeature('events')) notFound();
   setRequestLocale(locale);
   const t = await getTranslations('events');

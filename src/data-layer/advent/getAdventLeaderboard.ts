@@ -33,7 +33,7 @@ const starMap = [Star.None, Star.Silver, Star.Gold];
 
 export async function syncLeaderboard() {
   const { year } = serverConfig.get('advent');
-  const supabase = createServerSupabaseClient();
+  const supabase = await createServerSupabaseClient();
 
   const leaderboard = await fetchLeaderboard();
   const members = leaderboard
@@ -68,7 +68,7 @@ export async function fetchLeaderboard() {
 export async function getAdventLeaderboard(): Promise<AdventOfCodeUser[]> {
   try {
     const leaderboard = await fetchLeaderboard();
-    const supabase = createServerSupabaseClient();
+    const supabase = await createServerSupabaseClient();
 
     const { data = [] } = await supabase.from('advent').select(`
       id,

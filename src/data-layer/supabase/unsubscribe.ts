@@ -6,7 +6,7 @@ import { getUser } from './getUser';
 import { createServerSupabaseClient } from './SupabaseServer';
 
 export const unsubscribe = cache(async () => {
-  const supabase = createServerSupabaseClient();
+  const supabase = await createServerSupabaseClient();
   const user = await getUser();
 
   try {

@@ -8,7 +8,9 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Banner } from './+components/Banner';
 import { JoinButton } from './+components/JoinButton';
 
-export default async function Home({ params: { locale } }: PageProps) {
+export default async function Home({ params }: PageProps) {
+  const { locale } = await params;
+
   setRequestLocale(locale);
   const t = await getTranslations('main');
 
