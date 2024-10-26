@@ -2131,11 +2131,12 @@ export type LinkModelFilter = {
   _status?: InputMaybe<StatusFilter>;
   _unpublishingScheduledAt?: InputMaybe<PublishedAtFilter>;
   _updatedAt?: InputMaybe<UpdatedAtFilter>;
+  calendar?: InputMaybe<StringFilter>;
   createdAt?: InputMaybe<CreatedAtFilter>;
   id?: InputMaybe<ItemIdFilter>;
+  session?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
   updatedAt?: InputMaybe<UpdatedAtFilter>;
-  wusCalendar?: InputMaybe<StringFilter>;
-  wusSession?: InputMaybe<StringFilter>;
 };
 
 export enum LinkModelOrderBy {
@@ -2155,16 +2156,18 @@ export enum LinkModelOrderBy {
   _UnpublishingScheduledAtDesc = '_unpublishingScheduledAt_DESC',
   _UpdatedAtAsc = '_updatedAt_ASC',
   _UpdatedAtDesc = '_updatedAt_DESC',
+  CalendarAsc = 'calendar_ASC',
+  CalendarDesc = 'calendar_DESC',
   CreatedAtAsc = 'createdAt_ASC',
   CreatedAtDesc = 'createdAt_DESC',
   IdAsc = 'id_ASC',
   IdDesc = 'id_DESC',
+  SessionAsc = 'session_ASC',
+  SessionDesc = 'session_DESC',
+  TitleAsc = 'title_ASC',
+  TitleDesc = 'title_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
-  UpdatedAtDesc = 'updatedAt_DESC',
-  WusCalendarAsc = 'wusCalendar_ASC',
-  WusCalendarDesc = 'wusCalendar_DESC',
-  WusSessionAsc = 'wusSession_ASC',
-  WusSessionDesc = 'wusSession_DESC'
+  UpdatedAtDesc = 'updatedAt_DESC'
 }
 
 /** Record of type Link (link) */
@@ -2183,11 +2186,12 @@ export type LinkRecord = RecordInterface & {
   _status: ItemStatus;
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>;
   _updatedAt: Scalars['DateTime']['output'];
+  calendar?: Maybe<Scalars['String']['output']>;
   createdAt: Scalars['DateTime']['output'];
   id: Scalars['ItemId']['output'];
+  session?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
   updatedAt: Scalars['DateTime']['output'];
-  wusCalendar?: Maybe<Scalars['String']['output']>;
-  wusSession?: Maybe<Scalars['String']['output']>;
 };
 
 
@@ -3016,4 +3020,4 @@ export type AllEventsQuery = { __typename?: 'Query', allEvents: Array<{ __typena
 export type WhatsupQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type WhatsupQuery = { __typename?: 'Query', whatsup?: { __typename?: 'WhatsupRecord', thumbnail?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, bgColor?: string | null, sizes: string } | null } | null, heading?: { __typename?: 'WhatsupModelHeadingField', value: any, links: Array<string>, blocks: Array<string> } | null, description?: { __typename?: 'WhatsupModelDescriptionField', value: any, links: Array<string>, blocks: Array<string> } | null, links?: { __typename?: 'LinkRecord', wusSession?: string | null, wusCalendar?: string | null } | null } | null };
+export type WhatsupQuery = { __typename?: 'Query', whatsup?: { __typename?: 'WhatsupRecord', thumbnail?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, bgColor?: string | null, sizes: string } | null } | null, heading?: { __typename?: 'WhatsupModelHeadingField', value: any, links: Array<string>, blocks: Array<string> } | null, description?: { __typename?: 'WhatsupModelDescriptionField', value: any, links: Array<string>, blocks: Array<string> } | null, links?: { __typename?: 'LinkRecord', session?: string | null, calendar?: string | null } | null } | null };

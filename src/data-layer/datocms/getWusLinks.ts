@@ -28,8 +28,8 @@ const query = gql`
         blocks
       }
       links {
-        wusSession
-        wusCalendar
+        session
+        calendar
       }
     }
   }
@@ -38,12 +38,11 @@ const query = gql`
 const toEventLinks = (
   link: NonNullable<WhatsupQuery['whatsup']>['links'],
 ): EventLinks | undefined => {
-  if (!link?.wusCalendar || !link.wusSession) {
-    return;
-  }
+  if (!link?.calendar || !link.session) return;
+
   return {
-    session: link.wusSession,
-    calendar: link.wusCalendar,
+    session: link.session,
+    calendar: link.calendar,
   };
 };
 
