@@ -45,12 +45,8 @@ interface Props {
   params: Promise<{ locale: Locale }>;
 }
 
-export default async function LocaleLayout(props: Props) {
-  const params = await props.params;
-
-  const { locale } = params;
-
-  const { children } = props;
+export default async function LocaleLayout({ params, children }: Props) {
+  const { locale } = await params;
 
   const direction = getDirection(locale);
   setRequestLocale(locale);
