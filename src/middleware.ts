@@ -13,5 +13,7 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!api|favicon|day|wus/calendar|wus/live|_next|.*\\..*).*)'],
+  matcher: [
+    '/((?!api|favicon|day|wus/calendar|wus/live|mob/calendar|mob/live|_next|.*\\..*).*)',
+  ],
 };

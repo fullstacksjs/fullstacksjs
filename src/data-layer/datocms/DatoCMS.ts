@@ -2214,6 +2214,51 @@ export type LinksFilter = {
   notIn?: InputMaybe<Array<InputMaybe<Scalars['ItemId']['input']>>>;
 };
 
+export type MobreviewModelDescriptionField = {
+  __typename?: 'MobreviewModelDescriptionField';
+  blocks: Array<Scalars['String']['output']>;
+  links: Array<Scalars['String']['output']>;
+  value: Scalars['JsonField']['output'];
+};
+
+export type MobreviewModelHeadingField = {
+  __typename?: 'MobreviewModelHeadingField';
+  blocks: Array<Scalars['String']['output']>;
+  links: Array<Scalars['String']['output']>;
+  value: Scalars['JsonField']['output'];
+};
+
+/** Record of type Mobreview (mobreview) */
+export type MobreviewRecord = RecordInterface & {
+  __typename?: 'MobreviewRecord';
+  _createdAt: Scalars['DateTime']['output'];
+  /** Editing URL */
+  _editingUrl?: Maybe<Scalars['String']['output']>;
+  _firstPublishedAt?: Maybe<Scalars['DateTime']['output']>;
+  _isValid: Scalars['BooleanType']['output'];
+  _modelApiKey: Scalars['String']['output'];
+  _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>;
+  _publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  /** Generates SEO and Social card meta tags to be used in your frontend */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>;
+  _updatedAt: Scalars['DateTime']['output'];
+  createdAt: Scalars['DateTime']['output'];
+  description?: Maybe<MobreviewModelDescriptionField>;
+  heading?: Maybe<MobreviewModelHeadingField>;
+  id: Scalars['ItemId']['output'];
+  links?: Maybe<LinkRecord>;
+  thumbnail?: Maybe<FileField>;
+  updatedAt: Scalars['DateTime']['output'];
+};
+
+
+/** Record of type Mobreview (mobreview) */
+export type MobreviewRecord_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
+};
+
 export enum MuxThumbnailFormatType {
   Gif = 'gif',
   Jpg = 'jpg',
@@ -2273,6 +2318,8 @@ export type Query = {
   lecturer?: Maybe<LecturerRecord>;
   /** Returns a specific record */
   link?: Maybe<LinkRecord>;
+  /** Returns the single instance record */
+  mobreview?: Maybe<MobreviewRecord>;
   /** Returns a specific asset */
   upload?: Maybe<FileField>;
   /** Returns the single instance record */
@@ -2386,6 +2433,13 @@ export type QueryLinkArgs = {
   filter?: InputMaybe<LinkModelFilter>;
   locale?: InputMaybe<SiteLocale>;
   orderBy?: InputMaybe<Array<InputMaybe<LinkModelOrderBy>>>;
+};
+
+
+/** The query root for this schema */
+export type QueryMobreviewArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  locale?: InputMaybe<SiteLocale>;
 };
 
 
@@ -3016,6 +3070,11 @@ export type AllEventsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type AllEventsQuery = { __typename?: 'Query', allEvents: Array<{ __typename?: 'EventRecord', slug?: string | null, startDate?: any | null, mediaUrl?: string | null, title?: { __typename?: 'EventModelTitleField', value: any, links: Array<string>, blocks: Array<string> } | null, thumbnail?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, bgColor?: string | null, sizes: string } | null } | null, lecturers: Array<{ __typename?: 'LecturerRecord', slug?: string | null, name?: string | null, avatar?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, bgColor?: string | null, sizes: string } | null } | null }> }> };
+
+export type MobReviewQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type MobReviewQuery = { __typename?: 'Query', mobreview?: { __typename?: 'MobreviewRecord', thumbnail?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, bgColor?: string | null, sizes: string } | null } | null, heading?: { __typename?: 'MobreviewModelHeadingField', value: any, links: Array<string>, blocks: Array<string> } | null, description?: { __typename?: 'MobreviewModelDescriptionField', value: any, links: Array<string>, blocks: Array<string> } | null, links?: { __typename?: 'LinkRecord', session?: string | null, calendar?: string | null } | null } | null };
 
 export type WhatsupQueryVariables = Exact<{ [key: string]: never; }>;
 

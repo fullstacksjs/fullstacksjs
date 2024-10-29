@@ -44,6 +44,7 @@ const navs: NavGroup[] = [
     children: [
       { feature: 'events', href: '/events', text: 'events' },
       { feature: 'wus', href: '/wus', text: 'wus', isNew: true },
+      { feature: 'mob', href: '/mob', text: 'mob', isNew: true },
     ],
   },
   {

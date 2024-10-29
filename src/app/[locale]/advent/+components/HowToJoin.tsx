@@ -5,7 +5,7 @@ import type { RichTranslationValues } from 'next-intl';
 import { Anchor } from '@/components/Link';
 import { useSignIn } from '@/data-layer/supabase/useSignIn';
 import { i18nComponents } from '@/i18n/i18nComponents';
-import { Link } from '@/navigation';
+import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 
 const items = [

@@ -1,6 +1,6 @@
 'use client';
 
-import { usePathname, useRouter } from '@/navigation';
+import { usePathname, useRouter } from '@/i18n/routing';
 import { isNull } from '@fullstacksjs/toolbox';
 import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';

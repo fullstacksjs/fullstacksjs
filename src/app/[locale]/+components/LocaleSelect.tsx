@@ -2,7 +2,7 @@
 import type { Locale } from '@/i18n/locales';
 
 import ChevronDownIcon from '@/components/Icons/ChevronDown.svg';
-import { Link, usePathname } from '@/navigation';
+import { Link, usePathname } from '@/i18n/routing';
 import * as Dropdown from '@radix-ui/react-dropdown-menu';
 
 import ENFlag from './EN.svg';

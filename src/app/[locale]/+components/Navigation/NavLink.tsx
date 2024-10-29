@@ -2,7 +2,7 @@
 
 import { TextBadge } from '@/components/TextBadge';
 import { useIsRTL } from '@/i18n/direction';
-import { Link } from '@/navigation';
+import { Link } from '@/i18n/routing';
 import { cn } from '@/utils/cn';
 import { comparePaths } from '@fullstacksjs/toolbox';
 import { useTranslations } from 'next-intl';

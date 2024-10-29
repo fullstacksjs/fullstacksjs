@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { Button } from '@/components/Button';
 import { Highlight } from '@/components/Highlight';
 import { generatePageOG } from '@/components/SEO';
-import { getWusEvent } from '@/data-layer/datocms/getWusLinks';
+import { getWusEvent } from '@/data-layer/datocms/getWusEvent';
 import { notFound } from 'next/navigation';
 import { SRCImage, StructuredText } from 'react-datocms';
 
@@ -25,7 +25,7 @@ export default async function Page() {
       dir="rtl"
       className="flex flex-col-reverse gap-16 font-fa desktop:flex-row"
     >
-      <article className="flex flex-col gap-16">
+      <article className="flex flex-col gap-16 wide:min-w-[600px]">
         <StructuredText
           data={event.heading}
           renderNode={(type, { key }, children) => {

@@ -76,3 +76,5 @@ adventofcode
 آپدیت
 بمونید
 Whatsup
+mobreview
+ریویو
