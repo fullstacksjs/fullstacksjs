@@ -1,5 +1,7 @@
 import { Suspense } from 'react';
 
+import { FocusProvider } from './FocusProvider';
+
 export interface FocusItemListProps
   extends React.DetailedHTMLProps<
     React.OlHTMLAttributes<HTMLOListElement>,
@@ -11,7 +13,9 @@ export interface FocusItemListProps
 export const FocusItemList = ({ fallback, ...props }: FocusItemListProps) => {
   return (
     <Suspense fallback={fallback}>
-      <ol {...props} className="ms-4" />
+      <FocusProvider>
+        <ol {...props} className="ms-4" />
+      </FocusProvider>
     </Suspense>
   );
 };
