@@ -2320,6 +2320,8 @@ export type Query = {
   link?: Maybe<LinkRecord>;
   /** Returns the single instance record */
   mobreview?: Maybe<MobreviewRecord>;
+  /** Returns the single instance record */
+  stage?: Maybe<StageRecord>;
   /** Returns a specific asset */
   upload?: Maybe<FileField>;
   /** Returns the single instance record */
@@ -2444,6 +2446,13 @@ export type QueryMobreviewArgs = {
 
 
 /** The query root for this schema */
+export type QueryStageArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  locale?: InputMaybe<SiteLocale>;
+};
+
+
+/** The query root for this schema */
 export type QueryUploadArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   filter?: InputMaybe<UploadFilter>;
@@ -2557,6 +2566,51 @@ export type SlugFilter = {
   neq?: InputMaybe<Scalars['String']['input']>;
   /** Filter records that do have one of the specified slugs */
   notIn?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type StageModelDescriptionField = {
+  __typename?: 'StageModelDescriptionField';
+  blocks: Array<Scalars['String']['output']>;
+  links: Array<Scalars['String']['output']>;
+  value: Scalars['JsonField']['output'];
+};
+
+export type StageModelHeadingField = {
+  __typename?: 'StageModelHeadingField';
+  blocks: Array<Scalars['String']['output']>;
+  links: Array<Scalars['String']['output']>;
+  value: Scalars['JsonField']['output'];
+};
+
+/** Record of type Stage (stage) */
+export type StageRecord = RecordInterface & {
+  __typename?: 'StageRecord';
+  _createdAt: Scalars['DateTime']['output'];
+  /** Editing URL */
+  _editingUrl?: Maybe<Scalars['String']['output']>;
+  _firstPublishedAt?: Maybe<Scalars['DateTime']['output']>;
+  _isValid: Scalars['BooleanType']['output'];
+  _modelApiKey: Scalars['String']['output'];
+  _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>;
+  _publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  /** Generates SEO and Social card meta tags to be used in your frontend */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>;
+  _updatedAt: Scalars['DateTime']['output'];
+  createdAt: Scalars['DateTime']['output'];
+  description?: Maybe<StageModelDescriptionField>;
+  heading?: Maybe<StageModelHeadingField>;
+  id: Scalars['ItemId']['output'];
+  links?: Maybe<LinkRecord>;
+  thumbnail?: Maybe<FileField>;
+  updatedAt: Scalars['DateTime']['output'];
+};
+
+
+/** Record of type Stage (stage) */
+export type StageRecord_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
 };
 
 /** Specifies how to filter by status */
@@ -3075,6 +3129,11 @@ export type MobReviewQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type MobReviewQuery = { __typename?: 'Query', mobreview?: { __typename?: 'MobreviewRecord', thumbnail?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, bgColor?: string | null, sizes: string } | null } | null, heading?: { __typename?: 'MobreviewModelHeadingField', value: any, links: Array<string>, blocks: Array<string> } | null, description?: { __typename?: 'MobreviewModelDescriptionField', value: any, links: Array<string>, blocks: Array<string> } | null, links?: { __typename?: 'LinkRecord', session?: string | null, calendar?: string | null } | null } | null };
+
+export type StageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type StageQuery = { __typename?: 'Query', stage?: { __typename?: 'StageRecord', thumbnail?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, bgColor?: string | null, sizes: string } | null } | null, heading?: { __typename?: 'StageModelHeadingField', blocks: Array<string> } | null, description?: { __typename?: 'StageModelDescriptionField', blocks: Array<string>, value: any } | null, links?: { __typename?: 'LinkRecord', session?: string | null, calendar?: string | null } | null } | null };
 
 export type WhatsupQueryVariables = Exact<{ [key: string]: never; }>;
 
