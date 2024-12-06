@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@/components/Button';
+import { C2AButton } from '@/components/C2AButton';
 import { useEffect } from 'react';
 
 interface Props {
@@ -19,12 +19,7 @@ export default function Error({ error, reset }: Props) {
     <div className="grid min-h-[calc(100vh-600px)] place-items-center text-center">
       <div>
         <h2>Something went wrong!</h2>
-        <Button
-          className="mx-auto my-8 outline-1 outline-offset-4 outline-accent-0 ring-4 ring-accent-0/30 hover:ring-[6px] hover:ring-accent-0/40 focus:outline"
-          onClick={() => reset()}
-        >
-          Try again
-        </Button>
+        <C2AButton onClick={() => reset()}>Try again</C2AButton>
       </div>
     </div>
   );

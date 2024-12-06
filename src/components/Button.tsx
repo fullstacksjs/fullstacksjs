@@ -1,7 +1,8 @@
 import { cn } from '@/utils/cn';
 import { Slot } from '@radix-ui/react-slot';
 
-interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   className?: string;
   variant?: 'contained' | 'outline';
@@ -15,7 +16,7 @@ export const Button = ({
   asChild,
   size = 'md',
   ...props
-}: Props) => {
+}: ButtonProps) => {
   const Comp = asChild ? Slot : 'button';
 
   return (
