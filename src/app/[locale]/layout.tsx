@@ -70,6 +70,7 @@ export default async function LocaleLayout({ params, children }: Props) {
         className={cn(
           'bg-dark-0 leading-normal text-light-0 transition-colors duration-1000',
           { 'font-fa': locale === 'fa' },
+          { 'font-sans': locale !== 'fa' },
         )}
       >
         <JotaiProvider>

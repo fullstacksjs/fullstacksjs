@@ -1,26 +1,85 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
 :root {
-  --accent-0: 243 159 71;
-  --accent-1: 209 154 103;
-  --bg: 35 37 46;
-  --bg-1: 49 55 68;
-  --fg-0: 230 230 230;
-  --fg-1: 179 179 179;
-  --fg-muted: rgb(255 255 255 / 0.2);
-  --fg-inactive: rgb(255 255 255 / 0.3);
-  --fast: 200ms;
-  --w-mobile: 560px;
-  --w-tablet: 760px;
-  --w-desktop: 960px;
-  --w-wide: 1370px;
-  --advent-0: 43 38 38;
-  --advent-1: 38 34 34;
-  --advent-2: 104 90 90;
   scroll-behavior: smooth;
   font-size: clamp(0.625rem, 0.4rem + 0.2vw, 1.1rem);
+}
+
+@theme {
+  --text-xs: 1.4rem;
+  --text-xsm: 1.6rem;
+  --text-sm: 1.8rem;
+  --text-base: 2rem;
+  --text-md: 2.4rem;
+  --text-xl: 2.8rem;
+  --text-2xl: 3.2rem;
+  --text-3xl: 3.6rem;
+  --text-4xl: 3.8rem;
+  --text-5xl: 5.4rem;
+  --text-6xl: 10rem;
+
+  --color-advent-0: rgb(43 38 38);
+  --color-advent-1: rgb(38 34 34);
+  --color-advent-2: rgb(104 90 90);
+
+  --color-accent-0: rgb(243 159 71);
+  --color-accent-1: rgb(209 154 103);
+
+  --color-light-0: #e6e6e6;
+  --color-light-1: #b3b3b3;
+
+  --color-light-muted: rgb(255 255 255 / 0.2);
+  --color-light-inactive: rgb(255 255 255 / 0.3);
+
+  --color-bg-darker: #1e2129;
+  --color-bg-0: rgb(35 37 46);
+  --color-bg-1: rgb(49 55 68);
+  --color-bg-muted: rgb(255 255 255 / 10%);
+
+  --color-fg-0: rgb(230 230 230);
+  --color-fg-1: rgb(179 179 179);
+
+  --color-fg-muted: var(255 255 255 / 0.2);
+  --color-fg-error: rgb(255 117 117);
+  --color-fg-success: rgb(134 239 172);
+  --color-dark-0: var(--color-bg-0);
+
+  --text-paragraph: 2rem;
+  --text-paragraph--line-height: 1.4;
+  --text-paragraph--font-weight: 400;
+
+  --font-fa: var(--font-vazir), var(--font-rajdhani);
+  --font-sans: var(--font-rajdhani), var(--font-vazir);
+  --font-rajdhani: var(--font-rajdhani);
+
+  --breakpoint-*: initial;
+  --breakpoint-mobile: 560px;
+  --breakpoint-tablet: 760px;
+  --breakpoint-desktop: 960px;
+  --breakpoint-wide: 1370px;
+
+  --radius-md: 0.4rem;
+  --radius-lg: 0.8rem;
+  --radius-xl: 1.2rem;
+
+  --leading-none: 1;
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.4;
+  --leading-relaxed: 1.6;
+  --leading-loose: 2.4;
+
+  --animate-skeleton: skeleton 3s linear infinite;
+
+  @keyframes skeleton {
+    from {
+      translate: -200px;
+      transform: skewX(-30deg);
+    }
+    to {
+      translate: 150px;
+    }
+  }
 }
 
 :root[lang='fa'] {
@@ -66,7 +125,7 @@
   }
 }
 
-.bidi-plain {
+@utility bidi-plain {
   unicode-bidi: plaintext;
 }
 
@@ -116,5 +175,5 @@
 }
 
 .aoc-bg {
-  background-color: rgb(var(--advent-0));
+  background-color: var(--color-advent-0);
 }
