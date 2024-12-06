@@ -20,11 +20,11 @@
   --advent-1: 38 34 34;
   --advent-2: 104 90 90;
   scroll-behavior: smooth;
-  font-size: 0.625rem;
+  font-size: clamp(0.625rem, 0.4rem + 0.2vw, 1.1rem);
 }
 
 :root[lang='fa'] {
-  font-size: 0.525rem;
+  font-size: clamp(0.525rem, 0.3rem + 0.2vw, 1rem);
 }
 
 * {
