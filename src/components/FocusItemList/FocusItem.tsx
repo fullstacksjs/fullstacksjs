@@ -28,7 +28,7 @@ export const FocusItem = ({ target, children }: Props) => {
       })}
     >
       <button
-        className={cn('block w-full text-start outline-none')}
+        className={cn('block w-full text-start outline-hidden')}
         type="button"
         {...pressProps}
       >

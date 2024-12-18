@@ -1889,7 +1889,7 @@ export enum ImgixParamsCs {
 }
 
 export enum ImgixParamsFill {
-  Blur = 'blur',
+  Blur = 'blur-sm',
   Gen = 'gen',
   Generative = 'generative',
   Gradient = 'gradient',

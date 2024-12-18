@@ -6,6 +6,7 @@
 }
 
 @theme {
+  --text-*: initial;
   --text-xs: 1.4rem;
   --text-xsm: 1.6rem;
   --text-sm: 1.8rem;
@@ -44,10 +45,7 @@
   --color-fg-success: rgb(134 239 172);
   --color-dark-0: var(--color-bg-0);
 
-  --text-paragraph: 2rem;
-  --text-paragraph--line-height: 1.4;
-  --text-paragraph--font-weight: 400;
-
+  --font-*: initial;
   --font-fa: var(--font-vazir), var(--font-rajdhani);
   --font-sans: var(--font-rajdhani), var(--font-vazir);
   --font-rajdhani: var(--font-rajdhani);
@@ -62,6 +60,7 @@
   --radius-lg: 0.8rem;
   --radius-xl: 1.2rem;
 
+  --leading-*: initial;
   --leading-none: 1;
   --leading-tight: 1.25;
   --leading-snug: 1.375;
@@ -69,17 +68,9 @@
   --leading-relaxed: 1.6;
   --leading-loose: 2.4;
 
-  --animate-skeleton: skeleton 3s linear infinite;
-
-  @keyframes skeleton {
-    from {
-      translate: -200px;
-      transform: skewX(-30deg);
-    }
-    to {
-      translate: 150px;
-    }
-  }
+  --text-paragraph: 2rem;
+  --text-paragraph--line-height: 1.4;
+  --text-paragraph--font-weight: 400;
 }
 
 :root[lang='fa'] {
