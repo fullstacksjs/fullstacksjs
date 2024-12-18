@@ -20,8 +20,8 @@ export default function EventCard({ event }: Props) {
       target="_blank"
     >
       <SRCImage
-        className="aspect-video w-full rounded-md"
         data={event.thumbnail}
+        imgClassName="aspect-video w-full rounded-md"
       />
       <div className="flex gap-4">
         <LecturerStack lecturers={event.lecturers} />

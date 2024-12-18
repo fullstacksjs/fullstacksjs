@@ -40,7 +40,7 @@
   --color-fg-0: rgb(230 230 230);
   --color-fg-1: rgb(179 179 179);
 
-  --color-fg-muted: var(255 255 255 / 0.2);
+  --color-fg-muted: rgb(255 255 255 / 0.2);
   --color-fg-error: rgb(255 117 117);
   --color-fg-success: rgb(134 239 172);
   --color-dark-0: var(--color-bg-0);

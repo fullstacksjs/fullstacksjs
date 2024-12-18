@@ -13,7 +13,7 @@ export default async function TypePage() {
 
   return (
     <NextIntlClientProvider messages={pick(messages, ['type'])}>
-      <TypeContent initialRecord={record?.duration} user={user} />
+      <TypeContent user={user} initialRecord={record?.duration} />
     </NextIntlClientProvider>
   );
 }

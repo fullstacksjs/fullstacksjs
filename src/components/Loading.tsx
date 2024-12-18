@@ -36,8 +36,8 @@ export function Loader({
     >
       <motion.span
         className="absolute left-0 rounded-full"
-        transition={{ duration, repeat: Infinity }}
         variants={variants}
+        transition={{ duration, repeat: Infinity }}
         style={{
           height: size,
           width: size,

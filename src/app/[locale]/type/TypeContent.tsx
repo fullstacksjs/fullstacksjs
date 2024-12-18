@@ -54,5 +54,5 @@ export const TypeContent = ({ initialRecord, user }: Props) => {
     correct();
   });
 
-  return isFinished ? <Result record={record} user={user} /> : <Game />;
+  return isFinished ? <Result user={user} record={record} /> : <Game />;
 };

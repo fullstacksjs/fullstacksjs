@@ -63,10 +63,11 @@ export default async function LocaleLayout({ params, children }: Props) {
       <head>
         <JsonLd />
         {isAnalyticsActive ? (
-          <Tracking containerId={containerId} trackingId={trackingId} />
+          <Tracking trackingId={trackingId} containerId={containerId} />
         ) : null}
       </head>
       <body
+        suppressHydrationWarning
         className={cn(
           'bg-dark-0 leading-normal text-light-0 transition-colors duration-1000',
           { 'font-fa': locale === 'fa' },

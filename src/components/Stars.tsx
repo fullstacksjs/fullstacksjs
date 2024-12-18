@@ -50,12 +50,12 @@ export const Stars = ({ count, className }: Props) => (
   >
     {range(count).map((i) => (
       <motion.svg
-        suppressHydrationWarning
         className="absolute -z-10 fill-white"
-        custom={i}
         fill="none"
         key={i}
         variants={starAnim}
+        custom={i}
+        suppressHydrationWarning
         viewBox="0 0 12 13"
       >
         <motion.path

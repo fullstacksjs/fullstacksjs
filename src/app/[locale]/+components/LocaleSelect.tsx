@@ -34,7 +34,7 @@ export const LocaleSelect = ({ locale }: { locale: Locale }) => {
         <ChevronDownIcon />
       </Dropdown.Trigger>
       <Dropdown.Portal>
-        <Dropdown.Content className="relative z-50 overflow-hidden rounded-b-md bg-bg-muted data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2">
+        <Dropdown.Content className="relative z-50 overflow-hidden rounded-b-xl bg-bg-muted data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2">
           <Dropdown.Item asChild>
             <Link
               className="relative flex h-[53px] w-[64px] select-none items-center gap-4 rounded-b-xl bg-transparent px-4 text-xsm font-bold capitalize leading-tight text-fg-0 outline-hidden hover:cursor-pointer hover:bg-bg-1 hover:text-accent-0 focus:bg-bg-1 focus:text-accent-0 focus:outline tablet:w-[100px]"
