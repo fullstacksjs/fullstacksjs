@@ -4,11 +4,7 @@ import Image from 'next/image';
 import Banner from './+components/Advent.png';
 import { AdventOfCodeLoader } from './+components/AdventOfCodeLoader';
 
-interface Props {
-  children: React.ReactNode;
-}
-
-export default function WarLayout({ children }: Props) {
+export default function WarLayout({ children }: LayoutProps) {
   return (
     <AdventOfCodeLoader>
       <Image

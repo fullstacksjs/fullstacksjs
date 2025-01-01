@@ -8,6 +8,11 @@ declare module '*.svg?url' {
 type Messages = typeof import('../messages/en.json');
 declare interface IntlMessages extends Messages {}
 
-interface PageProps {
-  params: Promise<{ locale: string }>;
+interface PageProps<TParams extends Record<string, string> = {}> {
+  params: Promise<TParams & { locale: string }>;
+}
+
+interface LayoutProps<TParams extends Record<string, string> = {}> {
+  children: React.ReactNode;
+  params: Promise<TParams & { locale: Locale }>;
 }

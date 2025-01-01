@@ -1,4 +1,3 @@
-import type { Locale } from '@/i18n/locales';
 import type { Metadata } from 'next';
 
 import { generatePageOG, icons, JsonLd, keywords } from '@/components/SEO';
@@ -40,12 +39,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'ASafaeirad', url: 'https://github.com/ASafaeirad/' }],
 };
 
-interface Props {
-  children: React.ReactNode;
-  params: Promise<{ locale: Locale }>;
-}
-
-export default async function LocaleLayout({ params, children }: Props) {
+export default async function LocaleLayout({ params, children }: LayoutProps) {
   const { locale } = await params;
 
   const direction = getDirection(locale);
