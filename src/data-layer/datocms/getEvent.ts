@@ -3,10 +3,11 @@ import { gql } from 'graphql-request';
 import 'server-only';
 
 import type {
-  AllEventsQuery,
   EventFragment as EventFragmentType,
+  EventQuery,
+  EventQueryVariables,
 } from './DatoCMS';
-import type { Events, FullstacksJSEvent, Lecturer } from './Event';
+import type { FullstacksJSEvent, Lecturer } from './Event';
 import type { DatoLecturer } from './Fragments';
 
 import { datoClient } from './datoClient';
@@ -15,8 +16,8 @@ import { EventFragment } from './Fragments';
 const query = gql`
   ${EventFragment}
 
-  query AllEvents {
-    allEvents(orderBy: startDate_DESC, first: 100) {
+  query Event($slug: String!) {
+    event(filter: { slug: { eq: $slug } }) {
       ...Event
     }
   }
@@ -32,24 +33,25 @@ const toFullstacksJSEvent = (ev: EventFragmentType): FullstacksJSEvent => {
 
   return {
     slug: ev.slug!,
-    title: ev.title,
+    title: ev.title!,
+    description: ev.description!,
     thumbnail: ev.thumbnail!.responsiveImage!,
     lecturers: ev.lecturers.map(toLecturer),
-    description: ev.description,
     date,
     isUpcoming: !isPast(date),
     mediaUrl: ev.mediaUrl ?? undefined,
   };
 };
 
-export const getEvents = async (): Promise<Events> => {
-  const data = await datoClient.request<AllEventsQuery>(query);
-  return data.allEvents.map(toFullstacksJSEvent).reduce<Events>(
-    (evs, ev) => {
-      if (ev.isUpcoming) evs.upcoming.push(ev);
-      else evs.archived.push(ev);
-      return evs;
-    },
-    { upcoming: [], archived: [] },
+export const getEventBySlug = async (
+  slug: string,
+): Promise<FullstacksJSEvent | undefined> => {
+  const data = await datoClient.request<EventQuery, EventQueryVariables>(
+    query,
+    { slug },
   );
+
+  if (!data.event) return;
+
+  return toFullstacksJSEvent(data.event);
 };

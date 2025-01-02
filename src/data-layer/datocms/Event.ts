@@ -8,6 +8,7 @@ export interface Lecturer {
 export interface FullstacksJSEvent {
   slug: string;
   title: any;
+  description: any;
   date: Date;
   thumbnail: ResponsiveImageType;
   subscribersCount?: number;

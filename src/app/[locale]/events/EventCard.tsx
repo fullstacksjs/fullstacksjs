@@ -1,5 +1,6 @@
 import type { FullstacksJSEvent } from '@/data-layer/datocms/Event';
 
+import { Link } from '@/i18n/routing';
 import { format } from 'date-fns';
 import { SRCImage } from 'react-datocms';
 
@@ -12,12 +13,10 @@ interface Props {
 
 export default function EventCard({ event }: Props) {
   return (
-    <a
+    <Link
       aria-label={event.title}
       className="flex flex-col gap-8 font-fa"
-      href={event.mediaUrl}
-      rel="noopener noreferrer"
-      target="_blank"
+      href={`/events/${event.slug}`}
     >
       <SRCImage
         data={event.thumbnail}
@@ -26,14 +25,12 @@ export default function EventCard({ event }: Props) {
       <div className="flex gap-4">
         <LecturerStack lecturers={event.lecturers} />
         <div className="flex flex-1 flex-col gap-4">
-          <div className="flex-1 text-base font-bold leading-tight">
-            <EventCardTitle>{event.title}</EventCardTitle>
-          </div>
+          <EventCardTitle>{event.title}</EventCardTitle>
           <div className="flex items-center text-xsm text-fg-1">
             {format(event.date, 'dd/MM/yyyy')}
           </div>
         </div>
       </div>
-    </a>
+    </Link>
   );
 }
