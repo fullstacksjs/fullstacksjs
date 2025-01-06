@@ -25,8 +25,8 @@ export default function EventCard({ event }: Props) {
       <div className="flex gap-4">
         <LecturerStack lecturers={event.lecturers} />
         <div className="flex flex-1 flex-col gap-4">
-          <EventCardTitle>{event.title}</EventCardTitle>
-          <div className="flex items-center text-xsm text-fg-1">
+          <EventCardTitle data={event.title} />
+          <div className="flex items-center text-sm text-fg-1">
             {format(event.date, 'dd/MM/yyyy')}
           </div>
         </div>

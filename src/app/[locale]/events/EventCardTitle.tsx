@@ -1,19 +1,25 @@
 import type { StructuredTextDocument } from 'react-datocms/structured-text';
 
 import { Highlight } from '@/components/Highlight';
+import { cn } from '@/utils/cn';
 import { StructuredText } from 'react-datocms/structured-text';
 
 interface Props {
-  children: StructuredTextDocument;
+  data: StructuredTextDocument;
+  className?: string;
 }
 
-export const EventCardTitle = ({ children: data }: Props) => (
-  <div className="flex-1 text-md bidi-plain font-bold leading-tight">
+export const EventCardTitle = ({ data, className }: Props) => (
+  <div
+    className={cn(
+      'flex-1 text-md bidi-plain font-bold leading-tight',
+      className,
+    )}
+  >
     <StructuredText
       data={data}
       renderNode={(type, { key }, children) => {
         if (type === 'mark') return <Highlight key={key}>{children}</Highlight>;
-        if (type === 'paragraph') return <span key={key}>{children}</span>;
         return children;
       }}
     />

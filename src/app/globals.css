@@ -78,7 +78,7 @@
 }
 
 * {
-  scrollbar-color: var(--fg-muted) transparent;
+  scrollbar-color: var(--color-fg-muted) transparent;
   scrollbar-width: thin;
 }
 
@@ -89,12 +89,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--fg-muted);
+  background-color: var(--color-fg-muted);
 }
 
 ::selection {
-  background: rgb(var(--accent-0));
-  color: rgb(var(--bg));
+  background: var(--color-accent-0);
+  color: var(--color-bg-0);
 }
 
 .container {
