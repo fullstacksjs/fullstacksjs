@@ -15,7 +15,7 @@ export default function EventCard({ event }: Props) {
   return (
     <Link
       aria-label={event.title}
-      className="flex flex-col gap-8 font-fa"
+      className="flex flex-col gap-8"
       href={`/events/${event.slug}`}
     >
       <SRCImage

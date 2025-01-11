@@ -1,12 +1,12 @@
 'use client';
 import type { FullstacksJSEvent } from '@/data-layer/datocms/Event';
 
-import { Button } from '@/components/Button';
 import * as Dialog from '@radix-ui/react-dialog';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { SRCImage } from 'react-datocms';
 
+import { EventCardAction } from '../../../EventCardAction';
 import { EventCardDescription } from '../../../EventCardDescription';
 import { EventCardTitle } from '../../../EventCardTitle';
 
@@ -23,12 +23,13 @@ export const EventDialog = ({ event }: Props) => {
     router.back();
   };
 
+  const handleOpenChange = (newOpen: boolean): void => {
+    if (!newOpen) close();
+  };
+
   return (
-    <Dialog.Root open={open}>
-      <Dialog.Overlay
-        className="fixed inset-0 backdrop-blur-2xl"
-        onClick={close}
-      />
+    <Dialog.Root onOpenChange={handleOpenChange} open={open}>
+      <Dialog.Overlay className="fixed inset-0 backdrop-blur-2xl" />
       <Dialog.Content
         dir="rtl"
         className="bg-bg-darker max-w-[900px] flex flex-col gap-24 p-24 fixed left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-2xl"
@@ -45,18 +46,10 @@ export const EventDialog = ({ event }: Props) => {
             />
           </Dialog.Description>
         </div>
-        <div className="flex gap-4">
-          <Button asChild size="sm">
-            <a href="/mob/calendar" target="_blank">
-              افزودن به تقویم
-            </a>
-          </Button>
-          <Button asChild size="sm" variant="outline">
-            <a href="/mob/live" target="_blank">
-              وارد جلسه شوید
-            </a>
-          </Button>
-        </div>
+        <EventCardAction
+          mediaUrl={event.mediaUrl}
+          isUpcoming={event.isUpcoming}
+        ></EventCardAction>
       </Dialog.Content>
     </Dialog.Root>
   );

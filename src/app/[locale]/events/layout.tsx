@@ -3,9 +3,9 @@ export default function Layout({
   children,
 }: LayoutProps & { modal: React.ReactNode }) {
   return (
-    <>
+    <div className="font-fa">
       {modal}
       {children}
-    </>
+    </div>
   );
 }
