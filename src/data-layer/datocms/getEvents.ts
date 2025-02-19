@@ -1,6 +1,7 @@
 import { isPast } from 'date-fns';
 import { gql } from 'graphql-request';
 import 'server-only';
+import { unstable_cacheTag as cacheTag } from 'next/cache';
 
 import type {
   AllEventsQuery,
@@ -43,6 +44,9 @@ const toFullstacksJSEvent = (ev: EventFragmentType): FullstacksJSEvent => {
 };
 
 export const getEvents = async (): Promise<Events> => {
+  'use cache';
+  cacheTag('getEvents');
+
   const data = await datoClient.request<AllEventsQuery>(query);
   return data.allEvents.map(toFullstacksJSEvent).reduce<Events>(
     (evs, ev) => {

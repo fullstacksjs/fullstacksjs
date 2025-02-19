@@ -2,6 +2,7 @@ import { serverConfig } from '@/config/serverConfig';
 import { addLeadingZero, formatOrdinals } from '@/utils/number';
 import { joinPaths } from '@fullstacksjs/toolbox';
 import { getDayOfYear, secondsToHours, secondsToMinutes } from 'date-fns';
+import { unstable_cacheLife as cacheLife } from 'next/cache';
 
 import type { WakatimeReport, WakatimeUsage } from './Wakatime';
 
@@ -12,6 +13,9 @@ export function toHumanHM(seconds: number) {
 }
 
 export const getReport = async (count: number) => {
+  'use cache';
+  cacheLife('days');
+
   const url = joinPaths(
     serverConfig.get('wakatime.endpoint'),
     `day?size=${count}`,

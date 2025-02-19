@@ -1,6 +1,7 @@
 import { isPast } from 'date-fns';
 import { gql } from 'graphql-request';
 import 'server-only';
+import { unstable_cacheLife as cacheLife } from 'next/cache';
 
 import type {
   EventFragment as EventFragmentType,
@@ -46,6 +47,9 @@ const toFullstacksJSEvent = (ev: EventFragmentType): FullstacksJSEvent => {
 export const getEventBySlug = async (
   slug: string,
 ): Promise<FullstacksJSEvent | undefined> => {
+  'use cache';
+  cacheLife('days');
+
   const data = await datoClient.request<EventQuery, EventQueryVariables>(
     query,
     { slug },
