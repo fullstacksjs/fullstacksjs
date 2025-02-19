@@ -54,7 +54,7 @@ export const EventPage = ({
         <EventActions>{children}</EventActions>
       </article>
       <div className="desktop:min-w-[450px]">
-        <SRCImage data={thumbnail} />
+        <SRCImage data={thumbnail} priority />
       </div>
     </div>
   );

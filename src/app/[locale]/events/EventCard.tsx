@@ -9,9 +9,10 @@ import { LecturerStack } from './LecturerStack';
 
 interface Props {
   event: FullstacksJSEvent;
+  priority?: boolean;
 }
 
-export default function EventCard({ event }: Props) {
+export default function EventCard({ event, priority }: Props) {
   return (
     <Link
       aria-label={event.title}
@@ -22,6 +23,7 @@ export default function EventCard({ event }: Props) {
       <SRCImage
         data={event.thumbnail}
         imgClassName="aspect-video w-full rounded-md"
+        priority={priority}
       />
       <div className="flex gap-4">
         <LecturerStack lecturers={event.lecturers} />

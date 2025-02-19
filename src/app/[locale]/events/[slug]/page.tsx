@@ -13,7 +13,7 @@ export default async function Page({ params }: PageProps<{ slug: string }>) {
 
   return (
     <div dir="rtl" className="flex flex-col gap-16">
-      <SRCImage data={event.thumbnail} imgClassName="rounded-2xl" />
+      <SRCImage data={event.thumbnail} imgClassName="rounded-2xl" priority />
       <div className="flex flex-col items-start gap-16">
         <EventCardTitle className="text-2xl" data={event.title} />
         <EventCardDescription data={event.description} />
