@@ -33,7 +33,7 @@ export const EventFragment = gql`
       blocks
     }
     thumbnail {
-      responsiveImage {
+      responsiveImage(imgixParams: { auto: format }) {
         ...Image
       }
     }
