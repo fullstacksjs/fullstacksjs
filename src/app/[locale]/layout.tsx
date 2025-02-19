@@ -8,6 +8,7 @@ import { SupabaseProvider } from '@/data-layer/supabase/SupabaseProvider';
 import { getDirection } from '@/i18n/direction';
 import { JotaiProvider } from '@/store/JotaiProvider';
 import { cn } from '@/utils/cn';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { setRequestLocale } from 'next-intl/server';
 import { Rajdhani, Vazirmatn } from 'next/font/google';
 
@@ -78,6 +79,7 @@ export default async function LocaleLayout({ params, children }: LayoutProps) {
             </div>
           </SupabaseProvider>
         </JotaiProvider>
+        <SpeedInsights />
       </body>
     </html>
   );

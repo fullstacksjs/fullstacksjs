@@ -26,6 +26,7 @@
     "@supabase/ssr": "0.5.2",
     "@supabase/supabase-js": "2.47.10",
     "@tailwindcss/postcss": "4.0.0-beta.8",
+    "@vercel/speed-insights": "1.2.0",
     "ahooks": "3.8.4",
     "clsx": "2.1.1",
     "date-fns": "4.1.0",
