@@ -39,12 +39,10 @@ export const EventDialog = ({ event }: Props) => {
           <Dialog.Title>
             <EventCardTitle className="text-xl" data={event.title} />
           </Dialog.Title>
-          <Dialog.Description asChild>
-            <EventCardDescription
-              className="max-h-[30vh] overflow-y-auto"
-              data={event.description}
-            />
-          </Dialog.Description>
+          <EventCardDescription
+            className="max-h-[30vh] overflow-y-auto"
+            data={event.description}
+          />
         </div>
         <EventCardAction
           mediaUrl={event.mediaUrl}
