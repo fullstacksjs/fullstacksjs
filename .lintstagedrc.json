@@ -1,5 +1,5 @@
 {
   "*.{json,html}": ["prettier --write", "cspell --no-must-find-files"],
   "*.{md,yaml,yml}": ["cspell --no-must-find-files"],
-  "*.{ts,tsx}": ["eslint --fix", "cspell --no-must-find-files"]
+  "*.{ts,tsx}": ["eslint --fix --max-warnings 0", "cspell --no-must-find-files"]
 }
