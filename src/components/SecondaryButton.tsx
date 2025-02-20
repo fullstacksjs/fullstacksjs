@@ -14,7 +14,7 @@ export function SecondaryButton({ className, asChild, ...props }: Props) {
     <Comp
       type="button"
       className={cn(
-        `flex h-[42px] items-center gap-6 rounded-xl bg-bg-muted px-4 text-xs font-semibold capitalize leading-tight text-fg-0 hover:cursor-pointer focus:outline tablet:h-[53px]`,
+        `flex h-[42px] items-center gap-6 rounded-xl bg-bg-muted px-4 text-xs font-semibold capitalize leading-tight text-fg-0 hover:cursor-pointer focus:outline tablet:h-[53px] disabled:cursor-auto`,
         className,
       )}
       {...props}

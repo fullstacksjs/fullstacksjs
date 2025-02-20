@@ -9,6 +9,7 @@ interface Props {
   alt?: string;
   width?: number;
   height?: number;
+  disabled?: boolean;
 }
 
 export function LoginButton({
@@ -17,11 +18,12 @@ export function LoginButton({
   width = 35,
   height = 35,
   alt = `${children}'s avatar`,
+  disabled,
 }: Props) {
   const { signIn } = useSignIn();
 
   return (
-    <SecondaryButton onClick={signIn}>
+    <SecondaryButton disabled={disabled} onClick={signIn}>
       <div className="flex size-12 shrink-0 items-center justify-center overflow-hidden rounded-full border border-fg-0 bg-dark-0 tablet:size-14">
         <Image height={height} width={width} alt={alt} src={avatar} />
       </div>
