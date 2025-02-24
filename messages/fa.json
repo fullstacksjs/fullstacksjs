@@ -196,5 +196,8 @@
     "mistakes": "اشتباهات: {mistakes}",
     "perfect": "کامل!",
     "best": "بهترین زمان شما: {duration}"
+  },
+  "projects" : {
+    "title" : "پروژه ها"
   }
 }

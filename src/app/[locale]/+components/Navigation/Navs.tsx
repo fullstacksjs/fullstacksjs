@@ -77,9 +77,6 @@ const isActive = (c: Nav | NavGroup) =>
 const isEmptyGroup = (c: Nav | NavGroup) =>
   !isNull(c.children) && isEmpty(c.children);
 
-console.log('Projects feature active:', getServerFeature('projects'));
-
-
 export const Navs = async () => {
   const messages = await getMessages();
   const activeNavs = navs
