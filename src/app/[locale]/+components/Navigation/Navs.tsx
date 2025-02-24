@@ -63,12 +63,22 @@ const navs: NavGroup[] = [
       { href: '/advent/board', text: 'advent.board' },
     ],
   },
+  {
+    feature: 'projects',
+    text: 'projects',
+    children: [
+      { feature: 'projects', isNew: true, href: '/projects', text: 'projects' },
+    ],
+  },
 ];
 
 const isActive = (c: Nav | NavGroup) =>
   isNull(c.feature) || getServerFeature(c.feature);
 const isEmptyGroup = (c: Nav | NavGroup) =>
   !isNull(c.children) && isEmpty(c.children);
+
+console.log('Projects feature active:', getServerFeature('projects'));
+
 
 export const Navs = async () => {
   const messages = await getMessages();
