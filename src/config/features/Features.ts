@@ -10,4 +10,6 @@ export type Feature =
   | 'type'
   | 'wakatime'
   | 'war'
-  | 'wus';
+  | 'wus'
+  | 'projects'
+  ;
