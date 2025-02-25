@@ -79,8 +79,8 @@ export const jsonLd: WithContext<Organization> = {
 export const JsonLd = () => {
   return (
     <script
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
     />
   );
 };

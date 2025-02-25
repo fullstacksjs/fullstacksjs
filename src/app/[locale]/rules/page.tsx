@@ -6,6 +6,7 @@ import { FocusItemListSkeleton } from '@/components/FocusItemList/FocusItemListS
 import { Paragraph } from '@/components/Paragraph';
 import { generatePageOG } from '@/components/SEO';
 import { routing } from '@/i18n/routing';
+import { NextIntlClientProvider } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import { guidelines } from './guidelines';
@@ -25,33 +26,35 @@ export default async function RulesPage({ params }: PageProps) {
   const t = await getTranslations('rules');
 
   return (
-    <Articles>
-      <Article id="rules" title={t('title')}>
-        <Paragraph>{t.rich('desc')}</Paragraph>
+    <NextIntlClientProvider>
+      <Articles>
+        <Article id="rules" title={t('title')}>
+          <Paragraph>{t.rich('desc')}</Paragraph>
 
-        <FocusItemList
-          fallback={<FocusItemListSkeleton lines={rules.length} />}
-        >
-          {rules.map((rule) => (
-            <FocusItem key={rule} target={rule}>
-              {t.rich(`items.${rule}`)}
-            </FocusItem>
-          ))}
-        </FocusItemList>
-      </Article>
+          <FocusItemList
+            fallback={<FocusItemListSkeleton lines={rules.length} />}
+          >
+            {rules.map((rule) => (
+              <FocusItem key={rule} target={rule}>
+                {t.rich(`items.${rule}`)}
+              </FocusItem>
+            ))}
+          </FocusItemList>
+        </Article>
 
-      <Article id="guides" title={t('guidelines.title')}>
-        <FocusItemList
-          fallback={<FocusItemListSkeleton lines={guidelines.length} />}
-        >
-          {guidelines.map((guide) => (
-            <FocusItem key={guide} target={guide}>
-              {t(`guidelines.items.${guide}`)}
-            </FocusItem>
-          ))}
-        </FocusItemList>
-      </Article>
-    </Articles>
+        <Article id="guides" title={t('guidelines.title')}>
+          <FocusItemList
+            fallback={<FocusItemListSkeleton lines={guidelines.length} />}
+          >
+            {guidelines.map((guide) => (
+              <FocusItem key={guide} target={guide}>
+                {t(`guidelines.items.${guide}`)}
+              </FocusItem>
+            ))}
+          </FocusItemList>
+        </Article>
+      </Articles>
+    </NextIntlClientProvider>
   );
 }
 

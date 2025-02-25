@@ -1,7 +1,8 @@
 import { cn } from '@/utils/cn';
 import { Slot } from '@radix-ui/react-slot';
 
-interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   className?: string;
   variant?: 'contained' | 'outline';
@@ -15,7 +16,7 @@ export const Button = ({
   asChild,
   size = 'md',
   ...props
-}: Props) => {
+}: ButtonProps) => {
   const Comp = asChild ? Slot : 'button';
 
   return (
@@ -23,9 +24,9 @@ export const Button = ({
       className={cn(
         'flex flex-row items-center justify-center rounded-lg px-12 py-4 text-sm font-semibold leading-snug disabled:border-none disabled:bg-bg-muted disabled:text-fg-muted',
         {
-          'border border-accent-0 text-accent-0 transition-[background-color,color] hover:bg-accent-0 hover:text-bg-0 focus:text-bg-0 focus:bg-accent-0 focus:outline-none':
+          'border border-accent-0 text-accent-0 transition-[background-color,color] hover:bg-accent-0 hover:text-bg-0 focus:text-bg-0 focus:bg-accent-0 focus:outline-hidden':
             variant === 'outline',
-          'bg-accent-0 text-dark-0 transition-shadow': variant === 'contained',
+          'bg-accent-0 text-dark-0': variant === 'contained',
           'px-6 py-3': size === 'sm',
           'px-12 py-4': size === 'md',
         },

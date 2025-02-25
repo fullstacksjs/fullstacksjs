@@ -9,11 +9,7 @@ export const metadata = generatePageOG({
   images: '/og/type.png',
 });
 
-interface Props {
-  children: React.ReactNode;
-}
-
-export default function TypeLayout({ children }: Props) {
+export default function TypeLayout({ children }: LayoutProps) {
   const feature = getServerFeature('type');
   if (!feature) return notFound();
 

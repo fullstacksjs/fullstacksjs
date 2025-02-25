@@ -1,5 +1,7 @@
 import type { Locale } from '@/i18n/locales';
 
+import { getDirection } from '@/i18n/direction';
+import { NextIntlClientProvider } from 'next-intl';
 import { getLocale } from 'next-intl/server';
 import { Suspense } from 'react';
 
@@ -12,15 +14,18 @@ import { Navs } from './Navigation/Navs';
 
 export async function Header() {
   const locale = (await getLocale()) as Locale;
+  const direction = getDirection(locale);
 
   return (
     <div className="flex items-center justify-between">
       <DesktopNavs />
-      <MobileNavs>
+      <MobileNavs direction={direction}>
         <Navs />
       </MobileNavs>
       <div className="flex items-center gap-4 wide:gap-16">
-        <LocaleSelect locale={locale} />
+        <NextIntlClientProvider>
+          <LocaleSelect locale={locale} />
+        </NextIntlClientProvider>
         <Suspense fallback={<AuthBtnSkeleton />}>
           <Authentication />
         </Suspense>

@@ -3,6 +3,7 @@ import { getServerFeature } from '@/config/features/getServerFeatures';
 import { getEvents } from '@/data-layer/datocms/getEvents';
 import { routing } from '@/i18n/routing';
 import { Separator } from '@radix-ui/react-dropdown-menu';
+import { NextIntlClientProvider } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { isEmpty } from 'radash';
@@ -26,11 +27,11 @@ export default async function EventsPage({ params }: PageProps) {
   const { upcoming, archived } = await getEvents();
 
   return (
-    <>
+    <NextIntlClientProvider>
       <EventList events={upcoming} title={t('upcoming.title')} />
       {isEmpty(upcoming) || isEmpty(archived) ? null : <Separator />}
       <EventList events={archived} title={t('archived.title')} />
-    </>
+    </NextIntlClientProvider>
   );
 }
 

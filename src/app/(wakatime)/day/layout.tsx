@@ -9,10 +9,6 @@ const rajdhani = Rajdhani({
   variable: '--font-rajdhani',
 });
 
-interface Props {
-  children: React.ReactNode;
-}
-
 export const metadata: Metadata = {
   title: 'FullstacksJS',
   description: 'We Grow together',
@@ -22,7 +18,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'ASafaeirad', url: 'https://github.com/ASafaeirad/' }],
 };
 
-export default function WakatimeLayout({ children }: Props) {
+export default function WakatimeLayout({ children }: LayoutProps) {
   return (
     <html lang="en" className={rajdhani.variable}>
       {children}

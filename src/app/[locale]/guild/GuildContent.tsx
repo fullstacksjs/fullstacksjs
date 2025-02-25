@@ -97,8 +97,8 @@ export const GuildContent = ({ user, isSubscribed }: Props) => {
             animate="visible"
             className="flex flex-col items-center justify-center gap-20"
             initial="hidden"
-            transition={{ duration: 1 }}
             variants={container}
+            transition={{ duration: 1 }}
           >
             <motion.div variants={item}>
               <Image

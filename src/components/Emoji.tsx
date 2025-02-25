@@ -25,6 +25,7 @@ export const Emoji = ({ className, name }: Props) => {
       alt={`${name} Emoji`}
       className={cn('inline', emojiMaps[name].className, className)}
       src={`https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/${emojiMaps[name].path}.png`}
+      unoptimized
     />
   );
 };

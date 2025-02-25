@@ -27,7 +27,7 @@ export function POST(request: NextRequest) {
   if (page) revalidatePath(page);
 
   return NextResponse.json({
-    revalidated: Boolean(tag ?? page),
+    revalidated: tag ?? page,
     now: Date.now(),
   });
 }

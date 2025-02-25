@@ -7,6 +7,7 @@ import { FocusItemList } from '@/components/FocusItemList/FocusItemList';
 import { FocusItemListSkeleton } from '@/components/FocusItemList/FocusItemListSkeleton';
 import { generatePageOG } from '@/components/SEO';
 import { routing } from '@/i18n/routing';
+import { NextIntlClientProvider } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import { asks } from './asks';
@@ -39,23 +40,25 @@ export default async function AskPage({ params }: PageProps) {
   const t = await getTranslations('ask');
 
   return (
-    <Articles>
-      <Article title={t('title')}>
-        <FocusItemList
-          fallback={
-            <FocusItemListSkeleton className="h-44" lines={asks.length} />
-          }
-        >
-          {asks.map((ask) => (
-            <FocusItem key={ask} target={ask}>
-              <p className="mb-2 text-accent-1">{t(`guides.${ask}.title`)}</p>
-              <p className="text-light-0">{t(`guides.${ask}.desc`)}</p>
-              <br />
-            </FocusItem>
-          ))}
-        </FocusItemList>
-      </Article>
-    </Articles>
+    <NextIntlClientProvider>
+      <Articles>
+        <Article title={t('title')}>
+          <FocusItemList
+            fallback={
+              <FocusItemListSkeleton className="h-44" lines={asks.length} />
+            }
+          >
+            {asks.map((ask) => (
+              <FocusItem key={ask} target={ask}>
+                <p className="mb-2 text-accent-1">{t(`guides.${ask}.title`)}</p>
+                <p className="text-light-0">{t(`guides.${ask}.desc`)}</p>
+                <br />
+              </FocusItem>
+            ))}
+          </FocusItemList>
+        </Article>
+      </Articles>
+    </NextIntlClientProvider>
   );
 }
 

@@ -1,4 +1,3 @@
-import type { Locale } from '@/i18n/locales';
 import type { Metadata } from 'next';
 
 import { generatePageOG, icons, JsonLd, keywords } from '@/components/SEO';
@@ -9,6 +8,7 @@ import { SupabaseProvider } from '@/data-layer/supabase/SupabaseProvider';
 import { getDirection } from '@/i18n/direction';
 import { JotaiProvider } from '@/store/JotaiProvider';
 import { cn } from '@/utils/cn';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { setRequestLocale } from 'next-intl/server';
 import { Rajdhani, Vazirmatn } from 'next/font/google';
 
@@ -40,12 +40,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'ASafaeirad', url: 'https://github.com/ASafaeirad/' }],
 };
 
-interface Props {
-  children: React.ReactNode;
-  params: Promise<{ locale: Locale }>;
-}
-
-export default async function LocaleLayout({ params, children }: Props) {
+export default async function LocaleLayout({ params, children }: LayoutProps) {
   const { locale } = await params;
 
   const direction = getDirection(locale);
@@ -58,18 +53,20 @@ export default async function LocaleLayout({ params, children }: Props) {
     <html
       dir={direction}
       lang={locale}
-      className={`${rajdhani.variable} ${vazir.variable}`}
+      className={`bg-dark-0 ${rajdhani.variable} ${vazir.variable}`}
     >
       <head>
         <JsonLd />
         {isAnalyticsActive ? (
-          <Tracking containerId={containerId} trackingId={trackingId} />
+          <Tracking trackingId={trackingId} containerId={containerId} />
         ) : null}
       </head>
       <body
+        suppressHydrationWarning
         className={cn(
-          'bg-dark-0 leading-normal text-light-0 transition-colors duration-1000',
+          'leading-normal text-light-0 transition-colors duration-1000',
           { 'font-fa': locale === 'fa' },
+          { 'font-sans': locale !== 'fa' },
         )}
       >
         <JotaiProvider>
@@ -82,6 +79,7 @@ export default async function LocaleLayout({ params, children }: Props) {
             </div>
           </SupabaseProvider>
         </JotaiProvider>
+        <SpeedInsights />
       </body>
     </html>
   );

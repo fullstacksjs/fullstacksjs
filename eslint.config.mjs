@@ -1,3 +1,5 @@
 import { init } from '@fullstacksjs/eslint-config';
 
-export default init();
+export default init({
+  tailwind: false,
+});

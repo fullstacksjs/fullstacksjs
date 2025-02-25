@@ -16,8 +16,11 @@ export const ProfileButton = ({ children, avatar }: Props) => {
 
   return (
     <div className="flex gap-2">
-      <LoginButton avatar={avatar}>{children}</LoginButton>
+      <LoginButton disabled avatar={avatar}>
+        {children}
+      </LoginButton>
       <SecondaryButton
+        aria-label="logout"
         className="aspect-square justify-center"
         type="submit"
         onClick={() => supabase.auth.signOut()}

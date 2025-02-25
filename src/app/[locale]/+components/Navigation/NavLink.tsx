@@ -35,7 +35,7 @@ export function NavLink({ href, isNew, children }: Props) {
       )}
     >
       <Link
-        className="flex items-center gap-4 whitespace-nowrap rounded-sm text-base focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-8 focus-visible:outline-accent-0 rtl:text-md"
+        className="flex items-center gap-4 whitespace-nowrap rounded-sm text-base focus-visible:outline-1 focus-visible:outline-offset-8 focus-visible:outline-accent-0 rtl:text-md"
         href={href}
       >
         {children}{' '}
