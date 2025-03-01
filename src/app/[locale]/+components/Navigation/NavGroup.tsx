@@ -33,7 +33,7 @@ export const NavGroup = ({ text, href, subNavs, isNew }: Props) => {
         href={href ?? '#'}
         type="button"
         className={cn(
-          'flex min-w-[100px] items-center justify-between gap-4 uppercase rtl:text-xl',
+          'flex min-w-[100px] items-center justify-between gap-4 uppercase rtl:text-xl whitespace-nowrap',
           {
             'text-fg-0': isActive,
             'text-light-muted': !isActive,

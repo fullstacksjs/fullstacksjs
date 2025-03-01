@@ -116,6 +116,12 @@
   }
 }
 
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1400px;
+  }
+}
+
 @utility bidi-plain {
   unicode-bidi: plaintext;
 }
