@@ -3,7 +3,10 @@ module.exports = {
     {
       name: 'preset-default',
       params: {
-        overrides: { removeViewBox: false },
+        overrides: {
+          removeViewBox: false,
+          cleanupIds: false,
+        },
       },
     },
   ],

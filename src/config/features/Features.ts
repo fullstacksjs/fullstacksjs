@@ -6,10 +6,9 @@ export type Feature =
   | 'guild'
   | 'locale'
   | 'mob'
+  | 'projects'
   | 'rules'
   | 'type'
   | 'wakatime'
   | 'war'
-  | 'wus'
-  | 'projects'
-  ;
+  | 'wus';

@@ -120,6 +120,8 @@
   unicode-bidi: plaintext;
 }
 
+@custom-variant pointer-coarse (@media (pointer: coarse));
+
 .rank-1 {
   border: 1px solid #0000;
   background:
