@@ -13,7 +13,6 @@ export const metadata = generatePageOG({
     'FullstacksJS Leaderboards: Track Your Progress and See How You Stack Up Against Your Peers',
   description:
     'The FullstacksJS Leaderboards track the top coders, contributors, and learners in the FullstacksJS community. See how you stack up against your peers and track your progress over time.',
-  images: '/og/og.png',
 });
 
 export default async function WakatimePage() {

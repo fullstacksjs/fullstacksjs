@@ -32,12 +32,12 @@ export type OGImages = NonNullable<Metadata['openGraph']>['images'];
 interface OGProps {
   title: string;
   description: string;
-  images: string;
+  images?: string;
 }
 
 export function generatePageOG({
   description,
-  images,
+  images = '/og/og.png',
   title,
 }: OGProps): Metadata {
   return {

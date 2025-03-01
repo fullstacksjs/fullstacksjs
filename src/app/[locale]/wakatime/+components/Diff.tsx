@@ -26,7 +26,9 @@ export function Diff({ diff, className }: Props) {
       <span className="flex items-center">
         {<Icon height={16} width={16} />}
       </span>
-      <span className="text-xs font-semibold leading-none">{Math.abs(diff)}</span>
+      <span className="text-xs font-semibold leading-none">
+        {Math.abs(diff)}
+      </span>
     </div>
   );
 }

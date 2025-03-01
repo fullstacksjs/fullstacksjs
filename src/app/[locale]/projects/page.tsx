@@ -47,7 +47,6 @@ export const metadata = generatePageOG({
   title: 'FullstacksJS Community Projects',
   description:
     'A collection of open-source and collaborative projects for learning, teamwork, and improving programming skills.',
-  images: '/og/og.png',
 });
 
 export default async function ProjectsPage({ params }: PageProps) {

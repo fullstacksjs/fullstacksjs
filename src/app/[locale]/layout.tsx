@@ -31,7 +31,6 @@ export const metadata: Metadata = {
   ...generatePageOG({
     title: 'FullstacksJS',
     description: 'We Grow together',
-    images: '/og/og.png',
   }),
   manifest: '/manifest.json',
   metadataBase: new URL('https://fullstacksjs.com'),
