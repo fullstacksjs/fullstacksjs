@@ -1,7 +1,9 @@
 import { generatePageOG } from '@/components/SEO';
+import { getServerFeature } from '@/config/features/getServerFeatures';
 import { routing } from '@/i18n/routing';
 import { NextIntlClientProvider } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { notFound } from 'next/navigation';
 import React from 'react';
 
 import Config from './+components/Config.svg';
@@ -50,6 +52,9 @@ export const metadata = generatePageOG({
 });
 
 export default async function ProjectsPage({ params }: PageProps) {
+  const feature = getServerFeature('projects');
+  if (!feature) return notFound();
+
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations('projects');
