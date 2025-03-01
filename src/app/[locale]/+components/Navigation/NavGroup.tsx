@@ -1,54 +1,53 @@
 'use client';
 
-import type { MessageKeys, NestedKeyOf } from 'next-intl';
-
 import { CircleBadge } from '@/components/CircleBadge';
 import ChevronDownIcon from '@/components/Icons/ChevronDown.svg';
 import { cn } from '@/utils/cn';
 import { comparePaths } from '@fullstacksjs/toolbox';
-import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 import { useSelectedLayoutSegment } from 'next/navigation';
+
+import type { Nav } from './Navs';
 
 import { NavLink } from './NavLink';
 
-type Keys = MessageKeys<
-  IntlMessages['header']['navigation'],
-  NestedKeyOf<IntlMessages['header']['navigation']>
->;
+const isPathActive = (selected: string, href: string) =>
+  comparePaths(selected, href) === 0;
 
 interface Props {
-  text: Keys;
-  children?: any[];
+  text: string;
+  href?: string;
+  subNavs?: Nav[];
+  isNew?: boolean;
 }
 
-export const NavGroup = ({ text, children }: Props) => {
-  const t = useTranslations('header.navigation');
-  const selected = useSelectedLayoutSegment() ?? '';
-  const activeChild = children?.find(
-    (c) => comparePaths(selected, c.href) === 0,
-  );
-  const isNew = children?.some((c) => c.isNew);
+export const NavGroup = ({ text, href, subNavs, isNew }: Props) => {
+  const segment = useSelectedLayoutSegment() ?? '';
+  const isActive = href
+    ? isPathActive(segment, href)
+    : Boolean(subNavs?.find((n) => isPathActive(segment, n.href)));
 
   return (
-    <div className="group relative" key={text}>
-      <button
+    <div className="group relative">
+      <Link
+        href={href ?? '#'}
         type="button"
         className={cn(
           'flex min-w-[100px] items-center justify-between gap-4 uppercase rtl:text-xl',
           {
-            'text-fg-0': activeChild,
-            'text-light-muted': !activeChild,
+            'text-fg-0': isActive,
+            'text-light-muted': !isActive,
           },
         )}
       >
         {isNew ? <CircleBadge className="hidden desktop:block" /> : null}
-        {t(text)}
-        <ChevronDownIcon />
-      </button>
+        {text}
+        {!href ? <ChevronDownIcon /> : null}
+      </Link>
       <div className="static top-full flex w-full flex-col gap-4 py-4 ps-2 desktop:absolute desktop:hidden desktop:ps-0 desktop:group-hover:flex rtl:ps-4 z-10">
-        {children?.map((c) => (
+        {subNavs?.map((c) => (
           <NavLink key={c.href} {...c}>
-            {t(c.text)}
+            {c.text}
           </NavLink>
         ))}
       </div>

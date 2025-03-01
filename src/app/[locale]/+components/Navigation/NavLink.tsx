@@ -15,7 +15,8 @@ interface Props {
 }
 
 export function NavLink({ href, isNew, children }: Props) {
-  const t = useTranslations();
+  const t = useTranslations('header.navigation');
+
   const selected = useSelectedLayoutSegments().join('/');
   const isActive = comparePaths(selected, href) === 0;
   const isRtl = useIsRTL();
@@ -38,8 +39,7 @@ export function NavLink({ href, isNew, children }: Props) {
         className="flex items-center gap-4 whitespace-nowrap rounded-sm text-base focus-visible:outline-1 focus-visible:outline-offset-8 focus-visible:outline-accent-0 rtl:text-md"
         href={href}
       >
-        {children}{' '}
-        {isNew ? <TextBadge>{t('header.navigation.new')}</TextBadge> : null}
+        {children} {isNew ? <TextBadge>{t('new')}</TextBadge> : null}
       </Link>
     </li>
   );

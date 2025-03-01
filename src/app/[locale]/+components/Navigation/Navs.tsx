@@ -4,8 +4,8 @@ import type { MessageKeys, NestedKeyOf } from 'next-intl';
 import { getServerFeature } from '@/config/features/getServerFeatures';
 import { isEmpty, isNull } from '@fullstacksjs/toolbox';
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
-import { pick } from 'radash';
+import { getMessages, getTranslations } from 'next-intl/server';
+import { get } from 'radash';
 
 import { NavGroup } from './NavGroup';
 
@@ -14,17 +14,18 @@ type Keys = MessageKeys<
   NestedKeyOf<IntlMessages['header']['navigation']>
 >;
 
-interface NavGroup {
+export interface NavGroup {
   feature?: Feature;
-  text: Keys;
-  children?: Nav[];
+  text: string;
+  subNavs: Nav[];
+  href?: string;
+  isNew?: boolean;
 }
 
-interface Nav {
+export interface Nav {
   feature?: Feature;
   href: string;
-  children?: Nav[];
-  text: Keys;
+  text: string;
   isNew?: boolean;
 }
 
@@ -32,33 +33,46 @@ const navs: NavGroup[] = [
   {
     feature: 'about',
     text: 'community.title',
-    children: [
+    subNavs: [
       { feature: 'about', href: '/', text: 'community.about' },
-      { feature: 'rules', href: '/rules', text: 'community.rules' },
+      {
+        feature: 'rules',
+        href: '/rules',
+        text: 'community.rules',
+      },
       { feature: 'ask', href: '/ask', text: 'community.ask' },
     ],
   },
   {
     feature: 'events',
     text: 'events',
-    children: [
+    subNavs: [
       { feature: 'events', href: '/events', text: 'events' },
-      { feature: 'wus', href: '/wus', text: 'wus', isNew: true },
-      { feature: 'mob', href: '/mob', text: 'mob', isNew: true },
+      { feature: 'wus', href: '/wus', text: 'wus' },
+      { feature: 'mob', href: '/mob', text: 'mob' },
     ],
   },
   {
     text: 'war',
-    children: [
-      { feature: 'wakatime', href: '/wakatime', text: 'wakatime' },
-      { feature: 'guild', isNew: true, href: '/guild', text: 'guild' },
-      { feature: 'type', href: '/type', text: 'type' },
+    subNavs: [
+      {
+        feature: 'wakatime',
+        href: '/wakatime',
+        text: 'wakatime',
+      },
+      {
+        feature: 'guild',
+        isNew: true,
+        href: '/guild',
+        text: 'guild',
+      },
+      { feature: 'type', href: '/type', text: 'type', isNew: true },
     ],
   },
   {
     feature: 'advent',
     text: 'advent.title',
-    children: [
+    subNavs: [
       { href: '/advent', text: 'advent.about' },
       { href: '/advent/board', text: 'advent.board' },
     ],
@@ -66,30 +80,36 @@ const navs: NavGroup[] = [
   {
     feature: 'projects',
     text: 'projects',
-    children: [
-      { feature: 'projects', isNew: true, href: '/projects', text: 'projects' },
-    ],
+    href: '/projects',
+    subNavs: [],
+    isNew: true,
   },
 ];
 
 const isActive = (c: Nav | NavGroup) =>
   isNull(c.feature) || getServerFeature(c.feature);
-const isEmptyGroup = (c: Nav | NavGroup) =>
-  !isNull(c.children) && isEmpty(c.children);
+const isEmptyGroup = (c: NavGroup) => !c.href && isEmpty(c.subNavs);
 
 export const Navs = async () => {
   const messages = await getMessages();
-  const activeNavs = navs
-    .map((n) => ({
+  const t = await getTranslations('header.navigation');
+  const activeNavsGroups = navs
+    .map<NavGroup>((n) => ({
       ...n,
-      children: n.children?.filter(isActive),
+      subNavs: n.subNavs
+        .filter(isActive)
+        .map((c) => ({ ...c, text: t(c.text as Keys) })),
     }))
     .filter((c) => isActive(c) && !isEmptyGroup(c));
 
   return (
-    <NextIntlClientProvider messages={pick(messages, ['header'])}>
-      {activeNavs.map((nav) => (
-        <NavGroup key={nav.text} {...nav} />
+    <NextIntlClientProvider
+      messages={{
+        header: { navigation: { new: get(messages, 'header.navigation.new') } },
+      }}
+    >
+      {activeNavsGroups.map((g) => (
+        <NavGroup key={g.text} {...g} text={t(g.text as Keys)} />
       ))}
     </NextIntlClientProvider>
   );
