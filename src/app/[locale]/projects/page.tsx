@@ -8,8 +8,10 @@ import React from 'react';
 
 import Config from './+components/Config.svg';
 import Eslint from './+components/Eslint.svg';
+import NCLU from './+components/NCLU.svg';
 import ProjectCard from './+components/ProjectCard';
 import ToolBox from './+components/ToolBox.svg';
+import YDKHTML from './+components/YDKHTML.svg';
 
 export interface Project {
   name: string;
@@ -42,6 +44,22 @@ const projects: Project[] = [
     logo: Config,
     repoUrl: 'https://github.com/fullstacksjs/config',
     docUrl: 'https://config.fullstacksjs.com/',
+  },
+  {
+    name: 'NPM Check Last Publish',
+    description:
+      'A simple CLI tool that helps developers check the last published versions of their project dependencies.',
+    logo: NCLU,
+    repoUrl: 'https://github.com/fullstacksjs/npm-check-last-publish',
+    docUrl: 'https://github.com/fullstacksjs/npm-check-last-publish',
+  },
+  {
+    name: 'You Don’t Know HTML',
+    description:
+      'An open-source, community-driven quiz game to test your HTML skills. Discover fun challenges and see how well you really know your tags and attributes!',
+    logo: YDKHTML,
+    repoUrl: 'https://github.com/fullstacksjs/you-dont-know-html',
+    docUrl: 'https://github.com/fullstacksjs/you-dont-know-html',
   },
 ];
 
