@@ -17,11 +17,11 @@ function ProjectCard({ name, description, logo: Logo, docUrl }: Project) {
       </div>
       <div className="flex flex-col gap-1">
         <div className="items-start flex justify-center desktop:justify-start gap-4 text-center tablet:text-start">
-          <h2 className="font-bold text-2xl">{name}</h2>
+          <h2 className="font-bold text-md tablet:text-2xl">{name}</h2>
           <ForwardIcon className="size-12 shrink-0 translate-y-2" />
         </div>
 
-        <p className="text-md text-light-1 text-center desktop:text-start">
+        <p className="tablet:text-md text-light-1 text-center desktop:text-start">
           {description}
         </p>
       </div>
