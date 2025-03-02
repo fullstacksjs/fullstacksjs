@@ -81,7 +81,7 @@ export default async function ProjectsPage({ params }: PageProps) {
     <NextIntlClientProvider>
       <div className="flex flex-col gap-20">
         <h1 className="text-3xl font-bold leading-tight">{t('title')}</h1>
-        <div dir="ltr" className="flex flex-col gap-30 desktop:gap-20">
+        <div dir="ltr" className="flex flex-col gap-20">
           {projects.map((project) => (
             <ProjectCard key={project.name} {...project} />
           ))}
