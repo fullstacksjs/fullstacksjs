@@ -1,31 +1,44 @@
-import Link from 'next/link';
 import React from 'react';
-
 import type { Project } from '../page';
+import ResourceLink from './ResourceLink';
 
-import ForwardIcon from './ForwardIcon.svg';
+import HomePage from './HomePage.svg';
+import GitHub from './GitHub.svg';
+import Npm from './Npm.svg';
 
-function ProjectCard({ name, description, logo: Logo, docUrl }: Project) {
+function ProjectCard({
+  name,
+  description,
+  logo: Logo,
+  docUrl,
+  repoUrl,
+  npmUrl,
+}: Project) {
   return (
-    <Link
-      className="flex flex-col mobile:flex-col desktop:flex-row items-center gap-8 align desktop:gap-16 grayscale hover:grayscale-0 pointer-coarse:grayscale-0 transition-all"
-      href={docUrl}
-      target="_blank"
-    >
+    <div className="flex flex-col mobile:flex-col desktop:flex-row items-center gap-8 desktop:gap-16">
       <div className="flex justify-center items-center basis-[160px] shrink-0 h-[160px]">
         <Logo className="w-[160px] aspect-auto" />
       </div>
       <div className="flex flex-col gap-1">
-        <div className="items-start flex justify-center desktop:justify-start gap-4 text-center tablet:text-start">
-          <h2 className="font-bold text-md tablet:text-2xl">{name}</h2>
-          <ForwardIcon className="size-12 shrink-0 translate-y-2" />
-        </div>
-
-        <p className="tablet:text-md text-light-1 text-center desktop:text-start">
+        <h2 className="font-bold text-md text-center tablet:text-start tablet:text-2xl">
+          {name}
+        </h2>
+        <p className="tablet:text-md text-light-1 text-center tablet:text-start">
           {description}
         </p>
+        <div className="flex flex-wrap pt-[15px] tablet:p-0 gap-2.5 tablet:gap-5 justify-center tablet:justify-start items-center">
+          {docUrl && (
+            <ResourceLink title="Home Page" url={docUrl} icon={HomePage} />
+          )}
+          {repoUrl && (
+            <ResourceLink title="GitHub Repo" url={repoUrl} icon={GitHub} />
+          )}
+          {npmUrl && (
+            <ResourceLink title="NPM Package" url={npmUrl} icon={Npm} />
+          )}
+        </div>
       </div>
-    </Link>
+    </div>
   );
 }
 
