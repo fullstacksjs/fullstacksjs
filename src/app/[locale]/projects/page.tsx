@@ -16,9 +16,10 @@ import YDKHTML from './+components/YDKHTML.svg';
 export interface Project {
   name: string;
   description: string;
-  logo: React.FC<React.SVGProps<SVGSVGElement>>;
-  docUrl: string;
+  logo: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   repoUrl: string;
+  docUrl?: string;
+  npmUrl?: string;
 }
 
 const projects: Project[] = [
@@ -29,13 +30,14 @@ const projects: Project[] = [
     logo: ToolBox,
     repoUrl: 'https://github.com/fullstacksjs/toolbox',
     docUrl: 'https://toolbox.fullstacksjs.com/',
+    npmUrl: 'https://www.npmjs.com/package/@fullstacksjs/toolbox',
   },
   {
     name: '@fullstacksjs/eslint-config',
     description: 'One configuration to rule them all.',
     logo: Eslint,
     repoUrl: 'https://github.com/fullstacksjs/eslint-config',
-    docUrl: 'https://github.com/fullstacksjs/eslint-config',
+    npmUrl: 'https://www.npmjs.com/package/@fullstacksjs/eslint-config',
   },
   {
     name: '@fullstacksjs/config',
@@ -44,6 +46,7 @@ const projects: Project[] = [
     logo: Config,
     repoUrl: 'https://github.com/fullstacksjs/config',
     docUrl: 'https://config.fullstacksjs.com/',
+    npmUrl: 'https://www.npmjs.com/package/@fullstacksjs/config',
   },
   {
     name: 'NPM Check Last Publish',
@@ -51,7 +54,7 @@ const projects: Project[] = [
       'A simple CLI tool that helps developers check the last published versions of their project dependencies.',
     logo: NCLU,
     repoUrl: 'https://github.com/fullstacksjs/npm-check-last-publish',
-    docUrl: 'https://github.com/fullstacksjs/npm-check-last-publish',
+    npmUrl: 'https://www.npmjs.com/package/npm-check-last-publish',
   },
   {
     name: 'You Don’t Know HTML',
@@ -59,7 +62,6 @@ const projects: Project[] = [
       'An open-source, community-driven quiz game to test your HTML skills. Discover fun challenges and see how well you really know your tags and attributes!',
     logo: YDKHTML,
     repoUrl: 'https://github.com/fullstacksjs/you-dont-know-html',
-    docUrl: 'https://github.com/fullstacksjs/you-dont-know-html',
   },
 ];
 
