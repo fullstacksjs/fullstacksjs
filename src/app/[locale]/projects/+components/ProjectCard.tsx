@@ -1,10 +1,11 @@
 import React from 'react';
-import type { Project } from '../page';
-import ResourceLink from './ResourceLink';
 
-import HomePage from './HomePage.svg';
+import type { Project } from '../page';
+
 import GitHub from './GitHub.svg';
+import HomePage from './HomePage.svg';
 import Npm from './Npm.svg';
+import ResourceLink from './ResourceLink';
 
 function ProjectCard({
   name,
