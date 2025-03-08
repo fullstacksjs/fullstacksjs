@@ -29,13 +29,19 @@ function ProjectCard({
         </p>
         <div className="flex flex-wrap pt-[15px] tablet:p-0 gap-2.5 tablet:gap-5 justify-center tablet:justify-start items-center">
           {docUrl && (
-            <ResourceLink title="Home Page" url={docUrl} icon={HomePage} />
+            <ResourceLink url={docUrl} icon={HomePage}>
+              Home Page
+            </ResourceLink>
           )}
           {repoUrl && (
-            <ResourceLink title="GitHub Repo" url={repoUrl} icon={GitHub} />
+            <ResourceLink url={repoUrl} icon={GitHub}>
+              GitHub Repo
+            </ResourceLink>
           )}
           {npmUrl && (
-            <ResourceLink title="NPM Package" url={npmUrl} icon={Npm} />
+            <ResourceLink url={npmUrl} icon={Npm}>
+              NPM Package
+            </ResourceLink>
           )}
         </div>
       </div>
