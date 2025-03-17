@@ -7,7 +7,7 @@ export const JoinButton = () => {
   return (
     <C2AButton asChild>
       <a
-        href="https://t.me/fullstacks"
+        href="https://t.me/fullstacksjs"
         rel="noopener noreferrer"
         target="_blank"
       >

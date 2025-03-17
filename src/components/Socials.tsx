@@ -11,7 +11,7 @@ import { SocialItem } from './SocialItem';
 const items = [
   {
     icon: Telegram,
-    href: 'https://t.me/fullstacks',
+    href: 'https://t.me/fullstacksjs',
     children: 'telegram',
   },
   {
