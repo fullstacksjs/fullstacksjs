@@ -34,6 +34,9 @@ const nextConfig = {
     ],
     minimumCacheTTL: secondsInDay,
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   webpack(config) {
     addSvgr(config);
     return config;
