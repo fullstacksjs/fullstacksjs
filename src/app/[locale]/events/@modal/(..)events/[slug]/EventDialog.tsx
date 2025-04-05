@@ -32,20 +32,17 @@ export const EventDialog = ({ event }: Props) => {
       <Dialog.Overlay className="fixed inset-0 backdrop-blur-2xl" />
       <Dialog.Content
         dir="rtl"
-        className="bg-bg-darker desktop:max-w-[900px] flex flex-col gap-24 p-12 pt-32 desktop:p-16 fixed inset-0 desktop:left-1/2 desktop:top-1/2 desktop:bottom-auto desktop:transform desktop:-translate-x-1/2 desktop:-translate-y-1/2 rounded-2xl"
+        className="bg-bg-darker desktop:max-w-[900px] flex flex-col gap-24 p-12 pt-32 desktop:p-16 fixed inset-0 desktop:left-1/2 desktop:top-1/2 desktop:bottom-auto desktop:transform desktop:-translate-x-1/2 desktop:-translate-y-1/2 rounded-2xl max-h-[90vh]"
       >
         <Dialog.Close className="desktop:hidden absolute left-12 top-10 cursor-pointer">
           <div className="close-icon size-14" />
         </Dialog.Close>
         <SRCImage data={event.thumbnail} imgClassName="rounded-2xl" />
-        <div className="flex flex-col flex-1 gap-16">
+        <div className="flex flex-col flex-1 gap-16 overflow-y-auto">
           <Dialog.Title>
             <EventCardTitle className="text-xl" data={event.title} />
           </Dialog.Title>
-          <EventCardDescription
-            className="max-h-[30vh] overflow-y-auto"
-            data={event.description}
-          />
+          <EventCardDescription data={event.description} />
         </div>
         <EventCardAction
           mediaUrl={event.mediaUrl}
