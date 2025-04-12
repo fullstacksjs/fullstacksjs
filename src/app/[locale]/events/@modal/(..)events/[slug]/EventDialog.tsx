@@ -32,7 +32,7 @@ export const EventDialog = ({ event }: Props) => {
       <Dialog.Overlay className="fixed inset-0 backdrop-blur-2xl" />
       <Dialog.Content
         dir="rtl"
-        className="bg-bg-darker desktop:max-w-[900px] flex flex-col gap-24 p-12 pt-32 desktop:p-16 fixed inset-0 desktop:left-1/2 desktop:top-1/2 desktop:bottom-auto desktop:transform desktop:-translate-x-1/2 desktop:-translate-y-1/2 rounded-2xl max-h-[90vh]"
+        className="bg-bg-darker desktop:max-w-[900px] flex flex-col gap-24 p-12 pt-32 desktop:p-16 fixed inset-0 desktop:left-1/2 desktop:top-1/2 desktop:bottom-auto desktop:transform desktop:-translate-x-1/2 desktop:-translate-y-1/2 rounded-2xl max-h-screen desktop:max-h-[90vh]"
       >
         <Dialog.Close className="desktop:hidden absolute left-12 top-10 cursor-pointer">
           <div className="close-icon size-14" />
