@@ -62,6 +62,7 @@ const projects: Project[] = [
       'An open-source, community-driven quiz game to test your HTML skills. Discover fun challenges and see how well you really know your tags and attributes!',
     logo: YDKHTML,
     repoUrl: 'https://github.com/fullstacksjs/you-dont-know-html',
+    docUrl: 'https://www.youdontknowhtml.com',
   },
 ];
 
