@@ -67,6 +67,7 @@ const navs: NavGroup[] = [
         text: 'guild',
       },
       { feature: 'type', href: '/type', text: 'type', isNew: true },
+      { feature: 'hsl', href: '/hsl', text: 'hsl', isNew: true },
     ],
   },
   {

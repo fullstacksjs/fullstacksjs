@@ -22,6 +22,7 @@
       "mob": "Mob Review",
       "events": "events",
       "projects": "projects",
+      "hsl": "Colors",
       "guild": "TS Guild",
       "wakatime": "Wakatime",
       "type": "Type",
@@ -200,7 +201,19 @@
     "perfect": "Perfect!",
     "best": "Your best time is {duration}"
   },
-  "projects" : {
-    "title" : "Projects"
+  "projects": {
+    "title": "Projects"
+  },
+  "hsl": {
+    "title": "HSL Color Game",
+    "desc": "Find the block with a different shade or brightness.",
+    "congratulations": "🎉 Congratulations! You won!",
+    "finalScore": "Final Score:",
+    "highestScore": "Highest Score:",
+    "gameOver": "😵 Oh no! Game over :(",
+    "lastScore": "Last Score:",
+    "currentScore": "Current Score:",
+    "tryAgain": "Try Again",
+    "reset": "Reset"
   }
 }
