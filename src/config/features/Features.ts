@@ -4,6 +4,7 @@ export type Feature =
   | 'ask'
   | 'events'
   | 'guild'
+  | 'hsl'
   | 'locale'
   | 'mob'
   | 'projects'
