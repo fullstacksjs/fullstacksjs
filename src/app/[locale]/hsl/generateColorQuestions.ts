@@ -1,3 +1,5 @@
+import { getRandom, randomInt, range } from '@fullstacksjs/toolbox';
+
 export interface ColorQuestion {
   blocks: string[];
   correctIndex: number;
@@ -21,18 +23,14 @@ function calculateDifference(
   return Math.max(minDifference, rounded);
 }
 
-function randomShadeOrBrightness(): 'brightness' | 'shade' {
-  return Math.random() > 0.5 ? 'shade' : 'brightness';
-}
-
 export function generateColorQuestions(count: number = 20): ColorQuestion[] {
-  return Array.from({ length: count }, (_, i) => {
-    const hue = Math.floor(Math.random() * 360);
+  return range(count).map((_, i) => {
+    const hue = randomInt(1, 360);
     const saturation = 70;
-    const baseLightness = 40 + Math.floor(Math.random() * 20);
+    const baseLightness = randomInt(40, 60);
     const difference = calculateDifference(i, count);
-    const oddIndex = Math.floor(Math.random() * 6);
-    const shadeOrBrightness = randomShadeOrBrightness();
+    const oddIndex = randomInt(0, 5);
+    const shadeOrBrightness = getRandom(['shade', 'brightness']);
     const adjustedLightness =
       shadeOrBrightness === 'shade'
         ? baseLightness - difference
@@ -41,10 +39,9 @@ export function generateColorQuestions(count: number = 20): ColorQuestion[] {
     const baseColor = hsl(hue, saturation, baseLightness);
     const oddColor = hsl(hue, saturation, adjustedLightness);
 
-    const blocks = Array.from({ length: 6 }, (__, index) =>
-      index === oddIndex ? oddColor : baseColor,
-    );
-
+    const blocks = range(6).map((_blockIndex, index) => {
+      return index === oddIndex ? oddColor : baseColor;
+    });
     return {
       blocks,
       correctIndex: oddIndex,

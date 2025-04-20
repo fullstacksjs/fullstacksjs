@@ -20,6 +20,7 @@ export default function ColorsGrid({ colors }: { colors: ColorQuestion[] }) {
     hasWon,
     handleBlockClick,
     handleTryAgain,
+    showCorrectIndex,
   } = useColorGame(colors);
 
   return (
@@ -28,6 +29,7 @@ export default function ColorsGrid({ colors }: { colors: ColorQuestion[] }) {
         blocks={currentQuestion?.blocks ?? []}
         correctIndex={currentQuestion?.correctIndex ?? -1}
         onBlockClick={handleBlockClick}
+        showCorrectIndex={showCorrectIndex}
         wrongSelectedIndex={wrongSelectedIndex}
       />
       <GameStatus

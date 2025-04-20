@@ -1,72 +1,63 @@
-import { useEffect, useState } from 'react';
+'use client';
+
+import { useEffect, useReducer } from 'react';
 
 import type { ColorQuestion } from './generateColorQuestions';
 
-import { generateColorQuestions } from './generateColorQuestions';
+import { colorGameReducer, createInitialState } from './colorGameReducer';
 
 export const useColorGame = (initialColors: ColorQuestion[]) => {
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [score, setScore] = useState(0);
-  const [highestScore, setHighestScore] = useState(0);
-  const [gameOver, setGameOver] = useState(false);
-  const [wrongSelectedIndex, setWrongSelectedIndex] = useState<number | null>(
-    null,
+  const [state, dispatch] = useReducer(
+    colorGameReducer,
+    initialColors,
+    createInitialState,
   );
-  const [hasWon, setHasWon] = useState(false);
-  const [questions, setQuestions] = useState<ColorQuestion[]>(initialColors);
 
   useEffect(() => {
-    const savedScore = localStorage.getItem('highestScore');
-    if (savedScore && !isNaN(+savedScore)) {
-      setHighestScore(Number(savedScore));
-    }
+    const savedScore = Number(localStorage.getItem('highestScore')) || 0;
+    dispatch({ type: 'SET_HIGHEST_SCORE', payload: savedScore });
   }, []);
 
-  const endGame = (finalScore: number) => {
-    setGameOver(true);
-    if (finalScore > highestScore) {
-      setHighestScore(finalScore);
-      localStorage.setItem('highestScore', String(finalScore));
+  useEffect(() => {
+    if (!state.gameOver) return;
+    if (state.score > state.highestScore) {
+      localStorage.setItem('highestScore', String(state.score));
+      dispatch({ type: 'SET_HIGHEST_SCORE', payload: state.score });
     }
-  };
+  }, [state.gameOver, state.highestScore, state.score]);
 
-  const handleBlockClick = (index: number, isCorrect: boolean) => {
-    if (gameOver || !questions.length) return;
-
+  const handleBlockClick = (
+    index: number,
+    correctIndex: number,
+    isCorrect: boolean,
+  ) => {
+    if (state.gameOver || !state.questions.length) return;
     if (isCorrect) {
-      const newScore = score + 1;
-      setScore(newScore);
-
-      if (currentQuestionIndex < questions.length - 1) {
-        setCurrentQuestionIndex((prev) => prev + 1);
-      } else {
-        setHasWon(true);
-        endGame(newScore);
-      }
+      dispatch({ type: 'CORRECT_ANSWER' });
     } else {
-      setWrongSelectedIndex(index);
-      endGame(score);
+      dispatch({
+        type: 'WRONG_ANSWER',
+        payload: { correctIndex, wrongIndex: index },
+      });
     }
   };
 
   const handleTryAgain = () => {
-    setQuestions(generateColorQuestions(20));
-    setCurrentQuestionIndex(0);
-    setScore(0);
-    setGameOver(false);
-    setHasWon(false);
-    setWrongSelectedIndex(null);
+    dispatch({ type: 'TRY_AGAIN' });
+    const savedScore = Number(localStorage.getItem('highestScore')) || 0;
+    dispatch({ type: 'SET_HIGHEST_SCORE', payload: savedScore });
   };
 
-  const currentQuestion = questions[currentQuestionIndex];
+  const currentQuestion = state.questions[state.currentQuestionIndex];
 
   return {
     currentQuestion,
-    score,
-    highestScore,
-    gameOver,
-    wrongSelectedIndex,
-    hasWon,
+    score: state.score,
+    highestScore: state.highestScore,
+    gameOver: state.gameOver,
+    wrongSelectedIndex: state.wrongSelectedIndex,
+    showCorrectIndex: state.showCorrectIndex,
+    hasWon: state.hasWon,
     handleBlockClick,
     handleTryAgain,
   };
