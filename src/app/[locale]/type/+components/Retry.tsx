@@ -1,8 +1,8 @@
+import { audios } from '@/components/Audio';
 import { cn } from '@/utils/cn';
 import { useAtom } from 'jotai';
 
 import { handleReset } from '../atoms';
-import { audios } from '../audio';
 
 interface Props
   extends React.DetailedHTMLProps<

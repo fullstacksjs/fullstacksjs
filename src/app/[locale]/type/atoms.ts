@@ -1,3 +1,4 @@
+import { audios } from '@/components/Audio';
 import { submitRecord } from '@/data-layer/supabase/submitRecord';
 import { differenceInMilliseconds } from 'date-fns';
 import { useForceUpdate } from 'framer-motion';
@@ -7,7 +8,6 @@ import { useEffect } from 'react';
 import type { Alphabet } from './alphabet';
 
 import { alphabets } from './alphabet';
-import { audios } from './audio';
 
 export type LetterStatus = 'correct' | 'corrected' | 'error' | 'idle';
 export type GameStatus = 'finished' | 'idle' | 'typing';

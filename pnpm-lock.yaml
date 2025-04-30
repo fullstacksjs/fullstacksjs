@@ -77,6 +77,9 @@ importers:
       react-aria:
         specifier: 3.36.0
         version: 3.36.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      react-canvas-confetti:
+        specifier: 2.0.7
+        version: 2.0.7(react@19.1.0)
       react-datocms:
         specifier: 7.1.0
         version: 7.1.0(@types/react-dom@19.1.1(@types/react@19.1.0))(@types/react@19.1.0)(graphql@16.10.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -2602,6 +2605,9 @@ packages:
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
     engines: {node: '>=10.13.0'}
 
+  '@types/canvas-confetti@1.9.0':
+    resolution: {integrity: sha512-aBGj/dULrimR1XDZLtG9JwxX1b4HPRF6CX9Yfwh3NvstZEm1ZL7RBnel4keCPSqs1ANRu1u2Aoz9R+VmtjYuTg==}
+
   '@types/cookie@0.6.0':
     resolution: {integrity: sha512-4Kh9a6B2bQciAhf7FSuMRRkUWecJgJu9nPnx3yzpsfXX/c50REIqpHY4C82bXP90qrLtXtkDxTZosYO3UpOwlA==}
 
@@ -2995,6 +3001,9 @@ packages:
 
   caniuse-lite@1.0.30001689:
     resolution: {integrity: sha512-CmeR2VBycfa+5/jOfnp/NpWPGd06nf1XYiefUvhXFfZE4GkRc9jv+eGPS4nT558WS/8lYCzV8SlANCIPvbWP1g==}
+
+  canvas-confetti@1.9.3:
+    resolution: {integrity: sha512-rFfTURMvmVEX1gyXFgn5QMn81bYk70qa0HLzcIOSVEyl57n6o9ItHeBtUSWdvKAPY0xlvBHno4/v3QPrT83q9g==}
 
   capital-case@1.0.4:
     resolution: {integrity: sha512-ds37W8CytHgwnhGGTi88pcPyR15qoNkOpYwmMMfnWqqWgESapLqvDx6huFjQ5vqWSn2Z06173XNA7LtMOeUh1A==}
@@ -4932,6 +4941,11 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
       react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
+
+  react-canvas-confetti@2.0.7:
+    resolution: {integrity: sha512-DIj44O35TPAwJkUSIZqWdVsgAMHtVf8h7YNmnr3jF3bn5mG+d7Rh9gEcRmdJfYgRzh6K+MAGujwUoIqQyLnMJw==}
+    peerDependencies:
+      react: '*'
 
   react-datocms@7.1.0:
     resolution: {integrity: sha512-cVMactlxnrd/BhiEjRKJ+AOD0gM0DFYKa7ziF3RzT6KHiiWpMvSF5dPRfKr+1C+Hg7thE49KGFMSODhu7CEzgA==}
@@ -9024,6 +9038,8 @@ snapshots:
 
   '@trysound/sax@0.2.0': {}
 
+  '@types/canvas-confetti@1.9.0': {}
+
   '@types/cookie@0.6.0': {}
 
   '@types/estree@1.0.6': {}
@@ -9503,6 +9519,8 @@ snapshots:
   camelcase@6.3.0: {}
 
   caniuse-lite@1.0.30001689: {}
+
+  canvas-confetti@1.9.3: {}
 
   capital-case@1.0.4:
     dependencies:
@@ -11660,6 +11678,12 @@ snapshots:
       '@react-types/shared': 3.26.0(react@19.1.0)
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
+
+  react-canvas-confetti@2.0.7(react@19.1.0):
+    dependencies:
+      '@types/canvas-confetti': 1.9.0
+      canvas-confetti: 1.9.3
+      react: 19.1.0
 
   react-datocms@7.1.0(@types/react-dom@19.1.1(@types/react@19.1.0))(@types/react@19.1.0)(graphql@16.10.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:

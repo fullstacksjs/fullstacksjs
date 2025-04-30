@@ -34,7 +34,7 @@ export default async function ColorPage({ params }: PageProps) {
     <NextIntlClientProvider messages={pick(messages, ['hsl'])}>
       <div className="flex flex-col justify-center items-center gap-18">
         <h1 className="text-3xl font-bold leading-tight">{t('title')}</h1>
-        <p>{t('desc')}</p>
+        <p className="text-center">{t('desc')}</p>
         <ColorsGrid colors={colors} />
       </div>
     </NextIntlClientProvider>

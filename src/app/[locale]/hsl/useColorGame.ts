@@ -1,72 +1,71 @@
-import { useEffect, useState } from 'react';
+'use client';
+
+import { audios } from '@/components/Audio';
+import { useEffect, useReducer } from 'react';
 
 import type { ColorQuestion } from './generateColorQuestions';
 
-import { generateColorQuestions } from './generateColorQuestions';
+import { colorGameReducer, createInitialState } from './colorGameReducer';
 
 export const useColorGame = (initialColors: ColorQuestion[]) => {
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [score, setScore] = useState(0);
-  const [highestScore, setHighestScore] = useState(0);
-  const [gameOver, setGameOver] = useState(false);
-  const [wrongSelectedIndex, setWrongSelectedIndex] = useState<number | null>(
-    null,
+  const [state, dispatch] = useReducer(
+    colorGameReducer,
+    initialColors,
+    createInitialState,
   );
-  const [hasWon, setHasWon] = useState(false);
-  const [questions, setQuestions] = useState<ColorQuestion[]>(initialColors);
 
   useEffect(() => {
-    const savedScore = localStorage.getItem('highestScore');
-    if (savedScore && !isNaN(+savedScore)) {
-      setHighestScore(Number(savedScore));
-    }
-  }, []);
+    const savedHighScore = Number(localStorage.getItem('highestScore')) || 0;
+    dispatch({ type: 'SET_HIGHEST_SCORE', payload: savedHighScore });
 
-  const endGame = (finalScore: number) => {
-    setGameOver(true);
-    if (finalScore > highestScore) {
-      setHighestScore(finalScore);
-      localStorage.setItem('highestScore', String(finalScore));
+    if (state.gameOver && state.score > state.highestScore) {
+      localStorage.setItem('highestScore', String(state.score));
+      dispatch({ type: 'SET_HIGHEST_SCORE', payload: state.score });
     }
-  };
+  }, [state.gameOver, state.highestScore, state.score]);
 
-  const handleBlockClick = (index: number, isCorrect: boolean) => {
-    if (gameOver || !questions.length) return;
+  const handleBlockClick = (
+    index: number,
+    correctIndex: number,
+    isCorrect: boolean,
+  ) => {
+    if (state.gameOver || !state.questions.length) return;
 
     if (isCorrect) {
-      const newScore = score + 1;
-      setScore(newScore);
+      audios.click.play();
 
-      if (currentQuestionIndex < questions.length - 1) {
-        setCurrentQuestionIndex((prev) => prev + 1);
-      } else {
-        setHasWon(true);
-        endGame(newScore);
+      const isLastQuestion =
+        state.currentQuestionIndex === state.questions.length - 1;
+
+      dispatch({ type: 'CORRECT_ANSWER' });
+
+      if (isLastQuestion) {
+        audios.win.play();
       }
     } else {
-      setWrongSelectedIndex(index);
-      endGame(score);
+      audios.wrong.play();
+      dispatch({
+        type: 'WRONG_ANSWER',
+        payload: { correctIndex, wrongIndex: index },
+      });
     }
   };
 
   const handleTryAgain = () => {
-    setQuestions(generateColorQuestions(20));
-    setCurrentQuestionIndex(0);
-    setScore(0);
-    setGameOver(false);
-    setHasWon(false);
-    setWrongSelectedIndex(null);
+    audios.restart.play();
+    dispatch({ type: 'TRY_AGAIN' });
   };
 
-  const currentQuestion = questions[currentQuestionIndex];
+  const currentQuestion = state.questions[state.currentQuestionIndex];
 
   return {
     currentQuestion,
-    score,
-    highestScore,
-    gameOver,
-    wrongSelectedIndex,
-    hasWon,
+    score: state.score,
+    highestScore: state.highestScore,
+    gameOver: state.gameOver,
+    wrongSelectedIndex: state.wrongSelectedIndex,
+    showCorrectIndex: state.showCorrectIndex,
+    hasWon: state.hasWon,
     handleBlockClick,
     handleTryAgain,
   };
