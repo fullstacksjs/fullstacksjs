@@ -2,6 +2,7 @@
 
 import type { User } from '@/data-layer/supabase/models/User';
 
+import { audios } from '@/components/Audio';
 import { useKeyPress } from 'ahooks';
 import { useAtom } from 'jotai';
 import { useEffect } from 'react';
@@ -18,7 +19,6 @@ import {
   isFinishedAtom,
   newRecordAtom,
 } from './atoms';
-import { audios } from './audio';
 
 interface Props {
   initialRecord: number | undefined;

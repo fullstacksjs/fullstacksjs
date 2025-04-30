@@ -1,3 +1,5 @@
+import { getRandom, randomInt, range } from '@fullstacksjs/toolbox';
+
 export interface ColorQuestion {
   blocks: string[];
   correctIndex: number;
@@ -12,7 +14,7 @@ function calculateDifference(
   totalQuestions: number,
 ): number {
   const maxDifference = 15;
-  const minDifference = 1;
+  const minDifference = 3;
   const decayConstant = Math.log(maxDifference / minDifference);
 
   const progressFactor = questionIndex / totalQuestions;
@@ -21,18 +23,28 @@ function calculateDifference(
   return Math.max(minDifference, rounded);
 }
 
-function randomShadeOrBrightness(): 'brightness' | 'shade' {
-  return Math.random() > 0.5 ? 'shade' : 'brightness';
+function getBlockCount(progress: number): number {
+  if (progress < 20) return 3;
+  if (progress < 30) return 4;
+  if (progress < 40) return 5;
+  if (progress < 50) return 6;
+  if (progress < 70) return 7;
+  if (progress < 80) return 8;
+  if (progress < 90) return 9;
+  return 12;
 }
 
 export function generateColorQuestions(count: number = 20): ColorQuestion[] {
-  return Array.from({ length: count }, (_, i) => {
-    const hue = Math.floor(Math.random() * 360);
+  return range(count).map((_, i) => {
+    const progress = (i / count) * 100;
+    const blockCount = getBlockCount(progress);
+
+    const hue = randomInt(1, 360);
     const saturation = 70;
-    const baseLightness = 40 + Math.floor(Math.random() * 20);
+    const baseLightness = randomInt(40, 60);
     const difference = calculateDifference(i, count);
-    const oddIndex = Math.floor(Math.random() * 6);
-    const shadeOrBrightness = randomShadeOrBrightness();
+    const oddIndex = randomInt(0, blockCount - 1);
+    const shadeOrBrightness = getRandom(['shade', 'brightness']);
     const adjustedLightness =
       shadeOrBrightness === 'shade'
         ? baseLightness - difference
@@ -40,11 +52,9 @@ export function generateColorQuestions(count: number = 20): ColorQuestion[] {
 
     const baseColor = hsl(hue, saturation, baseLightness);
     const oddColor = hsl(hue, saturation, adjustedLightness);
-
-    const blocks = Array.from({ length: 6 }, (__, index) =>
-      index === oddIndex ? oddColor : baseColor,
-    );
-
+    const blocks = range(blockCount).map((_blockIndex, index) => {
+      return index === oddIndex ? oddColor : baseColor;
+    });
     return {
       blocks,
       correctIndex: oddIndex,

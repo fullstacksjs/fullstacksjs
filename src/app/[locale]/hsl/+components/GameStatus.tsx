@@ -6,6 +6,7 @@ interface GameStatusProps {
   highestScore: number;
   gameOver: boolean;
   hasWon: boolean;
+  questionCount: number;
 }
 
 export default function GameStatus({
@@ -13,6 +14,7 @@ export default function GameStatus({
   highestScore,
   gameOver,
   hasWon,
+  questionCount,
 }: GameStatusProps) {
   const t = useTranslations('hsl');
 
@@ -24,27 +26,36 @@ export default function GameStatus({
             <>
               <span>{t('congratulations')}</span>
               <span>
-                {t('finalScore')} <strong>{score}</strong>
-              </span>
-              <span>
-                {t('highestScore')} <strong>{highestScore}</strong>
+                {t('finalScore')}{' '}
+                <strong>
+                  {score} / {questionCount}
+                </strong>
               </span>
             </>
           ) : (
             <>
               <span>{t('gameOver')}</span>
               <span>
-                {t('lastScore')} <strong>{score}</strong>
-              </span>
-              <span>
-                {t('highestScore')} <strong>{highestScore}</strong>
+                {t('lastScore')}{' '}
+                <strong>
+                  {score} / {questionCount}
+                </strong>
               </span>
             </>
           )}
+          <span>
+            {t('highestScore')}{' '}
+            <strong>
+              {highestScore} / {questionCount}
+            </strong>
+          </span>
         </p>
       ) : (
         <span>
-          {t('currentScore')} <strong>{score}</strong>
+          {t('currentScore')}{' '}
+          <strong>
+            {score} / {questionCount}
+          </strong>
         </span>
       )}
     </div>

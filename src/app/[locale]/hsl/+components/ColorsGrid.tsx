@@ -7,6 +7,7 @@ import type { ColorQuestion } from '../generateColorQuestions';
 
 import { useColorGame } from '../useColorGame';
 import ColorBlocks from './ColorBlocks';
+import { Confetti } from './Confetti';
 import GameStatus from './GameStatus';
 
 export default function ColorsGrid({ colors }: { colors: ColorQuestion[] }) {
@@ -20,6 +21,7 @@ export default function ColorsGrid({ colors }: { colors: ColorQuestion[] }) {
     hasWon,
     handleBlockClick,
     handleTryAgain,
+    showCorrectIndex,
   } = useColorGame(colors);
 
   return (
@@ -28,14 +30,17 @@ export default function ColorsGrid({ colors }: { colors: ColorQuestion[] }) {
         blocks={currentQuestion?.blocks ?? []}
         correctIndex={currentQuestion?.correctIndex ?? -1}
         onBlockClick={handleBlockClick}
+        showCorrectIndex={showCorrectIndex}
         wrongSelectedIndex={wrongSelectedIndex}
       />
       <GameStatus
         gameOver={gameOver}
         hasWon={hasWon}
         highestScore={highestScore}
+        questionCount={colors.length}
         score={score}
       />
+      {hasWon && <Confetti />}
       <Button size="md" variant="outline" onClick={handleTryAgain}>
         {gameOver ? t('tryAgain') : t('reset')}
       </Button>
