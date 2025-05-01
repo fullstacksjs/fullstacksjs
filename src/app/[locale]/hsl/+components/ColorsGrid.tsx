@@ -9,6 +9,7 @@ import { useColorGame } from '../useColorGame';
 import ColorBlocks from './ColorBlocks';
 import { Confetti } from './Confetti';
 import GameStatus from './GameStatus';
+import TelegramShareButton from './TelegramShareButton';
 
 export default function ColorsGrid({ colors }: { colors: ColorQuestion[] }) {
   const t = useTranslations('hsl');
@@ -41,9 +42,18 @@ export default function ColorsGrid({ colors }: { colors: ColorQuestion[] }) {
         score={score}
       />
       {hasWon && <Confetti />}
-      <Button size="md" variant="outline" onClick={handleTryAgain}>
-        {gameOver ? t('tryAgain') : t('reset')}
-      </Button>
+      <div className="flex flex-col mobile:flex-row items-center gap-6">
+        {gameOver && (
+          <TelegramShareButton
+            label={t('shareOn')}
+            score={score}
+            total={colors.length}
+          />
+        )}
+        <Button size="md" variant="outline" onClick={handleTryAgain}>
+          {gameOver ? t('tryAgain') : t('reset')}
+        </Button>
+      </div>
     </>
   );
 }
