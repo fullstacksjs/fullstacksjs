@@ -8,7 +8,8 @@
     "./supabase/migrations/*.json",
     "./supabase/migrations/*.sql",
     "./src/data-layer/supabase/models/Database.ts",
-    "**/pnpm-lock.yaml"
+    "**/pnpm-lock.yaml",
+    "**/pnpm-workspace.yaml"
   ],
   "dictionaryDefinitions": [
     {
