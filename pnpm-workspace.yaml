@@ -1,0 +1,6 @@
+onlyBuiltDependencies:
+  - '@vercel/speed-insights'
+  - sharp
+  - supabase
+savePrefix: ''
+updateNotifier: false
