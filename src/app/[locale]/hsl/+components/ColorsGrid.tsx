@@ -36,12 +36,7 @@ export default function ColorsGrid({ colors }: { colors: ColorQuestion[] }) {
         highestScore={highestScore}
         score={score}
       />
-      <Button
-        size="md"
-        className="cursor-pointer"
-        variant="outline"
-        onClick={handleTryAgain}
-      >
+      <Button size="md" variant="outline" onClick={handleTryAgain}>
         {gameOver ? t('tryAgain') : t('reset')}
       </Button>
     </>
