@@ -1,5 +1,3 @@
-import type { Locale } from '@/i18n/locales';
-
 import { getDirection } from '@/i18n/direction';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale } from 'next-intl/server';
@@ -13,7 +11,7 @@ import { MobileNavs } from './Navigation/MobileNavs';
 import { Navs } from './Navigation/Navs';
 
 export async function Header() {
-  const locale = (await getLocale()) as Locale;
+  const locale = await getLocale();
   const direction = getDirection(locale);
 
   return (

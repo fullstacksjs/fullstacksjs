@@ -5,6 +5,7 @@ import { FocusItemList } from '@/components/FocusItemList/FocusItemList';
 import { FocusItemListSkeleton } from '@/components/FocusItemList/FocusItemListSkeleton';
 import { Paragraph } from '@/components/Paragraph';
 import { generatePageOG } from '@/components/SEO';
+import { i18nComponents as tc } from '@/i18n/i18nComponents';
 import { routing } from '@/i18n/routing';
 import { NextIntlClientProvider } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
@@ -28,14 +29,14 @@ export default async function RulesPage({ params }: PageProps) {
     <NextIntlClientProvider>
       <Articles>
         <Article id="rules" title={t('title')}>
-          <Paragraph>{t.rich('desc')}</Paragraph>
+          <Paragraph>{t.rich('desc', tc)}</Paragraph>
 
           <FocusItemList
             fallback={<FocusItemListSkeleton lines={rules.length} />}
           >
             {rules.map((rule) => (
               <FocusItem key={rule} target={rule}>
-                {t.rich(`items.${rule}`)}
+                {t.rich(`items.${rule}`, tc)}
               </FocusItem>
             ))}
           </FocusItemList>

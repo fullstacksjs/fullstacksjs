@@ -5,14 +5,11 @@ declare module '*.svg?url' {
   export default content;
 }
 
-type Messages = typeof import('../messages/en.json');
-declare interface IntlMessages extends Messages {}
-
 interface PageProps<TParams extends Record<string, string> = {}> {
-  params: Promise<TParams & { locale: string }>;
+  params: Promise<TParams & { locale: import('next-intl').Locale }>;
 }
 
 interface LayoutProps<TParams extends Record<string, string> = {}> {
   children: React.ReactNode;
-  params: Promise<TParams & { locale: Locale }>;
+  params: Promise<TParams & { locale: import('next-intl').Locale }>;
 }

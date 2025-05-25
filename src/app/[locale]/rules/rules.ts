@@ -1,4 +1,6 @@
-export type Rule = keyof IntlMessages['rules']['items'];
+import type { Messages } from 'next-intl';
+
+export type Rule = keyof Messages['rules']['items'];
 export const rules: Rule[] = [
   'violence',
   'name-calling',

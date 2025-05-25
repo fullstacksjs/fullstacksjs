@@ -1,5 +1,5 @@
 import type { Feature } from '@/config/features';
-import type { MessageKeys, NestedKeyOf } from 'next-intl';
+import type { MessageKeys, Messages, NestedKeyOf } from 'next-intl';
 
 import { getServerFeature } from '@/config/features/getServerFeatures';
 import { isEmpty, isNull } from '@fullstacksjs/toolbox';
@@ -10,8 +10,8 @@ import { get } from 'radash';
 import { NavGroup } from './NavGroup';
 
 type Keys = MessageKeys<
-  IntlMessages['header']['navigation'],
-  NestedKeyOf<IntlMessages['header']['navigation']>
+  Messages['header']['navigation'],
+  NestedKeyOf<Messages['header']['navigation']>
 >;
 
 export interface NavGroup {
