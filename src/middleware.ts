@@ -1,3 +1,4 @@
+import type { Locale } from 'next-intl';
 import type { NextRequest } from 'next/server';
 
 import createMiddleware from 'next-intl/middleware';
@@ -5,10 +6,13 @@ import createMiddleware from 'next-intl/middleware';
 import { updateSession } from './data-layer/supabase/updateSession';
 import { routing } from './i18n/routing';
 
-const i18nMiddleware = createMiddleware(routing);
-
 export async function middleware(req: NextRequest) {
   await updateSession(req);
+  const locale = req.cookies.get('NEXT_LOCALE')?.value ?? routing.defaultLocale;
+  const i18nMiddleware = createMiddleware({
+    ...routing,
+    defaultLocale: locale as Locale,
+  });
   return i18nMiddleware(req);
 }
 
