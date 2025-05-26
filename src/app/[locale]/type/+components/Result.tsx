@@ -1,8 +1,9 @@
+import { useAtom } from 'jotai';
+import { useTranslations } from 'next-intl';
+
 import type { User } from '@/data-layer/supabase/models/User';
 
 import { formatStopWatch } from '@/utils/date';
-import { useAtom } from 'jotai';
-import { useTranslations } from 'next-intl';
 
 import { isPerfectAtom, mistakesAtom } from '../atoms';
 import { NeedToLogin } from './NeedToLogin';

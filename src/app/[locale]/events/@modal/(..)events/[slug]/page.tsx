@@ -1,5 +1,6 @@
-import { getEventBySlug } from '@/data-layer/datocms/getEvent';
 import { notFound } from 'next/navigation';
+
+import { getEventBySlug } from '@/data-layer/datocms/getEvent';
 
 import { EventDialog } from './EventDialog';
 

@@ -1,5 +1,6 @@
-import { cn } from '@/utils/cn';
 import { range } from '@fullstacksjs/toolbox';
+
+import { cn } from '@/utils/cn';
 
 import { ListItem } from '../ListItem';
 import { Skeleton } from '../Skeleton';

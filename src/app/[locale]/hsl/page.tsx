@@ -1,6 +1,3 @@
-import { generatePageOG } from '@/components/SEO';
-import { getServerFeature } from '@/config/features/getServerFeatures';
-import { routing } from '@/i18n/routing';
 import { NextIntlClientProvider } from 'next-intl';
 import {
   getMessages,
@@ -10,6 +7,10 @@ import {
 import { notFound } from 'next/navigation';
 import { pick } from 'radash';
 import React from 'react';
+
+import { generatePageOG } from '@/components/SEO';
+import { getServerFeature } from '@/config/features/getServerFeatures';
+import { routing } from '@/i18n/routing';
 
 import ColorsGrid from './+components/ColorsGrid';
 import { generateColorQuestions } from './generateColorQuestions';

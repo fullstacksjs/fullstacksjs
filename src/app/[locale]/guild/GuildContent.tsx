@@ -1,15 +1,17 @@
 'use client';
 
-import type { User } from '@/data-layer/supabase/models/User';
 import type { Variants } from 'framer-motion';
 import type { RichTranslationValues } from 'next-intl';
 
-import { Stars } from '@/components/Stars';
-import { i18nComponents } from '@/i18n/i18nComponents';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+
+import type { User } from '@/data-layer/supabase/models/User';
+
+import { Stars } from '@/components/Stars';
+import { i18nComponents } from '@/i18n/i18nComponents';
 
 import { Subscription } from './+components/Subscription';
 

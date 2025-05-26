@@ -1,10 +1,11 @@
-import { generatePageOG } from '@/components/SEO';
-import { getServerFeature } from '@/config/features/getServerFeatures';
-import { routing } from '@/i18n/routing';
 import { NextIntlClientProvider } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import React from 'react';
+
+import { generatePageOG } from '@/components/SEO';
+import { getServerFeature } from '@/config/features/getServerFeatures';
+import { routing } from '@/i18n/routing';
 
 import Config from './+components/Config.svg';
 import Eslint from './+components/Eslint.svg';

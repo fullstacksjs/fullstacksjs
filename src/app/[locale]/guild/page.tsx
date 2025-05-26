@@ -1,9 +1,10 @@
-import { generatePageOG } from '@/components/SEO';
-import { getSubscription } from '@/data-layer/supabase/getSubscription';
-import { getUser } from '@/data-layer/supabase/getUser';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { pick } from 'radash';
+
+import { generatePageOG } from '@/components/SEO';
+import { getSubscription } from '@/data-layer/supabase/getSubscription';
+import { getUser } from '@/data-layer/supabase/getUser';
 
 import { GuildContent } from './GuildContent';
 

@@ -1,8 +1,9 @@
 import type { Variants } from 'framer-motion';
 
-import { cn } from '@/utils/cn';
 import { randomInt, range } from '@fullstacksjs/toolbox';
 import { motion } from 'framer-motion';
+
+import { cn } from '@/utils/cn';
 
 export const starAnim: Variants = {
   init: () => ({

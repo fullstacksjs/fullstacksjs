@@ -1,8 +1,3 @@
-import { Article } from '@/components/Article';
-import { Paragraph } from '@/components/Paragraph';
-import { generatePageOG } from '@/components/SEO';
-import { i18nComponents as tc } from '@/i18n/i18nComponents';
-import { routing } from '@/i18n/routing';
 import { NextIntlClientProvider } from 'next-intl';
 import {
   getMessages,
@@ -10,6 +5,12 @@ import {
   setRequestLocale,
 } from 'next-intl/server';
 import { pick } from 'radash';
+
+import { Article } from '@/components/Article';
+import { Paragraph } from '@/components/Paragraph';
+import { generatePageOG } from '@/components/SEO';
+import { i18nComponents as tc } from '@/i18n/i18nComponents';
+import { routing } from '@/i18n/routing';
 
 import { HowToJoinItems } from './+components/HowToJoin';
 

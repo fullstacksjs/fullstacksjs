@@ -1,10 +1,10 @@
 'use client';
 
-import type { Direction } from '@/i18n/direction';
-
 import * as Dialog from '@radix-ui/react-dialog';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+
+import type { Direction } from '@/i18n/direction';
 
 import { MenuOverlay, SheetContent } from '../Menu';
 import MenuIcon from './Menu.svg';

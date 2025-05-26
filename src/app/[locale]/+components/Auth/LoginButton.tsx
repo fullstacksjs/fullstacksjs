@@ -1,7 +1,8 @@
 'use client';
+import Image from 'next/image';
+
 import { SecondaryButton } from '@/components/SecondaryButton';
 import { useSignIn } from '@/data-layer/supabase/useSignIn';
-import Image from 'next/image';
 
 interface Props {
   children: string;

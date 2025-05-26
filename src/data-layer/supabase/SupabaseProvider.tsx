@@ -2,10 +2,11 @@
 
 import type { SupabaseClient } from '@supabase/supabase-js';
 
-import { clientConfig } from '@/config/clientConfig';
 import { createBrowserClient } from '@supabase/ssr';
 import { useRouter } from 'next/navigation';
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
+
+import { clientConfig } from '@/config/clientConfig';
 
 import type { Database } from './models/Database';
 

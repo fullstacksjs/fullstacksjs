@@ -1,5 +1,6 @@
-import { getMobEvent } from '@/data-layer/datocms/getMobEvent';
 import { redirect } from 'next/navigation';
+
+import { getMobEvent } from '@/data-layer/datocms/getMobEvent';
 
 export async function GET() {
   const link = await getMobEvent();

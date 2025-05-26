@@ -1,7 +1,7 @@
 import { cache } from 'react';
 
+import { createServerSupabaseClient } from './createServerSupabaseClient';
 import { getUser } from './getUser';
-import { createServerSupabaseClient } from './SupabaseServer';
 
 export const getSubscription = cache(async (): Promise<boolean> => {
   const supabase = await createServerSupabaseClient();

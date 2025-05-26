@@ -1,7 +1,8 @@
 'use client';
 
-import { audios } from '@/components/Audio';
 import { useEffect, useReducer } from 'react';
+
+import { audios } from '@/components/Audio';
 
 import type { ColorQuestion } from './generateColorQuestions';
 

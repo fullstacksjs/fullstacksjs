@@ -1,7 +1,8 @@
 'use client';
-import { Button } from '@/components/Button';
 import { useTranslations } from 'next-intl';
 import React from 'react';
+
+import { Button } from '@/components/Button';
 
 import type { ColorQuestion } from '../generateColorQuestions';
 

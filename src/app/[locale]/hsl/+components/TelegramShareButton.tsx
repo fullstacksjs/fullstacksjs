@@ -1,6 +1,7 @@
+import React from 'react';
+
 import { Button } from '@/components/Button';
 import Telegram from '@/components/Icons/Telegram.svg';
-import React from 'react';
 
 interface TelegramShareButtonProps {
   score: number;

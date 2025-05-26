@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 
+import { notFound } from 'next/navigation';
+
 import { Button } from '@/components/Button';
 import { generatePageOG } from '@/components/SEO';
 import { getWusEvent } from '@/data-layer/datocms/getWusEvent';
-import { notFound } from 'next/navigation';
 
 import { EventActions, EventPage } from '../+components/Event/EventPage';
 

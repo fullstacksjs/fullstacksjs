@@ -1,3 +1,6 @@
+import { NextIntlClientProvider } from 'next-intl';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
+
 import { Article } from '@/components/Article';
 import { Articles } from '@/components/Articles';
 import { FocusItem } from '@/components/FocusItemList/FocusItem';
@@ -7,8 +10,6 @@ import { Paragraph } from '@/components/Paragraph';
 import { generatePageOG } from '@/components/SEO';
 import { i18nComponents as tc } from '@/i18n/i18nComponents';
 import { routing } from '@/i18n/routing';
-import { NextIntlClientProvider } from 'next-intl';
-import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import { guidelines } from './guidelines';
 import { rules } from './rules';

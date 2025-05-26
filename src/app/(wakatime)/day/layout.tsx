@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 
-import { icons, keywords } from '@/components/SEO';
 import { Rajdhani } from 'next/font/google';
+
+import { icons, keywords } from '@/components/SEO';
 
 const rajdhani = Rajdhani({
   weight: ['500', '600', '700'],

@@ -1,9 +1,10 @@
 import type { HTMLMotionProps, Variants } from 'framer-motion';
 
+import { motion } from 'framer-motion';
+
 import { Loader } from '@/components/Loading';
 import { Stars } from '@/components/Stars';
 import { cn } from '@/utils/cn';
-import { motion } from 'framer-motion';
 
 import styles from './Button.module.css';
 

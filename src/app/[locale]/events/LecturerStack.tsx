@@ -1,8 +1,10 @@
-import type { Lecturer } from '@/data-layer/datocms/Event';
 import type { ResponsiveImageType } from 'react-datocms/image';
 
-import { cn } from '@/utils/cn';
 import Image from 'next/image';
+
+import type { Lecturer } from '@/data-layer/datocms/Event';
+
+import { cn } from '@/utils/cn';
 
 interface Props {
   className?: string;

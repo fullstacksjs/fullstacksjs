@@ -1,11 +1,13 @@
-import type { Feature } from '@/config/features';
 import type { MessageKeys, Messages, NestedKeyOf } from 'next-intl';
 
-import { getServerFeature } from '@/config/features/getServerFeatures';
 import { isEmpty, isNull } from '@fullstacksjs/toolbox';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages, getTranslations } from 'next-intl/server';
 import { get } from 'radash';
+
+import type { Feature } from '@/config/features';
+
+import { getServerFeature } from '@/config/features/getServerFeatures';
 
 import { NavGroup } from './NavGroup';
 

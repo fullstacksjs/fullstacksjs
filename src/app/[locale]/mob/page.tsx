@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 
+import { notFound } from 'next/navigation';
+
 import { Button } from '@/components/Button';
 import { generatePageOG } from '@/components/SEO';
 import { getMobEvent } from '@/data-layer/datocms/getMobEvent';
-import { notFound } from 'next/navigation';
 
 import { EventActions, EventPage } from '../+components/Event/EventPage';
 

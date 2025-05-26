@@ -1,5 +1,6 @@
-import { getAdventLeaderboard } from '@/data-layer/advent';
 import Image from 'next/image';
+
+import { getAdventLeaderboard } from '@/data-layer/advent';
 
 import Banner from '../../../[locale]/advent/+components/Advent.png';
 import { Leaderboard } from '../../../[locale]/advent/board/+components/Leaderboard';

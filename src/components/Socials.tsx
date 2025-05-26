@@ -1,10 +1,11 @@
+import { useTranslations } from 'next-intl';
+
 import Discord from '@/components/Icons/Discord.svg';
 import Github from '@/components/Icons/Github.svg';
 import Telegram from '@/components/Icons/Telegram.svg';
 import Twitch from '@/components/Icons/Twitch.svg';
 import Twitter from '@/components/Icons/Twitter.svg';
 import Youtube from '@/components/Icons/Youtube.svg';
-import { useTranslations } from 'next-intl';
 
 import { SocialItem } from './SocialItem';
 

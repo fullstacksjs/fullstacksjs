@@ -2,7 +2,6 @@
 
 import type { TransitionStartFunction } from 'react';
 
-import { usePathname, useRouter } from '@/i18n/routing';
 import { isNull } from '@fullstacksjs/toolbox';
 import { useSearchParams } from 'next/navigation';
 import {
@@ -14,6 +13,8 @@ import {
   useTransition,
 } from 'react';
 import { useEffectOnce } from 'react-use';
+
+import { usePathname, useRouter } from '@/i18n/routing';
 
 function useFocused() {
   const search = useSearchParams();

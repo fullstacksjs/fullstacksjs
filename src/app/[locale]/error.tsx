@@ -1,7 +1,8 @@
 'use client';
 
-import { C2AButton } from '@/components/C2AButton';
 import { useEffect } from 'react';
+
+import { C2AButton } from '@/components/C2AButton';
 
 interface Props {
   error: Error & {

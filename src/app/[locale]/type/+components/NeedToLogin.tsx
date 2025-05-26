@@ -1,5 +1,6 @@
-import { useSignIn } from '@/data-layer/supabase/useSignIn';
 import { useTranslations } from 'next-intl';
+
+import { useSignIn } from '@/data-layer/supabase/useSignIn';
 
 export const NeedToLogin = () => {
   const { signIn } = useSignIn();

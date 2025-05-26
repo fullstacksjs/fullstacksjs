@@ -1,11 +1,12 @@
 'use client';
 
-import { CircleBadge } from '@/components/CircleBadge';
-import ChevronDownIcon from '@/components/Icons/ChevronDown.svg';
-import { cn } from '@/utils/cn';
 import { comparePaths } from '@fullstacksjs/toolbox';
 import Link from 'next/link';
 import { useSelectedLayoutSegment } from 'next/navigation';
+
+import { CircleBadge } from '@/components/CircleBadge';
+import ChevronDownIcon from '@/components/Icons/ChevronDown.svg';
+import { cn } from '@/utils/cn';
 
 import type { Nav } from './Navs';
 

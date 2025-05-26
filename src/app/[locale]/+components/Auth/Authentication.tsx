@@ -1,5 +1,6 @@
-import { getUser } from '@/data-layer/supabase/getUser';
 import { getLocale, getTranslations } from 'next-intl/server';
+
+import { getUser } from '@/data-layer/supabase/getUser';
 
 import GithubOutlineIcon from './GithubIcon.svg?url';
 import { LoginButton } from './LoginButton';

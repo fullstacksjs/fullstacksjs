@@ -1,8 +1,9 @@
 import type { NextRequest } from 'next/server';
 
-import { serverConfig } from '@/config/serverConfig';
 import { revalidatePath, revalidateTag } from 'next/cache';
 import { NextResponse } from 'next/server';
+
+import { serverConfig } from '@/config/serverConfig';
 
 export function POST(request: NextRequest) {
   const tag = request.nextUrl.searchParams.get('tag');

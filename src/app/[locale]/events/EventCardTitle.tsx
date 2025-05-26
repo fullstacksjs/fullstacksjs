@@ -1,8 +1,9 @@
 import type { StructuredTextDocument } from 'react-datocms/structured-text';
 
+import { StructuredText } from 'react-datocms/structured-text';
+
 import { Highlight } from '@/components/Highlight';
 import { cn } from '@/utils/cn';
-import { StructuredText } from 'react-datocms/structured-text';
 
 interface Props {
   data: StructuredTextDocument;

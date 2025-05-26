@@ -1,9 +1,10 @@
-import { audios } from '@/components/Audio';
-import { submitRecord } from '@/data-layer/supabase/submitRecord';
 import { differenceInMilliseconds } from 'date-fns';
 import { useForceUpdate } from 'framer-motion';
 import { atom, useAtom } from 'jotai';
 import { useEffect } from 'react';
+
+import { audios } from '@/components/Audio';
+import { submitRecord } from '@/data-layer/supabase/submitRecord';
 
 import type { Alphabet } from './alphabet';
 

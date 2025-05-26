@@ -1,12 +1,13 @@
 'use client';
 
+import { comparePaths } from '@fullstacksjs/toolbox';
+import { useTranslations } from 'next-intl';
+import { useSelectedLayoutSegments } from 'next/navigation';
+
 import { TextBadge } from '@/components/TextBadge';
 import { useIsRTL } from '@/i18n/direction';
 import { Link } from '@/i18n/routing';
 import { cn } from '@/utils/cn';
-import { comparePaths } from '@fullstacksjs/toolbox';
-import { useTranslations } from 'next-intl';
-import { useSelectedLayoutSegments } from 'next/navigation';
 
 interface Props {
   href: string;

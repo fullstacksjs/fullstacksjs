@@ -1,5 +1,6 @@
-import { cn } from '@/utils/cn';
 import Image from 'next/image';
+
+import { cn } from '@/utils/cn';
 
 const emojiMaps = {
   tree: { path: 'Activities/Christmas Tree', className: '-translate-y-1' },

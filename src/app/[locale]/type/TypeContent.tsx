@@ -1,11 +1,12 @@
 'use client';
 
-import type { User } from '@/data-layer/supabase/models/User';
-
-import { audios } from '@/components/Audio';
 import { useKeyPress } from 'ahooks';
 import { useAtom } from 'jotai';
 import { useEffect } from 'react';
+
+import type { User } from '@/data-layer/supabase/models/User';
+
+import { audios } from '@/components/Audio';
 
 import type { Alphabet } from './alphabet';
 

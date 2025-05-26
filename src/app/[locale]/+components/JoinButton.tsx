@@ -1,5 +1,6 @@
-import { C2AButton } from '@/components/C2AButton';
 import { useTranslations } from 'next-intl';
+
+import { C2AButton } from '@/components/C2AButton';
 
 export const JoinButton = () => {
   const t = useTranslations('hero');

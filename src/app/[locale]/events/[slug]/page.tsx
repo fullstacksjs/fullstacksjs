@@ -1,6 +1,7 @@
-import { getEventBySlug } from '@/data-layer/datocms/getEvent';
 import { notFound } from 'next/navigation';
 import { SRCImage } from 'react-datocms';
+
+import { getEventBySlug } from '@/data-layer/datocms/getEvent';
 
 import { EventCardAction } from '../EventCardAction';
 import { EventCardDescription } from '../EventCardDescription';

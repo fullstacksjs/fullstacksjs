@@ -1,10 +1,10 @@
 'use client';
-import type { FullstacksJSEvent } from '@/data-layer/datocms/Event';
-
 import * as Dialog from '@radix-ui/react-dialog';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { SRCImage } from 'react-datocms';
+
+import type { FullstacksJSEvent } from '@/data-layer/datocms/Event';
 
 import { EventCardAction } from '../../../EventCardAction';
 import { EventCardDescription } from '../../../EventCardDescription';

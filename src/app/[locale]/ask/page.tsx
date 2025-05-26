@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
 
+import { NextIntlClientProvider } from 'next-intl';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
+
 import { Article } from '@/components/Article';
 import { Articles } from '@/components/Articles';
 import { FocusItem } from '@/components/FocusItemList/FocusItem';
@@ -7,8 +10,6 @@ import { FocusItemList } from '@/components/FocusItemList/FocusItemList';
 import { FocusItemListSkeleton } from '@/components/FocusItemList/FocusItemListSkeleton';
 import { generatePageOG } from '@/components/SEO';
 import { routing } from '@/i18n/routing';
-import { NextIntlClientProvider } from 'next-intl';
-import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import { asks } from './asks';
 

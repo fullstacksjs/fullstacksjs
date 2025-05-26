@@ -1,7 +1,8 @@
-import { serverConfig } from '@/config/serverConfig';
-import { syncLeaderboard } from '@/data-layer/advent/getAdventLeaderboard';
 import { isObject } from '@fullstacksjs/toolbox';
 import { NextResponse } from 'next/server';
+
+import { serverConfig } from '@/config/serverConfig';
+import { syncLeaderboard } from '@/data-layer/advent/getAdventLeaderboard';
 
 export async function GET(request: Request) {
   const token = serverConfig.get('cronSecret');

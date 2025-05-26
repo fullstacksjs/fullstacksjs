@@ -1,7 +1,8 @@
-import { getDirection } from '@/i18n/direction';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale } from 'next-intl/server';
 import { Suspense } from 'react';
+
+import { getDirection } from '@/i18n/direction';
 
 import { AuthBtnSkeleton } from './Auth/AuthButtonSkeleton';
 import { Authentication } from './Auth/Authentication';

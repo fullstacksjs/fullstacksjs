@@ -1,8 +1,9 @@
+import { format } from 'date-fns';
+import { SRCImage } from 'react-datocms';
+
 import type { FullstacksJSEvent } from '@/data-layer/datocms/Event';
 
 import { Link } from '@/i18n/routing';
-import { format } from 'date-fns';
-import { SRCImage } from 'react-datocms';
 
 import { EventCardTitle } from './EventCardTitle';
 import { LecturerStack } from './LecturerStack';

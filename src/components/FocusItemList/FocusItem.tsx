@@ -1,7 +1,8 @@
 'use client';
 
-import { cn } from '@/utils/cn';
 import { usePress } from 'react-aria';
+
+import { cn } from '@/utils/cn';
 
 import { ListItem } from '../ListItem';
 import { useFocus, useHandleFocusItem } from './FocusProvider';

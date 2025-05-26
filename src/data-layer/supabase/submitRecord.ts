@@ -1,8 +1,8 @@
 'use server';
 
+import { createServerSupabaseClient } from './createServerSupabaseClient';
 import { getRecord } from './getRecord';
 import { getUser } from './getUser';
-import { createServerSupabaseClient } from './SupabaseServer';
 
 interface Record {
   duration: number;

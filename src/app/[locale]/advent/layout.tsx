@@ -1,5 +1,6 @@
-import { Separator } from '@/components/Separator';
 import Image from 'next/image';
+
+import { Separator } from '@/components/Separator';
 
 import Banner from './+components/Advent.png';
 import { AdventOfCodeLoader } from './+components/AdventOfCodeLoader';

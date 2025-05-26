@@ -3,9 +3,10 @@ import type {
   StructuredTextGraphQlResponse,
 } from 'react-datocms';
 
+import { SRCImage, StructuredText } from 'react-datocms';
+
 import { Highlight } from '@/components/Highlight';
 import { Anchor } from '@/components/Link';
-import { SRCImage, StructuredText } from 'react-datocms';
 
 interface EventTitleProps {
   data: StructuredTextGraphQlResponse;

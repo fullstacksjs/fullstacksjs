@@ -2,8 +2,9 @@
 
 import type { NextRequest } from 'next/server';
 
-import { asks } from '@/app/[locale]/ask/asks';
 import { ImageResponse } from 'next/og';
+
+import { asks } from '@/app/[locale]/ask/asks';
 
 import enMessages from '../../../../../messages/en.json';
 

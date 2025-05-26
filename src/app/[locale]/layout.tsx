@@ -1,5 +1,9 @@
 import type { Metadata } from 'next';
 
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { setRequestLocale } from 'next-intl/server';
+import { Rajdhani, Vazirmatn } from 'next/font/google';
+
 import { generatePageOG, icons, JsonLd, keywords } from '@/components/SEO';
 import { Separator } from '@/components/Separator';
 import { Socials } from '@/components/Socials';
@@ -8,9 +12,6 @@ import { SupabaseProvider } from '@/data-layer/supabase/SupabaseProvider';
 import { getDirection } from '@/i18n/direction';
 import { JotaiProvider } from '@/store/JotaiProvider';
 import { cn } from '@/utils/cn';
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import { setRequestLocale } from 'next-intl/server';
-import { Rajdhani, Vazirmatn } from 'next/font/google';
 
 import { Header } from './+components/Header';
 import { Tracking } from './+components/Tracking';
