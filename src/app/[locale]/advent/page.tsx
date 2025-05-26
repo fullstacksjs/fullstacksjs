@@ -24,7 +24,7 @@ export default async function AdventOfCodePage({ params }: PageProps) {
 
   setRequestLocale(locale);
   const messages = await getMessages();
-  const t = await getTranslations('advent');
+  const t = await getTranslations({ locale, namespace: 'advent' });
 
   return (
     <div className="flex flex-col gap-16">

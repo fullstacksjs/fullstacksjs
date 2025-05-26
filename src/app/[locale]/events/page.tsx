@@ -21,7 +21,7 @@ export default async function EventsPage({ params }: PageProps) {
 
   if (!getServerFeature('events')) notFound();
   setRequestLocale(locale);
-  const t = await getTranslations('events');
+  const t = await getTranslations({ locale, namespace: 'events' });
 
   const { upcoming, archived } = await getEvents();
 

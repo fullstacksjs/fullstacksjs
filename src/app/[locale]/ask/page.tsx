@@ -37,7 +37,7 @@ export default async function AskPage({ params }: PageProps) {
   const { locale } = await params;
 
   setRequestLocale(locale);
-  const t = await getTranslations('ask');
+  const t = await getTranslations({ locale, namespace: 'ask' });
 
   return (
     <NextIntlClientProvider>

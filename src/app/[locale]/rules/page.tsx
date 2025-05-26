@@ -23,7 +23,7 @@ export default async function RulesPage({ params }: PageProps) {
   const { locale } = await params;
 
   setRequestLocale(locale);
-  const t = await getTranslations('rules');
+  const t = await getTranslations({ locale, namespace: 'rules' });
 
   return (
     <NextIntlClientProvider>

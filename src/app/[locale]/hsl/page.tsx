@@ -28,7 +28,7 @@ export default async function ColorPage({ params }: PageProps) {
 
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations('hsl');
+  const t = await getTranslations({ locale, namespace: 'hsl' });
 
   return (
     <NextIntlClientProvider messages={pick(messages, ['hsl'])}>

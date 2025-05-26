@@ -78,7 +78,7 @@ export default async function ProjectsPage({ params }: PageProps) {
 
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations('projects');
+  const t = await getTranslations({ locale, namespace: 'projects' });
 
   return (
     <NextIntlClientProvider>

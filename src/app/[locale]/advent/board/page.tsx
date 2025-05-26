@@ -1,7 +1,7 @@
 import { generatePageOG } from '@/components/SEO';
 import { getAdventLeaderboard } from '@/data-layer/advent';
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, getTranslations } from 'next-intl/server';
+import { getLocale, getMessages, getTranslations } from 'next-intl/server';
 import { pick } from 'radash';
 
 import { Leaderboard } from './+components/Leaderboard';
@@ -14,7 +14,8 @@ export const metadata = generatePageOG({
 
 export default async function WarPage() {
   const messages = await getMessages();
-  const t = await getTranslations();
+  const locale = await getLocale();
+  const t = await getTranslations({ locale });
   const leaderboard = await getAdventLeaderboard();
 
   return (

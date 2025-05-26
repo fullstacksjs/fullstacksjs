@@ -4,7 +4,7 @@ import type { MessageKeys, Messages, NestedKeyOf } from 'next-intl';
 import { getServerFeature } from '@/config/features/getServerFeatures';
 import { isEmpty, isNull } from '@fullstacksjs/toolbox';
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, getTranslations } from 'next-intl/server';
+import { getLocale, getMessages, getTranslations } from 'next-intl/server';
 import { get } from 'radash';
 
 import { NavGroup } from './NavGroup';
@@ -93,7 +93,9 @@ const isEmptyGroup = (c: NavGroup) => !c.href && isEmpty(c.subNavs);
 
 export const Navs = async () => {
   const messages = await getMessages();
-  const t = await getTranslations('header.navigation');
+  const locale = await getLocale();
+
+  const t = await getTranslations({ locale, namespace: 'header.navigation' });
   const activeNavsGroups = navs
     .map<NavGroup>((n) => ({
       ...n,

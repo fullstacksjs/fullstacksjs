@@ -13,7 +13,7 @@ export default async function Home({ params }: PageProps) {
   const { locale } = await params;
 
   setRequestLocale(locale);
-  const t = await getTranslations('main');
+  const t = await getTranslations({ locale: 'fa', namespace: 'main' });
 
   return (
     <>
