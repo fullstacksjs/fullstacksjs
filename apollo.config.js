@@ -1,6 +1,8 @@
-require('dotenv').config();
+import { loadEnvFile } from 'node:process';
 
-module.exports = {
+loadEnvFile();
+
+export default {
   client: {
     service: {
       name: 'dato-cms',
@@ -9,6 +11,6 @@ module.exports = {
         authorization: process.env.DATO_TOKEN,
       },
     },
-    includes: ['./src/data-layer/*.ts'],
+    includes: ['./src/data-layer/**/*.ts'],
   },
 };
