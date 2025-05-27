@@ -4,7 +4,7 @@ import React from 'react';
 
 import { Button } from '@/components/Button';
 
-import type { ColorQuestion } from '../generateColorQuestions';
+import type { ColorQuestion } from '../+logic/questionGenerator';
 
 import { useColorGame } from '../useColorGame';
 import ColorBlocks from './ColorBlocks';
@@ -43,7 +43,7 @@ export default function ColorsGrid({ colors }: { colors: ColorQuestion[] }) {
         score={score}
       />
       {hasWon && <Confetti />}
-      <div className="flex flex-col mobile:flex-row items-center gap-6">
+      <div className="flex flex-wrap justify-center items-center gap-6">
         {gameOver && (
           <TelegramShareButton
             label={t('shareOn')}

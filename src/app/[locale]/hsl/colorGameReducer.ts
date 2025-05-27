@@ -1,6 +1,6 @@
-import type { ColorQuestion } from './generateColorQuestions';
+import type { ColorQuestion } from './+logic/questionGenerator';
 
-import { generateColorQuestions } from './generateColorQuestions';
+import { generateColorQuestions } from './+logic/questionGenerator';
 
 interface State {
   currentQuestionIndex: number;

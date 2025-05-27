@@ -4,7 +4,7 @@ import { useEffect, useReducer } from 'react';
 
 import { audios } from '@/components/Audio';
 
-import type { ColorQuestion } from './generateColorQuestions';
+import type { ColorQuestion } from './+logic/questionGenerator';
 
 import { colorGameReducer, createInitialState } from './colorGameReducer';
 

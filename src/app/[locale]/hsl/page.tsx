@@ -13,7 +13,7 @@ import { getServerFeature } from '@/config/features/getServerFeatures';
 import { routing } from '@/i18n/routing';
 
 import ColorsGrid from './+components/ColorsGrid';
-import { generateColorQuestions } from './generateColorQuestions';
+import { generateColorQuestions } from './+logic/questionGenerator';
 
 export const metadata = generatePageOG({
   title: 'HSL Color Guessing Game',
