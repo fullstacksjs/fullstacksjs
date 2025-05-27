@@ -4,39 +4,48 @@ import { useEffect, useReducer } from 'react';
 
 import { audios } from '@/components/Audio';
 
-import type { ColorQuestion } from './generateColorQuestions';
+import type { ColorQuestion } from './+logic/questionGenerator';
 
 import { colorGameReducer, createInitialState } from './colorGameReducer';
 
 export const useColorGame = (initialColors: ColorQuestion[]) => {
-  const [state, dispatch] = useReducer(
-    colorGameReducer,
-    initialColors,
-    createInitialState,
-  );
+  const [
+    {
+      score,
+      highestScore,
+      gameOver,
+      questions,
+      currentQuestionIndex,
+      wrongSelectedIndex,
+      showCorrectIndex,
+      hasWon,
+    },
+    dispatch,
+  ] = useReducer(colorGameReducer, initialColors, createInitialState);
 
   useEffect(() => {
     const savedHighScore = Number(localStorage.getItem('highestScore')) || 0;
     dispatch({ type: 'SET_HIGHEST_SCORE', payload: savedHighScore });
+  }, [gameOver]);
 
-    if (state.gameOver && state.score > state.highestScore) {
-      localStorage.setItem('highestScore', String(state.score));
-      dispatch({ type: 'SET_HIGHEST_SCORE', payload: state.score });
+  useEffect(() => {
+    if (gameOver && score > highestScore) {
+      localStorage.setItem('highestScore', String(score));
+      dispatch({ type: 'SET_HIGHEST_SCORE', payload: score });
     }
-  }, [state.gameOver, state.highestScore, state.score]);
+  }, [gameOver, score, highestScore]);
 
   const handleBlockClick = (
     index: number,
     correctIndex: number,
     isCorrect: boolean,
   ) => {
-    if (state.gameOver || !state.questions.length) return;
+    if (gameOver || !questions.length) return;
 
     if (isCorrect) {
       audios.click.play();
 
-      const isLastQuestion =
-        state.currentQuestionIndex === state.questions.length - 1;
+      const isLastQuestion = currentQuestionIndex === questions.length - 1;
 
       dispatch({ type: 'CORRECT_ANSWER' });
 
@@ -57,16 +66,16 @@ export const useColorGame = (initialColors: ColorQuestion[]) => {
     dispatch({ type: 'TRY_AGAIN' });
   };
 
-  const currentQuestion = state.questions[state.currentQuestionIndex];
+  const currentQuestion = questions[currentQuestionIndex];
 
   return {
     currentQuestion,
-    score: state.score,
-    highestScore: state.highestScore,
-    gameOver: state.gameOver,
-    wrongSelectedIndex: state.wrongSelectedIndex,
-    showCorrectIndex: state.showCorrectIndex,
-    hasWon: state.hasWon,
+    score,
+    highestScore,
+    gameOver,
+    wrongSelectedIndex,
+    showCorrectIndex,
+    hasWon,
     handleBlockClick,
     handleTryAgain,
   };
