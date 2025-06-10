@@ -5,20 +5,16 @@ import { cn } from '@/utils/cn';
 interface ColorBlocksProps {
   blocks: string[];
   correctIndex: number;
-  wrongSelectedIndex: number | undefined;
-  showCorrectIndex: number | undefined;
-  onBlockClick: (
-    index: number,
-    correctIndex: number,
-    isCorrect: boolean,
-  ) => void;
+  highlightedWrongIndex: number | undefined;
+  highlightedCorrectIndex: number | undefined;
+  onBlockClick: (index: number, correctIndex: number) => void;
 }
 
 export default function ColorBlocks({
   blocks,
   correctIndex,
-  wrongSelectedIndex,
-  showCorrectIndex,
+  highlightedWrongIndex,
+  highlightedCorrectIndex,
   onBlockClick,
 }: ColorBlocksProps) {
   return (
@@ -29,13 +25,11 @@ export default function ColorBlocks({
           key={`${color}-${index}`}
           style={{ backgroundColor: color }}
           type="button"
-          onClick={() =>
-            onBlockClick(index, correctIndex, index === correctIndex)
-          }
+          onClick={() => onBlockClick(index, correctIndex)}
           className={cn(
-            'w-[85px] h-[85px] mobile:w-[100px] mobile:h-[100px] transition-all duration-200 rounded-lg ',
-            wrongSelectedIndex === index && 'outline-4 outline-advent-2',
-            showCorrectIndex === index && 'outline-4 outline-white/80',
+            'w-[85px] h-[85px] mobile:w-[100px] mobile:h-[100px] transition-all duration-200 rounded-lg cursor-pointer',
+            highlightedWrongIndex === index && 'outline-4 outline-advent-2',
+            highlightedCorrectIndex === index && 'outline-4 outline-white/80',
           )}
         />
       ))}

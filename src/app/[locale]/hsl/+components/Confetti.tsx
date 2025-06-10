@@ -1,9 +1,9 @@
 'use client';
-import Realistic from 'react-canvas-confetti/dist/presets/realistic';
+import Pride from 'react-canvas-confetti/dist/presets/pride';
 
 export const Confetti = () => {
   return (
-    <Realistic
+    <Pride
       autorun={{
         speed: 20,
       }}

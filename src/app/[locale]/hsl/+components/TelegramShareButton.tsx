@@ -1,3 +1,4 @@
+import { percent } from '@fullstacksjs/toolbox';
 import React from 'react';
 
 import { Button } from '@/components/Button';
@@ -10,15 +11,15 @@ interface TelegramShareButtonProps {
 }
 
 function getShareTextByProgress(score: number, total: number): string {
-  const percent = (score / total) * 100;
+  const progress = percent(score, total);
 
-  if (percent === 100) {
+  if (progress === 100) {
     return `I got a perfect score of ${score}/${total} in the HSL Color Game! Can you do the same?`;
-  } else if (percent >= 75) {
+  } else if (progress >= 75) {
     return `I scored ${score}/${total} in the HSL Color Game! Amazing! Can you beat me?`;
-  } else if (percent >= 50) {
+  } else if (progress >= 50) {
     return `I scored ${score}/${total} in the HSL Color Game! Not bad — try to beat me!`;
-  } else if (percent >= 25) {
+  } else if (progress >= 25) {
     return `I scored ${score}/${total} in the HSL Color Game! Keep trying, you'll get better!`;
   } else {
     return `I only scored ${score}/${total} in the HSL Color Game... It's tougher than it looks!`;
