@@ -2,11 +2,10 @@
 
 import { useEffect, useReducer } from 'react';
 
-import { audios } from '@/components/Audio';
-
 import type { ColorQuestion } from './+logic/questionGenerator';
 
-import { colorGameReducer, createInitialState } from './colorGameReducer';
+import { colorGameReducer } from './+reducer/colorGameReducer';
+import { createInitialState } from './+reducer/createInitialState';
 
 export const useColorGame = (initialColors: ColorQuestion[]) => {
   const [
@@ -16,8 +15,8 @@ export const useColorGame = (initialColors: ColorQuestion[]) => {
       gameOver,
       questions,
       currentQuestionIndex,
-      wrongSelectedIndex,
-      showCorrectIndex,
+      highlightedWrongIndex,
+      highlightedCorrectIndex,
       hasWon,
     },
     dispatch,
@@ -35,34 +34,15 @@ export const useColorGame = (initialColors: ColorQuestion[]) => {
     }
   }, [gameOver, score, highestScore]);
 
-  const handleBlockClick = (
-    index: number,
-    correctIndex: number,
-    isCorrect: boolean,
-  ) => {
+  const handleBlockClick = (index: number, correctIndex: number) => {
     if (gameOver || !questions.length) return;
-
-    if (isCorrect) {
-      audios.click.play();
-
-      const isLastQuestion = currentQuestionIndex === questions.length - 1;
-
-      dispatch({ type: 'CORRECT_ANSWER' });
-
-      if (isLastQuestion) {
-        audios.win.play();
-      }
-    } else {
-      audios.wrong.play();
-      dispatch({
-        type: 'WRONG_ANSWER',
-        payload: { correctIndex, wrongIndex: index },
-      });
-    }
+    dispatch({
+      type: 'SELECT_ANSWER',
+      payload: { index, correctIndex },
+    });
   };
 
   const handleTryAgain = () => {
-    audios.restart.play();
     dispatch({ type: 'TRY_AGAIN' });
   };
 
@@ -73,8 +53,8 @@ export const useColorGame = (initialColors: ColorQuestion[]) => {
     score,
     highestScore,
     gameOver,
-    wrongSelectedIndex,
-    showCorrectIndex,
+    highlightedCorrectIndex,
+    highlightedWrongIndex,
     hasWon,
     handleBlockClick,
     handleTryAgain,
