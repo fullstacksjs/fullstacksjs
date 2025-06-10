@@ -13,7 +13,9 @@ export interface ColorQuestion {
   correctIndex: number;
 }
 
-export const generateColorQuestions = (count: number = 20): ColorQuestion[] => {
+export const generateColorQuestions = (
+  count: number = COLOR.TOTAL_QUESTIONS,
+): ColorQuestion[] => {
   return range(count).map((_, i) => {
     const progress = percent(i, count);
     const blockCount = getProgressiveBlockCount(progress);
