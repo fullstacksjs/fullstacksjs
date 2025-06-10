@@ -9,7 +9,7 @@ import type { ColorQuestion } from '../+logic/questionGenerator';
 import { useColorGame } from '../useColorGame';
 import ColorBlocks from './ColorBlocks';
 import { Confetti } from './Confetti';
-import GameStatus from './GameStatus';
+import GameStatus from './GameStatus/GameStatus';
 import TelegramShareButton from './TelegramShareButton';
 
 export default function ColorsGrid({ colors }: { colors: ColorQuestion[] }) {
@@ -19,11 +19,11 @@ export default function ColorsGrid({ colors }: { colors: ColorQuestion[] }) {
     score,
     highestScore,
     gameOver,
-    wrongSelectedIndex,
+    highlightedWrongIndex,
     hasWon,
     handleBlockClick,
     handleTryAgain,
-    showCorrectIndex,
+    highlightedCorrectIndex,
   } = useColorGame(colors);
 
   return (
@@ -31,9 +31,9 @@ export default function ColorsGrid({ colors }: { colors: ColorQuestion[] }) {
       <ColorBlocks
         blocks={currentQuestion?.blocks ?? []}
         correctIndex={currentQuestion?.correctIndex ?? -1}
+        highlightedCorrectIndex={highlightedCorrectIndex}
+        highlightedWrongIndex={highlightedWrongIndex}
         onBlockClick={handleBlockClick}
-        showCorrectIndex={showCorrectIndex}
-        wrongSelectedIndex={wrongSelectedIndex}
       />
       <GameStatus
         gameOver={gameOver}
