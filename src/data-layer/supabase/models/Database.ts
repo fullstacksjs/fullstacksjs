@@ -35,10 +35,67 @@ export interface Database {
           {
             foreignKeyName: 'advent_username_fkey';
             columns: ['username'];
+            isOneToOne: false;
             referencedRelation: 'profiles';
             referencedColumns: ['github'];
           },
         ];
+      };
+      answer: {
+        Row: {
+          answer_id: number | null;
+          created_at: string;
+          game_id: number | null;
+          id: number;
+          is_correct: boolean | null;
+          question_id: number | null;
+          updated_at: string;
+        };
+        Insert: {
+          answer_id?: number | null;
+          created_at?: string;
+          game_id?: number | null;
+          id?: never;
+          is_correct?: boolean | null;
+          question_id?: number | null;
+          updated_at?: string;
+        };
+        Update: {
+          answer_id?: number | null;
+          created_at?: string;
+          game_id?: number | null;
+          id?: never;
+          is_correct?: boolean | null;
+          question_id?: number | null;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: 'answer_game_id_fkey';
+            columns: ['game_id'];
+            isOneToOne: false;
+            referencedRelation: 'game';
+            referencedColumns: ['id'];
+          },
+        ];
+      };
+      game: {
+        Row: {
+          created_at: string;
+          id: number;
+          updated_at: string;
+        };
+        Insert: {
+          created_at?: string;
+          id?: never;
+          updated_at?: string;
+        };
+        Update: {
+          created_at?: string;
+          id?: never;
+          updated_at?: string;
+        };
+        Relationships: [];
       };
       profiles: {
         Row: {
@@ -65,14 +122,7 @@ export interface Database {
           id?: string;
           updated_at?: string | null;
         };
-        Relationships: [
-          {
-            foreignKeyName: 'profiles_id_fkey';
-            columns: ['id'];
-            referencedRelation: 'users';
-            referencedColumns: ['id'];
-          },
-        ];
+        Relationships: [];
       };
       records: {
         Row: {
@@ -100,6 +150,7 @@ export interface Database {
           {
             foreignKeyName: 'records_user_id_fkey';
             columns: ['user_id'];
+            isOneToOne: false;
             referencedRelation: 'profiles';
             referencedColumns: ['id'];
           },
@@ -125,6 +176,7 @@ export interface Database {
           {
             foreignKeyName: 'subscription_user_id_fkey';
             columns: ['user_id'];
+            isOneToOne: true;
             referencedRelation: 'profiles';
             referencedColumns: ['id'];
           },
@@ -136,9 +188,7 @@ export interface Database {
     };
     Functions: {
       get_best_time: {
-        Args: {
-          p_user_id: string;
-        };
+        Args: { p_user_id: string };
         Returns: {
           user_id: string;
           duration: number;
@@ -153,3 +203,114 @@ export interface Database {
     };
   };
 }
+
+type DefaultSchema = Database[Extract<keyof Database, 'public'>];
+
+export type Tables<
+  DefaultSchemaTableNameOrOptions extends
+    | { schema: keyof Database }
+    | keyof (DefaultSchema['Tables'] & DefaultSchema['Views']),
+  TableName extends DefaultSchemaTableNameOrOptions extends {
+    schema: keyof Database;
+  }
+    ? keyof (Database[DefaultSchemaTableNameOrOptions['schema']]['Tables'] &
+        Database[DefaultSchemaTableNameOrOptions['schema']]['Views'])
+    : never = never,
+> = DefaultSchemaTableNameOrOptions extends { schema: keyof Database }
+  ? (Database[DefaultSchemaTableNameOrOptions['schema']]['Tables'] &
+      Database[DefaultSchemaTableNameOrOptions['schema']]['Views'])[TableName] extends {
+      Row: infer R;
+    }
+    ? R
+    : never
+  : DefaultSchemaTableNameOrOptions extends keyof (DefaultSchema['Tables'] &
+        DefaultSchema['Views'])
+    ? (DefaultSchema['Tables'] &
+        DefaultSchema['Views'])[DefaultSchemaTableNameOrOptions] extends {
+        Row: infer R;
+      }
+      ? R
+      : never
+    : never;
+
+export type TablesInsert<
+  DefaultSchemaTableNameOrOptions extends
+    | { schema: keyof Database }
+    | keyof DefaultSchema['Tables'],
+  TableName extends DefaultSchemaTableNameOrOptions extends {
+    schema: keyof Database;
+  }
+    ? keyof Database[DefaultSchemaTableNameOrOptions['schema']]['Tables']
+    : never = never,
+> = DefaultSchemaTableNameOrOptions extends { schema: keyof Database }
+  ? Database[DefaultSchemaTableNameOrOptions['schema']]['Tables'][TableName] extends {
+      Insert: infer I;
+    }
+    ? I
+    : never
+  : DefaultSchemaTableNameOrOptions extends keyof DefaultSchema['Tables']
+    ? DefaultSchema['Tables'][DefaultSchemaTableNameOrOptions] extends {
+        Insert: infer I;
+      }
+      ? I
+      : never
+    : never;
+
+export type TablesUpdate<
+  DefaultSchemaTableNameOrOptions extends
+    | { schema: keyof Database }
+    | keyof DefaultSchema['Tables'],
+  TableName extends DefaultSchemaTableNameOrOptions extends {
+    schema: keyof Database;
+  }
+    ? keyof Database[DefaultSchemaTableNameOrOptions['schema']]['Tables']
+    : never = never,
+> = DefaultSchemaTableNameOrOptions extends { schema: keyof Database }
+  ? Database[DefaultSchemaTableNameOrOptions['schema']]['Tables'][TableName] extends {
+      Update: infer U;
+    }
+    ? U
+    : never
+  : DefaultSchemaTableNameOrOptions extends keyof DefaultSchema['Tables']
+    ? DefaultSchema['Tables'][DefaultSchemaTableNameOrOptions] extends {
+        Update: infer U;
+      }
+      ? U
+      : never
+    : never;
+
+export type Enums<
+  DefaultSchemaEnumNameOrOptions extends
+    | { schema: keyof Database }
+    | keyof DefaultSchema['Enums'],
+  EnumName extends DefaultSchemaEnumNameOrOptions extends {
+    schema: keyof Database;
+  }
+    ? keyof Database[DefaultSchemaEnumNameOrOptions['schema']]['Enums']
+    : never = never,
+> = DefaultSchemaEnumNameOrOptions extends { schema: keyof Database }
+  ? Database[DefaultSchemaEnumNameOrOptions['schema']]['Enums'][EnumName]
+  : DefaultSchemaEnumNameOrOptions extends keyof DefaultSchema['Enums']
+    ? DefaultSchema['Enums'][DefaultSchemaEnumNameOrOptions]
+    : never;
+
+export type CompositeTypes<
+  PublicCompositeTypeNameOrOptions extends
+    | { schema: keyof Database }
+    | keyof DefaultSchema['CompositeTypes'],
+  CompositeTypeName extends PublicCompositeTypeNameOrOptions extends {
+    schema: keyof Database;
+  }
+    ? keyof Database[PublicCompositeTypeNameOrOptions['schema']]['CompositeTypes']
+    : never = never,
+> = PublicCompositeTypeNameOrOptions extends { schema: keyof Database }
+  ? Database[PublicCompositeTypeNameOrOptions['schema']]['CompositeTypes'][CompositeTypeName]
+  : PublicCompositeTypeNameOrOptions extends keyof DefaultSchema['CompositeTypes']
+    ? DefaultSchema['CompositeTypes'][PublicCompositeTypeNameOrOptions]
+    : never;
+
+export const Constants = {
+  public: {
+    Enums: {},
+  },
+} as const;
