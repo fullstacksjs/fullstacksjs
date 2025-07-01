@@ -7,14 +7,12 @@ import { Rajdhani, Vazirmatn } from 'next/font/google';
 import { generatePageOG, icons, JsonLd, keywords } from '@/components/SEO';
 import { Separator } from '@/components/Separator';
 import { Socials } from '@/components/Socials';
-import { serverConfig } from '@/config/serverConfig';
 import { SupabaseProvider } from '@/data-layer/supabase/SupabaseProvider';
 import { getDirection } from '@/i18n/direction';
 import { JotaiProvider } from '@/store/JotaiProvider';
 import { cn } from '@/utils/cn';
 
 import { Header } from './+components/Header';
-import { Tracking } from './+components/Tracking';
 
 const rajdhani = Rajdhani({
   weight: ['400', '500', '600', '700'],
@@ -46,9 +44,6 @@ export default async function LocaleLayout({ params, children }: LayoutProps) {
   const direction = getDirection(locale);
   setRequestLocale(locale);
 
-  const { containerId, trackingId } = serverConfig.get('analytics');
-  const isAnalyticsActive = containerId && trackingId;
-
   return (
     <html
       dir={direction}
@@ -57,9 +52,6 @@ export default async function LocaleLayout({ params, children }: LayoutProps) {
     >
       <head>
         <JsonLd />
-        {isAnalyticsActive ? (
-          <Tracking trackingId={trackingId} containerId={containerId} />
-        ) : null}
       </head>
       <body
         suppressHydrationWarning

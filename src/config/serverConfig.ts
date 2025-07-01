@@ -11,10 +11,6 @@ const ServerConfig = new Config({
     endpoint: Config.string().required(),
     token: Config.string().required(),
   }),
-  analytics: Config.object({
-    containerId: Config.string(),
-    trackingId: Config.string(),
-  }),
   advent: Config.object({
     session: Config.string().required(),
     url: Config.string().required(),
@@ -35,10 +31,6 @@ export const serverConfig = ServerConfig.parse({
   dato: {
     endpoint: process.env.DATO_ENDPOINT,
     token: process.env.DATO_TOKEN,
-  },
-  analytics: {
-    containerId: process.env.NEXT_PUBLIC_GTM_CONTAINER,
-    trackingId: process.env.NEXT_PUBLIC_GA_TRACKING_ID,
   },
   advent: {
     session: process.env.ADVENT_OF_CODE_SESSION,
