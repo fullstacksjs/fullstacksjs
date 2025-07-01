@@ -1,5 +1,8 @@
+import { notFound } from 'next/navigation';
+
 import { generatePageOG } from '@/components/SEO';
 import { Separator } from '@/components/Separator';
+import { getServerFeature } from '@/config/features/getServerFeatures';
 import { getReport } from '@/data-layer/wakatime/getReport';
 
 import { Banner } from '../+components/Banner';
@@ -16,6 +19,9 @@ export const metadata = generatePageOG({
 });
 
 export default async function WakatimePage() {
+  const feature = getServerFeature('wakatime');
+  if (!feature) return notFound();
+
   const { day, year, usages, winners } = await getReport(50);
 
   return (

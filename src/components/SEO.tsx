@@ -62,7 +62,7 @@ export function generatePageOG({
   };
 }
 
-export const jsonLd: WithContext<Organization> = {
+const jsonLd: WithContext<Organization> = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   legalName: 'FullstacksJS',

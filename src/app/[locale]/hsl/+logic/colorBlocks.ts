@@ -1,6 +1,6 @@
 import { randomInt, range } from '@fullstacksjs/toolbox';
 
-export const hsl = (h: number, s: number, l: number): string =>
+const hsl = (h: number, s: number, l: number): string =>
   `hsl(${h}, ${s}%, ${l}%)`;
 
 export const generateColorBlocks = (

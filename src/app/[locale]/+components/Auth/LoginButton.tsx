@@ -34,5 +34,3 @@ export function LoginButton({
     </SecondaryButton>
   );
 }
-
-export default LoginButton;

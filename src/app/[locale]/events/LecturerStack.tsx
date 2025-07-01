@@ -11,7 +11,7 @@ interface Props {
   lecturers: Lecturer[];
 }
 
-export const Avatar = ({
+const Avatar = ({
   image,
   className,
 }: {

@@ -41,9 +41,6 @@ importers:
       date-fns:
         specifier: 4.1.0
         version: 4.1.0
-      framer-motion:
-        specifier: 12.22.0
-        version: 12.22.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       graphql:
         specifier: 16.11.0
         version: 16.11.0
@@ -65,9 +62,6 @@ importers:
       posthog-js:
         specifier: 1.256.0
         version: 1.256.0
-      posthog-node:
-        specifier: 5.1.1
-        version: 5.1.1
       radash:
         specifier: 12.1.1
         version: 12.1.1
@@ -101,9 +95,6 @@ importers:
       tailwind-merge:
         specifier: 3.3.1
         version: 3.3.1
-      tailwindcss-animate:
-        specifier: 1.0.7
-        version: 1.0.7(tailwindcss@4.1.11)
     devDependencies:
       '@cspell/dict-fa-ir':
         specifier: 4.0.3
@@ -111,9 +102,6 @@ importers:
       '@fullstacksjs/eslint-config':
         specifier: 12.4.0
         version: 12.4.0(@typescript-eslint/eslint-plugin@8.32.1(@typescript-eslint/parser@8.32.1(eslint@9.30.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.30.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.30.0(jiti@2.4.2))(prettier@3.6.2)(react@19.1.0)(tailwindcss@4.1.11)(ts-api-utils@2.1.0(typescript@5.8.3))(typescript@5.8.3)
-      '@fullstacksjs/tsconfig':
-        specifier: 2.0.0
-        version: 2.0.0(typescript@5.8.3)
       '@graphql-codegen/add':
         specifier: 5.0.3
         version: 5.0.3(graphql@16.11.0)
@@ -156,9 +144,6 @@ importers:
       dotenv-cli:
         specifier: 8.0.0
         version: 8.0.0
-      encoding:
-        specifier: 0.1.13
-        version: 0.1.13
       eslint:
         specifier: 9.30.0
         version: 9.30.0(jiti@2.4.2)
@@ -1139,11 +1124,6 @@ packages:
   '@fullstacksjs/toolbox@4.18.0':
     resolution: {integrity: sha512-UIyMOoETqsvnR9FGG9gI42AtOvPuR+MO4t4dg7dYB+Yb1atH6FmvY+diJZMuooVf4PEMpoYZ6Vv+/pMZuGjjsA==}
     engines: {node: '>=16'}
-
-  '@fullstacksjs/tsconfig@2.0.0':
-    resolution: {integrity: sha512-/blIYWSnxRO4B+dp5PCcFSRVyg+13pU+mJ5ZJxSHsyynvQt4E70XfR1n5Q4q+fMJP+XiZAMbChmHWrBg/8P5VQ==}
-    peerDependencies:
-      typescript: '>=5'
 
   '@graphql-codegen/add@5.0.3':
     resolution: {integrity: sha512-SxXPmramkth8XtBlAHu4H4jYcYXM/o3p01+psU+0NADQowA8jtYkK6MW5rV6T+CxkEaNZItfSmZRPgIuypcqnA==}
@@ -3961,20 +3941,6 @@ packages:
     resolution: {integrity: sha512-buewHzMvYL29jdeQTVILecSaZKnt/RJWjoZCF5OW60Z67/GmSLBkOFM7qh1PI3zFNtJbaZL5eQu1vLfazOwj4g==}
     engines: {node: '>=12.20.0'}
 
-  framer-motion@12.22.0:
-    resolution: {integrity: sha512-qG07rR8/mboCNU34nORbrIbBXbJzP4aDqBdr67TAIVlMryDEOwh7LXjylWovlnPCMg78ExoY0Gn2F1fV+3DNIw==}
-    peerDependencies:
-      '@emotion/is-prop-valid': '*'
-      react: ^18.0.0 || ^19.0.0
-      react-dom: ^18.0.0 || ^19.0.0
-    peerDependenciesMeta:
-      '@emotion/is-prop-valid':
-        optional: true
-      react:
-        optional: true
-      react-dom:
-        optional: true
-
   function-bind@1.1.2:
     resolution: {integrity: sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA==}
 
@@ -4711,12 +4677,6 @@ packages:
   mlly@1.7.4:
     resolution: {integrity: sha512-qmdSIPC4bDJXgZTCR7XosJiNKySV7O215tsPtDN9iEO/7q/76b/ijtgRu/+epFXSJhijtTCCGp3DWS549P3xKw==}
 
-  motion-dom@12.22.0:
-    resolution: {integrity: sha512-ooH7+/BPw9gOsL9VtPhEJHE2m4ltnhMlcGMhEqA0YGNhKof7jdaszvsyThXI6LVIKshJUZ9/CP6HNqQhJfV7kw==}
-
-  motion-utils@12.19.0:
-    resolution: {integrity: sha512-BuFTHINYmV07pdWs6lj6aI63vr2N4dg0vR+td0rtrdpWOhBzIkEklZyLcvKBoEtwSqx8Jg06vUB5RS0xDiUybw==}
-
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
 
@@ -4987,10 +4947,6 @@ packages:
         optional: true
       rrweb-snapshot:
         optional: true
-
-  posthog-node@5.1.1:
-    resolution: {integrity: sha512-6VISkNdxO24ehXiDA4dugyCSIV7lpGVaEu5kn/dlAj+SJ1lgcDru9PQ8p/+GSXsXVxohd1t7kHL2JKc9NoGb0w==}
-    engines: {node: '>=20'}
 
   preact@10.26.9:
     resolution: {integrity: sha512-SSjF9vcnF27mJK1XyFMNJzFd5u3pQiATFqoaDy03XuN00u4ziveVVEGt5RKJrDR8MHE/wJo9Nnad56RLzS2RMA==}
@@ -5482,11 +5438,6 @@ packages:
 
   tailwind-merge@3.3.1:
     resolution: {integrity: sha512-gBXpgUm/3rp1lMZZrM/w7D8GKqshif0zAymAhbCyIt8KMe+0v9DQ7cdYLR4FHH/cKpdTXb+A/tKKU3eolfsI+g==}
-
-  tailwindcss-animate@1.0.7:
-    resolution: {integrity: sha512-bl6mpH3T7I3UFxuvDEXLxy/VuFxBk5bbzplh7tXI68mwMokNYd1t9qPBHlnyTwfa4JGC4zP516I1hYYtQ/vspA==}
-    peerDependencies:
-      tailwindcss: '>=3.0.0 || insiders'
 
   tailwindcss@4.1.11:
     resolution: {integrity: sha512-2E9TBm6MDD/xKYe+dvJZAmg3yxIEDNRc0jwlNyDg/4Fil2QcSLjFKGVff0lAf1jjeaArlG/M75Ey/EYr/OJtBA==}
@@ -7046,10 +6997,6 @@ snapshots:
       - vitest
 
   '@fullstacksjs/toolbox@4.18.0': {}
-
-  '@fullstacksjs/tsconfig@2.0.0(typescript@5.8.3)':
-    dependencies:
-      typescript: 5.8.3
 
   '@graphql-codegen/add@5.0.3(graphql@16.11.0)':
     dependencies:
@@ -10106,6 +10053,7 @@ snapshots:
   encoding@0.1.13:
     dependencies:
       iconv-lite: 0.6.3
+    optional: true
 
   enhanced-resolve@5.18.1:
     dependencies:
@@ -10678,15 +10626,6 @@ snapshots:
     dependencies:
       fetch-blob: 3.2.0
 
-  framer-motion@12.22.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
-    dependencies:
-      motion-dom: 12.22.0
-      motion-utils: 12.19.0
-      tslib: 2.8.1
-    optionalDependencies:
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
-
   function-bind@1.1.2: {}
 
   function.prototype.name@1.1.8:
@@ -10889,6 +10828,7 @@ snapshots:
   iconv-lite@0.6.3:
     dependencies:
       safer-buffer: 2.1.2
+    optional: true
 
   ieee754@1.2.1: {}
 
@@ -11389,12 +11329,6 @@ snapshots:
       pkg-types: 1.3.1
       ufo: 1.6.1
 
-  motion-dom@12.22.0:
-    dependencies:
-      motion-utils: 12.19.0
-
-  motion-utils@12.19.0: {}
-
   ms@2.1.3: {}
 
   mute-stream@0.0.8: {}
@@ -11670,8 +11604,6 @@ snapshots:
       fflate: 0.4.8
       preact: 10.26.9
       web-vitals: 4.2.4
-
-  posthog-node@5.1.1: {}
 
   preact@10.26.9: {}
 
@@ -12264,10 +12196,6 @@ snapshots:
       '@pkgr/core': 0.2.4
 
   tailwind-merge@3.3.1: {}
-
-  tailwindcss-animate@1.0.7(tailwindcss@4.1.11):
-    dependencies:
-      tailwindcss: 4.1.11
 
   tailwindcss@4.1.11: {}
 

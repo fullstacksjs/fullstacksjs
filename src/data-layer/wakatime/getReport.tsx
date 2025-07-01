@@ -7,7 +7,7 @@ import { addLeadingZero, formatOrdinals } from '@/utils/number';
 
 import type { WakatimeReport, WakatimeUsage } from './Wakatime';
 
-export function toHumanHM(seconds: number) {
+function toHumanHM(seconds: number) {
   const hours = secondsToHours(seconds);
   const minutes = secondsToMinutes(seconds % 3600);
   return `${addLeadingZero(hours)}:${addLeadingZero(minutes)}`;

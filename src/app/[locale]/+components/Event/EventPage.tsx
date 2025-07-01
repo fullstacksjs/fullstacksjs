@@ -12,7 +12,7 @@ interface EventTitleProps {
   data: StructuredTextGraphQlResponse;
 }
 
-export function EventTitle({ data }: EventTitleProps) {
+function EventTitle({ data }: EventTitleProps) {
   return (
     <StructuredText
       data={data}

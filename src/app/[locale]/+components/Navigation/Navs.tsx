@@ -33,23 +33,20 @@ export interface Nav {
 
 const navs: NavGroup[] = [
   {
-    feature: 'about',
     text: 'community.title',
     subNavs: [
-      { feature: 'about', href: '/', text: 'community.about' },
+      { href: '/', text: 'community.about' },
       {
-        feature: 'rules',
         href: '/rules',
         text: 'community.rules',
       },
-      { feature: 'ask', href: '/ask', text: 'community.ask' },
+      { href: '/ask', text: 'community.ask' },
     ],
   },
   {
-    feature: 'events',
     text: 'events',
     subNavs: [
-      { feature: 'events', href: '/events', text: 'events' },
+      { href: '/events', text: 'events' },
       { feature: 'wus', href: '/wus', text: 'wus' },
       { feature: 'mob', href: '/mob', text: 'mob' },
     ],
@@ -62,13 +59,7 @@ const navs: NavGroup[] = [
         href: '/wakatime',
         text: 'wakatime',
       },
-      {
-        feature: 'guild',
-        isNew: true,
-        href: '/guild',
-        text: 'guild',
-      },
-      { feature: 'type', href: '/type', text: 'type', isNew: true },
+      { feature: 'type', href: '/type', text: 'type' },
       { feature: 'hsl', href: '/hsl', text: 'hsl', isNew: true },
     ],
   },
@@ -81,7 +72,6 @@ const navs: NavGroup[] = [
     ],
   },
   {
-    feature: 'projects',
     text: 'projects',
     href: '/projects',
     subNavs: [],

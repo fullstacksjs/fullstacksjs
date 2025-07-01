@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 
 import { Button } from '@/components/Button';
 import { generatePageOG } from '@/components/SEO';
+import { getServerFeature } from '@/config/features/getServerFeatures';
 import { getWusEvent } from '@/data-layer/datocms/getWusEvent';
 
 import { EventActions, EventPage } from '../+components/Event/EventPage';
@@ -18,6 +19,9 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
+  const feature = getServerFeature('wus');
+  if (!feature) return notFound();
+
   const event = await getWusEvent();
   if (!event) return notFound();
 

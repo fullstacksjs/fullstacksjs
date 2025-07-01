@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 
 import { Button } from '@/components/Button';
 import { generatePageOG } from '@/components/SEO';
+import { getServerFeature } from '@/config/features/getServerFeatures';
 import { getMobEvent } from '@/data-layer/datocms/getMobEvent';
 
 import { EventActions, EventPage } from '../+components/Event/EventPage';
@@ -20,6 +21,9 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Page() {
+  const feature = getServerFeature('mob');
+  if (!feature) return notFound();
+
   const event = await getMobEvent();
   if (!event) return notFound();
 

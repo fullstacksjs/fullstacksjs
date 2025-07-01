@@ -1,5 +1,5 @@
+import { useUpdate } from 'ahooks';
 import { differenceInMilliseconds } from 'date-fns';
-import { useForceUpdate } from 'framer-motion';
 import { atom, useAtom } from 'jotai';
 import { useEffect } from 'react';
 
@@ -40,7 +40,7 @@ export const useTimeEllipses = () => {
   const [gameState] = useAtom(gameStateAtom);
   const [startTime] = useAtom(startTimeAtom);
   const [endTime] = useAtom(endTimeAtom);
-  const [forceUpdate] = useForceUpdate();
+  const forceUpdate = useUpdate();
 
   useEffect(() => {
     let interval: NodeJS.Timeout | undefined;

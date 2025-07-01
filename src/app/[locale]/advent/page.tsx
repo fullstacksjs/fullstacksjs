@@ -4,11 +4,13 @@ import {
   getTranslations,
   setRequestLocale,
 } from 'next-intl/server';
+import { notFound } from 'next/navigation';
 import { pick } from 'radash';
 
 import { Article } from '@/components/Article';
 import { Paragraph } from '@/components/Paragraph';
 import { generatePageOG } from '@/components/SEO';
+import { getServerFeature } from '@/config/features/getServerFeatures';
 import { i18nComponents as tc } from '@/i18n/i18nComponents';
 import { routing } from '@/i18n/routing';
 
@@ -21,6 +23,9 @@ export const metadata = generatePageOG({
 });
 
 export default async function AdventOfCodePage({ params }: PageProps) {
+  const feature = getServerFeature('advent');
+  if (!feature) return notFound();
+
   const { locale } = await params;
 
   setRequestLocale(locale);
