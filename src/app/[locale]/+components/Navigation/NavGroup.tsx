@@ -1,7 +1,7 @@
 'use client';
 
 import { comparePaths } from '@fullstacksjs/toolbox';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import { useSelectedLayoutSegment } from 'next/navigation';
 
 import { CircleBadge } from '@/components/CircleBadge';
