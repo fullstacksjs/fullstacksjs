@@ -6,10 +6,10 @@ import type { EventLinks } from './EventLinks';
 import type { StageEvent } from './Stage';
 
 import { datoClient } from './datoClient';
-import { ImagePatsFragment } from './Fragments';
+import { ImageFragment } from './Fragments';
 
 const query = gql`
-  ${ImagePatsFragment}
+  ${ImageFragment}
   query Stage {
     stage {
       thumbnail {

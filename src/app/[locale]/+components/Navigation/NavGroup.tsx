@@ -38,10 +38,13 @@ export const NavGroup = ({ text, href, subNavs, isNew }: Props) => {
           {
             'text-fg-0': isActive,
             'text-light-muted': !isActive,
+            'indent-8': isNew,
           },
         )}
       >
-        {isNew ? <CircleBadge className="hidden desktop:block" /> : null}
+        {isNew ? (
+          <CircleBadge className="hidden desktop:block absolute" />
+        ) : null}
         {text}
         {!href ? <ChevronDownIcon /> : null}
       </Link>

@@ -26,6 +26,92 @@ export type Scalars = {
   UploadId: { input: any; output: any; }
 };
 
+export type BlogModelContentField = {
+  __typename?: 'BlogModelContentField';
+  blocks: Array<Scalars['String']['output']>;
+  inlineBlocks: Array<Scalars['String']['output']>;
+  links: Array<Scalars['String']['output']>;
+  value: Scalars['JsonField']['output'];
+};
+
+export type BlogModelFilter = {
+  AND?: InputMaybe<Array<InputMaybe<BlogModelFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<BlogModelFilter>>>;
+  _createdAt?: InputMaybe<CreatedAtFilter>;
+  _firstPublishedAt?: InputMaybe<PublishedAtFilter>;
+  _isValid?: InputMaybe<BooleanFilter>;
+  _publicationScheduledAt?: InputMaybe<PublishedAtFilter>;
+  _publishedAt?: InputMaybe<PublishedAtFilter>;
+  _status?: InputMaybe<StatusFilter>;
+  _unpublishingScheduledAt?: InputMaybe<PublishedAtFilter>;
+  _updatedAt?: InputMaybe<UpdatedAtFilter>;
+  banner?: InputMaybe<FileFilter>;
+  content?: InputMaybe<StructuredTextFilter>;
+  createdAt?: InputMaybe<CreatedAtFilter>;
+  id?: InputMaybe<ItemIdFilter>;
+  slug?: InputMaybe<SlugFilter>;
+  title?: InputMaybe<StringFilter>;
+  updatedAt?: InputMaybe<UpdatedAtFilter>;
+};
+
+export enum BlogModelOrderBy {
+  _CreatedAtAsc = '_createdAt_ASC',
+  _CreatedAtDesc = '_createdAt_DESC',
+  _FirstPublishedAtAsc = '_firstPublishedAt_ASC',
+  _FirstPublishedAtDesc = '_firstPublishedAt_DESC',
+  _IsValidAsc = '_isValid_ASC',
+  _IsValidDesc = '_isValid_DESC',
+  _PublicationScheduledAtAsc = '_publicationScheduledAt_ASC',
+  _PublicationScheduledAtDesc = '_publicationScheduledAt_DESC',
+  _PublishedAtAsc = '_publishedAt_ASC',
+  _PublishedAtDesc = '_publishedAt_DESC',
+  _StatusAsc = '_status_ASC',
+  _StatusDesc = '_status_DESC',
+  _UnpublishingScheduledAtAsc = '_unpublishingScheduledAt_ASC',
+  _UnpublishingScheduledAtDesc = '_unpublishingScheduledAt_DESC',
+  _UpdatedAtAsc = '_updatedAt_ASC',
+  _UpdatedAtDesc = '_updatedAt_DESC',
+  CreatedAtAsc = 'createdAt_ASC',
+  CreatedAtDesc = 'createdAt_DESC',
+  IdAsc = 'id_ASC',
+  IdDesc = 'id_DESC',
+  TitleAsc = 'title_ASC',
+  TitleDesc = 'title_DESC',
+  UpdatedAtAsc = 'updatedAt_ASC',
+  UpdatedAtDesc = 'updatedAt_DESC'
+}
+
+/** Record of type Blog (blog) */
+export type BlogRecord = RecordInterface & {
+  __typename?: 'BlogRecord';
+  _createdAt: Scalars['DateTime']['output'];
+  /** Editing URL */
+  _editingUrl?: Maybe<Scalars['String']['output']>;
+  _firstPublishedAt: Scalars['DateTime']['output'];
+  _isValid: Scalars['BooleanType']['output'];
+  _modelApiKey: Scalars['String']['output'];
+  _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>;
+  _publishedAt: Scalars['DateTime']['output'];
+  /** Generates SEO and Social card meta tags to be used in your frontend */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>;
+  _updatedAt: Scalars['DateTime']['output'];
+  banner?: Maybe<FileField>;
+  content?: Maybe<BlogModelContentField>;
+  createdAt: Scalars['DateTime']['output'];
+  id: Scalars['ItemId']['output'];
+  slug?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  updatedAt: Scalars['DateTime']['output'];
+};
+
+
+/** Record of type Blog (blog) */
+export type BlogRecord_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
+};
+
 /** Specifies how to filter Boolean fields */
 export type BooleanFilter = {
   /** Search for records with an exact match */
@@ -2459,6 +2545,8 @@ export type PublishedAtFilter = {
 export type Query = {
   __typename?: 'Query';
   /** Returns meta information regarding a record collection */
+  _allBlogsMeta: CollectionMetadata;
+  /** Returns meta information regarding a record collection */
   _allEventsMeta: CollectionMetadata;
   /** Returns meta information regarding a record collection */
   _allLecturersMeta: CollectionMetadata;
@@ -2469,6 +2557,8 @@ export type Query = {
   /** Returns the single instance record */
   _site: Site;
   /** Returns a collection of records */
+  allBlogs: Array<BlogRecord>;
+  /** Returns a collection of records */
   allEvents: Array<EventRecord>;
   /** Returns a collection of records */
   allLecturers: Array<LecturerRecord>;
@@ -2476,6 +2566,8 @@ export type Query = {
   allLinks: Array<LinkRecord>;
   /** Returns a collection of assets */
   allUploads: Array<FileField>;
+  /** Returns a specific record */
+  blog?: Maybe<BlogRecord>;
   /** Returns a specific record */
   event?: Maybe<EventRecord>;
   /** Returns a specific record */
@@ -2494,8 +2586,14 @@ export type Query = {
 
 
 /** The query root for this schema */
+export type Query_AllBlogsMetaArgs = {
+  filter?: InputMaybe<BlogModelFilter>;
+  locale?: InputMaybe<SiteLocale>;
+};
+
+
+/** The query root for this schema */
 export type Query_AllEventsMetaArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   filter?: InputMaybe<EventModelFilter>;
   locale?: InputMaybe<SiteLocale>;
 };
@@ -2503,7 +2601,6 @@ export type Query_AllEventsMetaArgs = {
 
 /** The query root for this schema */
 export type Query_AllLecturersMetaArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   filter?: InputMaybe<LecturerModelFilter>;
   locale?: InputMaybe<SiteLocale>;
 };
@@ -2511,7 +2608,6 @@ export type Query_AllLecturersMetaArgs = {
 
 /** The query root for this schema */
 export type Query_AllLinksMetaArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   filter?: InputMaybe<LinkModelFilter>;
   locale?: InputMaybe<SiteLocale>;
 };
@@ -2528,6 +2624,17 @@ export type Query_AllUploadsMetaArgs = {
 export type Query_SiteArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   locale?: InputMaybe<SiteLocale>;
+};
+
+
+/** The query root for this schema */
+export type QueryAllBlogsArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  filter?: InputMaybe<BlogModelFilter>;
+  first?: InputMaybe<Scalars['IntType']['input']>;
+  locale?: InputMaybe<SiteLocale>;
+  orderBy?: InputMaybe<Array<InputMaybe<BlogModelOrderBy>>>;
+  skip?: InputMaybe<Scalars['IntType']['input']>;
 };
 
 
@@ -2572,6 +2679,15 @@ export type QueryAllUploadsArgs = {
   locale?: InputMaybe<SiteLocale>;
   orderBy?: InputMaybe<Array<InputMaybe<UploadOrderBy>>>;
   skip?: InputMaybe<Scalars['IntType']['input']>;
+};
+
+
+/** The query root for this schema */
+export type QueryBlogArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  filter?: InputMaybe<BlogModelFilter>;
+  locale?: InputMaybe<SiteLocale>;
+  orderBy?: InputMaybe<Array<InputMaybe<BlogModelOrderBy>>>;
 };
 
 
@@ -3289,6 +3405,22 @@ export type FocalPoint = {
 export type ImageFragment = { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, bgColor?: string | null, sizes: string };
 
 export type EventFragment = { __typename?: 'EventRecord', slug?: string | null, startDate?: any | null, mediaUrl?: string | null, title?: { __typename?: 'EventModelTitleField', value: any, links: Array<string>, blocks: Array<string> } | null, description?: { __typename?: 'EventModelDescriptionField', value: any, links: Array<string>, blocks: Array<string> } | null, thumbnail?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, bgColor?: string | null, sizes: string } | null } | null, lecturers: Array<{ __typename?: 'LecturerRecord', slug?: string | null, name?: string | null, avatar?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, bgColor?: string | null, sizes: string } | null } | null }> };
+
+export type BlogFragment = { __typename?: 'BlogRecord', title?: string | null, slug?: string | null, createdAt: any };
+
+export type BlogContentFragment = { __typename?: 'BlogModelContentField', blocks: Array<string>, inlineBlocks: Array<string>, links: Array<string>, value: any };
+
+export type BlogQueryVariables = Exact<{
+  slug: Scalars['String']['input'];
+}>;
+
+
+export type BlogQuery = { __typename?: 'Query', blog?: { __typename?: 'BlogRecord', title?: string | null, slug?: string | null, createdAt: any, banner?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, bgColor?: string | null, sizes: string } | null } | null, content?: { __typename?: 'BlogModelContentField', blocks: Array<string>, inlineBlocks: Array<string>, links: Array<string>, value: any } | null } | null };
+
+export type BlogsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type BlogsQuery = { __typename?: 'Query', allBlogs: Array<{ __typename?: 'BlogRecord', title?: string | null, slug?: string | null, createdAt: any }> };
 
 export type EventQueryVariables = Exact<{
   slug: Scalars['String']['input'];

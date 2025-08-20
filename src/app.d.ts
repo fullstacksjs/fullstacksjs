@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/consistent-type-definitions */
 /// <reference types="@total-typescript/ts-reset" />
 
 declare module '*.svg?url' {
@@ -5,11 +6,11 @@ declare module '*.svg?url' {
   export default content;
 }
 
-interface PageProps<TParams extends Record<string, string> = {}> {
+type PageProps<TParams extends Record<string, string> = {}> = {
   params: Promise<TParams & { locale: import('next-intl').Locale }>;
-}
+};
 
-interface LayoutProps<TParams extends Record<string, string> = {}> {
+type LayoutProps<TParams extends Record<string, string> = {}> = {
   children: React.ReactNode;
   params: Promise<TParams & { locale: import('next-intl').Locale }>;
-}
+};

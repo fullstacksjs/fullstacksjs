@@ -33,7 +33,7 @@
     "howler": "2.2.4",
     "jotai": "2.12.5",
     "next": "15.4.2-canary.56",
-    "next-intl": "4.3.3",
+    "next-intl": "4.3.4",
     "posthog-js": "1.256.0",
     "radash": "12.1.1",
     "react": "19.1.0",

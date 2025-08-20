@@ -2,7 +2,7 @@ import { gql } from 'graphql-request';
 
 import type { EventFragment as EventFragmentType } from './DatoCMS';
 
-export const ImagePatsFragment = gql`
+export const ImageFragment = gql`
   fragment Image on ResponsiveImage {
     src
     width
@@ -16,7 +16,7 @@ export const ImagePatsFragment = gql`
 `;
 
 export const EventFragment = gql`
-  ${ImagePatsFragment}
+  ${ImageFragment}
 
   fragment Event on EventRecord {
     slug
@@ -46,6 +46,23 @@ export const EventFragment = gql`
         }
       }
     }
+  }
+`;
+
+export const BlogFragment = gql`
+  fragment Blog on BlogRecord {
+    title
+    slug
+    createdAt
+  }
+`;
+
+export const BlogContentFragment = gql`
+  fragment BlogContent on BlogModelContentField {
+    blocks
+    inlineBlocks
+    links
+    value
   }
 `;
 

@@ -1,6 +1,5 @@
 import { Highlight } from './Highlight';
 import { Anchor } from './Link';
-import { Separator } from './Separator';
 
 export const getDatoNode = (type: string, props: any, children: any) => {
   const key = props.key;
@@ -23,31 +22,7 @@ export const getDatoNode = (type: string, props: any, children: any) => {
         {children}
       </h3>
     );
-  if (type === 'ul')
-    return (
-      <ul className="mb-2 list-disc list-item-star list-inside" key={key}>
-        {children}
-      </ul>
-    );
-  if (type === 'li')
-    return (
-      <li className="mt-4 *:inline" key={key}>
-        {children}
-      </li>
-    );
-  if (type === 'h2')
-    return (
-      <h2 className="mb-4 mt-10 text-xl font-bold" key={key}>
-        {children}
-      </h2>
-    );
-  if (type === 'strong')
-    return (
-      <strong className="text-fg-0" key={key}>
-        {children}
-      </strong>
-    );
-  if (type === 'hr') return <Separator className="my-8" key={key} />;
+  if (type === 'strong') return <strong key={key}>{children}</strong>;
   if (type === 'a')
     return (
       <Anchor href={props.href} key={key} target={props.target}>

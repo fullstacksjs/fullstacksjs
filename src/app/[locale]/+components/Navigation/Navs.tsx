@@ -1,6 +1,6 @@
 import type { MessageKeys, Messages, NestedKeyOf } from 'next-intl';
 
-import { isEmpty, isNull } from '@fullstacksjs/toolbox';
+import { isNull, isNullOrEmptyArray } from '@fullstacksjs/toolbox';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages, getTranslations } from 'next-intl/server';
 import { get } from 'radash';
@@ -19,7 +19,7 @@ type Keys = MessageKeys<
 export interface NavGroup {
   feature?: Feature;
   text: string;
-  subNavs: Nav[];
+  subNavs?: Nav[];
   href?: string;
   isNew?: boolean;
 }
@@ -36,10 +36,7 @@ const navs: NavGroup[] = [
     text: 'community.title',
     subNavs: [
       { href: '/', text: 'community.about' },
-      {
-        href: '/rules',
-        text: 'community.rules',
-      },
+      { href: '/rules', text: 'community.rules' },
       { href: '/ask', text: 'community.ask' },
     ],
   },
@@ -71,17 +68,13 @@ const navs: NavGroup[] = [
       { href: '/advent/board', text: 'advent.board' },
     ],
   },
-  {
-    text: 'projects',
-    href: '/projects',
-    subNavs: [],
-    isNew: true,
-  },
+  { text: 'projects', href: '/projects' },
+  { text: 'blog', href: '/blogs', isNew: true },
 ];
 
 const isActive = (c: Nav | NavGroup) =>
   isNull(c.feature) || getServerFeature(c.feature);
-const isEmptyGroup = (c: NavGroup) => !c.href && isEmpty(c.subNavs);
+const isEmptyGroup = (c: NavGroup) => !c.href && isNullOrEmptyArray(c.subNavs);
 
 export const Navs = async () => {
   const messages = await getMessages();
@@ -92,7 +85,7 @@ export const Navs = async () => {
     .map<NavGroup>((n) => ({
       ...n,
       subNavs: n.subNavs
-        .filter(isActive)
+        ?.filter(isActive)
         .map((c) => ({ ...c, text: t(c.text as Keys) })),
     }))
     .filter((c) => isActive(c) && !isEmptyGroup(c));
