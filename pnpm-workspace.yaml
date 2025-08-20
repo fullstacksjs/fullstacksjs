@@ -3,5 +3,6 @@ onlyBuiltDependencies:
   - '@vercel/speed-insights'
   - sharp
   - supabase
+  - unrs-resolver
 savePrefix: ''
 updateNotifier: false

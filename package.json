@@ -49,7 +49,7 @@
   },
   "devDependencies": {
     "@cspell/dict-fa-ir": "4.0.3",
-    "@fullstacksjs/eslint-config": "12.4.0",
+    "@fullstacksjs/eslint-config": "13.2.2",
     "@graphql-codegen/add": "5.0.3",
     "@graphql-codegen/cli": "5.0.7",
     "@graphql-codegen/typescript": "4.1.6",

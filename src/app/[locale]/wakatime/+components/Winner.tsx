@@ -19,7 +19,7 @@ export function Winner({ usage, rank, className }: Props) {
       className={cn(
         'flex grow-0 flex-col items-center rounded-xl border-[#60657dcb]',
         {
-          'w-[250px] mb-8 gap-8 py-8': rank === 1,
+          'mb-8 w-[250px] gap-8 py-8': rank === 1,
           'w-[220px] gap-4 pt-4 pb-8': rank !== 1,
         },
         className,
@@ -28,7 +28,7 @@ export function Winner({ usage, rank, className }: Props) {
       <p
         className={cn({
           'text-yellow-400': rank === 1,
-          'font-bold rank-silver leading-tight': rank !== 1,
+          'rank-silver leading-tight font-bold': rank !== 1,
         })}
       >
         {rank === 1 ? <Crown /> : usage.user.lastRank}

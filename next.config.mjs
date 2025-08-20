@@ -74,7 +74,7 @@ function addSvgr(config) {
     },
     {
       test: /\.svg$/i,
-      issuer: { not: /\.(css|scss|sass)$/ },
+      issuer: { not: /\.(css|sass|scss)$/ },
       resourceQuery: { not: /url/ },
       loader: '@svgr/webpack',
     },

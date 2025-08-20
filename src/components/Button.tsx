@@ -25,7 +25,7 @@ export const Button = ({
       className={cn(
         'flex flex-row items-center justify-center rounded-lg px-12 py-4 text-sm font-semibold leading-snug hover:cursor-pointer disabled:border-none disabled:bg-bg-muted disabled:text-fg-muted disabled:cursor-auto',
         {
-          'border border-accent-0 text-accent-0 transition-[background-color,color] hover:bg-accent-0 hover:text-bg-0 focus:text-bg-0 focus:bg-accent-0 focus:outline-hidden':
+          'border border-accent-0 text-accent-0 transition-[background-color,color] hover:bg-accent-0 hover:text-bg-0 focus:bg-accent-0 focus:text-bg-0 focus:outline-hidden':
             variant === 'outline',
           'bg-accent-0 text-dark-0': variant === 'contained',
           'px-6 py-3': size === 'sm',

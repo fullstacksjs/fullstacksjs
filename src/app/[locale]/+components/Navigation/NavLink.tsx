@@ -28,8 +28,8 @@ export function NavLink({ href, isNew, children }: Props) {
       className={cn(
         'relative scroll-m-9 list-none uppercase transition-colors after:absolute after:bottom-[-3px] after:h-[3px] after:bg-current after:transition-[width]',
         {
-          'after:w-8 text-fg-0': isActive,
-          'after:w-0 hover:after:w-8 text-light-muted hover:text-fg-1':
+          'text-fg-0 after:w-8': isActive,
+          'text-light-muted after:w-0 hover:text-fg-1 hover:after:w-8':
             !isActive,
           'after:left-0': !isRtl,
           'after:right-0': isRtl,

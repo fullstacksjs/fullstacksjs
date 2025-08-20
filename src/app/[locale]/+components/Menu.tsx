@@ -32,9 +32,9 @@ const SheetContent = ({
     className={cn(
       'fixed inset-y-0 z-50 h-full w-[300px] gap-4 bg-bg-0 p-12 outline-hidden transition duration-300 ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out',
       {
-        'left-0 data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left':
+        'data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left left-0':
           direction === 'ltr',
-        'right-0 data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right':
+        'data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right right-0':
           direction === 'rtl',
       },
       className,
