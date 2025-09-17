@@ -1,11 +1,11 @@
-import { getReport } from '@/data-layer/wakatime/getReport';
+import { getReportWithoutCache } from '@/data-layer/wakatime/getReport';
 
 import { UserTable } from '../../[locale]/wakatime/+components/UserTable';
 import { Winner } from '../../[locale]/wakatime/+components/Winner';
 import Logo from './Logo.svg';
 
 export default async function WakatimeDay() {
-  const { day, year, usages, winners } = await getReport(7);
+  const { day, year, usages, winners } = await getReportWithoutCache(7);
 
   return (
     <body className="flex min-h-screen flex-col items-center overflow-x-hidden bg-bg-0 font-rajdhani text-base text-fg-0">

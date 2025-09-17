@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { generatePageOG } from '@/components/SEO';
 import { Separator } from '@/components/Separator';
 import { getServerFeature } from '@/config/features/getServerFeatures';
-import { getReport } from '@/data-layer/wakatime/getReport';
+import { getReportWithCache } from '@/data-layer/wakatime/getReport';
 
 import { Banner } from '../+components/Banner';
 import { Title } from './+components/Title';
@@ -22,7 +22,7 @@ export default async function WakatimePage() {
   const feature = getServerFeature('wakatime');
   if (!feature) return notFound();
 
-  const { day, year, usages, winners } = await getReport(50);
+  const { day, year, usages, winners } = await getReportWithCache(50);
 
   return (
     <>
