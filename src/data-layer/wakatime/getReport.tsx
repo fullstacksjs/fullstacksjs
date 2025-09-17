@@ -13,10 +13,7 @@ function toHumanHM(seconds: number) {
   return `${addLeadingZero(hours)}:${addLeadingZero(minutes)}`;
 }
 
-export const getReportWithCache = async (count: number) => {
-  'use cache';
-  cacheLife('hours');
-
+export const getReportWithoutCache = async (count: number) => {
   const url = joinPaths(
     serverConfig.get('wakatime.endpoint'),
     `day?size=${count}`,
@@ -53,39 +50,9 @@ export const getReportWithCache = async (count: number) => {
   };
 };
 
-export const getReportWithoutCache = async (count: number) => {
-  const url = joinPaths(
-    serverConfig.get('wakatime.endpoint'),
-    `day?size=${count}`,
-  );
-  const res = await fetch(joinPaths(url), { cache: 'no-cache' });
+export const getReportWithCache = async (count: number) => {
+  'use cache';
+  cacheLife('hours');
 
-  if (!res.ok)
-    throw new Error(
-      `Failed to fetch Wakatime report "${res.status}: ${res.statusText}"`,
-    );
-
-  const report = (await res.json()) as WakatimeReport;
-  const date = new Date(report.date);
-
-  const year = date.getFullYear();
-  const day = getDayOfYear(date);
-  const usages = report.usages.map<WakatimeUsage>((u) => {
-    return {
-      ...u,
-      humanReadableTotalSeconds: toHumanHM(u.totalSeconds),
-      humanReadableDailyAverage: toHumanHM(u.dailyAverage),
-      user: {
-        ...u.user,
-        ordinalRank: formatOrdinals(u.rank),
-      },
-    };
-  });
-
-  return {
-    year,
-    day,
-    winners: usages.slice(0, 3),
-    usages: usages.slice(3),
-  };
+  return getReportWithoutCache(count);
 };
