@@ -21,7 +21,7 @@ export const EventCardTitle = ({ data, className }: Props) => (
       data={data}
       renderNode={(type, props, children) => {
         if (type === 'p') return children;
-        return getDatoNode(type, props, children);
+        return getDatoNode({ type, props, children });
       }}
     />
   </div>

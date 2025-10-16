@@ -25,7 +25,11 @@ export default async function BlogPage({
           renderNode={(type, props, children) => {
             if (type === 'p')
               return <p className="text-fg-1 mb-2">{children}</p>;
-            return getDatoNode(type, props, children);
+            if (props == null) {
+              console.log({ type, props, children });
+              return null;
+            }
+            return getDatoNode({ type, props, children });
           }}
         />
       </div>

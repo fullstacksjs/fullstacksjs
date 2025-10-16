@@ -1,9 +1,34 @@
+import { isObject } from '@fullstacksjs/toolbox';
+
 import { Highlight } from './Highlight';
 import { Anchor } from './Link';
 import { Separator } from './Separator';
 
-export const getDatoNode = (type: string, props: any, children: any) => {
-  const key = props.key;
+type Node =
+  | {
+      type: 'a';
+      props: { key: string; href: string; target: string };
+      children: string;
+    }
+  | { type: 'code'; props: null; children: string }
+  | {
+      type:
+        | 'br'
+        | 'h1'
+        | 'h2'
+        | 'h3'
+        | 'hr'
+        | 'li'
+        | 'mark'
+        | 'p'
+        | 'strong'
+        | 'ul';
+      props: { key: string };
+      children: string;
+    };
+
+export const getDatoNode = ({ type, props, children }: Node) => {
+  const key = isObject(props) && 'key' in props ? props.key : undefined;
 
   if (type === 'h1')
     return (
