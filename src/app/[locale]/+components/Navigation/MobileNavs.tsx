@@ -1,8 +1,7 @@
 'use client';
 
 import * as Dialog from '@radix-ui/react-dialog';
-import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import type { Direction } from '@/i18n/direction';
 
@@ -16,11 +15,6 @@ interface Props {
 
 export const MobileNavs = ({ children, direction }: Props) => {
   const [open, setOpen] = useState(false);
-  const pathname = usePathname();
-
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
 
   return (
     <Dialog.Root open={open}>

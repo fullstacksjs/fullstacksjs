@@ -6,11 +6,11 @@ declare module '*.svg?url' {
   export default content;
 }
 
-type PageProps<TParams extends Record<string, string> = {}> = {
+type PageProps<TParams extends Record<string, string> = object> = {
   params: Promise<TParams & { locale: import('next-intl').Locale }>;
 };
 
-type LayoutProps<TParams extends Record<string, string> = {}> = {
+type LayoutProps<TParams extends Record<string, string> = object> = {
   children: React.ReactNode;
   params: Promise<TParams & { locale: import('next-intl').Locale }>;
 };

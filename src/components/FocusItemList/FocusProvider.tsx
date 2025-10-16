@@ -53,6 +53,7 @@ const FocusContext = createContext<{
   startTransition: TransitionStartFunction;
   setOptimistic: (value: string | null) => void;
 } | null>(null);
+FocusContext.displayName = 'FocusContext';
 
 export const FocusProvider = ({ children }: React.PropsWithChildren) => {
   useScrollToFocused();
@@ -72,9 +73,7 @@ export const FocusProvider = ({ children }: React.PropsWithChildren) => {
     [focused, isPending, getState, startTransition, setOptimistic],
   );
 
-  return (
-    <FocusContext.Provider value={value}>{children}</FocusContext.Provider>
-  );
+  return <FocusContext value={value}>{children}</FocusContext>;
 };
 
 export function useFocus() {
