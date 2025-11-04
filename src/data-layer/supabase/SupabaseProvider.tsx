@@ -2,6 +2,7 @@
 
 import type { SupabaseClient } from '@supabase/supabase-js';
 
+import { isNull } from '@fullstacksjs/toolbox';
 import { createBrowserClient } from '@supabase/ssr';
 import { useRouter } from 'next/navigation';
 import { createContext, use, useEffect, useMemo, useState } from 'react';
@@ -15,7 +16,7 @@ interface SupabaseContext {
 }
 
 const Context = createContext<SupabaseContext | undefined>(undefined);
-Context.displayName = 'Context';
+Context.displayName = 'SupabaseContext';
 
 interface Props {
   children: React.ReactNode;
@@ -48,7 +49,7 @@ export function SupabaseProvider({ children }: Props) {
 export const useSupabase = () => {
   const context = use(Context);
 
-  if (context === undefined)
+  if (isNull(context))
     throw new Error('useSupabase must be used inside SupabaseProvider');
 
   return context;
