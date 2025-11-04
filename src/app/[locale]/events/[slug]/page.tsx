@@ -3,11 +3,13 @@ import { SRCImage } from 'react-datocms';
 
 import { getEventBySlug } from '@/data-layer/datocms/getEvent';
 
-import { EventCardAction } from '../EventCardAction';
-import { EventCardDescription } from '../EventCardDescription';
-import { EventCardTitle } from '../EventCardTitle';
+import { EventCardAction } from '../+components/EventCardAction';
+import { EventCardDescription } from '../+components/EventCardDescription';
+import { EventCardTitle } from '../+components/EventCardTitle';
 
-export default async function Page({ params }: PageProps<{ slug: string }>) {
+export default async function Page({
+  params,
+}: SafeLocale<PageProps<'/[locale]/events/[slug]'>>) {
   const { slug } = await params;
   const event = await getEventBySlug(slug);
   if (!event) notFound();

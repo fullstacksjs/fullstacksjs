@@ -9,7 +9,7 @@ import { locales } from '@/i18n/locales';
 
 export default async function BlogPage({
   params,
-}: PageProps<{ slug: string }>) {
+}: SafeLocale<PageProps<'/[locale]/blogs/[slug]'>>) {
   setRequestLocale('fa');
   const { slug } = await params;
   const blog = await getBlog(slug);

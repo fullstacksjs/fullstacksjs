@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/consistent-type-definitions */
 /// <reference types="@total-typescript/ts-reset" />
 
 declare module '*.svg?url' {
@@ -6,11 +5,22 @@ declare module '*.svg?url' {
   export default content;
 }
 
-type PageProps<TParams extends Record<string, string> = object> = {
-  params: Promise<TParams & { locale: import('next-intl').Locale }>;
-};
+type UnwrapPromise<T> = T extends Promise<infer U> ? U : T;
 
-type LayoutProps<TParams extends Record<string, string> = object> = {
-  children: React.ReactNode;
-  params: Promise<TParams & { locale: import('next-intl').Locale }>;
-};
+interface SafeLocale<T extends PageProps> {
+  params: Promise<{
+    [K in keyof UnwrapPromise<T['params']>]: K extends 'locale'
+      ? import('next-intl').Locale
+      : UnwrapPromise<T['params']>[K];
+  }>;
+  searchParams: T['searchParams'];
+}
+
+interface SafeLocaleLayout<T extends LayoutProps> {
+  params: Promise<{
+    [K in keyof UnwrapPromise<T['params']>]: K extends 'locale'
+      ? import('next-intl').Locale
+      : UnwrapPromise<T['params']>[K];
+  }>;
+  children: T['children'];
+}

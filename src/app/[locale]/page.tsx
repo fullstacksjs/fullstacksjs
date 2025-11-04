@@ -10,7 +10,9 @@ import { routing } from '@/i18n/routing';
 import { Banner } from './+components/Banner';
 import { JoinButton } from './+components/JoinButton';
 
-export default async function Home({ params }: PageProps) {
+export default async function Home({
+  params,
+}: SafeLocale<PageProps<'/[locale]'>>) {
   const { locale } = await params;
 
   setRequestLocale(locale);

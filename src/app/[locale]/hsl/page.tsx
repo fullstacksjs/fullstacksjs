@@ -6,7 +6,6 @@ import {
 } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { pick } from 'radash';
-import React from 'react';
 
 import { generatePageOG } from '@/components/SEO';
 import { getServerFeature } from '@/config/features/getServerFeatures';
@@ -21,7 +20,9 @@ export const metadata = generatePageOG({
     'Test your sense of color with this interactive HSL guessing game. Improve your color perception, learn about HSL values, and challenge yourself with each round!',
 });
 
-export default async function ColorPage({ params }: PageProps) {
+export default async function ColorPage({
+  params,
+}: SafeLocale<PageProps<'/[locale]/hsl'>>) {
   const colors = generateColorQuestions(20);
   const hsl = getServerFeature('hsl');
   if (!hsl) return notFound();

@@ -1,7 +1,7 @@
 export default function Layout({
   modal,
   children,
-}: LayoutProps & { modal: React.ReactNode }) {
+}: LayoutProps<'/[locale]/events'>) {
   return (
     <div className="font-fa">
       {modal}

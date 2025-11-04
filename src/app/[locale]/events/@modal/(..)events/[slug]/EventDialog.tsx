@@ -6,9 +6,9 @@ import { SRCImage } from 'react-datocms';
 
 import type { FullstacksJSEvent } from '@/data-layer/datocms/Event';
 
-import { EventCardAction } from '../../../EventCardAction';
-import { EventCardDescription } from '../../../EventCardDescription';
-import { EventCardTitle } from '../../../EventCardTitle';
+import { EventCardAction } from '../../../+components/EventCardAction';
+import { EventCardDescription } from '../../../+components/EventCardDescription';
+import { EventCardTitle } from '../../../+components/EventCardTitle';
 
 interface Props {
   event: FullstacksJSEvent;

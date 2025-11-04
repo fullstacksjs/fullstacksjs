@@ -10,7 +10,9 @@ export const metadata = generatePageOG({
   images: '/og/type.png',
 });
 
-export default function TypeLayout({ children }: LayoutProps) {
+export default function TypeLayout({
+  children,
+}: LayoutProps<'/[locale]/type'>) {
   const feature = getServerFeature('type');
   if (!feature) return notFound();
 

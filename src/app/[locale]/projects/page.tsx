@@ -71,7 +71,9 @@ export const metadata = generatePageOG({
     'A collection of open-source and collaborative projects for learning, teamwork, and improving programming skills.',
 });
 
-export default async function ProjectsPage({ params }: PageProps) {
+export default async function ProjectsPage({
+  params,
+}: SafeLocale<PageProps<'/[locale]/projects'>>) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'projects' });

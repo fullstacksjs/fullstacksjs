@@ -38,7 +38,10 @@ export const metadata: Metadata = {
   authors: [{ name: 'ASafaeirad', url: 'https://github.com/ASafaeirad/' }],
 };
 
-export default async function LocaleLayout({ params, children }: LayoutProps) {
+export default async function LocaleLayout({
+  params,
+  children,
+}: SafeLocaleLayout<LayoutProps<'/[locale]'>>) {
   const { locale } = await params;
 
   const direction = getDirection(locale);
