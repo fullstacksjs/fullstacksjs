@@ -1,7 +1,7 @@
 import { isPast } from 'date-fns';
 import { gql } from 'graphql-request';
 import 'server-only';
-import { unstable_cacheTag as cacheTag } from 'next/cache';
+import { cacheTag } from 'next/cache';
 
 import type {
   AllEventsQuery,

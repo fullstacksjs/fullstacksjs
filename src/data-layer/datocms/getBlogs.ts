@@ -1,5 +1,5 @@
 import { gql } from 'graphql-request';
-import { unstable_cacheTag as cacheTag } from 'next/cache';
+import { cacheTag } from 'next/cache';
 import 'server-only';
 
 import type { BlogMeta } from './Blog';

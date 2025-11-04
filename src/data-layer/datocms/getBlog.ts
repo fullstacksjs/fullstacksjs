@@ -1,6 +1,6 @@
 import { gql } from 'graphql-request';
-import { unstable_cacheTag as cacheTag } from 'next/cache';
 import 'server-only';
+import { cacheTag } from 'next/cache';
 
 import type { Blog } from './Blog';
 import type {

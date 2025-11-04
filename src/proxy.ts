@@ -11,7 +11,7 @@ const isFaOnly = (pathname: string) => {
   return pathname.startsWith('/en/blog');
 };
 
-export async function middleware(req: NextRequest) {
+export async function proxy(req: NextRequest) {
   await updateSession(req);
   const locale = req.cookies.get('NEXT_LOCALE')?.value ?? routing.defaultLocale;
 

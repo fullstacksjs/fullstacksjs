@@ -10,8 +10,6 @@ import enMessages from '../../../../../messages/en.json';
 
 type Guides = Record<string, { title: string; desc: string }>;
 
-export const runtime = 'edge';
-
 export async function GET(request: NextRequest) {
   const focus = request.nextUrl.searchParams.get('focus') ?? '';
   const guides = enMessages.ask.guides as Guides;
@@ -26,11 +24,11 @@ export async function GET(request: NextRequest) {
 
   try {
     const rajdhaniBold = await fetch(
-      new URL(`/assets/Rajdhani-Bold.ttf`, import.meta.url),
+      new URL('../../../../../assets/Rajdhani-Bold.ttf', import.meta.url),
     ).then((res) => res.arrayBuffer());
 
     const rajdhaniSemiBold = await fetch(
-      new URL(`/assets/Rajdhani-SemiBold.ttf`, import.meta.url),
+      new URL('../../../../../assets/Rajdhani-SemiBold.ttf', import.meta.url),
     ).then((res) => res.arrayBuffer());
 
     return new ImageResponse(

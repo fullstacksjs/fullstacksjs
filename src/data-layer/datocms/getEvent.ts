@@ -1,7 +1,7 @@
 import { isPast } from 'date-fns';
 import { gql } from 'graphql-request';
 import 'server-only';
-import { unstable_cacheLife as cacheLife } from 'next/cache';
+import { cacheLife } from 'next/cache';
 
 import type {
   EventFragment as EventFragmentType,

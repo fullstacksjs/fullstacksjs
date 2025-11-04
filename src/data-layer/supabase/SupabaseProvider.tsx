@@ -1,55 +1,58 @@
-'use client';
+"use client";
 
-import type { SupabaseClient } from '@supabase/supabase-js';
+import { createBrowserClient } from "@supabase/ssr";
+import { useEffect, useState, useMemo, createContext, useContext } from "react";
+import { useRouter } from "next/navigation";
+import type { SupabaseClient } from "@supabase/supabase-js";
 
-import { createBrowserClient } from '@supabase/ssr';
-import { useRouter } from 'next/navigation';
-import { createContext, use, useEffect, useMemo, useState } from 'react';
+import type { Database } from "./models/Database";
+import { clientConfig } from "@/config/clientConfig";
 
-import { clientConfig } from '@/config/clientConfig';
-
-import type { Database } from './models/Database';
-
-interface SupabaseContext {
-  supabase: SupabaseClient<Database>;
+interface SupabaseContextType {
+  supabase: SupabaseClient<Database> | null;
 }
 
-const Context = createContext<SupabaseContext | undefined>(undefined);
-Context.displayName = 'Context';
+const SupabaseContext = createContext<SupabaseContextType | undefined>(undefined);
+SupabaseContext.displayName = "SupabaseContext";
 
 interface Props {
   children: React.ReactNode;
 }
 
 export function SupabaseProvider({ children }: Props) {
-  const [supabase] = useState(() =>
-    createBrowserClient<Database>(
-      clientConfig.get('supabase.url'),
-      clientConfig.get('supabase.key'),
-    ),
-  );
+  const [supabase, setSupabase] = useState<SupabaseClient<Database> | null>(null);
   const router = useRouter();
-
-  useEffect(() => {
-    const { data } = supabase.auth.onAuthStateChange((event) => {
-      if (event === 'SIGNED_IN' || event === 'SIGNED_OUT') router.refresh();
-    });
-
-    return () => {
-      data.subscription.unsubscribe();
-    };
-  }, [router, supabase]);
 
   const value = useMemo(() => ({ supabase }), [supabase]);
 
-  return <Context value={value}>{children}</Context>;
+  useEffect(() => {
+    const client = createBrowserClient<Database>(
+      clientConfig.get("supabase.url"),
+      clientConfig.get("supabase.key")
+    );
+    setSupabase(client);
+
+    const { data: authListener } = client.auth.onAuthStateChange((event) => {
+      if (event === "SIGNED_IN" || event === "SIGNED_OUT") router.refresh();
+    });
+
+    return () => {
+      authListener.subscription.unsubscribe();
+    };
+  }, [router]);
+
+  if (!supabase) return null;
+
+  return (
+    <SupabaseContext.Provider value={value}>
+      {children}
+    </SupabaseContext.Provider>
+  );
 }
 
 export const useSupabase = () => {
-  const context = use(Context);
-
-  if (context === undefined)
-    throw new Error('useSupabase must be used inside SupabaseProvider');
-
+  const context = useContext(SupabaseContext);
+  if (!context)
+    throw new Error("useSupabase must be used inside SupabaseProvider");
   return context;
 };

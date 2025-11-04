@@ -2,7 +2,7 @@ import { getLocale, getTranslations } from 'next-intl/server';
 
 import { getUser } from '@/data-layer/supabase/getUser';
 
-import GithubOutlineIcon from './GithubIcon.svg?url';
+import GithubOutlineIcon from './GithubIcon.svg';
 import { LoginButton } from './LoginButton';
 import { ProfileButton } from './ProfileButton';
 
@@ -21,7 +21,7 @@ export async function Authentication() {
       height={16}
       width={16}
       alt="Github Logo"
-      avatar={GithubOutlineIcon.src}
+      avatar={<GithubOutlineIcon className="w-7 h-7" />}
     >
       {t('auth.login')}
     </LoginButton>
