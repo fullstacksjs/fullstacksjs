@@ -20,7 +20,9 @@ export const metadata = generatePageOG({
     'The FullstacksJS community is committed to creating a safe and welcoming environment for everyone. These rules outline the behaviors that are considered harassment and unacceptable within our community. By following these rules, we can all help to create a positive and productive environment for learning and collaboration.',
 });
 
-export default async function RulesPage({ params }: PageProps) {
+export default async function RulesPage({
+  params,
+}: SafeLocale<PageProps<'/[locale]/rules'>>) {
   const { locale } = await params;
 
   setRequestLocale(locale);

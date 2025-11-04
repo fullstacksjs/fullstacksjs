@@ -34,7 +34,9 @@ export async function generateMetadata(
   });
 }
 
-export default async function AskPage({ params }: PageProps) {
+export default async function AskPage({
+  params,
+}: SafeLocale<PageProps<'/[locale]/ask'>>) {
   const { locale } = await params;
 
   setRequestLocale(locale);
