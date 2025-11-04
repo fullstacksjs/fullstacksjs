@@ -11,8 +11,6 @@ declare namespace NodeJS {
     NEXT_PUBLIC_SUPABASE_URL?: string;
     NEXT_PUBLIC_SUPABASE_ANON_KEY?: string;
 
-    ADVENT_OF_CODE_SESSION?: string;
-
     REVALIDATE_AUTH_USERNAME?: string;
     REVALIDATE_AUTH_PASSWORD?: string;
 

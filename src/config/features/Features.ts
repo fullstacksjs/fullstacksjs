@@ -1,8 +1,1 @@
-export type Feature =
-  | 'advent'
-  | 'hsl'
-  | 'locale'
-  | 'mob'
-  | 'type'
-  | 'wakatime'
-  | 'wus';
+export type Feature = 'hsl' | 'locale' | 'mob' | 'type' | 'wakatime' | 'wus';

@@ -60,14 +60,6 @@ const navs: NavGroup[] = [
       { feature: 'hsl', href: '/hsl', text: 'hsl', isNew: true },
     ],
   },
-  {
-    feature: 'advent',
-    text: 'advent.title',
-    subNavs: [
-      { href: '/advent', text: 'advent.about' },
-      { href: '/advent/board', text: 'advent.board' },
-    ],
-  },
   { text: 'projects', href: '/projects' },
   { text: 'blog', href: '/blogs', isNew: true },
 ];

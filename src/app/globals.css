@@ -19,10 +19,6 @@
   --text-5xl: 5.4rem;
   --text-6xl: 10rem;
 
-  --color-advent-0: rgb(43 38 38);
-  --color-advent-1: rgb(38 34 34);
-  --color-advent-2: rgb(104 90 90);
-
   --color-accent-0: rgb(243 159 71);
   --color-accent-1: rgb(209 154 103);
 
@@ -171,10 +167,6 @@
 
 .mask-radial {
   mask: radial-gradient(white, transparent 65%);
-}
-
-.aoc-bg {
-  background-color: var(--color-advent-0);
 }
 
 .close-icon {
