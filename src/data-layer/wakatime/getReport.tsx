@@ -1,6 +1,6 @@
 import { joinPaths } from '@fullstacksjs/toolbox';
 import { getDayOfYear, secondsToHours, secondsToMinutes } from 'date-fns';
-import { unstable_cacheLife as cacheLife } from 'next/cache';
+import { cacheLife } from 'next/cache';
 
 import { serverConfig } from '@/config/serverConfig';
 import { addLeadingZero, formatOrdinals } from '@/utils/number';
