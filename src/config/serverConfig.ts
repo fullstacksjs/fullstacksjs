@@ -11,11 +11,6 @@ const ServerConfig = new Config({
     endpoint: Config.string().required(),
     token: Config.string().required(),
   }),
-  advent: Config.object({
-    session: Config.string().required(),
-    url: Config.string().required(),
-    year: Config.number().required(),
-  }),
   revalidation: Config.object({
     username: Config.string().required(),
     password: Config.string().required(),
@@ -31,11 +26,6 @@ export const serverConfig = ServerConfig.parse({
   dato: {
     endpoint: process.env.DATO_ENDPOINT,
     token: process.env.DATO_TOKEN,
-  },
-  advent: {
-    session: process.env.ADVENT_OF_CODE_SESSION,
-    url: 'https://adventofcode.com/2023/leaderboard/private/view/3205245.json',
-    year: 2023,
   },
   revalidation: {
     username: process.env.REVALIDATE_AUTH_USERNAME,

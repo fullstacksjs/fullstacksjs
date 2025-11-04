@@ -26,12 +26,7 @@
       "hsl": "Colors",
       "guild": "TS Guild",
       "wakatime": "Wakatime",
-      "type": "Type",
-      "advent": {
-        "title": "Advent of Code",
-        "about": "Join",
-        "board": "Leaderboard"
-      }
+      "type": "Type"
     },
     "auth": {
       "login": "Login with GitHub"
@@ -171,30 +166,6 @@
     "join": "Join Leaderboard",
     "title": "Wakatime Leaderboard",
     "day": "Day {day} of the year {year}"
-  },
-  "advent": {
-    "title": "<e-tree></e-tree> Advent of Code 2023",
-    "desc": "Get Ready for <mark>Advent of Code 2023</mark> with <mark>FullstacksJS!</mark>",
-    "desc-2": "Advent of Code is a global programming puzzle event. Each day, from <b>1st to 25th of December</b>, a new two-part programming challenge is unlocked at <b>08:30 AM (IR time)</b>. These puzzles are a great way to hone your coding skills, and you can solve them using any programming language.",
-    "kick-off": "<b>Kick-Off</b>: Friday, 1 December, 08:30 IR Time",
-    "fun": "<b>Daily Fun Until</b>: Christmas Day, Monday, 25 December",
-    "how-works": "<e-star></e-star> How it works?",
-    "puzzles": "<b>Daily Puzzles</b>: Each puzzle consists of two parts. Solve the first part to unlock the second, more challenging variant.",
-    "stars": "<b>Earn Stars</b>: For each part you solve correctly, you earn a star - a great way to track your progress!",
-    "join": {
-      "title": "<b>How to join?</b>",
-      "login-aoc": "Login with <b>GitHub</b> on <a-advent>adventofcode.com</a-advent>",
-      "join": "Join the leaderboard by entering <mark>3205245-83e376a6</mark> in the <a-leader>leaderboard page</a-leader>.",
-      "engage": "Engage with fellow coders on the <a-tg>FullstacksJS channel (war topic)</a-tg>.",
-      "link": "Go to the <a-settings>settings page</a-settings> and link to your GitHub account.",
-      "login": "<login>Log in</login> with your GitHub in FullstacksJS site.",
-      "follow": "Follow our progress in <l-leader>the leaderboard.</l-leader>."
-    },
-    "ai": {
-      "title": "<e-robot></e-robot> Can I use AI?",
-      "desc": "Absolutely, feel free to use it as a learning tool! However, please avoid employing AI for leaderboard competition, just to keep things fair and fun for everyone!"
-    },
-    "update-delay": "The board updates every 15 minutes, please wait if you can't see the fresh data"
   },
   "type": {
     "sign-in": "<join>Log in</join> to submit your record",

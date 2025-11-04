@@ -28,7 +28,7 @@ export default function ColorBlocks({
           onClick={() => onBlockClick(index, correctIndex)}
           className={cn(
             'w-[85px] h-[85px] mobile:w-[100px] mobile:h-[100px] transition-all duration-200 rounded-lg cursor-pointer',
-            highlightedWrongIndex === index && 'outline-4 outline-advent-2',
+            highlightedWrongIndex === index && 'outline-4 outline-accent-0',
             highlightedCorrectIndex === index && 'outline-4 outline-white/80',
           )}
         />

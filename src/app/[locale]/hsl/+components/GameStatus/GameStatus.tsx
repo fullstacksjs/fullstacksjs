@@ -21,7 +21,7 @@ export default function GameStatus({
   const t = useTranslations('hsl');
 
   return (
-    <div className="border border-advent-2 rounded-lg p-8">
+    <div className="border border-bg-muted rounded-lg p-8">
       {gameOver ? (
         <GameOverStatus
           hasWon={hasWon}
