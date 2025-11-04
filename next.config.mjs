@@ -7,10 +7,10 @@ const secondsInDay = 60 * 60 * 24;
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    // swcPlugins: [['@swc-jotai/react-refresh', {}]], <- Enable when turbopack is ready
-    ppr: true,
-    useCache: true,
+    // swcPlugins: [['@swc-jotai/react-refresh', {}]], // <- Enable when turbopack+swc-jotai is ready
+    turbopackFileSystemCacheForDev: true,
   },
+  cacheComponents: true,
   images: {
     remotePatterns: [
       {
@@ -34,16 +34,22 @@ const nextConfig = {
     ],
     minimumCacheTTL: secondsInDay,
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   typescript: {
     ignoreBuildErrors: true,
   },
-  webpack(config) {
-    addSvgr(config);
-    return config;
+
+  turbopack: {
+    rules: {
+      '*.svg': {
+        condition: {
+          all: [{ path: /\.svg$/ }, { not: { path: /\.asset\.svg$/ } }],
+        },
+        loaders: ['@svgr/webpack'],
+        as: '*.js',
+      },
+    },
   },
+
   rewrites() {
     return Promise.resolve([
       {
@@ -63,27 +69,5 @@ const nextConfig = {
   // This is required to support PostHog trailing slash API requests
   skipTrailingSlashRedirect: true,
 };
-
-function addSvgr(config) {
-  const fileLoaderRule = config.module.rules.find((rule) =>
-    rule.test?.test?.('.svg'),
-  );
-
-  config.module.rules.push(
-    {
-      ...fileLoaderRule,
-      test: /\.svg$/i,
-      resourceQuery: /url/,
-    },
-    {
-      test: /\.svg$/i,
-      issuer: { not: /\.(css|sass|scss)$/ },
-      resourceQuery: { not: /url/ },
-      loader: '@svgr/webpack',
-    },
-  );
-
-  fileLoaderRule.exclude = /\.svg$/i;
-}
 
 export default withNextIntl(nextConfig);
