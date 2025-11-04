@@ -24,7 +24,7 @@ export function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  if (tag) revalidateTag(tag);
+  if (tag) revalidateTag(tag, 'max');
   if (page) revalidatePath(page);
 
   return NextResponse.json({
