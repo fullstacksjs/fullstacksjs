@@ -32,13 +32,13 @@ export const generateColorQuestions = (
       difference,
     );
 
-    const { blocks, oddIndex } = generateColorBlocks(
+    const { blocks, oddIndex } = generateColorBlocks({
       hue,
-      COLOR.SATURATION,
       baseLightness,
       adjustedLightness,
       blockCount,
-    );
+      saturation: COLOR.SATURATION,
+    });
 
     return {
       blocks,
