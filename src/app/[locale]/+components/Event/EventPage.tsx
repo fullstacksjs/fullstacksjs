@@ -12,7 +12,14 @@ interface EventTitleProps {
 }
 
 function EventTitle({ data }: EventTitleProps) {
-  return <StructuredText data={data} renderNode={getDatoNode} />;
+  return (
+    <StructuredText
+      data={data}
+      renderNode={(type, props, children) =>
+        getDatoNode({ type, props, children })
+      }
+    />
+  );
 }
 
 interface Props {
@@ -48,7 +55,14 @@ export const EventPage = ({
 };
 
 function EventDescription({ data }: { data: StructuredTextGraphQlResponse }) {
-  return <StructuredText data={data} renderNode={getDatoNode} />;
+  return (
+    <StructuredText
+      data={data}
+      renderNode={(type, props, children) =>
+        getDatoNode({ type, props, children })
+      }
+    />
+  );
 }
 
 export function EventActions({ children }: React.PropsWithChildren) {
