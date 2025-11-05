@@ -17,7 +17,7 @@ export const FocusItemListSkeleton = ({ lines, className }: Props) => {
     <ol>
       {items.map((item) => (
         <ListItem key={item}>
-          <Skeleton className={cn('relative h-10', className)} />
+          <Skeleton className={cn('h-10', className)} />
         </ListItem>
       ))}
     </ol>

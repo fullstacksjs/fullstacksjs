@@ -9,7 +9,7 @@ export const Skeleton = ({ className, ...props }: Props) => {
   return (
     <div
       className={cn(
-        'absolute inset-y-0 animate-pulse rounded-lg bg-white opacity-5',
+        'inset-y-0 animate-pulse rounded-lg bg-bg-muted opacity-5',
         className,
       )}
       {...props}
