@@ -3,6 +3,7 @@ import { SRCImage } from 'react-datocms';
 
 import type { FullstacksJSEvent } from '@/data-layer/datocms/Event';
 
+import { Skeleton } from '@/components/Skeleton';
 import { Link } from '@/i18n/routing';
 
 import { EventCardTitle } from './EventCardTitle';
@@ -13,7 +14,7 @@ interface Props {
   priority?: boolean;
 }
 
-export default function EventCard({ event, priority }: Props) {
+export const EventCard = ({ event, priority }: Props) => {
   return (
     <Link
       aria-label={event.title}
@@ -28,13 +29,28 @@ export default function EventCard({ event, priority }: Props) {
       />
       <div className="flex gap-4">
         <LecturerStack lecturers={event.lecturers} />
-        <div className="flex flex-1 flex-col gap-4">
+        <div dir="rtl" className="flex flex-1 flex-col gap-4">
           <EventCardTitle data={event.title} />
-          <div className="flex items-center text-sm text-fg-1">
+          <div className="flex w-full items-center text-sm text-fg-1">
             {format(event.date, 'dd/MM/yyyy')}
           </div>
         </div>
       </div>
     </Link>
   );
-}
+};
+
+export const EventCardSkeleton = () => {
+  return (
+    <div className="flex flex-col gap-8">
+      <Skeleton className="aspect-video w-full rounded-md" />
+      <div className="flex gap-4">
+        <Skeleton className="rounded-full h-12 w-12 shrink-0" />
+        <div className="flex flex-1 flex-col gap-4">
+          <Skeleton className="h-6 w-3/4 rounded-md" />
+          <Skeleton className="h-4 w-1/4 rounded-md" />
+        </div>
+      </div>
+    </div>
+  );
+};

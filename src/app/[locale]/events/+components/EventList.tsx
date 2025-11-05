@@ -1,17 +1,17 @@
-import { isEmpty } from '@fullstacksjs/toolbox';
+import { isEmpty, range } from '@fullstacksjs/toolbox';
 
 import type { FullstacksJSEvent } from '@/data-layer/datocms/Event';
 
 import SectionHeader from '@/components/SectionHeader';
 
-import EventCard from './EventCard';
+import { EventCard, EventCardSkeleton } from './EventCard';
 
 interface Props {
   events: FullstacksJSEvent[];
   title: string;
 }
 
-export default function EventList({ events, title }: Props) {
+export const EventList = ({ events, title }: Props) => {
   if (isEmpty(events)) return null;
 
   return (
@@ -24,4 +24,17 @@ export default function EventList({ events, title }: Props) {
       </div>
     </div>
   );
-}
+};
+
+export const EventListSkeleton = () => {
+  return (
+    <div>
+      <SectionHeader>Loading Events</SectionHeader>
+      <div className="mt-16 grid gap-16 tablet:grid-cols-2 wide:grid-cols-3">
+        {range(24).map((key) => (
+          <EventCardSkeleton key={key} />
+        ))}
+      </div>
+    </div>
+  );
+};

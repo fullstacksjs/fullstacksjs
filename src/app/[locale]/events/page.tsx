@@ -7,7 +7,7 @@ import { generatePageOG } from '@/components/SEO';
 import { getEvents } from '@/data-layer/datocms/getEvents';
 import { routing } from '@/i18n/routing';
 
-import EventList from './+components/EventList';
+import { EventList } from './+components/EventList';
 
 export const metadata = generatePageOG({
   title: 'FullstacksJS Events: Learn from the Past, Prepare for the Future',
