@@ -17,6 +17,7 @@ export const Skeleton = ({
   height,
   style,
   circle,
+  rounded,
   ...props
 }: Props) => {
   return (
@@ -24,7 +25,7 @@ export const Skeleton = ({
       style={{ ...style, width, height }}
       className={cn(
         'inset-y-0 animate-pulse rounded-lg bg-bg-muted opacity-5',
-        { 'rounded-md': props.rounded },
+        { 'rounded-md': rounded },
         { 'rounded-full aspect-square': circle },
         className,
       )}

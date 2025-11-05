@@ -13,7 +13,12 @@ interface Props {
 export function EventCardDescription({ data, className }: Props) {
   return (
     <div className={cn('flex flex-col gap-2 leading-tight', className)}>
-      <StructuredText data={data} renderNode={getDatoNode} />
+      <StructuredText
+        data={data}
+        renderNode={(type, props, children) =>
+          getDatoNode({ type, props, children })
+        }
+      />
     </div>
   );
 }
