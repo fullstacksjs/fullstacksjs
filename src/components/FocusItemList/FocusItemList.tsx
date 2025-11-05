@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 
 import { FocusProvider } from './FocusProvider';
 
-export interface FocusItemListProps
+interface Props
   extends React.DetailedHTMLProps<
     React.OlHTMLAttributes<HTMLOListElement>,
     HTMLOListElement
@@ -10,7 +10,7 @@ export interface FocusItemListProps
   fallback?: React.ReactNode;
 }
 
-export const FocusItemList = ({ fallback, ...props }: FocusItemListProps) => {
+export const FocusItemList = ({ fallback, ...props }: Props) => {
   return (
     <Suspense fallback={fallback}>
       <FocusProvider>
@@ -19,5 +19,3 @@ export const FocusItemList = ({ fallback, ...props }: FocusItemListProps) => {
     </Suspense>
   );
 };
-
-export type RuleState = 'faded' | 'focused' | 'idle';

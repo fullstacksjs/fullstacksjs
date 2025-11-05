@@ -1,0 +1,18 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "ignore": [
+    "src/data-layer/datocms/DatoCMS.ts",
+    "apollo.config.js",
+    "configs/pascalCaseWithUnderscores.js",
+    "src/i18n/request.tsx",
+    "svgo.config.js",
+    "src/data-layer/supabase/models/Database.ts"
+  ],
+  "ignoreDependencies": [
+    "sharp",
+    "husky",
+    "lint-staged",
+    "@svgr/webpack",
+    "@swc-jotai/react-refresh"
+  ]
+}

@@ -36,7 +36,7 @@ function useFocused() {
   };
 }
 
-export function useScrollToFocused() {
+function useScrollToFocused() {
   const search = useSearchParams();
   const focused = search.get('focus');
 
