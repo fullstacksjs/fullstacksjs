@@ -1,15 +1,28 @@
 import { notFound } from 'next/navigation';
+import { Suspense } from 'react';
 
 import { getEventBySlug } from '@/data-layer/datocms/getEvent';
 
 import { EventDialog } from './EventDialog';
 
-export default async function Page({
+const InnerEventPage = async ({
   params,
-}: SafeLocale<PageProps<'/[locale]/events/[slug]'>>) {
+}: {
+  params: Promise<{ slug: string }>;
+}) => {
   const { slug } = await params;
   const event = await getEventBySlug(slug);
   if (!event) notFound();
 
   return <EventDialog event={event} />;
+};
+
+export default async function Page({
+  params,
+}: SafeLocale<PageProps<'/[locale]/events/[slug]'>>) {
+  return (
+    <Suspense fallback={<>Loading</>}>
+      <InnerEventPage params={params} />
+    </Suspense>
+  );
 }
