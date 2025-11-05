@@ -1,5 +1,8 @@
+import { range } from '@fullstacksjs/toolbox';
+
 import type { WakatimeUsage } from '@/data-layer/wakatime/Wakatime';
 
+import { Skeleton } from '@/components/Skeleton';
 import * as Table from '@/components/Table';
 
 import { UserRow } from './UserRow';
@@ -35,6 +38,35 @@ export const UserTable = ({ usages, winners }: Props): React.JSX.Element => {
         ))}
         {usages.map((usage) => (
           <UserRow key={usage.rank} usage={usage} />
+        ))}
+      </Table.Body>
+    </Table.Root>
+  );
+};
+
+export const UserTableSkeleton = ({ rows }: { rows: number }) => {
+  return (
+    <Table.Root className="relative">
+      <Table.Body>
+        {range(rows).map((key) => (
+          <Table.Row className="animate-pulse" key={key}>
+            <Table.Cell>
+              <Skeleton height={20} width={20} rounded />
+            </Table.Cell>
+            <Table.Cell className="flex gap-4 items-center">
+              <Skeleton circle width={40} />
+              <Skeleton height={20} width={220} rounded />
+            </Table.Cell>
+            <Table.Cell>
+              <Skeleton height={20} width={40} rounded />
+            </Table.Cell>
+            <Table.Cell>
+              <Skeleton height={20} width={40} rounded />
+            </Table.Cell>
+            <Table.Cell className="text-end">
+              <Skeleton height={20} width={20} rounded />
+            </Table.Cell>
+          </Table.Row>
         ))}
       </Table.Body>
     </Table.Root>
