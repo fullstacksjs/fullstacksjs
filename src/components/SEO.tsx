@@ -28,7 +28,6 @@ export const keywords = [
   'واکاتایم',
 ];
 
-export type OGImages = NonNullable<Metadata['openGraph']>['images'];
 interface OGProps {
   title: string;
   description: string;
