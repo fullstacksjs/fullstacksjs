@@ -3,13 +3,12 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
 
 import { isNull } from '@fullstacksjs/toolbox';
-import { createBrowserClient } from '@supabase/ssr';
 import { useRouter } from 'next/navigation';
-import { createContext, use, useEffect, useMemo, useState } from 'react';
-
-import { clientConfig } from '@/config/clientConfig';
+import { createContext, use, useEffect } from 'react';
 
 import type { Database } from './models/Database';
+
+import { createBrowserSupabaseClient } from './createBrowserSupabaseClient';
 
 interface SupabaseContext {
   supabase: SupabaseClient<Database>;
@@ -23,15 +22,10 @@ interface Props {
 }
 
 export function SupabaseProvider({ children }: Props) {
-  const [supabase] = useState(() =>
-    createBrowserClient<Database>(
-      clientConfig.get('supabase.url'),
-      clientConfig.get('supabase.key'),
-    ),
-  );
   const router = useRouter();
 
   useEffect(() => {
+    const supabase = createBrowserSupabaseClient();
     const { data } = supabase.auth.onAuthStateChange((event) => {
       if (event === 'SIGNED_IN' || event === 'SIGNED_OUT') router.refresh();
     });
@@ -39,11 +33,9 @@ export function SupabaseProvider({ children }: Props) {
     return () => {
       data.subscription.unsubscribe();
     };
-  }, [router, supabase]);
+  }, [router]);
 
-  const value = useMemo(() => ({ supabase }), [supabase]);
-
-  return <Context value={value}>{children}</Context>;
+  return children;
 }
 
 export const useSupabase = () => {
