@@ -1,3 +1,4 @@
+import { range } from '@fullstacksjs/toolbox';
 import { NextIntlClientProvider } from 'next-intl';
 import {
   getMessages,
@@ -6,8 +7,10 @@ import {
 } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { pick } from 'radash';
+import { Suspense } from 'react';
 
 import { generatePageOG } from '@/components/SEO';
+import { Skeleton } from '@/components/Skeleton';
 import { getServerFeature } from '@/config/features/getServerFeatures';
 import { routing } from '@/i18n/routing';
 
@@ -20,10 +23,28 @@ export const metadata = generatePageOG({
     'Test your sense of color with this interactive HSL guessing game. Improve your color perception, learn about HSL values, and challenge yourself with each round!',
 });
 
+const ColorBoard = () => {
+  const colors = generateColorQuestions(10);
+
+  return <ColorsGrid colors={colors} />;
+};
+
+const BoardSkeleton = () => {
+  return (
+    <div className="grid grid-cols-3 place-items-center gap-4.5">
+      {range(3).map((key) => (
+        <Skeleton
+          className="w-[85px] h-[85px] mobile:w-[100px] mobile:h-[100px] transition-all duration-200 rounded-lg cursor-pointer"
+          key={key}
+        />
+      ))}
+    </div>
+  );
+};
+
 export default async function ColorPage({
   params,
 }: SafeLocale<PageProps<'/[locale]/hsl'>>) {
-  const colors = generateColorQuestions(20);
   const hsl = getServerFeature('hsl');
   if (!hsl) return notFound();
   const messages = await getMessages();
@@ -37,7 +58,9 @@ export default async function ColorPage({
       <div className="flex flex-col justify-center items-center gap-18">
         <h1 className="text-3xl font-bold leading-tight">{t('title')}</h1>
         <p className="text-center">{t('desc')}</p>
-        <ColorsGrid colors={colors} />
+        <Suspense fallback={<BoardSkeleton />}>
+          <ColorBoard />
+        </Suspense>
       </div>
     </NextIntlClientProvider>
   );
