@@ -3,6 +3,8 @@
 import type { NextRequest } from 'next/server';
 
 import { ImageResponse } from 'next/og';
+import fs from 'node:fs/promises';
+import path from 'node:path';
 
 import { asks } from '@/app/[locale]/ask/asks';
 
@@ -23,13 +25,13 @@ export async function GET(request: NextRequest) {
   const index = asks.findIndex((a) => a === focus);
 
   try {
-    const rajdhaniBold = await fetch(
-      new URL('/assets/Rajdhani-Bold.ttf', import.meta.url),
-    ).then((res) => res.arrayBuffer());
+    const rajdhaniBold = await fs.readFile(
+      path.join(process.cwd(), '/assets/Rajdhani-Bold.ttf'),
+    );
 
-    const rajdhaniSemiBold = await fetch(
-      new URL('/assets/Rajdhani-SemiBold.ttf', import.meta.url),
-    ).then((res) => res.arrayBuffer());
+    const rajdhaniSemiBold = await fs.readFile(
+      path.join(process.cwd(), '/assets/Rajdhani-SemiBold.ttf'),
+    );
 
     return new ImageResponse(
       (
