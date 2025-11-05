@@ -2,7 +2,7 @@
 
 import LogoutIcon from '@/components/Logout.svg';
 import { SecondaryButton } from '@/components/SecondaryButton';
-import { useSupabase } from '@/data-layer/supabase/SupabaseProvider';
+import { createBrowserSupabaseClient } from '@/data-layer/supabase/createBrowserSupabaseClient';
 
 import { LoginButton } from './LoginButton';
 
@@ -12,7 +12,10 @@ interface Props {
 }
 
 export const ProfileButton = ({ children, avatar }: Props) => {
-  const { supabase } = useSupabase();
+  const signOut = async () => {
+    const supabase = createBrowserSupabaseClient();
+    await supabase.auth.signOut();
+  };
 
   return (
     <div className="flex gap-2">
@@ -23,7 +26,7 @@ export const ProfileButton = ({ children, avatar }: Props) => {
         aria-label="logout"
         className="aspect-square justify-center"
         type="submit"
-        onClick={() => supabase.auth.signOut()}
+        onClick={signOut}
       >
         <LogoutIcon className="size-10" />
       </SecondaryButton>
