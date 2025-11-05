@@ -1,3 +1,4 @@
+import { UserTableSkeleton } from '@/app/[locale]/wakatime/+components/UserTable';
 import { Skeleton } from '@/components/Skeleton';
 
 import Logo from './Logo.svg';
@@ -11,25 +12,9 @@ export default function Loading() {
       </div>
 
       <div className="rounded-3xl flex flex-col gap-10 mb-10">
-        <Skeleton
-          style={{
-            height: '400px',
-            width: '900px',
-          }}
-        />
+        <Skeleton height={400} width={900} />
       </div>
-      <div
-        className="rounded-3xl flex flex-col gap-10"
-        style={{ width: '900px' }}
-      >
-        {Array.from({ length: 6 }, (_, i) => (
-          <Skeleton
-            className="relative w-full"
-            key={i}
-            style={{ height: '64px' }}
-          />
-        ))}
-      </div>
+      <UserTableSkeleton rows={7} />
     </div>
   );
 }
