@@ -11,7 +11,7 @@
     "supabase:gen": "dotenv -e .env ./scripts/supabase-codegen",
     "lint": "eslint",
     "codegen": "dotenv -e .env graphql-codegen",
-    "prepare": "./scripts/prepare"
+    "prepare": "sh ./scripts/prepare"
   },
   "sideEffects": [
     "*.css"
