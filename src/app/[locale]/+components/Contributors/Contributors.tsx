@@ -1,19 +1,20 @@
-import { Button } from '@/components/Button';
-import { Suspense } from 'react';
-import Telegram from '@/components/Icons/Telegram.svg';
-import Contributor from '@/components/Contributor';
 import Link from 'next/link';
-import ContributorsSkeleton from '@/components/ContributorsSkeleton';
+import { Suspense } from 'react';
 
-type RepoType = {
+import Contributor from '@/app/[locale]/+components/Contributors/Contributor';
+import ContributorsSkeleton from '@/app/[locale]/+components/Contributors/ContributorsSkeleton';
+import { Button } from '@/components/Button';
+import Telegram from '@/components/Icons/Telegram.svg';
+
+interface RepoType {
   name: string;
-};
+}
 
-type ContributorType = {
+interface ContributorType {
   login: string;
   avatar_url: string;
   html_url: string;
-};
+}
 
 async function fetchFromGitHub<T>(url: string): Promise<T[]> {
   try {
@@ -68,7 +69,7 @@ async function Contributors({
   const members = (await fetchFromGitHub(
     'https://api.github.com/orgs/fullstacksjs/members',
   )) as ContributorType[];
-  
+
   members.map((item) => allContributors.push(item));
 
   const uniqueContributors = Array.from(
@@ -83,9 +84,9 @@ async function Contributors({
         <div className="flex gap-5 flex-wrap justify-center items-center">
           {uniqueContributors.map((item) => (
             <Contributor
+              avatar={item.avatar_url}
               key={item.login}
               name={item.login}
-              avatar={item.avatar_url}
               url={item.html_url}
             />
           ))}
