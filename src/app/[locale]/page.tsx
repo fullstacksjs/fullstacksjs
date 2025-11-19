@@ -9,6 +9,7 @@ import { routing } from '@/i18n/routing';
 
 import { Banner } from './+components/Banner';
 import { JoinButton } from './+components/JoinButton';
+import Contributors from './+components/Contributors';
 
 export default async function Home({
   params,
@@ -38,6 +39,11 @@ export default async function Home({
           <Paragraph>{t.rich('values.professionalism', tc)}</Paragraph>
         </Article>
       </Articles>
+      <Separator />
+      <Contributors
+        title={t('contributors.title')}
+        buttonText={t('contributors.buttonText')}
+      />
     </>
   );
 }
