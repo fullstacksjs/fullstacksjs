@@ -2,8 +2,8 @@ name: Deploy Supabase
 
 on:
   push:
-    branches: [main]
-  workflow_dispatch:
+    branches:
+      - main
 
 jobs:
   supabase:
