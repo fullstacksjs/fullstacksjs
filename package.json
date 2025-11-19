@@ -73,8 +73,8 @@
     "tailwindcss": "4.1.16",
     "typescript": "5.9.3"
   },
-  "packageManager": "pnpm@10.10.0",
+  "packageManager": "pnpm@10.14.0",
   "volta": {
-    "node": "22.14.0"
+    "node": "22.20.0"
   }
 }
