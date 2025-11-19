@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
 
-import ScoreLine from './ScoreLine';
+import { ScoreLine } from './ScoreLine';
 
 interface GameOverStatusProps {
   score: number;
@@ -9,7 +9,7 @@ interface GameOverStatusProps {
   questionCount: number;
 }
 
-export default function GameOverStatus({
+export function GameOverStatus({
   score,
   highestScore,
   hasWon,

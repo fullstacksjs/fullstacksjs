@@ -2,7 +2,7 @@ import { isEmpty, range } from '@fullstacksjs/toolbox';
 
 import type { FullstacksJSEvent } from '@/data-layer/datocms/Event';
 
-import SectionHeader from '@/components/SectionHeader';
+import { SectionHeader } from '@/components/SectionHeader';
 
 import { EventCard, EventCardSkeleton } from './EventCard';
 

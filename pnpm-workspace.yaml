@@ -1,6 +1,7 @@
 onlyBuiltDependencies:
   - '@tailwindcss/oxide'
   - '@vercel/speed-insights'
+  - core-js
   - sharp
   - supabase
   - unrs-resolver

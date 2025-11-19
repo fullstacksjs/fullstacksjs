@@ -14,7 +14,7 @@ import { Skeleton } from '@/components/Skeleton';
 import { getServerFeature } from '@/config/features/getServerFeatures';
 import { routing } from '@/i18n/routing';
 
-import ColorsGrid from './+components/ColorsGrid';
+import { ColorsGrid } from './+components/ColorsGrid';
 import { generateColorQuestions } from './+logic/questionGenerator';
 
 export const metadata = generatePageOG({
@@ -24,7 +24,7 @@ export const metadata = generatePageOG({
 });
 
 const ColorBoard = () => {
-  const colors = generateColorQuestions(10);
+  const colors = generateColorQuestions(20);
 
   return <ColorsGrid colors={colors} />;
 };

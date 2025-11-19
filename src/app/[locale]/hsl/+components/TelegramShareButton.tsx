@@ -25,7 +25,7 @@ function getShareTextByProgress(score: number, total: number): string {
   }
 }
 
-export default function TelegramShareButton({
+export function TelegramShareButton({
   score,
   total,
   label,

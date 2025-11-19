@@ -1,4 +1,4 @@
-import ScoreLine from './ScoreLine';
+import { ScoreLine } from './ScoreLine';
 
 interface InProgressStatusProps {
   score: number;
@@ -6,7 +6,7 @@ interface InProgressStatusProps {
   currentScoreLabel: string;
 }
 
-export default function InProgressStatus({
+export function InProgressStatus({
   score,
   questionCount,
   currentScoreLabel,
