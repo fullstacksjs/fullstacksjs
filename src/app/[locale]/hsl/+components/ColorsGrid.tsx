@@ -6,12 +6,12 @@ import { Button } from '@/components/Button';
 import type { ColorQuestion } from '../+logic/questionGenerator';
 
 import { useColorGame } from '../useColorGame';
-import ColorBlocks from './ColorBlocks';
+import { ColorBlocks } from './ColorBlocks';
 import { Confetti } from './Confetti';
-import GameStatus from './GameStatus/GameStatus';
-import TelegramShareButton from './TelegramShareButton';
+import { GameStatus } from './GameStatus/GameStatus';
+import { TelegramShareButton } from './TelegramShareButton';
 
-export default function ColorsGrid({ colors }: { colors: ColorQuestion[] }) {
+export function ColorsGrid({ colors }: { colors: ColorQuestion[] }) {
   const t = useTranslations('hsl');
   const {
     currentQuestion,

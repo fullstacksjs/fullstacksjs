@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import React from 'react';
 
 interface ResourceLinkProps {
   children: React.ReactNode;
@@ -7,7 +6,7 @@ interface ResourceLinkProps {
   icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 }
 
-function ResourceLink({ children, url, icon: Icon }: ResourceLinkProps) {
+export function ResourceLink({ children, url, icon: Icon }: ResourceLinkProps) {
   return (
     <Link
       className="font-rajdhani font-semibold py-1 flex gap-1.5 items-center text-light-inactive stroke-light-inactive hover:text-light-1 hover:stroke-light-1 transition-all"
@@ -19,5 +18,3 @@ function ResourceLink({ children, url, icon: Icon }: ResourceLinkProps) {
     </Link>
   );
 }
-
-export default ResourceLink;

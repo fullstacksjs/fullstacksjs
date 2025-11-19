@@ -1,6 +1,5 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import React from 'react';
 
 import { generatePageOG } from '@/components/SEO';
 import { routing } from '@/i18n/routing';
@@ -8,7 +7,7 @@ import { routing } from '@/i18n/routing';
 import Config from './+components/Config.svg';
 import Eslint from './+components/Eslint.svg';
 import NCLU from './+components/NCLU.svg';
-import ProjectCard from './+components/ProjectCard';
+import { ProjectCard } from './+components/ProjectCard';
 import ToolBox from './+components/ToolBox.svg';
 import YDKHTML from './+components/YDKHTML.svg';
 

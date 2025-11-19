@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl';
 
-import GameOverStatus from './GameOverStatus';
-import InProgressStatus from './InProgressStatus';
+import { GameOverStatus } from './GameOverStatus';
+import { InProgressStatus } from './InProgressStatus';
 
 interface GameStatusProps {
   score: number;
@@ -11,7 +11,7 @@ interface GameStatusProps {
   questionCount: number;
 }
 
-export default function GameStatus({
+export function GameStatus({
   score,
   highestScore,
   gameOver,

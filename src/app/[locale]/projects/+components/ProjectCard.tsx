@@ -1,13 +1,11 @@
-import React from 'react';
-
 import type { Project } from '../page';
 
 import GitHub from './GitHub.svg';
 import HomePage from './HomePage.svg';
 import Npm from './Npm.svg';
-import ResourceLink from './ResourceLink';
+import { ResourceLink } from './ResourceLink';
 
-function ProjectCard({
+export function ProjectCard({
   name,
   description,
   logo: Logo,
@@ -17,8 +15,8 @@ function ProjectCard({
 }: Project) {
   return (
     <div className="flex flex-col mobile:flex-col desktop:flex-row items-center gap-8 desktop:gap-16">
-      <div className="flex justify-center items-center basis-[160px] shrink-0 h-[160px]">
-        <Logo className="w-[160px] aspect-auto" />
+      <div className="flex justify-center items-center basis-40 shrink-0 h-40">
+        <Logo className="w-40 aspect-auto" />
       </div>
       <div className="flex flex-col gap-1">
         <h2 className="font-bold text-md text-center tablet:text-start tablet:text-2xl">
@@ -48,5 +46,3 @@ function ProjectCard({
     </div>
   );
 }
-
-export default ProjectCard;

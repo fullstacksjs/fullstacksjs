@@ -3,7 +3,7 @@ interface Props {
   children: React.ReactNode;
 }
 
-export default function SectionHeader({ id, children }: Props) {
+export function SectionHeader({ id, children }: Props) {
   return (
     <h2 className="text-2xl font-bold" id={id}>
       {children}

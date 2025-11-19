@@ -4,11 +4,7 @@ interface ScoreLineProps {
   questionCount: number;
 }
 
-export default function ScoreLine({
-  label,
-  score,
-  questionCount,
-}: ScoreLineProps) {
+export function ScoreLine({ label, score, questionCount }: ScoreLineProps) {
   return (
     <span>
       {label}{' '}
