@@ -29,15 +29,8 @@ async function fetchFromGitHub<T>(url: string): Promise<T[]> {
 
     if (!res.ok) return [];
 
-    const text = await res.text();
-    if (!text) return [];
-
-    let json: unknown;
-    try {
-      json = JSON.parse(text);
-    } catch {
-      return [];
-    }
+    const json = await res.json();
+    if (!json) return [];
 
     return Array.isArray(json) ? (json as T[]) : [];
   } catch {
@@ -64,13 +57,13 @@ export async function Contributors({
 
   const contributorsArray = await Promise.all(contributorPromises);
 
-  const allContributors = contributorsArray.flat();
+  let allContributors = contributorsArray.flat();
 
-  const members = (await fetchFromGitHub(
+  const members = await fetchFromGitHub<ContributorType>(
     'https://api.github.com/orgs/fullstacksjs/members',
-  )) as ContributorType[];
+  );
 
-  members.map((item) => allContributors.push(item));
+  allContributors = allContributors.concat(members);
 
   const uniqueContributors = Array.from(
     new Map(allContributors.map((c) => [c.login, c])).values(),
