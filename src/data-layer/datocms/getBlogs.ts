@@ -2,6 +2,8 @@ import 'server-only';
 import { gql } from 'graphql-request';
 import { cacheTag } from 'next/cache';
 
+import { cacheTags } from '@/config/cacheTags';
+
 import type { BlogMeta } from './Blog';
 import type {
   BlogFragment as BlogFragmentType,
@@ -32,7 +34,7 @@ const toBlog = (b: BlogFragmentType): BlogMeta => {
 
 export const getBlogs = async (): Promise<BlogMeta[]> => {
   'use cache';
-  cacheTag('blogs');
+  cacheTag(cacheTags.blogs());
 
   const data = await datoClient.request<BlogsQuery, BlogsQueryVariables>(query);
 
