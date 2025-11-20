@@ -1,6 +1,6 @@
 import { Skeleton } from '@/components/Skeleton';
 
-function ContributorsSkeleton() {
+export function ContributorsSkeleton() {
   const skeletonArray = Array(36)
     .fill(0)
     .map((_, index) => ({ id: index }));
@@ -16,5 +16,3 @@ function ContributorsSkeleton() {
     </div>
   );
 }
-
-export default ContributorsSkeleton;
