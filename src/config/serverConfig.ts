@@ -15,6 +15,9 @@ const ServerConfig = new Config({
     username: Config.string().required(),
     password: Config.string().required(),
   }),
+  github: Config.object({
+    token: Config.string().required(),
+  }),
 });
 
 export const serverConfig = ServerConfig.parse({
@@ -30,5 +33,8 @@ export const serverConfig = ServerConfig.parse({
   revalidation: {
     username: process.env.REVALIDATE_AUTH_USERNAME,
     password: process.env.REVALIDATE_AUTH_PASSWORD,
+  },
+  github: {
+    token: process.env.GITHUB_TOKEN,
   },
 });
