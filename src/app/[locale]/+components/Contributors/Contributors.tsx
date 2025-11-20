@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { Suspense } from 'react';
 
-import Contributor from '@/app/[locale]/+components/Contributors/Contributor';
-import ContributorsSkeleton from '@/app/[locale]/+components/Contributors/ContributorsSkeleton';
+import { Contributor } from '@/app/[locale]/+components/Contributors/Contributor';
+import { ContributorsSkeleton } from '@/app/[locale]/+components/Contributors/ContributorsSkeleton';
 import { Button } from '@/components/Button';
 import Telegram from '@/components/Icons/Telegram.svg';
 
@@ -45,7 +45,7 @@ async function fetchFromGitHub<T>(url: string): Promise<T[]> {
   }
 }
 
-async function Contributors({
+export async function Contributors({
   title,
   buttonText,
 }: {
@@ -102,5 +102,3 @@ async function Contributors({
     </div>
   );
 }
-
-export default Contributors;
