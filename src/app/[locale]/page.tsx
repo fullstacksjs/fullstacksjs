@@ -1,4 +1,5 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { ErrorBoundary } from 'react-error-boundary';
 
 import { Article } from '@/components/Article';
 import { Articles } from '@/components/Articles';
@@ -38,12 +39,11 @@ export default async function Home({
           <Paragraph>{t.rich('values.validity', tc)}</Paragraph>
           <Paragraph>{t.rich('values.professionalism', tc)}</Paragraph>
         </Article>
+        <ErrorBoundary fallback={null}>
+          <Separator />
+          <Contributors />
+        </ErrorBoundary>
       </Articles>
-      <Separator />
-      <Contributors
-        title={t('contributors.title')}
-        buttonText={t('contributors.buttonText')}
-      />
     </>
   );
 }
