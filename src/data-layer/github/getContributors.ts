@@ -43,7 +43,6 @@ export async function getContributors() {
     if (result.status === 'fulfilled') {
       return result.value;
     } else {
-      console.warn(result.reason);
       return [];
     }
   });
