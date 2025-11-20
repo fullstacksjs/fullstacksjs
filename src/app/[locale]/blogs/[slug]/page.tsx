@@ -26,7 +26,6 @@ export default async function BlogPage({
             if (type === 'p')
               return <p className="text-fg-1 mb-2">{children}</p>;
             if (props == null) {
-              console.log({ type, props, children });
               return null;
             }
             return getDatoNode({ type, props, children });
