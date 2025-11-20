@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-function Contributor({
+export function Contributor({
   name,
   avatar,
   url,
@@ -25,5 +25,3 @@ function Contributor({
     </div>
   );
 }
-
-export default Contributor;

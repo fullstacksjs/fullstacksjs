@@ -8,7 +8,7 @@ import { i18nComponents as tc } from '@/i18n/i18nComponents';
 import { routing } from '@/i18n/routing';
 
 import { Banner } from './+components/Banner';
-import Contributors from './+components/Contributors/Contributors';
+import { Contributors } from './+components/Contributors/Contributors';
 import { JoinButton } from './+components/JoinButton';
 
 export default async function Home({
