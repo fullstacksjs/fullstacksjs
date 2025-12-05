@@ -58,11 +58,11 @@ export const getBlog = async (slug: string): Promise<Blog | undefined> => {
   'use cache';
   cacheTag(cacheTags.blog(slug));
 
-  const data = await datoClient.request<BlogQuery, BlogQueryVariables>(query, {
-    slug,
-  });
+  const { blog } = await datoClient.request<BlogQuery, BlogQueryVariables>(
+    query,
+    { slug },
+  );
 
-  const blog = data.blog;
   if (!blog) return undefined;
 
   return toBlog(blog);

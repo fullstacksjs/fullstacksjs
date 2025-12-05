@@ -10,12 +10,18 @@ export async function ContributorList() {
   return (
     <div className="flex gap-5 flex-wrap justify-center items-center">
       {contributors.map(({ url, avatar, username }) => (
-        <a href={url} key={username} rel="noopener noreferrer" target="_blank">
+        <a
+          className="rounded-full group"
+          href={url}
+          key={username}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
           <Image
             height={80}
             width={80}
             alt={username}
-            className="rounded-full size-20 tablet:size-24 desktop:size-32 hover:scale-110 inline-block grayscale-100 hover:grayscale-0 transition-all duration-300"
+            className="rounded-full size-20 tablet:size-24 hover:scale-110 inline-block grayscale-100 group-focus-within:grayscale-0 hover:grayscale-0 transition-all duration-300"
             src={avatar}
             title={username}
           />
