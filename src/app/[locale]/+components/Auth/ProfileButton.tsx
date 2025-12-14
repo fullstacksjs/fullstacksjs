@@ -19,7 +19,7 @@ export const ProfileButton = ({ children, avatar }: Props) => {
 
   return (
     <div className="flex gap-2">
-      <LoginButton disabled avatar={avatar}>
+      <LoginButton disabled width="100%" avatar={avatar}>
         {children}
       </LoginButton>
       <SecondaryButton

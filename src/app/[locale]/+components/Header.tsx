@@ -21,7 +21,7 @@ export async function Header() {
       <MobileNavs direction={direction}>
         <Navs />
       </MobileNavs>
-      <div className="flex items-center gap-4 wide:gap-16">
+      <div className="flex items-center gap-4 wide:gap-8">
         <NextIntlClientProvider>
           <LocaleSelect locale={locale} />
         </NextIntlClientProvider>
