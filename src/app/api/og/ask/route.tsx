@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/alt-text, next/no-img-element */
-
 import type { NextRequest } from 'next/server';
 
 import { ImageResponse } from 'next/og';
@@ -59,6 +57,7 @@ export async function GET(request: NextRequest) {
           </div>
           <img
             width="400"
+            alt="FullstacksJS Logo"
             src="https://fullstacksjs.com/image/og-logo.png"
             style={{ transform: 'translateX(-25%)' }}
             tw="absolute bottom-0 left-1/2"
