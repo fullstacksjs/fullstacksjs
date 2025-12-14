@@ -19,6 +19,7 @@ export default defineConfig(
         'error',
         { restrictDefaultExports: { direct: true } },
       ],
+      'next/no-img-element': 'off',
     },
   },
 );
