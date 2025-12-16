@@ -6,6 +6,7 @@ import { routing } from '@/i18n/routing';
 
 import Config from './+components/Config.svg';
 import Eslint from './+components/Eslint.svg';
+import GitHubBot from './+components/GitHubBot.svg';
 import NCLU from './+components/NCLU.svg';
 import { ProjectCard } from './+components/ProjectCard';
 import ToolBox from './+components/ToolBox.svg';
@@ -61,6 +62,13 @@ const projects: Project[] = [
     logo: YDKHTML,
     repoUrl: 'https://github.com/fullstacksjs/you-dont-know-html',
     docUrl: 'https://www.youdontknowhtml.com',
+  },
+  {
+    name: 'FullstacksJS GitHub Bot',
+    description:
+      'A Telegram bot that tracks and announces GitHub activities in the FullstacksJS community.',
+    logo: GitHubBot,
+    repoUrl: 'https://github.com/fullstacksjs/github-bot',
   },
 ];
 
