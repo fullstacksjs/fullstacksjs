@@ -56,6 +56,7 @@ const toBlog = (
 
 export const getBlog = async (slug: string): Promise<Blog | undefined> => {
   'use cache';
+
   cacheTag(cacheTags.blog(slug));
 
   const { blog } = await datoClient.request<BlogQuery, BlogQueryVariables>(

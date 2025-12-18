@@ -28,6 +28,7 @@ const toContributor = (contributor: GitHubContributor): Contributor => ({
 
 export async function getContributors() {
   'use cache';
+
   cacheTag(cacheTags.contributors());
 
   const repos = await fetchFromGitHub<GitHubRepo>('orgs/fullstacksjs/repos');

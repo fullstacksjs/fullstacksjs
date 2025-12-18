@@ -1,4 +1,5 @@
 'use client';
+
 import Pride from 'react-canvas-confetti/dist/presets/pride';
 
 export const Confetti = () => {

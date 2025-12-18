@@ -35,6 +35,7 @@ export function colorGameReducer(
     case ActionTypes.TRY_AGAIN: {
       return handleTryAgain();
     }
+
     default:
       return state;
   }

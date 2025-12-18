@@ -78,9 +78,11 @@ export const FocusProvider = ({ children }: React.PropsWithChildren) => {
 
 export function useFocus() {
   const context = use(FocusContext);
+
   if (!context) {
     throw new Error('useFocus must be used within a FocusProvider');
   }
+
   return context;
 }
 

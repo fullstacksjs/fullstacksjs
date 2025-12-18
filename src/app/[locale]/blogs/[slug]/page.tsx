@@ -28,6 +28,7 @@ export default async function BlogPage({
             if (props == null) {
               return null;
             }
+
             return getDatoNode({ type, props, children });
           }}
         />

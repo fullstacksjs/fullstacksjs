@@ -34,6 +34,7 @@ const toBlog = (b: BlogFragmentType): BlogMeta => {
 
 export const getBlogs = async (): Promise<BlogMeta[]> => {
   'use cache';
+
   cacheTag(cacheTags.blogs());
 
   const data = await datoClient.request<BlogsQuery, BlogsQueryVariables>(query);

@@ -1,4 +1,5 @@
 'use client';
+
 import * as Dropdown from '@radix-ui/react-dropdown-menu';
 
 import type { Locale } from '@/i18n/locales';

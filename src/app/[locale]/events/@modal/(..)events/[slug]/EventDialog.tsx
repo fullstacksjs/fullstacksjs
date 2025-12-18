@@ -1,4 +1,5 @@
 'use client';
+
 import * as Dialog from '@radix-ui/react-dialog';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -47,7 +48,7 @@ export const EventDialog = ({ event }: Props) => {
         <EventCardAction
           mediaUrl={event.mediaUrl}
           isUpcoming={event.isUpcoming}
-        ></EventCardAction>
+        />
       </Dialog.Content>
     </Dialog.Root>
   );

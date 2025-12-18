@@ -63,9 +63,11 @@ export const useTimeEllipses = () => {
   switch (gameState) {
     case 'idle':
       return null;
+
     case 'typing':
       // eslint-disable-next-line react-hooks/purity
       return differenceInMilliseconds(Date.now(), startTime);
+
     case 'finished':
       return differenceInMilliseconds(endTime, startTime);
   }

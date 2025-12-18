@@ -11,6 +11,7 @@ function pascalCaseWithUnderscores(str) {
   if (str.indexOf('_') === 0 && result.substring(0, 1) !== '_') {
     return `_${result}`;
   }
+
   return result;
 }
 

@@ -11,6 +11,7 @@ interface Props {
   target: string;
   children: React.ReactNode;
 }
+
 export const FocusItem = ({ target, children }: Props) => {
   const focus = useHandleFocusItem();
   const { getState } = useFocus();

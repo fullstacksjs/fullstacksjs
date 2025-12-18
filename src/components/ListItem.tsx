@@ -4,6 +4,7 @@ type Props = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLLIElement>,
   HTMLLIElement
 >;
+
 export const ListItem = ({ className, ...props }: Props) => {
   return (
     <li

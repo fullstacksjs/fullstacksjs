@@ -47,6 +47,7 @@ const toFullstacksJSEvent = (ev: EventFragmentType): FullstacksJSEvent => {
 
 export const getEvents = async (): Promise<Events> => {
   'use cache';
+
   cacheTag(cacheTags.events());
 
   const data = await datoClient.request<AllEventsQuery>(query);

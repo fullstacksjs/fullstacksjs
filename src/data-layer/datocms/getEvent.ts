@@ -48,6 +48,7 @@ export const getEventBySlug = async (
   slug: string,
 ): Promise<FullstacksJSEvent | undefined> => {
   'use cache';
+
   cacheLife('days');
 
   const data = await datoClient.request<EventQuery, EventQueryVariables>(
