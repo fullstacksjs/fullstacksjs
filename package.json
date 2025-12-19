@@ -28,6 +28,7 @@
     "ahooks": "3.9.6",
     "clsx": "2.1.1",
     "date-fns": "4.1.0",
+    "datocms-structured-text-to-plain-text": "5.1.7",
     "graphql": "16.12.0",
     "graphql-request": "7.4.0",
     "howler": "2.2.4",

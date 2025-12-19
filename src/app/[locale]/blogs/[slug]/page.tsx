@@ -1,11 +1,34 @@
+import type { Metadata } from 'next';
+
 import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { SRCImage, StructuredText } from 'react-datocms';
 
 import { getDatoNode } from '@/components/getDatoNode';
+import { generatePageOG } from '@/components/SEO';
 import { getBlog } from '@/data-layer/datocms/getBlog';
 import { getBlogs } from '@/data-layer/datocms/getBlogs';
 import { locales } from '@/i18n/locales';
+
+export async function generateMetadata({
+  params,
+}: SafeLocale<PageProps<'/[locale]/blogs/[slug]'>>): Promise<Metadata> {
+  const { slug } = await params;
+  const blog = await getBlog(slug);
+
+  if (!blog) {
+    return generatePageOG({
+      title: 'Blog Not Found',
+      description: 'The requested blog post could not be found.',
+    });
+  }
+
+  return generatePageOG({
+    title: `FullstacksJS Blog: ${blog.title}`,
+    description: blog.title,
+    images: blog.banner.src,
+  });
+}
 
 export default async function BlogPage({
   params,

@@ -28,7 +28,7 @@ export const keywords = [
   'واکاتایم',
 ];
 
-interface OGProps {
+export interface OGProps {
   title: string;
   description: string;
   images?: string;

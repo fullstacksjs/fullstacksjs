@@ -1,6 +1,6 @@
 import 'server-only';
 import { gql } from 'graphql-request';
-import { cacheTag } from 'next/cache';
+import { cacheLife, cacheTag } from 'next/cache';
 
 import { cacheTags } from '@/config/cacheTags';
 
@@ -57,6 +57,7 @@ const toBlog = (
 export const getBlog = async (slug: string): Promise<Blog | undefined> => {
   'use cache';
 
+  cacheLife('max');
   cacheTag(cacheTags.blog(slug));
 
   const { blog } = await datoClient.request<BlogQuery, BlogQueryVariables>(
