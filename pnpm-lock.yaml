@@ -50,6 +50,9 @@ importers:
       howler:
         specifier: 2.2.4
         version: 2.2.4
+      http-link-header:
+        specifier: 1.1.3
+        version: 1.1.3
       jotai:
         specifier: 2.15.1
         version: 2.15.1(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.2.7)(react@19.2.3)
@@ -132,6 +135,9 @@ importers:
       '@types/howler':
         specifier: 2.2.12
         version: 2.2.12
+      '@types/http-link-header':
+        specifier: 1.0.7
+        version: 1.0.7
       '@types/node':
         specifier: 24.10.1
         version: 24.10.1
@@ -3281,6 +3287,9 @@ packages:
   '@types/howler@2.2.12':
     resolution: {integrity: sha512-hy769UICzOSdK0Kn1FBk4gN+lswcj1EKRkmiDtMkUGvFfYJzgaDXmVXkSShS2m89ERAatGIPnTUlp2HhfkVo5g==}
 
+  '@types/http-link-header@1.0.7':
+    resolution: {integrity: sha512-snm5oLckop0K3cTDAiBnZDy6ncx9DJ3mCRDvs42C884MbVYPP74Tiq2hFsSDRTyjK6RyDYDIulPiW23ge+g5Lw==}
+
   '@types/js-cookie@2.2.7':
     resolution: {integrity: sha512-aLkWa0C0vO5b4Sr798E26QgOkss68Un0bLjs7u9qxzPT5CG+8DuNTffWES58YzJs3hrVAOs1wonycqEBqNJubA==}
 
@@ -4669,6 +4678,10 @@ packages:
 
   howler@2.2.4:
     resolution: {integrity: sha512-iARIBPgcQrwtEr+tALF+rapJ8qSc+Set2GJQl7xT1MQzWaVkFebdJhR3alVlSiUf5U7nAANKuj3aWpwerocD5w==}
+
+  http-link-header@1.1.3:
+    resolution: {integrity: sha512-3cZ0SRL8fb9MUlU3mKM61FcQvPfXx2dBrZW3Vbg5CXa8jFlK8OaEpePenLe1oEXQduhz8b0QjsqfS59QP4AJDQ==}
+    engines: {node: '>=6.0.0'}
 
   https-proxy-agent@7.0.6:
     resolution: {integrity: sha512-vK9P5/iUfdl95AI+JVyUuIcVtd4ofvtrOr3HNtM2yxC9bnMbEdp3x01OhQNnjb8IJYi38VlTE3mBXwcfvywuSw==}
@@ -10160,6 +10173,10 @@ snapshots:
 
   '@types/howler@2.2.12': {}
 
+  '@types/http-link-header@1.0.7':
+    dependencies:
+      '@types/node': 24.10.1
+
   '@types/js-cookie@2.2.7': {}
 
   '@types/js-cookie@3.0.6': {}
@@ -11782,6 +11799,8 @@ snapshots:
   hls.js@1.6.15: {}
 
   howler@2.2.4: {}
+
+  http-link-header@1.1.3: {}
 
   https-proxy-agent@7.0.6:
     dependencies:
