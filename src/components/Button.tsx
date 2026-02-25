@@ -2,8 +2,7 @@ import { Slot } from '@radix-ui/react-slot';
 
 import { cn } from '@/utils/cn';
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   className?: string;
   variant?: 'contained' | 'outline';

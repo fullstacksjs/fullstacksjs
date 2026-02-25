@@ -32,38 +32,36 @@ export async function GET(request: NextRequest) {
     );
 
     return new ImageResponse(
-      (
+      <div
+        style={{
+          display: 'flex',
+          backgroundColor: '#23252E',
+          height: '100%',
+          width: '100%',
+          justifyContent: 'flex-start',
+          flexDirection: 'column',
+          gap: '40px',
+          padding: '60px 100px 0',
+        }}
+      >
         <div
-          style={{
-            display: 'flex',
-            backgroundColor: '#23252E',
-            height: '100%',
-            width: '100%',
-            justifyContent: 'flex-start',
-            flexDirection: 'column',
-            gap: '40px',
-            padding: '60px 100px 0',
-          }}
+          style={{ fontFamily: 'Bold' }}
+          tw="flex flex-col text-[#D19A67] text-5xl"
         >
-          <div
-            style={{ fontFamily: 'Bold' }}
-            tw="flex flex-col text-[#D19A67] text-5xl"
-          >
-            <div tw="flex text-3xl">GUIDE #{index + 1}</div>
-            <div>{title}</div>
-          </div>
-          <div style={{ fontFamily: 'SemiBold' }} tw="text-3xl text-white">
-            {desc}
-          </div>
-          <img
-            width="400"
-            alt="FullstacksJS Logo"
-            src="https://fullstacksjs.com/image/og-logo.png"
-            style={{ transform: 'translateX(-25%)' }}
-            tw="absolute bottom-0 left-1/2"
-          />
+          <div tw="flex text-3xl">GUIDE #{index + 1}</div>
+          <div>{title}</div>
         </div>
-      ),
+        <div style={{ fontFamily: 'SemiBold' }} tw="text-3xl text-white">
+          {desc}
+        </div>
+        <img
+          width="400"
+          alt="FullstacksJS Logo"
+          src="https://fullstacksjs.com/image/og-logo.png"
+          style={{ transform: 'translateX(-25%)' }}
+          tw="absolute bottom-0 left-1/2"
+        />
+      </div>,
       {
         width: 1200,
         height: 630,

@@ -2,11 +2,10 @@ import { Suspense } from 'react';
 
 import { FocusProvider } from './FocusProvider';
 
-interface Props
-  extends React.DetailedHTMLProps<
-    React.OlHTMLAttributes<HTMLOListElement>,
-    HTMLOListElement
-  > {
+interface Props extends React.DetailedHTMLProps<
+  React.OlHTMLAttributes<HTMLOListElement>,
+  HTMLOListElement
+> {
   fallback?: React.ReactNode;
 }
 

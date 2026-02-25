@@ -17,8 +17,9 @@ const MenuOverlay = ({
   />
 );
 
-interface MenuContentProps
-  extends React.ComponentPropsWithoutRef<typeof Dialog.Content> {
+interface MenuContentProps extends React.ComponentPropsWithoutRef<
+  typeof Dialog.Content
+> {
   direction: 'ltr' | 'rtl';
 }
 

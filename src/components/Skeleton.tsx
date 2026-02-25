@@ -1,10 +1,9 @@
 import { cn } from '@/utils/cn';
 
-interface Props
-  extends React.DetailedHTMLProps<
-    React.HTMLAttributes<HTMLDivElement>,
-    HTMLDivElement
-  > {
+interface Props extends React.DetailedHTMLProps<
+  React.HTMLAttributes<HTMLDivElement>,
+  HTMLDivElement
+> {
   width?: number | string;
   height?: number | string;
   rounded?: boolean;

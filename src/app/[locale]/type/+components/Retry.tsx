@@ -5,11 +5,10 @@ import { cn } from '@/utils/cn';
 
 import { handleReset } from '../atoms';
 
-interface Props
-  extends React.DetailedHTMLProps<
-    React.ButtonHTMLAttributes<HTMLButtonElement>,
-    HTMLButtonElement
-  > {}
+interface Props extends React.DetailedHTMLProps<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  HTMLButtonElement
+> {}
 
 export const Retry = ({ className, onClick, ...props }: Props) => {
   const [, reset] = useAtom(handleReset);
