@@ -1,7 +1,6 @@
-import { useUpdate } from 'ahooks';
 import { differenceInMilliseconds } from 'date-fns';
 import { atom, useAtom } from 'jotai';
-import { useEffect } from 'react';
+import { useEffect, useReducer } from 'react';
 
 import { audios } from '@/components/Audio';
 import { submitRecord } from '@/data-layer/supabase/submitRecord';
@@ -40,7 +39,7 @@ export const useTimeEllipses = () => {
   const [gameState] = useAtom(gameStateAtom);
   const [startTime] = useAtom(startTimeAtom);
   const [endTime] = useAtom(endTimeAtom);
-  const forceUpdate = useUpdate();
+  const [, forceUpdate] = useReducer((x) => !x, false);
 
   useEffect(() => {
     let interval: NodeJS.Timeout | undefined;

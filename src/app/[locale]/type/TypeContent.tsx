@@ -1,8 +1,7 @@
 'use client';
 
-import { useKeyPress } from 'ahooks';
 import { useAtom } from 'jotai';
-import { useEffect } from 'react';
+import { useEffect, useEffectEvent } from 'react';
 
 import type { User } from '@/data-layer/supabase/models/User';
 
@@ -37,9 +36,8 @@ export const TypeContent = ({ initialRecord, user }: Props) => {
     if (initialRecord) setRecord(initialRecord);
   }, [initialRecord, setRecord]);
 
-  useKeyPress(
-    (event) => isAlphabet(event.key),
-    (event) => {
+  const handler = useEffectEvent((event: KeyboardEvent) => {
+    if (isAlphabet(event.key)) {
       if (isFinished || event.ctrlKey) return;
       const pressedKey = event.key.toLowerCase() as Alphabet;
       const isCorrect = pressedKey === activeLetter;
@@ -47,13 +45,18 @@ export const TypeContent = ({ initialRecord, user }: Props) => {
       const sfx = isCorrect ? audios.click : audios.wrong;
       sfx.play();
       void submit(pressedKey);
-    },
-  );
-
-  useKeyPress(['backspace'], () => {
-    audios.backspace.play();
-    correct();
+    }
+    if (event.key === 'Backspace') {
+      if (isFinished) return;
+      audios.backspace.play();
+      correct();
+    }
   });
+
+  useEffect(() => {
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, []);
 
   return isFinished ? <Result user={user} record={record} /> : <Game />;
 };
