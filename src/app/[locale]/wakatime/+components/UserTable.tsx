@@ -53,7 +53,7 @@ export const UserTableSkeleton = ({ rows }: { rows: number }) => {
             <Table.Cell>
               <Skeleton height={20} width={20} rounded />
             </Table.Cell>
-            <Table.Cell className="flex gap-4 items-center">
+            <Table.Cell className="flex items-center gap-4">
               <Skeleton circle width={40} />
               <Skeleton height={20} width={220} rounded />
             </Table.Cell>

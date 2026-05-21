@@ -11,7 +11,7 @@ export default function Loading() {
         <p className="text-2xl font-bold">Loading Leaderboard</p>
       </div>
 
-      <div className="rounded-3xl flex flex-col gap-10 mb-10">
+      <div className="mb-10 flex flex-col gap-10 rounded-3xl">
         <Skeleton height={400} width={900} />
       </div>
       <UserTableSkeleton rows={7} />

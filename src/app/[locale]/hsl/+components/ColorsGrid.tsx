@@ -43,7 +43,7 @@ export function ColorsGrid({ colors }: { colors: ColorQuestion[] }) {
         score={score}
       />
       {hasWon && <Confetti />}
-      <div className="flex flex-wrap justify-center items-center gap-6">
+      <div className="flex flex-wrap items-center justify-center gap-6">
         {gameOver && (
           <TelegramShareButton
             label={t('shareOn')}

@@ -20,7 +20,7 @@ export const MobileNavs = ({ children, direction }: Props) => {
     <Dialog.Root open={open}>
       <Dialog.Trigger
         aria-label="toggle navigation menu"
-        className="desktop:hidden cursor-pointer"
+        className="cursor-pointer desktop:hidden"
         onClick={() => setOpen(true)}
       >
         <MenuIcon />
@@ -33,7 +33,7 @@ export const MobileNavs = ({ children, direction }: Props) => {
           onEscapeKeyDown={() => setOpen(false)}
         >
           <Dialog.Title hidden>Navigation</Dialog.Title>
-          <ul className="flex flex-col gap-8 text-md font-bold leading-tight desktop:gap-16">
+          <ul className="flex flex-col gap-8 text-md/tight font-bold desktop:gap-16">
             {children}
           </ul>
         </SheetContent>

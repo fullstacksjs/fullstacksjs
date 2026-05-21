@@ -8,10 +8,10 @@ export async function ContributorList() {
   const contributors = await getContributors();
 
   return (
-    <div className="flex gap-5 flex-wrap justify-center items-center">
+    <div className="flex flex-wrap items-center justify-center gap-5">
       {contributors.map(({ url, avatar, username }) => (
         <a
-          className="rounded-full group"
+          className="group rounded-full"
           href={url}
           key={username}
           rel="noopener noreferrer"
@@ -21,7 +21,7 @@ export async function ContributorList() {
             height={80}
             width={80}
             alt={username}
-            className="rounded-full size-20 tablet:size-24 hover:scale-110 inline-block grayscale-100 group-focus-within:grayscale-0 hover:grayscale-0 transition-all duration-300"
+            className="inline-block size-20 rounded-full grayscale-100 transition-all duration-300 group-focus-within:grayscale-0 hover:scale-110 hover:grayscale-0 tablet:size-24"
             src={avatar}
             title={username}
           />
@@ -35,10 +35,10 @@ export function ContributorListSkeleton() {
   const items = range(42);
 
   return (
-    <div className="flex gap-5 flex-wrap justify-center items-center">
+    <div className="flex flex-wrap items-center justify-center gap-5">
       {items.map((item) => (
         <Skeleton
-          className="size-32 rounded-full bg-white/70 animate-pulse"
+          className="size-32 animate-pulse rounded-full bg-white/70"
           key={item}
         />
       ))}

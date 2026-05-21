@@ -6,7 +6,7 @@ export const EventPageSkeleton = () => {
       dir="rtl"
       className="flex flex-col-reverse gap-16 font-fa desktop:flex-row"
     >
-      <article className="flex flex-col gap-16 wide:min-w-[600px] min-h-[300px] w-full">
+      <article className="flex min-h-[300px] w-full flex-col gap-16 wide:min-w-[600px]">
         <Skeleton height="40px" width="40%" />
         <div className="flex flex-col gap-8">
           <Skeleton height="20px" width="100%" />

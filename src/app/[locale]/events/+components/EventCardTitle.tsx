@@ -11,12 +11,7 @@ interface Props {
 }
 
 export const EventCardTitle = ({ data, className }: Props) => (
-  <div
-    className={cn(
-      'flex-1 text-md bidi-plain font-bold leading-tight',
-      className,
-    )}
-  >
+  <div className={cn('flex-1 text-md/tight font-bold bidi-plain', className)}>
     <StructuredText
       data={data}
       renderNode={(type, props, children) => {

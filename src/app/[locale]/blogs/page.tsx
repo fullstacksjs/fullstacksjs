@@ -22,7 +22,7 @@ export default async function Blog() {
   return (
     <div className="flex-1">
       <NextIntlClientProvider locale="fa">
-        <ul dir="rtl" className="font-fa list-inside text-md">
+        <ul dir="rtl" className="list-inside font-fa text-md">
           {blogs.map((blog) => (
             <BlogItem
               createdAt={new Date(blog.createdAt)}

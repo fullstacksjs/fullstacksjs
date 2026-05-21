@@ -45,7 +45,7 @@ export const EventCardSkeleton = () => {
     <div className="flex flex-col gap-8">
       <Skeleton className="aspect-video w-full" rounded />
       <div className="flex gap-4">
-        <Skeleton circle className="h-12 w-12 shrink-0" />
+        <Skeleton circle className="size-12 shrink-0" />
         <div className="flex flex-1 flex-col gap-4">
           <Skeleton className="h-6 w-3/4" rounded />
           <Skeleton className="h-4 w-1/4" rounded />

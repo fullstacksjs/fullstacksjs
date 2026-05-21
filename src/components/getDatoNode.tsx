@@ -44,13 +44,13 @@ export const getDatoNode = ({ type, props, children }: Node) => {
     );
   if (type === 'h3')
     return (
-      <h3 className="mb-4 mt-10 font-bold" key={key}>
+      <h3 className="mt-10 mb-4 font-bold" key={key}>
         {children}
       </h3>
     );
   if (type === 'ul')
     return (
-      <ul className="mb-2 list-disc list-item-star list-inside" key={key}>
+      <ul className="list-item-star mb-2 list-inside list-disc" key={key}>
         {children}
       </ul>
     );
@@ -62,7 +62,7 @@ export const getDatoNode = ({ type, props, children }: Node) => {
     );
   if (type === 'h2')
     return (
-      <h2 className="mb-4 mt-10 text-xl font-bold" key={key}>
+      <h2 className="mt-10 mb-4 text-xl font-bold" key={key}>
         {children}
       </h2>
     );

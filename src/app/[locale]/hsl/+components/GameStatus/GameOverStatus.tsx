@@ -17,7 +17,7 @@ export function GameOverStatus({
 }: GameOverStatusProps) {
   const t = useTranslations('hsl');
   return (
-    <div className="flex flex-col gap-0.5 items-center">
+    <div className="flex flex-col items-center gap-0.5">
       <span>{hasWon ? t('congratulations') : t('gameOver')}</span>
       <ScoreLine
         label={hasWon ? t('finalScore') : t('lastScore')}

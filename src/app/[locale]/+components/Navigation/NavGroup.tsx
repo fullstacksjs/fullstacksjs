@@ -34,7 +34,7 @@ export const NavGroup = ({ text, href, subNavs, isNew }: Props) => {
         href={href ?? '#'}
         type="button"
         className={cn(
-          'flex min-w-[100px] items-center justify-between gap-4 uppercase rtl:text-xl whitespace-nowrap',
+          'flex min-w-[100px] items-center justify-between gap-4 whitespace-nowrap uppercase rtl:text-xl',
           {
             'text-fg-0': isActive,
             'text-light-muted': !isActive,
@@ -43,12 +43,12 @@ export const NavGroup = ({ text, href, subNavs, isNew }: Props) => {
         )}
       >
         {isNew ? (
-          <CircleBadge className="hidden desktop:block absolute" />
+          <CircleBadge className="absolute hidden desktop:block" />
         ) : null}
         {text}
         {!href ? <ChevronDownIcon /> : null}
       </Link>
-      <div className="static top-full flex w-full flex-col gap-4 py-4 ps-2 desktop:absolute desktop:hidden desktop:ps-0 desktop:group-hover:flex rtl:ps-4 z-10">
+      <div className="static top-full z-10 flex w-full flex-col gap-4 py-4 ps-2 desktop:absolute desktop:hidden desktop:ps-0 desktop:group-hover:flex rtl:ps-4">
         {subNavs?.map((c) => (
           <NavLink key={c.href} {...c}>
             {c.text}

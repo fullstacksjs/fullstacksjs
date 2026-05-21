@@ -18,12 +18,8 @@ interface ReportItemProps {
 export function ReportItem({ children, title }: ReportItemProps) {
   return (
     <div className="flex flex-col items-center">
-      <p className="text-[1.4rem] font-semibold leading-none text-fg-1">
-        {title}
-      </p>
-      <p className="text-[1.4rem] font-semibold leading-tight text-fg-0">
-        {children}
-      </p>
+      <p className="text-xs/none font-semibold text-fg-1">{title}</p>
+      <p className="text-xs/tight font-semibold text-fg-0">{children}</p>
     </div>
   );
 }
@@ -41,14 +37,14 @@ export function UserInfo({
 }) {
   return (
     <div className={cn('flex flex-col text-xs', className)}>
-      <p className="font-bold leading-none text-fg-0">{user.name}</p>
+      <p className="leading-none font-bold text-fg-0">{user.name}</p>
       <p className="text-xs font-semibold text-fg-1">@{user.username}</p>
     </div>
   );
 }
 
 export function Sep({ className }: { className?: string }) {
-  return <div className={cn('h-[34px] w-[1px] bg-bg-muted', className)} />;
+  return <div className={cn('h-[34px] w-px bg-bg-muted', className)} />;
 }
 
 interface Props {

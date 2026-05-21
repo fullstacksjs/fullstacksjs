@@ -12,7 +12,7 @@ export const Title = ({ day, year }: Props) => {
 
   return (
     <div className="flex flex-col items-center">
-      <p className="w-[384px] text-center text-2xl font-bold leading-snug">
+      <p className="w-[384px] text-center text-2xl/snug font-bold">
         {t('title')}
       </p>
       <p className="text-md font-bold text-accent-0">

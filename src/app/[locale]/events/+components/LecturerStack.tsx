@@ -41,7 +41,7 @@ export const LecturerStack = ({ lecturers, className }: Props) => {
     >
       {!isSingle ? (
         lecturers.map(({ avatar, name }) => (
-          <Avatar className="-mt-6 " image={avatar} key={name} />
+          <Avatar className="-mt-6" image={avatar} key={name} />
         ))
       ) : (
         <Avatar className="shrink-0" image={lecturers[0]!.avatar} />

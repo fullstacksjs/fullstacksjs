@@ -14,18 +14,18 @@ export function ProjectCard({
   npmUrl,
 }: Project) {
   return (
-    <div className="flex flex-col mobile:flex-col desktop:flex-row items-center gap-8 desktop:gap-16">
-      <div className="flex justify-center items-center basis-40 shrink-0 h-40">
-        <Logo className="w-40 aspect-auto" />
+    <div className="flex flex-col items-center gap-8 mobile:flex-col desktop:flex-row desktop:gap-16">
+      <div className="flex h-40 shrink-0 basis-40 items-center justify-center">
+        <Logo className="aspect-auto w-40" />
       </div>
       <div className="flex flex-col gap-1">
-        <h2 className="font-bold text-md text-center tablet:text-start tablet:text-2xl">
+        <h2 className="text-center text-md font-bold tablet:text-start tablet:text-2xl">
           {name}
         </h2>
-        <p className="tablet:text-md text-light-1 text-center tablet:text-start">
+        <p className="text-center text-light-1 tablet:text-start tablet:text-md">
           {description}
         </p>
-        <div className="flex flex-wrap pt-[15px] tablet:p-0 gap-2.5 tablet:gap-5 justify-center tablet:justify-start items-center">
+        <div className="flex flex-wrap items-center justify-center gap-2.5 pt-[15px] tablet:justify-start tablet:gap-5 tablet:p-0">
           {docUrl && (
             <ResourceLink url={docUrl} icon={HomePage}>
               Home Page

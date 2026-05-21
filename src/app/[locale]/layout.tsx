@@ -66,7 +66,7 @@ export default async function LocaleLayout({
       >
         <JotaiProvider>
           <SupabaseProvider>
-            <div className="container flex w-full flex-col gap-24 py-8 text-base mobile:gap-44 desktop:py-40 min-h-screen">
+            <div className="container flex min-h-screen w-full flex-col gap-24 py-8 text-base mobile:gap-44 desktop:py-40">
               <Header />
               {children}
               <Separator />

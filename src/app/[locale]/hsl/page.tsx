@@ -34,7 +34,7 @@ const BoardSkeleton = () => {
     <div className="grid grid-cols-3 place-items-center gap-4.5">
       {range(3).map((key) => (
         <Skeleton
-          className="w-[85px] h-[85px] mobile:w-[100px] mobile:h-[100px] transition-all duration-200 rounded-lg cursor-pointer"
+          className="size-[85px] cursor-pointer rounded-lg transition-all duration-200 mobile:size-[100px]"
           key={key}
         />
       ))}
@@ -55,8 +55,8 @@ export default async function ColorPage({
 
   return (
     <NextIntlClientProvider messages={pick(messages, ['hsl'])}>
-      <div className="flex flex-col justify-center items-center gap-18">
-        <h1 className="text-3xl font-bold leading-tight">{t('title')}</h1>
+      <div className="flex flex-col items-center justify-center gap-18">
+        <h1 className="text-3xl/tight font-bold">{t('title')}</h1>
         <p className="text-center">{t('desc')}</p>
         <Suspense fallback={<BoardSkeleton />}>
           <ColorBoard />

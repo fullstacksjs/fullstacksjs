@@ -42,12 +42,12 @@ export default async function BlogPage({
   return (
     <div className="flex flex-col gap-16">
       <SRCImage data={blog.banner} />
-      <div className="leading-relaxed flex flex-col gap-4">
+      <div className="flex flex-col gap-4 leading-relaxed">
         <StructuredText
           data={blog.content}
           renderNode={(type, props, children) => {
             if (type === 'p')
-              return <p className="text-fg-1 mb-2">{children}</p>;
+              return <p className="mb-2 text-fg-1">{children}</p>;
             if (props == null) {
               return null;
             }

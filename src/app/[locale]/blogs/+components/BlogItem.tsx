@@ -11,12 +11,12 @@ export const BlogItem = ({ createdAt, slug, title }: Props) => {
   return (
     <li className="mt-4">
       <Link
-        className="transition-colors opacity-50 group hover:opacity-100 flex items-center justify-between gap-4"
+        className="group flex items-center justify-between gap-4 opacity-50 transition-colors hover:opacity-100"
         href={`/blogs/${slug}`}
       >
-        <div className="w-0 size-2 rounded-full bg-fg-1 group-hover:w-6 transition-all" />
+        <div className="size-2 w-0 rounded-full bg-fg-1 transition-all group-hover:w-6" />
         {title}
-        <div className="flex-1 border-b-1 border-fg-1 border-dashed opacity-15" />
+        <div className="flex-1 border-b border-dashed border-fg-1 opacity-15" />
         <div className="text-sm text-fg-1 opacity-70">
           {createdAt.toLocaleDateString('fa-IR', {
             year: 'numeric',
@@ -34,7 +34,7 @@ export const BlogItemSkeleton = ({ width }: { width: number }) => {
     <div>
       <div className="flex items-center justify-between gap-4">
         <Skeleton height={20} width={width} rounded />
-        <div className="flex-1 border-b-1 border-fg-1 border-dashed opacity-15" />
+        <div className="flex-1 border-b border-dashed border-fg-1 opacity-15" />
         <Skeleton height={14} width={80} rounded />
       </div>
     </div>

@@ -9,7 +9,7 @@ interface ResourceLinkProps {
 export function ResourceLink({ children, url, icon: Icon }: ResourceLinkProps) {
   return (
     <Link
-      className="font-rajdhani font-semibold py-1 flex gap-1.5 items-center text-light-inactive stroke-light-inactive hover:text-light-1 hover:stroke-light-1 transition-all"
+      className="flex items-center gap-1.5 stroke-light-inactive py-1 font-rajdhani font-semibold text-light-inactive transition-all hover:stroke-light-1 hover:text-light-1"
       href={url}
       target="_blank"
     >

@@ -2,6 +2,9 @@ import { defineConfig } from '@fullstacksjs/eslint-config';
 
 export default defineConfig(
   {
+    tailwind: {
+      tailwindConfig: './src/app/globals.css',
+    },
     ignores: ['src/data-layer/supabase/models/Database.ts'],
   },
   {
