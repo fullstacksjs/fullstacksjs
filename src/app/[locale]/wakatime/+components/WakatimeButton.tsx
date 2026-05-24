@@ -8,7 +8,7 @@ export const WakatimeButton = () => {
   return (
     <C2AButton asChild>
       <a
-        href="https://kutt.it/fsk-waka"
+        href="https://wakatime.com/leaders/sec/bf50f418-a6b5-4d3f-8147-6115d95ac4c6/join/oaajrudaay"
         rel="noopener noreferrer"
         target="_blank"
       >
