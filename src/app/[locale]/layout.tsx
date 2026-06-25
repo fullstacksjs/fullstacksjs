@@ -69,7 +69,7 @@ export default async function LocaleLayout({
             <div className="container flex min-h-screen w-full flex-col gap-24 py-8 text-base mobile:gap-44 desktop:py-40">
               <Header />
               {children}
-              <Separator />
+              <Separator className="mt-auto" />
               <Socials />
             </div>
           </SupabaseProvider>
