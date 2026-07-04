@@ -7,7 +7,7 @@ const secondsInDay = 60 * 60 * 24;
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    // swcPlugins: [['@swc-jotai/react-refresh', {}]], // <- Enable when turbopack+swc-jotai is ready
+    swcPlugins: [['@swc-jotai/react-refresh', {}]],
     turbopackFileSystemCacheForDev: true,
   },
   cacheComponents: true,
