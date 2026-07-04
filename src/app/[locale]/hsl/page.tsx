@@ -1,4 +1,5 @@
 import { range } from '@fullstacksjs/toolbox';
+import { Provider } from 'jotai';
 import { NextIntlClientProvider } from 'next-intl';
 import {
   getMessages,
@@ -59,7 +60,9 @@ export default async function ColorPage({
         <h1 className="text-3xl/tight font-bold">{t('title')}</h1>
         <p className="text-center">{t('desc')}</p>
         <Suspense fallback={<BoardSkeleton />}>
-          <ColorBoard />
+          <Provider>
+            <ColorBoard />
+          </Provider>
         </Suspense>
       </div>
     </NextIntlClientProvider>

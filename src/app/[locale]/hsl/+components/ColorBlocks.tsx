@@ -2,15 +2,13 @@ import { cn } from '@/utils/cn';
 
 interface ColorBlocksProps {
   blocks: string[];
-  correctIndex: number;
   highlightedWrongIndex: number | undefined;
   highlightedCorrectIndex: number | undefined;
-  onBlockClick: (index: number, correctIndex: number) => void;
+  onBlockClick: (index: number) => void;
 }
 
 export function ColorBlocks({
   blocks,
-  correctIndex,
   highlightedWrongIndex,
   highlightedCorrectIndex,
   onBlockClick,
@@ -23,7 +21,7 @@ export function ColorBlocks({
           key={`${color}-${index}`}
           style={{ backgroundColor: color }}
           type="button"
-          onClick={() => onBlockClick(index, correctIndex)}
+          onClick={() => onBlockClick(index)}
           className={cn(
             'size-[85px] cursor-pointer rounded-lg transition-all duration-200 mobile:size-[100px]',
             highlightedWrongIndex === index && 'outline-4 outline-accent-0',
