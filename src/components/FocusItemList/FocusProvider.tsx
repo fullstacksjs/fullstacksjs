@@ -8,11 +8,11 @@ import {
   createContext,
   use,
   useCallback,
+  useEffect,
   useMemo,
   useOptimistic,
   useTransition,
 } from 'react';
-import { useEffectOnce } from 'react-use';
 
 import { usePathname, useRouter } from '@/i18n/routing';
 
@@ -40,10 +40,11 @@ function useScrollToFocused() {
   const search = useSearchParams();
   const focused = search.get('focus');
 
-  useEffectOnce(() => {
+  useEffect(() => {
     if (!focused) return;
     document.getElementById(focused)?.scrollIntoView({ block: 'center' });
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- scroll only on mount, like useEffectOnce
+  }, []);
 }
 
 const FocusContext = createContext<{
