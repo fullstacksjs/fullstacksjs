@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation';
 import { Button } from '@/components/Button';
 import { generatePageOG } from '@/components/SEO';
 import { getServerFeature } from '@/config/features/getServerFeatures';
-import { getWusEvent } from '@/data-layer/datocms/getWusEvent';
+import { getLiveEvent } from '@/data-layer/datocms/getLiveEvent';
 
 import { EventActions, EventPage } from '../+components/Event/EventPage';
 
@@ -22,7 +22,7 @@ export default async function WusPage() {
   const feature = getServerFeature('wus');
   if (!feature) return notFound();
 
-  const event = await getWusEvent();
+  const event = await getLiveEvent('wus');
   if (!event) return notFound();
 
   return (

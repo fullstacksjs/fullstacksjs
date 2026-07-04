@@ -1,9 +1,9 @@
 import { redirect } from 'next/navigation';
 
-import { getMobEvent } from '@/data-layer/datocms/getMobEvent';
+import { getLiveEvent } from '@/data-layer/datocms/getLiveEvent';
 
 export async function GET() {
-  const link = await getMobEvent();
+  const link = await getLiveEvent('mob');
   if (!link) redirect('https://fullstacksjs.com');
 
   redirect(link.links.calendar);

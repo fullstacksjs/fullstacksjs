@@ -1,9 +1,9 @@
 import { redirect } from 'next/navigation';
 
-import { getStageEvent } from '@/data-layer/datocms/getStageEvent';
+import { getLiveEvent } from '@/data-layer/datocms/getLiveEvent';
 
 export async function GET() {
-  const link = await getStageEvent();
+  const link = await getLiveEvent('stage');
   if (!link) redirect('https://fullstacksjs.com');
 
   redirect(link.links.session);
