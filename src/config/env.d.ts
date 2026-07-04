@@ -14,6 +14,8 @@ declare namespace NodeJS {
     REVALIDATE_AUTH_USERNAME?: string;
     REVALIDATE_AUTH_PASSWORD?: string;
 
+    GITHUB_TOKEN?: string;
+
     NEXT_PUBLIC_POSTHOG_KEY?: string;
   }
 }
