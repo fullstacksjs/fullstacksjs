@@ -1,6 +1,4 @@
-import { differenceInMilliseconds } from 'date-fns';
-import { atom, useAtom } from 'jotai';
-import { useEffect, useReducer } from 'react';
+import { atom } from 'jotai';
 
 import { audios } from '@/components/Audio';
 import { submitRecord } from '@/data-layer/supabase/submitRecord';
@@ -32,45 +30,8 @@ export const gameStateAtom = atom<GameStatus>('idle');
 export const isFinishedAtom = atom((get) => get(gameStateAtom) === 'finished');
 export const activeLetterAtom = atom((get) => alphabets[get(stepAtom)]);
 
-const startTimeAtom = atom(Date.now());
-const endTimeAtom = atom(Date.now());
-
-export const useTimeEllipses = () => {
-  const [gameState] = useAtom(gameStateAtom);
-  const [startTime] = useAtom(startTimeAtom);
-  const [endTime] = useAtom(endTimeAtom);
-  const [, forceUpdate] = useReducer((x) => !x, false);
-
-  useEffect(() => {
-    let interval: NodeJS.Timeout | undefined;
-
-    if (gameState === 'typing')
-      interval = setInterval(() => {
-        forceUpdate();
-      }, 100);
-    else if (interval) {
-      clearInterval(interval);
-      interval = undefined;
-    }
-
-    return () => {
-      clearInterval(interval);
-      interval = undefined;
-    };
-  }, [forceUpdate, gameState]);
-
-  switch (gameState) {
-    case 'idle':
-      return null;
-
-    case 'typing':
-      // eslint-disable-next-line react-hooks/purity
-      return differenceInMilliseconds(Date.now(), startTime);
-
-    case 'finished':
-      return differenceInMilliseconds(endTime, startTime);
-  }
-};
+export const startTimeAtom = atom(Date.now());
+export const endTimeAtom = atom(Date.now());
 
 export const isPerfectAtom = atom((get) => get(mistakesAtom) === 0);
 export const newRecordAtom = atom<number | undefined>(undefined);
@@ -78,31 +39,13 @@ export const newRecordAtom = atom<number | undefined>(undefined);
 export const handleSubmitLetter = atom(
   null,
   async (get, set, update: Alphabet) => {
-    const isCorrect = get(activeLetterAtom) === update;
-    const shouldFinish = get(isFinalStepAtom);
-    const nextStep = Math.min(alphabets.length - 1, get(stepAtom) + 1);
     const activeLetter = get(activeLetterAtom);
+    const isCorrect = activeLetter === update;
+    const shouldFinish = get(isFinalStepAtom);
 
     if (get(gameStateAtom) === 'idle') {
       set(startTimeAtom, Date.now());
       set(gameStateAtom, 'typing');
-    }
-
-    if (shouldFinish) {
-      const endTime = Date.now();
-      set(gameStateAtom, 'finished');
-      set(endTimeAtom, endTime);
-      const duration = endTime - get(startTimeAtom);
-      const newRecord = await submitRecord({
-        duration,
-        mistakes: get(mistakesAtom),
-      })
-        .then((d) => d?.duration)
-        .catch((e) => {
-          console.error(e);
-          return undefined;
-        });
-      set(newRecordAtom, newRecord);
     }
 
     const currentLetter = get(lettersAtom).find(
@@ -116,7 +59,7 @@ export const handleSubmitLetter = atom(
 
     set(lettersAtom, (prev) =>
       prev.map((l) =>
-        l.letter === get(activeLetterAtom)
+        l.letter === activeLetter
           ? {
               letter: l.letter,
               status: !isCorrect
@@ -129,7 +72,23 @@ export const handleSubmitLetter = atom(
       ),
     );
 
-    set(stepAtom, nextStep);
+    set(stepAtom, (p) => Math.min(alphabets.length - 1, p + 1));
+
+    if (shouldFinish) {
+      const endTime = Date.now();
+      set(gameStateAtom, 'finished');
+      set(endTimeAtom, endTime);
+      const newRecord = await submitRecord({
+        duration: endTime - get(startTimeAtom),
+        mistakes: get(mistakesAtom),
+      })
+        .then((d) => d?.duration)
+        .catch((e) => {
+          console.error(e);
+          return undefined;
+        });
+      set(newRecordAtom, newRecord);
+    }
   },
 );
 

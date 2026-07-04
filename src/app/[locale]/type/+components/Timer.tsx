@@ -1,7 +1,7 @@
 import { cn } from '@/utils/cn';
 import { formatStopWatch } from '@/utils/date';
 
-import { useTimeEllipses } from '../atoms';
+import { useTimeEllipses } from '../useTimeEllipses';
 
 export const Timer = ({ className }: { className?: string }) => {
   const diff = useTimeEllipses();

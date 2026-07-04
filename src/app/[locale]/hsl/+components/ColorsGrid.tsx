@@ -3,7 +3,6 @@
 import { useAtomValue, useSetAtom } from 'jotai';
 import { useHydrateAtoms } from 'jotai/utils';
 import { useTranslations } from 'next-intl';
-import { useEffect } from 'react';
 
 import { Button } from '@/components/Button';
 
@@ -14,13 +13,12 @@ import {
   gameOverAtom,
   hasWonAtom,
   highestScoreAtom,
-  highlightedCorrectIndexAtom,
-  highlightedWrongIndexAtom,
-  initGameAtom,
   questionsAtom,
+  revealedCorrectIndexAtom,
   scoreAtom,
   selectAnswerAtom,
   tryAgainAtom,
+  wrongIndexAtom,
 } from '../atoms';
 import { ColorBlocks } from './ColorBlocks';
 import { Confetti } from './Confetti';
@@ -36,28 +34,19 @@ export function ColorsGrid({ colors }: { colors: ColorQuestion[] }) {
   const highestScore = useAtomValue(highestScoreAtom);
   const gameOver = useAtomValue(gameOverAtom);
   const hasWon = useAtomValue(hasWonAtom);
-  const highlightedWrongIndex = useAtomValue(highlightedWrongIndexAtom);
-  const highlightedCorrectIndex = useAtomValue(highlightedCorrectIndexAtom);
+  const wrongIndex = useAtomValue(wrongIndexAtom);
+  const revealedCorrectIndex = useAtomValue(revealedCorrectIndexAtom);
 
   const selectAnswer = useSetAtom(selectAnswerAtom);
   const tryAgain = useSetAtom(tryAgainAtom);
-  const initGame = useSetAtom(initGameAtom);
-
-  useEffect(() => {
-    initGame(colors);
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- start a fresh game once per mount with the server-generated questions
-  }, []);
 
   return (
     <>
       <ColorBlocks
         blocks={currentQuestion?.blocks ?? []}
-        correctIndex={currentQuestion?.correctIndex ?? -1}
-        highlightedCorrectIndex={highlightedCorrectIndex}
-        highlightedWrongIndex={highlightedWrongIndex}
-        onBlockClick={(index, correctIndex) =>
-          selectAnswer({ index, correctIndex })
-        }
+        highlightedCorrectIndex={revealedCorrectIndex}
+        highlightedWrongIndex={wrongIndex}
+        onBlockClick={selectAnswer}
       />
       <GameStatus
         gameOver={gameOver}
