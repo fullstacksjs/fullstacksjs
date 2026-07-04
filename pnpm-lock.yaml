@@ -120,6 +120,9 @@ importers:
       '@svgr/webpack':
         specifier: 8.1.0
         version: 8.1.0(typescript@5.9.3)
+      '@swc-jotai/react-refresh':
+        specifier: 0.5.0
+        version: 0.5.0
       '@tailwindcss/postcss':
         specifier: 4.2.2
         version: 4.2.2
@@ -3165,6 +3168,9 @@ packages:
   '@svgr/webpack@8.1.0':
     resolution: {integrity: sha512-LnhVjMWyMQV9ZmeEy26maJk+8HTIbd59cH4F2MJ439k9DqejRisfFNGAPvRYlKETuh9LrImlS8aKsBgKjMA8WA==}
     engines: {node: '>=14'}
+
+  '@swc-jotai/react-refresh@0.5.0':
+    resolution: {integrity: sha512-TXCQJ/eZ8mZXGnO0W1nK73VKGDt5dVsrPd3wSYypLOth5tSdBRtbU2opYeUJEXY4iUI5sVu1zUAmRJSJ7V+h8A==}
 
   '@swc/core-darwin-arm64@1.15.7':
     resolution: {integrity: sha512-+hNVUfezUid7LeSHqnhoC6Gh3BROABxjlDNInuZ/fie1RUxaEX4qzDwdTgozJELgHhvYxyPIg1ro8ibnKtgO4g==}
@@ -10076,6 +10082,8 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
       - typescript
+
+  '@swc-jotai/react-refresh@0.5.0': {}
 
   '@swc/core-darwin-arm64@1.15.7':
     optional: true
