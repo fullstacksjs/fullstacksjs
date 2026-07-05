@@ -51,7 +51,7 @@ export function Socials(): React.JSX.Element {
         {items.map(({ children, href, icon: Icon }) => (
           <li className="list-none text-accent-0" key={children}>
             <SocialItem href={href}>
-              <Icon className="shrink-0" />
+              <Icon width="24px" className="shrink-0" />
               <span className="w-40 text-light-0 transition-colors hover:text-accent-0 mobile:w-64 tablet:w-auto wide:w-full">
                 {t(`social.${children}`)}
               </span>

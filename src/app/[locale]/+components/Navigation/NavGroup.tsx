@@ -46,7 +46,7 @@ export const NavGroup = ({ text, href, subNavs, isNew }: Props) => {
           <CircleBadge className="absolute hidden desktop:block" />
         ) : null}
         {text}
-        {!href ? <ChevronDownIcon /> : null}
+        {!href ? <ChevronDownIcon width="24" /> : null}
       </Link>
       <div className="static top-full z-10 flex w-full flex-col gap-4 py-4 ps-2 desktop:absolute desktop:hidden desktop:ps-0 desktop:group-hover:flex rtl:ps-4">
         {subNavs?.map((c) => (
