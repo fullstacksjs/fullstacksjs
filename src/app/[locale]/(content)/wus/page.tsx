@@ -7,24 +7,22 @@ import { generatePageOG } from '@/components/SEO';
 import { getServerFeature } from '@/config/features/getServerFeatures';
 import { getLiveEvent } from '@/data-layer/datocms/getLiveEvent';
 
-import { EventActions, EventPage } from '../+components/Event/EventPage';
+import { EventActions, EventPage } from '../../+components/Event/EventPage';
 
-export async function generateMetadata(): Promise<Metadata> {
-  const event = await getLiveEvent('mob');
-
-  return generatePageOG({
-    title: 'Fullstacksjs MobReview',
+export const metadata: Metadata = {
+  ...generatePageOG({
+    title: "What's up S-Kill",
     description:
-      'A bi-weekly livestream where we collaboratively review codebases and explore best practices for clean, efficient, and maintainable code.',
-    images: event?.thumbnail.src ?? '/og/og.png',
-  });
-}
+      'Bi-weekly stream about the latest news in the world of web development',
+    images: '/og/wus.png',
+  }),
+};
 
-export default async function Page() {
-  const feature = getServerFeature('mob');
+export default async function WusPage() {
+  const feature = getServerFeature('wus');
   if (!feature) return notFound();
 
-  const event = await getLiveEvent('mob');
+  const event = await getLiveEvent('wus');
   if (!event) return notFound();
 
   return (
@@ -35,12 +33,12 @@ export default async function Page() {
     >
       <EventActions>
         <Button asChild size="sm">
-          <a href="/mob/calendar" target="_blank">
+          <a href="/wus/calendar" target="_blank">
             افزودن به تقویم
           </a>
         </Button>
         <Button asChild size="sm" variant="outline">
-          <a href="/mob/live" target="_blank">
+          <a href="/wus/live" target="_blank">
             وارد جلسه شوید
           </a>
         </Button>

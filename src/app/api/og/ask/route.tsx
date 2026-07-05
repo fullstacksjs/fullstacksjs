@@ -4,7 +4,7 @@ import { ImageResponse } from 'next/og';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-import { asks } from '@/app/[locale]/ask/asks';
+import { asks } from '@/app/[locale]/(content)/ask/asks';
 
 import enMessages from '../../../../../messages/en.json';
 

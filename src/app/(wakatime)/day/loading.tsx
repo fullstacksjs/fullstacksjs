@@ -1,4 +1,4 @@
-import { UserTableSkeleton } from '@/app/[locale]/wakatime/+components/UserTable';
+import { UserTableSkeleton } from '@/app/[locale]/(content)/wakatime/+components/UserTable';
 import { Skeleton } from '@/components/Skeleton';
 
 import Logo from './Logo.svg';
