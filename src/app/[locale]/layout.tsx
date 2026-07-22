@@ -58,7 +58,7 @@ export default async function LocaleLayout({
     <html
       dir={direction}
       lang={locale}
-      className={`bg-bg-0 ${rajdhani.variable} ${vazir.variable} ${monospace.variable}`}
+      className={`${rajdhani.variable} ${vazir.variable} ${monospace.variable}`}
     >
       <head>
         <JsonLd />
@@ -66,7 +66,7 @@ export default async function LocaleLayout({
       <body
         suppressHydrationWarning
         className={cn(
-          'flex min-h-screen flex-col pt-4 pb-10 leading-normal text-light-0 transition-colors duration-1000',
+          'flex min-h-screen flex-col pb-10 leading-normal',
           { 'font-fa': locale === 'fa' },
           { 'font-sans': locale !== 'fa' },
         )}

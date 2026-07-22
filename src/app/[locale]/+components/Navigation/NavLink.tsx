@@ -5,7 +5,6 @@ import { useTranslations } from 'next-intl';
 import { useSelectedLayoutSegments } from 'next/navigation';
 
 import { TextBadge } from '@/components/TextBadge';
-import { useIsRTL } from '@/i18n/direction';
 import { Link } from '@/i18n/routing';
 import { cn } from '@/utils/cn';
 
@@ -13,34 +12,36 @@ interface Props {
   href: string;
   children: React.ReactNode;
   isNew?: boolean;
+  className?: string;
 }
 
-export function NavLink({ href, isNew, children }: Props) {
+export function NavLink({ href, isNew, children, className }: Props) {
   const t = useTranslations('header.navigation');
 
   const selected = useSelectedLayoutSegments().slice(1).join('/');
   const isActive = comparePaths(selected, href) === 0;
-  const isRtl = useIsRTL();
 
   return (
     <li
       aria-current={isActive ? 'page' : undefined}
       className={cn(
-        'relative scroll-m-9 list-none uppercase transition-colors after:absolute after:bottom-[-3px] after:h-[3px] after:bg-current after:transition-[width]',
-        {
-          'text-fg-0 after:w-8': isActive,
-          'text-light-muted after:w-0 hover:text-fg-1 hover:after:w-8':
-            !isActive,
-          'after:left-0': !isRtl,
-          'after:right-0': isRtl,
-        },
+        'list-none transition-colors',
+        { 'text-fg-0': isActive },
+        className,
       )}
     >
       <Link
-        className="flex items-center gap-4 rounded-sm text-base whitespace-nowrap focus-visible:outline-1 focus-visible:outline-offset-8 focus-visible:outline-accent-0 rtl:text-md"
+        className={cn(
+          [
+            'flex items-center gap-6 rounded-md p-6 text-sm whitespace-nowrap transition-colors',
+            'focus-visible:outline-1 focus-visible:outline-accent-0 desktop:hover:bg-bg-muted desktop:hover:text-fg-0',
+          ],
+          isActive ? 'text-fg-0' : 'text-fg-1',
+        )}
         href={href}
       >
-        {children} {isNew ? <TextBadge>{t('new')}</TextBadge> : null}
+        <span>{children}</span>
+        {isNew ? <TextBadge>{t('new')}</TextBadge> : null}
       </Link>
     </li>
   );

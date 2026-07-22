@@ -1,6 +1,4 @@
 // ISSUE: This is a workaround for Next.JS + next-intl integration [https://github.com/amannn/next-intl/issues/1493]
 export default function Loading() {
-  return (
-    <div className="flex h-screen items-center justify-center bg-bg-0 text-fg-0" />
-  );
+  return <div className="flex h-screen items-center justify-center" />;
 }

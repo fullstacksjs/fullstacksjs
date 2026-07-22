@@ -20,7 +20,7 @@ export default async function Home({
   const t = await getTranslations({ locale, namespace: 'main' });
 
   return (
-    <div className="min-h-full bg-bg-0 text-fg-0">
+    <div className="min-h-full">
       <Hero />
 
       <DocSection id="about" comment="01 - about.md" title={t('about.title')}>

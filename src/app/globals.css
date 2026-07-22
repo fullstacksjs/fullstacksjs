@@ -8,7 +8,6 @@
 :root[lang='fa'] {
   --font-display: var(--font-vazir), sans-serif;
   --font-body: var(--font-vazir), sans-serif;
-  font-size: clamp(0.525rem, 0.3rem + 0.2vw, 1rem);
 }
 
 @theme {
@@ -185,4 +184,14 @@
   mask-size: 100% 100%;
   background-color: currentColor;
   color: inherit;
+}
+
+body {
+  @apply bg-bg-0 text-fg-0;
+}
+
+@custom-variant en {
+  :root[lang='en'] & {
+    @slot;
+  }
 }

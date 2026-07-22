@@ -28,7 +28,7 @@ export const Button = ({
             variant === 'outline',
           'bg-accent-0 text-fg-on-primary': variant === 'contained',
           'px-6 py-3': size === 'sm',
-          'px-12 py-3': size === 'md',
+          'px-12 py-4': size === 'md',
         },
         className,
       )}
