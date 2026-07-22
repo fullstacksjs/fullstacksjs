@@ -1,7 +1,7 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
-import { generatePageOG } from '@/components/SEO';
+import { generatePageOG } from '@/components/SEO/meta';
 import { routing } from '@/i18n/routing';
 
 import Config from './+components/Config.svg';

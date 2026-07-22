@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 
-import { generatePageOG } from '@/components/SEO';
+import { generatePageOG } from '@/components/SEO/meta';
 import { getBlogs } from '@/data-layer/datocms/getBlogs';
 import { routing } from '@/i18n/routing';
 

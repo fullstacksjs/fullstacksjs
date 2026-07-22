@@ -7,7 +7,7 @@ import { FocusItem } from '@/components/FocusItemList/FocusItem';
 import { FocusItemList } from '@/components/FocusItemList/FocusItemList';
 import { FocusItemListSkeleton } from '@/components/FocusItemList/FocusItemListSkeleton';
 import { Paragraph } from '@/components/Paragraph';
-import { generatePageOG } from '@/components/SEO';
+import { generatePageOG } from '@/components/SEO/meta';
 import { i18nComponents as tc } from '@/i18n/i18nComponents';
 import { routing } from '@/i18n/routing';
 

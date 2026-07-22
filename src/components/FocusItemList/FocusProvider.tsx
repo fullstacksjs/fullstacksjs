@@ -1,12 +1,8 @@
 'use client';
 
-import type { TransitionStartFunction } from 'react';
-
 import { isNull } from '@fullstacksjs/toolbox';
 import { useSearchParams } from 'next/navigation';
 import {
-  createContext,
-  use,
   useCallback,
   useEffect,
   useMemo,
@@ -14,7 +10,7 @@ import {
   useTransition,
 } from 'react';
 
-import { usePathname, useRouter } from '@/i18n/routing';
+import { FocusContext } from './FocusContext';
 
 function useFocused() {
   const search = useSearchParams();
@@ -43,18 +39,8 @@ function useScrollToFocused() {
   useEffect(() => {
     if (!focused) return;
     document.getElementById(focused)?.scrollIntoView({ block: 'center' });
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- scroll only on mount, like useEffectOnce
-  }, []);
+  }, [focused]);
 }
-
-const FocusContext = createContext<{
-  focused: string | null;
-  isPending: boolean;
-  getState: (target: string) => 'faded' | 'focused' | 'idle';
-  startTransition: TransitionStartFunction;
-  setOptimistic: (value: string | null) => void;
-} | null>(null);
-FocusContext.displayName = 'FocusContext';
 
 export const FocusProvider = ({ children }: React.PropsWithChildren) => {
   useScrollToFocused();
@@ -76,35 +62,3 @@ export const FocusProvider = ({ children }: React.PropsWithChildren) => {
 
   return <FocusContext value={value}>{children}</FocusContext>;
 };
-
-export function useFocus() {
-  const context = use(FocusContext);
-
-  if (!context) {
-    throw new Error('useFocus must be used within a FocusProvider');
-  }
-
-  return context;
-}
-
-export function useHandleFocusItem() {
-  const { focused, startTransition, setOptimistic } = useFocus();
-  const router = useRouter();
-  const pathname = usePathname();
-
-  return useCallback(
-    (item: string) => {
-      startTransition(() => {
-        if (item === focused) {
-          setOptimistic(null);
-          router.push(pathname, { scroll: false });
-        } else {
-          setOptimistic(item);
-          document.getElementById(item)?.scrollIntoView({ block: 'center' });
-          router.push(`${pathname}?focus=${item}`, { scroll: false });
-        }
-      });
-    },
-    [focused, pathname, router, setOptimistic, startTransition],
-  );
-}

@@ -21,7 +21,7 @@ export const useTimeEllipses = () => {
       return null;
 
     case 'typing':
-      // eslint-disable-next-line react-hooks/purity
+      // eslint-disable-next-line @eslint-react/purity
       return differenceInMilliseconds(Date.now(), startTime);
 
     case 'finished':

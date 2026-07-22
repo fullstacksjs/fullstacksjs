@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import { generatePageOG } from '@/components/SEO';
+import { generatePageOG } from '@/components/SEO/meta';
 import { Separator } from '@/components/Separator';
 
 import { Banner } from '../../+components/Banner';

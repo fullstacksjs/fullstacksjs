@@ -2,9 +2,8 @@
 
 import type { SupabaseClient } from '@supabase/supabase-js';
 
-import { isNull } from '@fullstacksjs/toolbox';
 import { useRouter } from 'next/navigation';
-import { createContext, use, useEffect } from 'react';
+import { createContext, useEffect } from 'react';
 
 import type { Database } from './models/Database';
 
@@ -37,12 +36,3 @@ export function SupabaseProvider({ children }: Props) {
 
   return children;
 }
-
-export const useSupabase = () => {
-  const context = use(Context);
-
-  if (isNull(context))
-    throw new Error('useSupabase must be used inside SupabaseProvider');
-
-  return context;
-};

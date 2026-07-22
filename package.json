@@ -50,7 +50,7 @@
   },
   "devDependencies": {
     "@cspell/dict-fa-ir": "4.0.5",
-    "@fullstacksjs/eslint-config": "14.4.0",
+    "@fullstacksjs/eslint-config": "14.8.0",
     "@graphql-codegen/add": "6.0.0",
     "@graphql-codegen/cli": "6.1.3",
     "@graphql-codegen/typescript": "5.0.9",
@@ -66,11 +66,11 @@
     "@types/react-dom": "19.2.3",
     "cspell": "9.7.0",
     "dotenv-cli": "11.0.0",
-    "eslint": "10.4.0",
+    "eslint": "10.7.0",
     "husky": "9.1.7",
     "lint-staged": "16.4.0",
     "postcss": "8.5.22",
-    "prettier": "3.8.1",
+    "prettier": "3.9.6",
     "supabase": "2.84.0",
     "tailwindcss": "4.3.3",
     "typescript": "5.9.3"

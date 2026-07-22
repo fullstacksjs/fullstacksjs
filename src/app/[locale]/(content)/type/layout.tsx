@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 
-import { generatePageOG } from '@/components/SEO';
+import { generatePageOG } from '@/components/SEO/meta';
 import { getServerFeature } from '@/config/features/getServerFeatures';
 
 export const metadata = generatePageOG({

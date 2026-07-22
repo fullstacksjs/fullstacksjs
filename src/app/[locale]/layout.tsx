@@ -4,7 +4,8 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { setRequestLocale } from 'next-intl/server';
 import { Rajdhani, Vazirmatn } from 'next/font/google';
 
-import { generatePageOG, icons, JsonLd, keywords } from '@/components/SEO';
+import { JsonLd } from '@/components/SEO/JsonLd';
+import { generatePageOG, icons, keywords } from '@/components/SEO/meta';
 import { Separator } from '@/components/Separator';
 import { SupabaseProvider } from '@/data-layer/supabase/SupabaseProvider';
 import { getDirection } from '@/i18n/direction';

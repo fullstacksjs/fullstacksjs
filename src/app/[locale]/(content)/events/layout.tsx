@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import { generatePageOG } from '@/components/SEO';
+import { generatePageOG } from '@/components/SEO/meta';
 
 export const metadata: Metadata = generatePageOG({
   title: 'FullstacksJS Events',

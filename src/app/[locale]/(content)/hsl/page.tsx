@@ -10,7 +10,7 @@ import { notFound } from 'next/navigation';
 import { pick } from 'radash';
 import { Suspense } from 'react';
 
-import { generatePageOG } from '@/components/SEO';
+import { generatePageOG } from '@/components/SEO/meta';
 import { Skeleton } from '@/components/Skeleton';
 import { getServerFeature } from '@/config/features/getServerFeatures';
 import { routing } from '@/i18n/routing';

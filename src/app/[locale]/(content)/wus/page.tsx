@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import { Button } from '@/components/Button';
-import { generatePageOG } from '@/components/SEO';
+import { generatePageOG } from '@/components/SEO/meta';
 import { getServerFeature } from '@/config/features/getServerFeatures';
 import { getLiveEvent } from '@/data-layer/datocms/getLiveEvent';
 

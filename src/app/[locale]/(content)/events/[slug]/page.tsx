@@ -4,9 +4,9 @@ import { render } from 'datocms-structured-text-to-plain-text';
 import { notFound } from 'next/navigation';
 import { SRCImage } from 'react-datocms';
 
-import type { OGProps } from '@/components/SEO';
+import type { OGProps } from '@/components/SEO/meta';
 
-import { generatePageOG } from '@/components/SEO';
+import { generatePageOG } from '@/components/SEO/meta';
 import { getEventBySlug } from '@/data-layer/datocms/getEvent';
 
 import { EventCardAction } from '../+components/EventCardAction';

@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation';
 import { SRCImage, StructuredText } from 'react-datocms';
 
 import { getDatoNode } from '@/components/getDatoNode';
-import { generatePageOG } from '@/components/SEO';
+import { generatePageOG } from '@/components/SEO/meta';
 import { getBlog } from '@/data-layer/datocms/getBlog';
 import { getBlogs } from '@/data-layer/datocms/getBlogs';
 import { locales } from '@/i18n/locales';
