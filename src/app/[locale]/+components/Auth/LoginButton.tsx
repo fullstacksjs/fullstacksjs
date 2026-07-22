@@ -22,7 +22,7 @@ export function LoginButton({
 }: Props) {
   return (
     <SecondaryButton disabled={disabled} onClick={signIn}>
-      <div className="flex size-12 shrink-0 justify-center overflow-hidden rounded-full border border-fg-0 bg-dark-0 tablet:size-14">
+      <div className="flex size-12 shrink-0 justify-center overflow-hidden rounded-full border border-fg-0 tablet:size-14">
         <img height={height} width={width} alt={alt} src={avatar} />
       </div>
       <p className="hidden tablet:me-2 tablet:block desktop:hidden wide:block">

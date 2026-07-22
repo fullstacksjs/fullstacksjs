@@ -23,9 +23,9 @@ export function ColorBlocks({
           type="button"
           onClick={() => onBlockClick(index)}
           className={cn(
-            'size-[85px] cursor-pointer rounded-lg transition-all duration-200 mobile:size-[100px]',
+            'size-50 cursor-pointer rounded-lg transition-all duration-200 mobile:size-60',
             highlightedWrongIndex === index && 'outline-4 outline-accent-0',
-            highlightedCorrectIndex === index && 'outline-4 outline-white/80',
+            highlightedCorrectIndex === index && 'outline-white/80 outline-4',
           )}
         />
       ))}
