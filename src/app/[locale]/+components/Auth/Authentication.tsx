@@ -17,13 +17,6 @@ export async function Authentication() {
     );
 
   return (
-    <LoginButton
-      height={16}
-      width={16}
-      alt="Github Logo"
-      avatar={GithubOutlineIcon.src}
-    >
-      {t('auth.login')}
-    </LoginButton>
+    <LoginButton avatar={GithubOutlineIcon.src}>{t('auth.login')}</LoginButton>
   );
 }

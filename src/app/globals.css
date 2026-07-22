@@ -78,6 +78,10 @@
   --text-paragraph: 2rem;
   --text-paragraph--line-height: 1.4;
   --text-paragraph--font-weight: 400;
+
+  --text-trim-both: trim-both;
+  --text-trim-start: trim-start;
+  --text-trim-end: trim-end;
 }
 
 * {
@@ -239,4 +243,26 @@ body {
   :root[lang='en'] & {
     @slot;
   }
+}
+
+@custom-variant fa {
+  :root[lang='fa'] & {
+    @slot;
+  }
+}
+
+@utility text-trim-* {
+  text-box-trim: --value(--text-trim-*, 'none');
+}
+
+@utility text-edge-* {
+  text-box-edge: --value(
+    --text-edge-*,
+    'text',
+    'alphabetic',
+    'ideographic',
+    'cap',
+    'ex',
+    [*]
+  );
 }
