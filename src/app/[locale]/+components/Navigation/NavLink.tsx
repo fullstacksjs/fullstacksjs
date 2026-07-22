@@ -32,8 +32,8 @@ export function NavLink({ href, isNew, children, className }: Props) {
       <Link
         className={cn(
           [
-            'flex items-center gap-6 p-6 text-sm whitespace-nowrap transition-colors',
-            'focus-visible:outline-1 focus-visible:outline-accent-0 desktop:hover:bg-bg-muted desktop:hover:text-fg-0',
+            'flex items-center gap-6 p-4 text-md whitespace-nowrap transition-colors desktop:text-sm',
+            'hover:text-fg-0 focus-visible:outline-1 focus-visible:outline-accent-0 desktop:hover:bg-bg-muted',
           ],
           isActive ? 'text-fg-0' : 'text-fg-1',
         )}

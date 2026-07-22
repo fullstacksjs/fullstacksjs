@@ -11,10 +11,8 @@ import type { Nav } from './Navs';
 
 import { NavLink } from './NavLink';
 
-const isPathActive = (selected: string, href: string) => {
-  console.log({ selected, href });
-  return comparePaths(selected.replace('(content)', ''), href) === 0;
-};
+const isPathActive = (selected: string, href: string) =>
+  comparePaths(selected, href) === 0;
 
 interface Props {
   text: string;
@@ -31,18 +29,18 @@ export const NavGroup = ({ text, href, subNavs, isNew }: Props) => {
   const isGroup = !isNullOrEmptyArray(subNavs);
 
   return (
-    <div className="group relative en:font-mono">
+    <div className="group relative border-bg-muted max-desktop:not-last:border-b en:font-mono">
       <Link
         href={href ?? '#'}
         type="button"
         className={cn(
-          'flex min-w-40 items-center justify-between gap-6 px-6 py-4 text-sm whitespace-nowrap lowercase transition-colors',
-          'desktop:group-hover:bg-bg-raised desktop:hover:text-fg-0 rtl:text-md',
+          'flex min-w-40 items-center justify-between gap-4 px-4 py-6 transition-colors desktop:p-6',
+          'text-sm whitespace-nowrap text-fg-1 lowercase rtl:text-md',
+          'desktop:group-hover:bg-bg-raised',
           {
-            'text-fg-0': isActive,
-            'rounded-t-md': isGroup,
-            'rounded-md': !isGroup,
-            'text-fg-1': !isActive,
+            'desktop:text-fg-0': isActive,
+            'rounded-t-md desktop:hover:text-fg-0': isGroup,
+            'rounded-md hover:text-fg-0': !isGroup,
             'desktop:indent-8': isNew,
           },
         )}
@@ -50,18 +48,21 @@ export const NavGroup = ({ text, href, subNavs, isNew }: Props) => {
         {isNew ? (
           <CircleBadge className="absolute hidden desktop:block" />
         ) : null}
-        {text}
+        <span>
+          {text}
+          <span className={cn('desktop:hidden', { hidden: !isGroup })}>/</span>
+        </span>
         {isGroup ? (
           <ChevronDownIcon
             width="16"
-            className="transition-transform duration-200 desktop:group-hover:rotate-180"
+            className="hidden transition-transform duration-200 desktop:inline desktop:group-hover:rotate-180"
           />
         ) : null}
       </Link>
       {isGroup && (
-        <div className="top-full z-10 flex w-full flex-col gap-2 overflow-clip desktop:absolute desktop:hidden desktop:w-max desktop:min-w-full desktop:gap-0 desktop:rounded-b-md desktop:bg-bg-raised desktop:shadow-lg desktop:group-hover:flex">
+        <div className="top-full z-10 flex w-full flex-col gap-2 overflow-clip px-0 desktop:absolute desktop:hidden desktop:w-max desktop:min-w-full desktop:gap-0 desktop:rounded-b-md desktop:bg-bg-raised desktop:p-0 desktop:shadow-lg desktop:group-hover:flex">
           {subNavs?.map((c) => (
-            <NavLink className="lowercase" key={c.href} {...c}>
+            <NavLink className="lowercase last:pb-6" key={c.href} {...c}>
               {c.text}
             </NavLink>
           ))}
