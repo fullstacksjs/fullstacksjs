@@ -8,6 +8,7 @@
 :root[lang='fa'] {
   --font-display: var(--font-vazir), sans-serif;
   --font-body: var(--font-vazir), sans-serif;
+  font-size: clamp(0.6rem, 0.4rem + 0.2vw, 0.625rem);
 }
 
 @theme {
