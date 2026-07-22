@@ -2,6 +2,7 @@
 
 import * as Dialog from '@radix-ui/react-dialog';
 import { useState } from 'react';
+import { flushSync } from 'react-dom';
 
 import type { Direction } from '@/i18n/direction';
 
@@ -16,21 +17,30 @@ interface Props {
 export const MobileNavs = ({ children, direction }: Props) => {
   const [open, setOpen] = useState(false);
 
+  const toggle = (next: boolean) => {
+    if (!document.startViewTransition) {
+      setOpen(next);
+      return;
+    }
+
+    document.startViewTransition(() => flushSync(() => setOpen(next)));
+  };
+
   return (
     <Dialog.Root open={open}>
       <Dialog.Trigger
         aria-label="toggle navigation menu"
         className="cursor-pointer desktop:hidden"
-        onClick={() => setOpen(true)}
+        onClick={() => toggle(true)}
       >
         <MenuIcon />
       </Dialog.Trigger>
       <Dialog.Portal>
-        <MenuOverlay onClick={() => setOpen(false)} />
+        <MenuOverlay onClick={() => toggle(false)} />
         <SheetContent
           direction={direction}
-          onClick={() => setOpen(false)}
-          onEscapeKeyDown={() => setOpen(false)}
+          onClick={() => toggle(false)}
+          onEscapeKeyDown={() => toggle(false)}
         >
           <Dialog.Title hidden>Navigation</Dialog.Title>
           <ul className="flex flex-col gap-8 desktop:gap-16">{children}</ul>
