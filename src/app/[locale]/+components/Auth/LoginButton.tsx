@@ -1,33 +1,18 @@
 'use client';
 
-import { SecondaryButton } from '@/components/SecondaryButton';
 import { signIn } from '@/data-layer/supabase/signIn';
 
+import { BaseAuthButton } from './BaseAuthButton';
+
 interface Props {
-  children: string;
+  children: React.ReactNode;
   avatar: string;
-  alt?: string;
-  width?: number | string;
-  height?: number | string;
-  disabled?: boolean;
 }
 
-export function LoginButton({
-  avatar,
-  children,
-  width = 35,
-  height = 35,
-  alt = `${children}'s avatar`,
-  disabled,
-}: Props) {
+export function LoginButton({ avatar, children }: Props) {
   return (
-    <SecondaryButton disabled={disabled} onClick={signIn}>
-      <div className="flex size-12 shrink-0 justify-center overflow-hidden rounded-full border border-fg-0 tablet:size-14">
-        <img height={height} width={width} alt={alt} src={avatar} />
-      </div>
-      <p className="hidden tablet:me-2 tablet:block desktop:hidden wide:block">
-        {children}
-      </p>
-    </SecondaryButton>
+    <BaseAuthButton size={22} avatar={avatar} onClick={signIn}>
+      {children}
+    </BaseAuthButton>
   );
 }

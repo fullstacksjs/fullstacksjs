@@ -1,10 +1,9 @@
 'use client';
 
 import LogoutIcon from '@/components/Logout.svg';
-import { SecondaryButton } from '@/components/SecondaryButton';
 import { createBrowserSupabaseClient } from '@/data-layer/supabase/createBrowserSupabaseClient';
 
-import { LoginButton } from './LoginButton';
+import { BaseAuthButton } from './BaseAuthButton';
 
 interface Props {
   children: string;
@@ -18,18 +17,12 @@ export const ProfileButton = ({ children, avatar }: Props) => {
   };
 
   return (
-    <div className="flex gap-2">
-      <LoginButton disabled width="100%" avatar={avatar}>
-        {children}
-      </LoginButton>
-      <SecondaryButton
-        aria-label="logout"
-        className="aspect-square justify-center"
-        type="submit"
-        onClick={signOut}
-      >
+    <BaseAuthButton onClick={signOut} avatar={avatar}>
+      <div className="flex flex-row items-center gap-4">
+        <span className="text-trim-both leading-0">{children}</span>
+        <span className="text-fg-muted">|</span>{' '}
         <LogoutIcon className="size-10" />
-      </SecondaryButton>
-    </div>
+      </div>
+    </BaseAuthButton>
   );
 };
