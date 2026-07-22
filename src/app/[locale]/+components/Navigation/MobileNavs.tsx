@@ -33,9 +33,7 @@ export const MobileNavs = ({ children, direction }: Props) => {
           onEscapeKeyDown={() => setOpen(false)}
         >
           <Dialog.Title hidden>Navigation</Dialog.Title>
-          <ul className="flex flex-col gap-8 text-md/tight font-bold desktop:gap-16">
-            {children}
-          </ul>
+          <ul className="flex flex-col gap-8 desktop:gap-16">{children}</ul>
         </SheetContent>
       </Dialog.Portal>
     </Dialog.Root>

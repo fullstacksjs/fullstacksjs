@@ -40,14 +40,7 @@ const navs: NavGroup[] = [
       { href: '/ask', text: 'community.ask' },
     ],
   },
-  {
-    text: 'events',
-    subNavs: [
-      { href: '/events', text: 'events' },
-      { feature: 'wus', href: '/wus', text: 'wus' },
-      { feature: 'mob', href: '/mob', text: 'mob' },
-    ],
-  },
+  { href: '/events', text: 'events' },
   {
     text: 'war',
     subNavs: [
