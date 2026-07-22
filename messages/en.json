@@ -187,6 +187,7 @@
     "day": "Day {day} of the year {year}"
   },
   "type": {
+    "title": "Type the letters and challenge your skills!",
     "sign-in": "<join>Log in</join> to submit your record",
     "mistakes": "Mistakes: {mistakes}",
     "perfect": "Perfect!",

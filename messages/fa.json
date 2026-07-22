@@ -184,6 +184,7 @@
     "day": "روز {day} سال {year}"
   },
   "type": {
+    "title": "Type the letters and challenge your skills!",
     "sign-in": "برای ثبت رکورد خود <join>وارد شوید</join>",
     "mistakes": "اشتباهات: {mistakes}",
     "perfect": "کامل!",

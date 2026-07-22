@@ -1,5 +1,6 @@
 import { noop } from '@fullstacksjs/toolbox';
 import { useAtom } from 'jotai';
+import { useTranslations } from 'next-intl';
 
 import { activeLetterAtom, gameStateAtom, lettersAtom } from '../atoms';
 import { Letter } from './Letter';
@@ -7,15 +8,24 @@ import { Retry } from './Retry';
 import { Timer } from './Timer';
 
 export const Game = () => {
+  const t = useTranslations('type');
   const [letters] = useAtom(lettersAtom);
   const [activeLetter] = useAtom(activeLetterAtom);
   const [gameState] = useAtom(gameStateAtom);
 
   return (
-    <div dir="ltr" className="flex flex-col gap-12 font-rajdhani">
-      <div className="relative flex w-full flex-wrap gap-4 text-5xl tablet:text-5xl">
-        {letters.map(({ letter, status }) => (
-          <Letter active={letter === activeLetter} key={letter} status={status}>
+    <div dir="ltr" className="flex flex-col gap-12">
+      <p className="text-center font-mono text-fg-1">{t('title')}</p>
+      <div className="relative flex w-full flex-wrap gap-4 font-mono text-5xl tablet:text-5xl">
+        {letters.map(({ letter, status }, index) => (
+          <Letter
+            active={
+              index < letters.findIndex((l) => l.letter === activeLetter) + 1
+            }
+            current={letter === activeLetter}
+            key={letter}
+            status={status}
+          >
             {letter}
           </Letter>
         ))}

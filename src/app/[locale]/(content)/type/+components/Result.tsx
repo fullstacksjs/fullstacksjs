@@ -24,6 +24,11 @@ export const Result = ({ record, user }: Props) => {
     <div className="w-full text-center">
       <div className="flex w-full flex-col items-center gap-2 text-sm font-semibold">
         <Timer className="text-5xl" />
+        {isPerfect ? (
+          <span className="text-fg-success">{t('perfect')}</span>
+        ) : (
+          <span className="text-fg-error">{t('mistakes', { mistakes })}</span>
+        )}
         {record ? (
           <span className="font-rajdhani">
             {t('best', { duration: formatStopWatch(record) })}
@@ -31,11 +36,6 @@ export const Result = ({ record, user }: Props) => {
         ) : !user ? (
           <NeedToLogin />
         ) : null}
-        {isPerfect ? (
-          <span className="text-fg-success">{t('perfect')}</span>
-        ) : (
-          <span className="text-fg-error">{t('mistakes', { mistakes })}</span>
-        )}
         <Retry />
       </div>
     </div>

@@ -17,7 +17,7 @@ export default function TypeLayout({
   if (!feature) return notFound();
 
   return (
-    <main className="flex w-full flex-col justify-center overflow-x-hidden">
+    <main className="flex w-full flex-1 flex-col items-center justify-center">
       {children}
     </main>
   );
