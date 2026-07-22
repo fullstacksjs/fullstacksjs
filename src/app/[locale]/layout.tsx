@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { setRequestLocale } from 'next-intl/server';
-import { Rajdhani, Vazirmatn } from 'next/font/google';
+import { Rajdhani, Ubuntu_Mono, Vazirmatn } from 'next/font/google';
 
 import { JsonLd } from '@/components/SEO/JsonLd';
 import { generatePageOG, icons, keywords } from '@/components/SEO/meta';
@@ -13,7 +13,7 @@ import { JotaiProvider } from '@/store/JotaiProvider';
 import { cn } from '@/utils/cn';
 
 import { Header } from './+components/Header';
-import { LandingFooter } from './+components/landing/LandingFooter';
+import { Footer } from './+components/landing/Footer';
 
 const rajdhani = Rajdhani({
   weight: ['400', '500', '600', '700'],
@@ -25,6 +25,12 @@ const vazir = Vazirmatn({
   weight: ['400', '700'],
   subsets: ['arabic'],
   variable: '--font-vazir',
+});
+
+const monospace = Ubuntu_Mono({
+  weight: ['400'],
+  subsets: ['latin'],
+  variable: '--font-monospace',
 });
 
 export const metadata: Metadata = {
@@ -52,7 +58,7 @@ export default async function LocaleLayout({
     <html
       dir={direction}
       lang={locale}
-      className={`bg-bg-0 ${rajdhani.variable} ${vazir.variable}`}
+      className={`bg-bg-0 ${rajdhani.variable} ${vazir.variable} ${monospace.variable}`}
     >
       <head>
         <JsonLd />
@@ -70,7 +76,7 @@ export default async function LocaleLayout({
             <Header />
             {children}
             <Separator />
-            <LandingFooter />
+            <Footer />
           </SupabaseProvider>
         </JotaiProvider>
         <SpeedInsights />
