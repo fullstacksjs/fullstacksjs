@@ -1,6 +1,7 @@
 import { range } from '@fullstacksjs/toolbox';
 import Image from 'next/image';
 
+import { ExternalLink } from '@/components/Link';
 import { Skeleton } from '@/components/Skeleton';
 import { getContributors } from '@/data-layer/github/getContributors';
 
@@ -8,24 +9,18 @@ export async function ContributorList() {
   const contributors = await getContributors();
 
   return (
-    <div className="flex flex-wrap items-center justify-center gap-5">
+    <div className="mt-6 flex flex-wrap items-center justify-center-safe gap-5">
       {contributors.map(({ url, avatar, username }) => (
-        <a
-          className="group rounded-full"
-          href={url}
-          key={username}
-          rel="noopener noreferrer"
-          target="_blank"
-        >
+        <ExternalLink className="group rounded-full" href={url} key={username}>
           <Image
             height={80}
             width={80}
             alt={username}
-            className="inline-block size-20 rounded-full grayscale-100 transition-all duration-300 group-focus-within:grayscale-0 hover:scale-110 hover:grayscale-0 tablet:size-24"
+            className="size-20 rounded-full grayscale-100 transition-all duration-300 group-focus-within:grayscale-0 hover:scale-110 hover:grayscale-0"
             src={avatar}
             title={username}
           />
-        </a>
+        </ExternalLink>
       ))}
     </div>
   );
@@ -38,7 +33,7 @@ export function ContributorListSkeleton() {
     <div className="flex flex-wrap items-center justify-center gap-5">
       {items.map((item) => (
         <Skeleton
-          className="size-32 animate-pulse rounded-full bg-white/70"
+          className="bg-white/70 size-20 animate-pulse rounded-full"
           key={item}
         />
       ))}

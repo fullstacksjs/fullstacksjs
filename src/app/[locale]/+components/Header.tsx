@@ -16,7 +16,7 @@ export async function Header() {
   const direction = getDirection(locale);
 
   return (
-    <div className="flex items-center justify-between">
+    <div className="container flex items-center justify-between">
       <DesktopNavs />
       <MobileNavs direction={direction}>
         <Navs />
