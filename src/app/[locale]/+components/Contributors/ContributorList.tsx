@@ -1,8 +1,6 @@
-import { range } from '@fullstacksjs/toolbox';
 import Image from 'next/image';
 
 import { ExternalLink } from '@/components/Link';
-import { Skeleton } from '@/components/Skeleton';
 import { getContributors } from '@/data-layer/github/getContributors';
 
 export async function ContributorList() {
@@ -21,21 +19,6 @@ export async function ContributorList() {
             title={username}
           />
         </ExternalLink>
-      ))}
-    </div>
-  );
-}
-
-export function ContributorListSkeleton() {
-  const items = range(42);
-
-  return (
-    <div className="flex flex-wrap items-center justify-center gap-5">
-      {items.map((item) => (
-        <Skeleton
-          className="bg-white/70 size-20 animate-pulse rounded-full"
-          key={item}
-        />
       ))}
     </div>
   );

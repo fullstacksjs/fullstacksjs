@@ -3,7 +3,7 @@ import type { RichTranslationValues } from 'next-intl';
 import { Emoji } from '@/components/Emoji';
 import { Highlight } from '@/components/Highlight';
 
-export const emojiTranslation = {
+const emojiTranslation = {
   'e-tree': () => <Emoji name="tree" />,
   'e-star': () => <Emoji name="star" />,
   'e-medal': () => <Emoji name="first" />,
