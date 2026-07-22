@@ -5,6 +5,7 @@ onlyBuiltDependencies:
   - '@vercel/speed-insights'
   - core-js
   - esbuild
+  - protobufjs
   - sharp
   - supabase
   - unrs-resolver
