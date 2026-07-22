@@ -47,7 +47,7 @@ const socials = [
   },
 ] as const;
 
-export const LandingFooter = () => {
+export const Footer = () => {
   const t = useTranslations('main');
 
   return (
@@ -69,7 +69,7 @@ export const LandingFooter = () => {
             className="group flex items-center gap-4 rounded-md border border-border px-6 py-4 text-fg-1 transition-colors hover:bg-bg-darker hover:text-accent-0"
           >
             <Icon width="24" />
-            <span className="font-mono text-xs text-fg-1 transition-colors group-hover:text-accent-0">
+            <span className="font-mono text-sm tracking-wide text-fg-1 transition-colors group-hover:text-accent-0">
               {handle}
             </span>
           </ExternalLink>

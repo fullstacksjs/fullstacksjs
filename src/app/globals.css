@@ -55,7 +55,7 @@
   --font-fa: var(--font-vazir), var(--font-rajdhani);
   --font-sans: var(--font-rajdhani), var(--font-vazir);
   --font-rajdhani: var(--font-rajdhani);
-  --font-mono: monospace;
+  --font-mono: var(--font-monospace);
 
   --breakpoint-*: initial;
   --breakpoint-mobile: 560px;
