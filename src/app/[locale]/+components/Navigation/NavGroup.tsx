@@ -62,7 +62,11 @@ export const NavGroup = ({ text, href, subNavs, isNew }: Props) => {
       {isGroup && (
         <div className="top-full z-10 flex w-full flex-col gap-2 overflow-clip px-0 desktop:absolute desktop:hidden desktop:w-max desktop:min-w-full desktop:gap-0 desktop:rounded-b-md desktop:bg-bg-raised desktop:p-0 desktop:shadow-lg desktop:group-hover:flex">
           {subNavs?.map((c) => (
-            <NavLink className="lowercase last:pb-6" key={c.href} {...c}>
+            <NavLink
+              className="lowercase max-desktop:last:pb-6"
+              key={c.href}
+              {...c}
+            >
               {c.text}
             </NavLink>
           ))}
