@@ -6,7 +6,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   children: React.ReactNode;
   className?: string;
   variant?: 'contained' | 'outline';
-  size?: 'md' | 'sm';
+  size?: 'md' | 'sm' | 'xs';
   asChild?: boolean;
 }
 
@@ -29,6 +29,7 @@ export const Button = ({
           'bg-accent-0 text-fg-on-primary': variant === 'contained',
           'px-6 h-20 text-sm': size === 'sm',
           'px-12 h-24 text-md': size === 'md',
+          'px-2 h-14 text-sm': size === 'xs',
         },
         className,
       )}
