@@ -6,19 +6,20 @@ interface Props {
   active: boolean;
   status: LetterStatus;
   children: string;
+  current: boolean;
 }
 
-export const Letter = ({ children, active, status }: Props) => {
+export const Letter = ({ children, active, status, current }: Props) => {
   return (
     <div
       className={cn(
-        `inline-block w-32 text-center leading-none font-semibold uppercase select-none`,
+        `inline-block w-32 text-center leading-none uppercase select-none`,
         {
           'opacity-25': !active,
           'opacity-100': active,
-          'text-red-500': status === 'error',
-          'text-green-400': status === 'correct',
-          'text-yellow-300': status === 'corrected',
+          'text-fg-error': !current && status === 'error',
+          'text-fg-success': !current && status === 'correct',
+          'text-fg-warning': !current && status === 'corrected',
         },
       )}
     >

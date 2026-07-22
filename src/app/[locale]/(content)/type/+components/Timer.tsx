@@ -7,7 +7,7 @@ export const Timer = ({ className }: { className?: string }) => {
   const diff = useTimeEllipses();
 
   return (
-    <span className={cn('font-rajdhani', className)}>
+    <span className={cn('font-mono text-fg-1', className)}>
       {formatStopWatch(diff)}
     </span>
   );
