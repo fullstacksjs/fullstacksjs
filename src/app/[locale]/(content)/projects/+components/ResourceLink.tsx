@@ -1,20 +1,22 @@
-import Link from 'next/link';
+import { Button } from '@/components/Button';
+import { ExternalLink } from '@/components/Link';
 
-interface ResourceLinkProps {
+interface Props {
   children: React.ReactNode;
   url: string;
   icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 }
 
-export function ResourceLink({ children, url, icon: Icon }: ResourceLinkProps) {
+export function ResourceLink({ children, url, icon: Icon }: Props) {
   return (
-    <Link
-      className="flex items-center gap-1.5 stroke-light-inactive py-1 font-rajdhani font-semibold text-light-inactive transition-all hover:stroke-light-1 hover:text-light-1"
-      href={url}
-      target="_blank"
-    >
-      <Icon className="size-12 shrink-0 stroke-2" />
-      {children}
-    </Link>
+    <Button variant="outline" size="xs" asChild>
+      <ExternalLink
+        className="gap-1.5 stroke-light-inactive text-light-1"
+        href={url}
+      >
+        <Icon className="size-12 shrink-0 stroke-2" />
+        {children}
+      </ExternalLink>
+    </Button>
   );
 }
