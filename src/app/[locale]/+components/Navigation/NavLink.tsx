@@ -18,7 +18,7 @@ interface Props {
 export function NavLink({ href, isNew, children }: Props) {
   const t = useTranslations('header.navigation');
 
-  const selected = useSelectedLayoutSegments().join('/');
+  const selected = useSelectedLayoutSegments().slice(1).join('/');
   const isActive = comparePaths(selected, href) === 0;
   const isRtl = useIsRTL();
 
