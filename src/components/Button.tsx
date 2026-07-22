@@ -22,13 +22,13 @@ export const Button = ({
   return (
     <Comp
       className={cn(
-        'flex flex-row items-center justify-center rounded-lg px-12 py-4 text-sm/snug font-semibold hover:cursor-pointer disabled:cursor-auto disabled:border-none disabled:bg-bg-muted disabled:text-fg-muted',
+        'flex flex-row items-center justify-center rounded-lg px-12 py-4 text-md font-semibold hover:cursor-pointer disabled:cursor-auto disabled:border-none disabled:bg-bg-muted disabled:text-fg-muted',
         {
-          'border border-accent-0 text-accent-0 transition-[background-color,color] hover:bg-accent-0 hover:text-bg-0 focus:bg-accent-0 focus:text-bg-0 focus:outline-hidden':
+          'border border-border transition-[background-color,color] bg-bg-raised hover:bg-bg-1 focus:outline-border':
             variant === 'outline',
-          'bg-accent-0 text-dark-0': variant === 'contained',
+          'bg-accent-0 text-fg-on-primary': variant === 'contained',
           'px-6 py-3': size === 'sm',
-          'px-12 py-4': size === 'md',
+          'px-12 py-3': size === 'md',
         },
         className,
       )}

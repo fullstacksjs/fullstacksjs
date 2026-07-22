@@ -84,3 +84,5 @@ YDKHTML
 همدیگه
 واکاتایم
 posthog
+Fullstacks
+shortlog

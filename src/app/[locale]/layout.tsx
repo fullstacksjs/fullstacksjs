@@ -6,13 +6,13 @@ import { Rajdhani, Vazirmatn } from 'next/font/google';
 
 import { generatePageOG, icons, JsonLd, keywords } from '@/components/SEO';
 import { Separator } from '@/components/Separator';
-import { Socials } from '@/components/Socials';
 import { SupabaseProvider } from '@/data-layer/supabase/SupabaseProvider';
 import { getDirection } from '@/i18n/direction';
 import { JotaiProvider } from '@/store/JotaiProvider';
 import { cn } from '@/utils/cn';
 
 import { Header } from './+components/Header';
+import { LandingFooter } from './+components/landing/LandingFooter';
 
 const rajdhani = Rajdhani({
   weight: ['400', '500', '600', '700'],
@@ -51,7 +51,7 @@ export default async function LocaleLayout({
     <html
       dir={direction}
       lang={locale}
-      className={`bg-dark-0 ${rajdhani.variable} ${vazir.variable}`}
+      className={`bg-bg-0 ${rajdhani.variable} ${vazir.variable}`}
     >
       <head>
         <JsonLd />
@@ -59,19 +59,17 @@ export default async function LocaleLayout({
       <body
         suppressHydrationWarning
         className={cn(
-          'leading-normal text-light-0 transition-colors duration-1000',
+          'flex min-h-screen flex-col pt-4 pb-10 leading-normal text-light-0 transition-colors duration-1000',
           { 'font-fa': locale === 'fa' },
           { 'font-sans': locale !== 'fa' },
         )}
       >
         <JotaiProvider>
           <SupabaseProvider>
-            <div className="container flex min-h-screen w-full flex-col gap-24 py-8 text-base mobile:gap-44 desktop:py-40">
-              <Header />
-              {children}
-              <Separator className="mt-auto" />
-              <Socials />
-            </div>
+            <Header />
+            {children}
+            <Separator />
+            <LandingFooter />
           </SupabaseProvider>
         </JotaiProvider>
         <SpeedInsights />

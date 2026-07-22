@@ -5,20 +5,28 @@
   font-size: clamp(0.625rem, 0.4rem + 0.2vw, 1.1rem);
 }
 
+:root[lang='fa'] {
+  --font-display: var(--font-vazir), sans-serif;
+  --font-body: var(--font-vazir), sans-serif;
+  font-size: clamp(0.525rem, 0.3rem + 0.2vw, 1rem);
+}
+
 @theme {
   --text-*: initial;
   --text-xs: 1.4rem;
   --text-xsm: 1.6rem;
   --text-sm: 1.8rem;
   --text-base: 2rem;
-  --text-md: 2.4rem;
-  --text-xl: 2.8rem;
-  --text-2xl: 3.2rem;
+  --text-md: 2rem;
+  --text-lg: 2.4rem;
+  --text-xl: 2.6rem;
+  --text-2xl: 3rem;
   --text-3xl: 3.6rem;
   --text-4xl: 3.8rem;
   --text-5xl: 5.4rem;
   --text-6xl: 10rem;
 
+  --color-*: initial;
   --color-accent-0: rgb(243 159 71);
   --color-accent-1: rgb(209 154 103);
 
@@ -28,23 +36,26 @@
   --color-light-muted: rgb(255 255 255 / 0.2);
   --color-light-inactive: rgb(255 255 255 / 0.3);
 
-  --color-bg-darker: #1e2129;
-  --color-bg-0: rgb(35 37 46);
+  --color-bg-darker: #1b1c23;
+  --color-bg-0: #202129;
   --color-bg-1: rgb(49 55 68);
+  --color-bg-raised: #2b2d38;
   --color-bg-muted: rgb(255 255 255 / 10%);
+  --color-border: rgb(255 255 255 / 10%);
 
   --color-fg-0: rgb(230 230 230);
-  --color-fg-1: rgb(179 179 179);
+  --color-fg-1: rgb(146, 151, 166);
 
   --color-fg-muted: rgb(255 255 255 / 0.2);
   --color-fg-error: rgb(255 117 117);
   --color-fg-success: rgb(134 239 172);
-  --color-dark-0: var(--color-bg-0);
+  --color-fg-on-primary: var(--color-bg-0);
 
   --font-*: initial;
   --font-fa: var(--font-vazir), var(--font-rajdhani);
   --font-sans: var(--font-rajdhani), var(--font-vazir);
   --font-rajdhani: var(--font-rajdhani);
+  --font-mono: monospace;
 
   --breakpoint-*: initial;
   --breakpoint-mobile: 560px;
@@ -67,10 +78,6 @@
   --text-paragraph: 2rem;
   --text-paragraph--line-height: 1.4;
   --text-paragraph--font-weight: 400;
-}
-
-:root[lang='fa'] {
-  font-size: clamp(0.525rem, 0.3rem + 0.2vw, 1rem);
 }
 
 * {

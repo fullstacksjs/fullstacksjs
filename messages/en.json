@@ -5,9 +5,6 @@
     "ask": "FullstacksJS - How to ask a Question",
     "events": "FullstacksJS - Events"
   },
-  "hero": {
-    "join": "Join US on Telegram"
-  },
   "header": {
     "navigation": {
       "new": "New",
@@ -34,6 +31,12 @@
   },
   "main": {
     "vision": "Stay Curious",
+    "slogan": "We grow together",
+    "hero": {
+      "join": "Join us",
+      "academy": "Join Academy",
+      "lead": "An open-source community for developers who care about in-depth, expert-reviewed content."
+    },
     "about": {
       "title": "About FullstacksJS",
       "content": "<mark>FullstacksJS</mark> is an open-source community focused on knowledge sharing, exploring, and enhancing developer experience. The primary objective of this community is to establish a professional environment for in-depth contents in software development and engineering field. In order to learn and strengthen the culture of open source development and contribution, the projects that are developed in this community are entirely open source, and members are encouraged to participate."
@@ -47,20 +50,32 @@
       "content": "Values form our community and influence its behavior also have a direct impact on community's decision-making and contents.",
       "ethics": "<b>Ethics</b>: Ethics is the most important value in the community, which has the highest priority in decisions. In the community, moral principles are never sacrificed for the sake of other activities.",
       "validity": "<b>Validity</b>: Expert approval is required for every community-produced and published content. If an error is discovered in previously published content, the community must notify the appropriate parties and update the content.",
-      "professionalism": "<b>Professionalism</b>: Beyond skills, it's professionalism that defines us"
+      "professionalism": "<b>Professionalism</b>: Beyond skills, it's professionalism that defines us",
+      "cards": {
+        "ethics": {
+          "title": "Ethics",
+          "body": "The most important value in the community, with the highest priority in decisions. Moral principles are never sacrificed for the sake of other activities."
+        },
+        "validity": {
+          "title": "Validity",
+          "body": "Expert approval is required for every community-produced and published content. If an error is discovered in previously published content, the community notifies the appropriate parties and updates it."
+        },
+        "professionalism": {
+          "title": "Professionalism",
+          "body": "Beyond skills, it's professionalism that defines us."
+        }
+      }
     },
     "contributors": {
       "title": "Contributors",
-      "c2a": "Join us"
+      "c2a": "Join us",
+      "becomeOne": "become one"
+    },
+    "footer": {
+      "tagline": "Beyond skills, it's professionalism that defines us.",
+      "findUs": "find us/",
+      "copyright": "© 2026 FullstacksJS — open source, MIT licensed"
     }
-  },
-  "social": {
-    "telegram": "Telegram",
-    "youtube": "Youtube",
-    "twitter": "Twitter",
-    "github": "Github",
-    "discord": "Discord",
-    "twitch": "Twitch"
   },
   "rules": {
     "title": "FullstacksJS Rules",

@@ -1,6 +1,6 @@
 import type {
+  CdaStructuredTextValue,
   ResponsiveImageType,
-  StructuredTextGraphQlResponse,
 } from 'react-datocms';
 
 import { SRCImage, StructuredText } from 'react-datocms';
@@ -8,7 +8,7 @@ import { SRCImage, StructuredText } from 'react-datocms';
 import { getDatoNode } from '@/components/getDatoNode';
 
 interface EventTitleProps {
-  data: StructuredTextGraphQlResponse;
+  data: CdaStructuredTextValue;
 }
 
 function EventTitle({ data }: EventTitleProps) {
@@ -23,8 +23,8 @@ function EventTitle({ data }: EventTitleProps) {
 }
 
 interface Props {
-  heading: StructuredTextGraphQlResponse;
-  description: StructuredTextGraphQlResponse;
+  heading: CdaStructuredTextValue;
+  description: CdaStructuredTextValue;
   thumbnail: ResponsiveImageType;
   children: React.ReactNode;
 }
@@ -54,7 +54,7 @@ export const EventPage = ({
   );
 };
 
-function EventDescription({ data }: { data: StructuredTextGraphQlResponse }) {
+function EventDescription({ data }: { data: CdaStructuredTextValue }) {
   return (
     <StructuredText
       data={data}
