@@ -190,6 +190,51 @@ body {
   @apply bg-bg-0 text-fg-0;
 }
 
+@keyframes slide-in-from-left {
+  from {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slide-out-to-left {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slide-in-from-right {
+  from {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slide-out-to-right {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+::view-transition-old(menu-content-ltr) {
+  animation: 100ms ease-in-out both slide-out-to-left;
+}
+
+::view-transition-new(menu-content-ltr) {
+  animation: 100ms ease-in-out both slide-in-from-left;
+}
+
+::view-transition-old(menu-content-rtl) {
+  animation: 100ms ease-in-out both slide-out-to-right;
+}
+
+::view-transition-new(menu-content-rtl) {
+  animation: 100ms ease-in-out both slide-in-from-right;
+}
+
+::view-transition-old(menu-overlay),
+::view-transition-new(menu-overlay) {
+  animation-duration: 300ms;
+}
+
 @custom-variant en {
   :root[lang='en'] & {
     @slot;

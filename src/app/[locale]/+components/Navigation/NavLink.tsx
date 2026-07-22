@@ -2,10 +2,9 @@
 
 import { comparePaths } from '@fullstacksjs/toolbox';
 import { useTranslations } from 'next-intl';
-import { useSelectedLayoutSegments } from 'next/navigation';
 
 import { TextBadge } from '@/components/TextBadge';
-import { Link } from '@/i18n/routing';
+import { Link, usePathname } from '@/i18n/routing';
 import { cn } from '@/utils/cn';
 
 interface Props {
@@ -18,7 +17,7 @@ interface Props {
 export function NavLink({ href, isNew, children, className }: Props) {
   const t = useTranslations('header.navigation');
 
-  const selected = useSelectedLayoutSegments().slice(1).join('/');
+  const selected = usePathname();
   const isActive = comparePaths(selected, href) === 0;
 
   return (
@@ -33,7 +32,7 @@ export function NavLink({ href, isNew, children, className }: Props) {
       <Link
         className={cn(
           [
-            'flex items-center gap-6 rounded-md p-6 text-sm whitespace-nowrap transition-colors',
+            'flex items-center gap-6 p-6 text-sm whitespace-nowrap transition-colors',
             'focus-visible:outline-1 focus-visible:outline-accent-0 desktop:hover:bg-bg-muted desktop:hover:text-fg-0',
           ],
           isActive ? 'text-fg-0' : 'text-fg-1',
