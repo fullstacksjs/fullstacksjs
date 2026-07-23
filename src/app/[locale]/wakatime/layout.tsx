@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { generatePageOG } from '@/components/SEO/meta';
 import { Separator } from '@/components/Separator';
 
-import { Banner } from '../../+components/Banner';
+import { Banner } from '../+components/Banner';
 import { WakatimeButton } from './+components/WakatimeButton';
 
 export const metadata: Metadata = generatePageOG({
@@ -18,13 +18,8 @@ export default function Layout({
     <>
       <Banner
         cta={<WakatimeButton />}
-        title={
-          <div>
-            FullstacksJS
-            <br />
-            Leaderboards
-          </div>
-        }
+        sub="Leaderboards"
+        title={<>Wakatime</>}
       />
       <Separator />
       {children}

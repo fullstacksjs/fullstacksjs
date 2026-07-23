@@ -8,17 +8,22 @@ interface Props {
 
 export const Banner = ({ title, cta, sub }: Props) => {
   return (
-    <header className="flex flex-col items-center justify-between gap-12 desktop:flex-row">
-      <div className="flex flex-col items-center gap-16 desktop:items-start">
-        <div className="flex flex-col items-center gap-2 desktop:items-start">
-          <h1 className="text-center text-4xl/tight font-bold tablet:text-start desktop:text-5xl">
-            {title}
-          </h1>
-          <p className="text-sm text-fg-1 uppercase desktop:text-md">{sub}</p>
-        </div>
-        {cta}
+    <header className="container flex flex-col items-center justify-between gap-16 py-24 text-center desktop:flex-row desktop:text-start">
+      <div>
+        <h1 className="text-4xl/none font-bold tracking-tight desktop:text-5xl/none">
+          {title}
+        </h1>
+        {sub && (
+          <div className="mb-10 inline-flex items-center gap-4">
+            <span className="hidden h-1 w-8 bg-current desktop:inline-block" />
+            <p className="text-xl font-semibold tracking-tight lowercase">
+              {sub}
+            </p>
+          </div>
+        )}
+        <div className="flex justify-center desktop:justify-start">{cta}</div>
       </div>
-      <Logo className="-order-1 w-md desktop:order-0 desktop:w-160 wide:w-188" />
+      <Logo className="-order-1 mx-auto w-100 transition-all desktop:order-0 desktop:mx-0 desktop:w-130 wide:w-160" />
     </header>
   );
 };
