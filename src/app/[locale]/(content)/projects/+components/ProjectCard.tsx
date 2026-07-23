@@ -15,7 +15,7 @@ export function ProjectCard({
 }: Project) {
   return (
     <div className="flex flex-row items-start gap-8 desktop:flex-row desktop:gap-16">
-      <div className="flex h-40 shrink-0 basis-40 items-start justify-center">
+      <div className="flex h-40 shrink-0 basis-20 items-start justify-center tablet:basis-40">
         <Logo className="aspect-auto w-30 tablet:w-40" />
       </div>
       <div className="flex w-full flex-col">
