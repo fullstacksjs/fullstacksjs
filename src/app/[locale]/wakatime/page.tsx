@@ -22,7 +22,7 @@ export default async function WakatimePage() {
   const { day, year, usages, winners } = await getReportWithCache(50);
 
   return (
-    <div className="flex flex-col items-center gap-20">
+    <div className="container flex flex-col items-center gap-20 py-24">
       <Title day={day} year={year} />
 
       <div className="hidden w-full items-center justify-center gap-12 rounded-3xl bg-bg-darker py-20 desktop:flex">
