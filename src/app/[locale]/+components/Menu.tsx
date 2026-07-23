@@ -28,7 +28,7 @@ const SheetContent = ({
 }: MenuContentProps) => (
   <Dialog.Content
     className={cn(
-      'fixed inset-y-0 z-50 h-full w-150 gap-4 bg-bg-raised p-8 outline-hidden',
+      'fixed inset-y-0 z-50 h-full w-130 gap-4 bg-bg-raised p-8 outline-hidden',
       {
         '[view-transition-name:menu-content-ltr] left-0': direction === 'ltr',
         '[view-transition-name:menu-content-rtl] right-0': direction === 'rtl',
