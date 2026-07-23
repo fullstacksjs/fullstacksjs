@@ -9,7 +9,7 @@ export const C2AButton = ({ className, ...props }: ButtonProps) => {
     <Button
       {...props}
       className={cn(
-        'ring-4 ring-accent-0/30 outline-offset-4 outline-accent-0 focus-within:outline hover:ring-[6px] hover:ring-accent-0/40',
+        'ring-4 ring-accent-0/30 outline-offset-4 outline-accent-0 focus-within:outline hover:ring-5 hover:ring-accent-0/40',
         className,
       )}
     />
