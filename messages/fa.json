@@ -179,15 +179,11 @@
     "unsubscribe": "لغو اشتراک"
   },
   "wakatime": {
-    "join": "پیوستن به تابلوی امتیازات",
     "title": "تابلوی امتیازات واکاتایم",
     "day": "روز {day} سال {year}",
     "command": "wakatime leaderboard --today --sort hours",
     "description": "زمان کدنویسی ثبت‌شده اعضای کامیونیتی از طریق WakaTime، بر اساس ساعت‌های امروز مرتب شده است.",
-    "membersCoding": "اعضای در حال کدنویسی",
     "hoursToday": "ساعت‌های ثبت‌شده امروز",
-    "topLanguage": "زبان برتر",
-    "fullRanking": "رتبه‌بندی کامل",
     "searchPlaceholder": "جستجوی اعضا…",
     "rank": "رتبه",
     "member": "عضو",
