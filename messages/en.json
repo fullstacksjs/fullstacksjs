@@ -184,7 +184,20 @@
   "wakatime": {
     "join": "Join Leaderboard",
     "title": "Wakatime Leaderboard",
-    "day": "Day {day} of the year {year}"
+    "day": "Day {day} of the year {year}",
+    "command": "wakatime leaderboard --today --sort hours",
+    "description": "Coding time logged by community members via WakaTime, ranked by hours logged today. Numbers are read-only — updated hourly from each member's own dashboard.",
+    "membersCoding": "Members coding",
+    "hoursToday": "Hours logged today",
+    "topLanguage": "Top language",
+    "fullRanking": "Full ranking",
+    "searchPlaceholder": "Search members…",
+    "rank": "Rank",
+    "member": "Member",
+    "language": "Language",
+    "today": "Today",
+    "noResults": "No members match \"{query}\".",
+    "footerNote": "Resets at midnight · read-only mirror of WakaTime"
   },
   "type": {
     "title": "Type the letters and challenge your skills!",
