@@ -1,8 +1,6 @@
+import { Podium } from '@/app/[locale]/wakatime/+components/Podium';
+import { RankingTable } from '@/app/[locale]/wakatime/+components/RankingTable';
 import { getReportWithoutCache } from '@/data-layer/wakatime/getReport';
-
-import { UserTable } from '../../[locale]/wakatime/+components/UserTable';
-import { Winner } from '../../[locale]/wakatime/+components/Winner';
-import Logo from './Logo.svg';
 
 export default async function WakatimeDay() {
   const { day, year, usages, winners } = await getReportWithoutCache(9);
@@ -10,23 +8,17 @@ export default async function WakatimeDay() {
   return (
     <>
       <div className="flex flex-col items-center gap-4">
-        <Logo />
-        <p className="text-2xl font-bold">
+        <h1 className="text-center text-4xl/none font-bold tracking-tight">
+          Wakatime
+        </h1>
+        <p className="text-xl font-bold text-fg-1">
           Day {day} of the year {year}
         </p>
       </div>
-      <div className="hidden w-full items-center justify-center gap-12 rounded-3xl bg-bg-darker py-20 desktop:flex">
-        <Winner className="rank-1 order-2" rank={1} usage={winners[0]!} />
-        <Winner className="rank-2 order-1" rank={2} usage={winners[1]!} />
-        <Winner className="rank-3 order-3" rank={3} usage={winners[2]!} />
-      </div>
+      <Podium winners={winners} />
 
-      <div className="w-full rounded-3xl bg-bg-darker px-2 pt-8">
-        <UserTable usages={usages} winners={[]} />
-      </div>
-
-      <div className="text-xsm font-bold text-accent-0" id="social-media">
-        FullstacksJS.com
+      <div className="w-full rounded-lg border border-border bg-bg-raised shadow-sm">
+        <RankingTable usages={usages} />
       </div>
     </>
   );

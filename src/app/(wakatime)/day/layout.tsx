@@ -25,6 +25,11 @@ export default function WakatimeLayout({ children }: LayoutProps<'/day'>) {
       <body className="flex min-h-screen flex-col items-center overflow-x-hidden bg-bg-0 font-rajdhani text-base text-fg-0">
         <div className="flex w-[1000px] flex-col items-center gap-20 p-20">
           {children}
+          <div className="text-xsm font-semibold" id="social-media">
+            <span className="rounded-full border border-border px-14 py-7 font-mono text-sm text-fg-1">
+              FullstacksJS.com
+            </span>
+          </div>
         </div>
       </body>
     </html>
