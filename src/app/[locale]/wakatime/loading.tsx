@@ -6,7 +6,7 @@ import { TitleSkeleton } from './+components/Title';
 
 export default function Loading() {
   return (
-    <div className="flex flex-col items-center gap-24">
+    <div className="container flex flex-col items-center gap-24 py-24">
       <TitleSkeleton />
 
       <div className="flex w-full flex-wrap gap-12">

@@ -186,7 +186,7 @@
     "title": "Wakatime Leaderboard",
     "day": "Day {day} of the year {year}",
     "command": "wakatime leaderboard --today --sort hours",
-    "description": "Coding time logged by community members via WakaTime, ranked by hours logged today. Numbers are read-only — updated hourly from each member's own dashboard.",
+    "description": "Coding time logged by community members via WakaTime, ranked by hours logged today.",
     "membersCoding": "Members coding",
     "hoursToday": "Hours logged today",
     "topLanguage": "Top language",

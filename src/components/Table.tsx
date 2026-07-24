@@ -51,7 +51,10 @@ const TableHead = ({
   ...props
 }: React.ThHTMLAttributes<HTMLTableCellElement>) => (
   <th
-    className={cn('pb-4 text-start align-middle font-semibold', className)}
+    className={cn(
+      'sticky top-0 z-10 bg-bg-raised py-6 text-start align-middle text-xs font-semibold tracking-wide uppercase',
+      className,
+    )}
     {...props}
   />
 );

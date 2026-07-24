@@ -1,8 +1,3 @@
-import type {
-  WakatimeLanguage,
-  WakatimeUsage,
-} from '@/data-layer/wakatime/Wakatime';
-
 const LANGUAGE_CLASSES: Record<string, string> = {
   typescript: 'bg-lang-typescript',
   javascript: 'bg-lang-javascript',
@@ -34,34 +29,4 @@ const FALLBACK_CLASS = 'bg-lang-other';
 
 export function getLanguageColorClass(name: string): string {
   return LANGUAGE_CLASSES[name.toLowerCase()] ?? FALLBACK_CLASS;
-}
-
-export function getTopLanguage(
-  languages: WakatimeLanguage[],
-): WakatimeLanguage | undefined {
-  return languages[0];
-}
-
-export function getCommunityTopLanguage(
-  usages: WakatimeUsage[],
-): string | undefined {
-  const totals = new Map<string, number>();
-
-  for (const usage of usages) {
-    for (const lang of usage.user.languages) {
-      totals.set(lang.name, (totals.get(lang.name) ?? 0) + lang.totalSeconds);
-    }
-  }
-
-  let top: string | undefined;
-  let max = -1;
-
-  for (const [name, seconds] of totals) {
-    if (seconds > max) {
-      max = seconds;
-      top = name;
-    }
-  }
-
-  return top;
 }

@@ -2,88 +2,72 @@ import { useTranslations } from 'next-intl';
 
 import type { WakatimeUsage } from '@/data-layer/wakatime/Wakatime';
 
-import { Avatar } from '@/components/Avatar';
 import { cn } from '@/utils/cn';
 
-import { getLanguageColorClass, getTopLanguage } from './languages';
+import { LanguageBadge, Member } from './Member';
 
 interface Props {
   winners: WakatimeUsage[];
 }
 
-const MEDAL_TEXT = [
-  'text-medal-gold',
-  'text-medal-silver',
-  'text-medal-bronze',
-];
-const RANK_BG = ['rank-1', 'rank-2', 'rank-3'];
-
-export function Podium({ winners }: Props) {
+const WinnerCard = ({
+  winner,
+  className,
+  first,
+}: {
+  winner: WakatimeUsage;
+  className?: string;
+  first?: boolean;
+}) => {
   const t = useTranslations('wakatime');
+  const topLanguage = winner.user.languages.slice(0, 3);
 
   return (
-    <div className="mb-24 grid w-full grid-cols-1 gap-16 desktop:grid-cols-3">
-      {winners.map((winner, i) => {
-        const topLanguage = getTopLanguage(winner.user.languages);
+    <div
+      key={winner.user.id}
+      className={cn(
+        'relative overflow-hidden rounded-xl bg-bg-raised px-14 py-12 transition-transform hover:-translate-y-4',
+        className,
+      )}
+    >
+      <span
+        aria-hidden
+        className={cn(
+          'pointer-events-none absolute -top-10 -right-9 w-[1ch] text-6xl/none font-bold opacity-10 select-none bidi-plain',
+        )}
+      >
+        {winner.rank}
+      </span>
+      <div
+        className={cn('relative flex flex-col justify-between gap-6', {
+          'gap-10': first,
+        })}
+      >
+        <Member size="md" nameClassName="font-semibold" user={winner.user} />
+        <div className="flex flex-col gap-2">
+          <p className="text-4xl/none font-bold">
+            {winner.humanReadableTotalSeconds}
+          </p>
+          <p className="font-mono text-xs tracking-wide text-fg-1 uppercase fa:font-fa">
+            {t('hoursToday')}
+          </p>
+        </div>
+        <div className="flex flex-wrap items-center gap-x-8 gap-y-2">
+          {topLanguage.map((language) => (
+            <LanguageBadge key={language.name} language={language} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
 
-        return (
-          <div
-            key={winner.rank}
-            className={cn(
-              'overflow-hidden rounded-xl bg-bg-raised px-14 py-12 transition-transform hover:-translate-y-4',
-              // RANK_BG[i],
-            )}
-          >
-            <span
-              aria-hidden
-              className={cn(
-                'pointer-events-none absolute -top-20 -right-8 text-6xl/none font-bold opacity-10 select-none bidi-plain',
-                MEDAL_TEXT[i],
-              )}
-            >
-              {winner.rank}
-            </span>
-            <div className="relative flex flex-col gap-20">
-              <div className="flex items-center gap-12">
-                <Avatar
-                  size="sm"
-                  alt={`${winner.user.name}'s avatar`}
-                  src={winner.user.avatar}
-                />
-                <div className="min-w-0">
-                  <p className="truncate text-sm font-semibold">
-                    {winner.user.name}
-                  </p>
-                  <p className="truncate font-mono text-xs text-fg-1 bidi-plain">
-                    @{winner.user.username}
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-end justify-between gap-12">
-                <div>
-                  <p className="text-5xl/none font-bold bidi-plain">
-                    {winner.humanReadableTotalSeconds}
-                  </p>
-                  <p className="mt-8 font-mono text-xs tracking-wide text-fg-1 uppercase">
-                    {t('hoursToday')}
-                  </p>
-                </div>
-                {topLanguage && (
-                  <span className="inline-flex items-center gap-6 rounded-full border border-border bg-bg-0/60 px-10 py-5 font-mono text-xs text-fg-1">
-                    <span
-                      className={cn(
-                        'size-6 rounded-sm',
-                        getLanguageColorClass(topLanguage.name),
-                      )}
-                    />
-                    {topLanguage.name}
-                  </span>
-                )}
-              </div>
-            </div>
-          </div>
-        );
-      })}
+export function Podium({ winners }: Props) {
+  return (
+    <div className="grid w-full grid-cols-1 items-end gap-8 desktop:grid-cols-3">
+      <WinnerCard winner={winners[1]} />
+      <WinnerCard winner={winners[0]} first />
+      <WinnerCard winner={winners[2]} />
     </div>
   );
 }
