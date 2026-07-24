@@ -13,11 +13,12 @@ function toHumanHM(seconds: number) {
   return `${addLeadingZero(hours)}:${addLeadingZero(minutes)}`;
 }
 
-export const getReportWithoutCache = async (count: number) => {
+async function fetchReport(count: number): Promise<WakatimeReport> {
   const url = joinPaths(
     serverConfig.get('wakatime.endpoint'),
     `day?size=${count}`,
   );
+
   const res = await fetch(joinPaths(url), { cache: 'no-cache' });
 
   if (!res.ok)
@@ -25,7 +26,11 @@ export const getReportWithoutCache = async (count: number) => {
       `Failed to fetch Wakatime report "${res.status}: ${res.statusText}"`,
     );
 
-  const report = (await res.json()) as WakatimeReport;
+  return (await res.json()) as WakatimeReport;
+}
+
+export const getReportWithoutCache = async (count: number) => {
+  const report = await fetchReport(count);
   const date = new Date(report.date);
 
   const year = date.getFullYear();

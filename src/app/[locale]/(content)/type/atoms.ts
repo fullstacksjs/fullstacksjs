@@ -22,10 +22,8 @@ const initialLetters = alphabets.map<LetterItem>((char) => ({
 
 export const lettersAtom = atom(initialLetters);
 export const mistakesAtom = atom(0);
-export const stepAtom = atom(0);
-export const isFinalStepAtom = atom(
-  (get) => get(stepAtom) === alphabets.length - 1,
-);
+const stepAtom = atom(0);
+const isFinalStepAtom = atom((get) => get(stepAtom) === alphabets.length - 1);
 export const gameStateAtom = atom<GameStatus>('idle');
 export const isFinishedAtom = atom((get) => get(gameStateAtom) === 'finished');
 export const activeLetterAtom = atom((get) => alphabets[get(stepAtom)]);

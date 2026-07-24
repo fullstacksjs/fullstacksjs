@@ -1,3 +1,8 @@
+export interface WakatimeLanguage {
+  name: string;
+  totalSeconds: number;
+}
+
 export interface WakatimeUser {
   id: string;
   name: string;
@@ -8,6 +13,7 @@ export interface WakatimeUser {
   lastRank: number;
   diff: number;
   ordinalRank: string;
+  languages: WakatimeLanguage[];
 }
 
 export interface WakatimeUsage {

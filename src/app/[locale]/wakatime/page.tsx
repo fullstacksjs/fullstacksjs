@@ -8,7 +8,6 @@ import { getServerFeature } from '@/config/features/getServerFeatures';
 import { getReportWithCache } from '@/data-layer/wakatime/getReport';
 
 import { Leaderboard } from './+components/Leaderboard';
-import { StatStrip } from './+components/StatStrip';
 import { Title } from './+components/Title';
 
 export const metadata = generatePageOG({
@@ -28,9 +27,8 @@ export default async function WakatimePage() {
   return (
     <NextIntlClientProvider messages={pick(messages, ['wakatime'])}>
       <div className="container flex flex-col items-center gap-24 py-24">
-        <Title day={day} year={year} />
-        <StatStrip usages={usages} winners={winners} />
-        <Leaderboard usages={usages} winners={winners} />
+        <Title />
+        <Leaderboard day={day} year={year} usages={usages} winners={winners} />
       </div>
     </NextIntlClientProvider>
   );
