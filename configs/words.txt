@@ -86,3 +86,6 @@ YDKHTML
 posthog
 Fullstacks
 shortlog
+کدنویسی
+کامیونیتی
+بازنشانی

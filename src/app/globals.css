@@ -52,6 +52,35 @@
   --color-fg-success: rgb(134 239 172);
   --color-fg-on-primary: var(--color-bg-0);
 
+  --color-medal-gold: #fbb131;
+  --color-medal-silver: #98a1a4;
+  --color-medal-bronze: #be4a18;
+
+  --color-lang-typescript: #3178c6;
+  --color-lang-javascript: #f1c40f;
+  --color-lang-python: #3776ab;
+  --color-lang-go: #00add8;
+  --color-lang-rust: #ce7c30;
+  --color-lang-java: #ea2d2e;
+  --color-lang-kotlin: #7f52ff;
+  --color-lang-c: #5c6bc0;
+  --color-lang-cpp: #f34b7d;
+  --color-lang-csharp: #178600;
+  --color-lang-php: #4f5d95;
+  --color-lang-ruby: #cc342d;
+  --color-lang-swift: #f05138;
+  --color-lang-dart: #00b4ab;
+  --color-lang-html: #e34c26;
+  --color-lang-css: #563d7c;
+  --color-lang-json: #b3c0da;
+  --color-lang-markdown: #83a598;
+  --color-lang-yaml: #cb171e;
+  --color-lang-shell: #89e051;
+  --color-lang-vue: #41b883;
+  --color-lang-elixir: #6e4a7e;
+  --color-lang-sql: #e38c00;
+  --color-lang-other: var(--color-fg-1);
+
   --font-*: initial;
   --font-fa: var(--font-vazir), var(--font-rajdhani);
   --font-sans: var(--font-rajdhani), var(--font-vazir);

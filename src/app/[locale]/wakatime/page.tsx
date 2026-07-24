@@ -1,12 +1,15 @@
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import { pick } from 'radash';
 
 import { generatePageOG } from '@/components/SEO/meta';
 import { getServerFeature } from '@/config/features/getServerFeatures';
 import { getReportWithCache } from '@/data-layer/wakatime/getReport';
 
+import { Leaderboard } from './+components/Leaderboard';
+import { StatStrip } from './+components/StatStrip';
 import { Title } from './+components/Title';
-import { UserTable } from './+components/UserTable';
-import { Winner } from './+components/Winner';
 
 export const metadata = generatePageOG({
   title:
@@ -19,23 +22,16 @@ export default async function WakatimePage() {
   const feature = getServerFeature('wakatime');
   if (!feature) return notFound();
 
+  const messages = await getMessages();
   const { day, year, usages, winners } = await getReportWithCache(50);
 
   return (
-    <div className="container flex flex-col items-center gap-20 py-24">
-      <Title day={day} year={year} />
-
-      <div className="hidden w-full items-center justify-center gap-12 rounded-3xl bg-bg-darker py-20 desktop:flex">
-        <Winner className="rank-1 order-2" rank={1} usage={winners[0]!} />
-        <Winner className="rank-2 order-1" rank={2} usage={winners[1]!} />
-        <Winner className="rank-3 order-3" rank={3} usage={winners[2]!} />
+    <NextIntlClientProvider messages={pick(messages, ['wakatime'])}>
+      <div className="container flex flex-col items-center gap-24 py-24">
+        <Title day={day} year={year} />
+        <StatStrip usages={usages} winners={winners} />
+        <Leaderboard usages={usages} winners={winners} />
       </div>
-
-      <div className="w-full rounded-3xl bg-bg-darker px-2 pt-8">
-        <div className="max-h-[500px] overflow-y-auto">
-          <UserTable usages={usages} winners={winners} />
-        </div>
-      </div>
-    </div>
+    </NextIntlClientProvider>
   );
 }
