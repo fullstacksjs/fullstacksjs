@@ -3,7 +3,7 @@ import { RankingTable } from '@/app/[locale]/wakatime/+components/RankingTable';
 import { getReportWithoutCache } from '@/data-layer/wakatime/getReport';
 
 export default async function WakatimeDay() {
-  const { day, year, usages, winners } = await getReportWithoutCache(9);
+  const { day, year, usages, winners } = await getReportWithoutCache(10);
 
   return (
     <>
