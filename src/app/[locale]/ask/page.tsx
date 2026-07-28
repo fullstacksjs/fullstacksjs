@@ -5,11 +5,12 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Suspense } from 'react';
 
 import { FocusProvider } from '@/components/FocusItemList/FocusProvider';
+import { FocusStepsSkeleton } from '@/components/FocusItemList/FocusStep';
 import { generatePageOG } from '@/components/SEO/meta';
 import { routing } from '@/i18n/routing';
 
 import { PageHeader } from '../+components/PageHeader';
-import { AskStep, AskStepsSkeleton } from './+components/AskStep';
+import { AskStep } from './+components/AskStep';
 import { asks } from './asks';
 
 interface MetaDataProps {
@@ -50,7 +51,7 @@ export default async function AskPage({
           description={t('intro')}
         />
 
-        <Suspense fallback={<AskStepsSkeleton lines={asks.length} />}>
+        <Suspense fallback={<FocusStepsSkeleton lines={asks.length} />}>
           <FocusProvider>
             <ol className="border-t border-border">
               {asks.map((ask, index) => (

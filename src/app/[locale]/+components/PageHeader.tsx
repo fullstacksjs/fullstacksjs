@@ -3,7 +3,7 @@ import { Skeleton } from '@/components/Skeleton';
 interface Props {
   command: string;
   title: string;
-  description: string;
+  description: React.ReactNode;
 }
 
 export function PageHeader({ command, title, description }: Props) {
