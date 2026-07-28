@@ -1,4 +1,4 @@
-import { Slot } from '@radix-ui/react-slot';
+import { Slot } from 'radix-ui';
 
 import { cn } from '@/utils/cn';
 
@@ -17,7 +17,7 @@ export const Button = ({
   size = 'md',
   ...props
 }: ButtonProps) => {
-  const Comp = asChild ? Slot : 'button';
+  const Comp = asChild ? Slot.Slot : 'button';
 
   return (
     <Comp

@@ -1,4 +1,4 @@
-import { Slot } from '@radix-ui/react-slot';
+import { Slot } from 'radix-ui';
 
 import { cn } from '@/utils/cn';
 
@@ -7,7 +7,7 @@ type Props = React.JSX.IntrinsicElements['a'] & {
 };
 
 export const Anchor = ({ className, asChild, ...props }: Props) => {
-  const Comp = asChild ? Slot : 'a';
+  const Comp = asChild ? Slot.Slot : 'a';
   return (
     <Comp className={cn('text-accent-0 underline', className)} {...props} />
   );
