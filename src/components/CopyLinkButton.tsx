@@ -13,7 +13,7 @@ interface Props {
 }
 
 export const CopyLinkButton = ({ target }: Props) => {
-  const t = useTranslations('ask');
+  const t = useTranslations('common');
 
   const [copied, setCopied] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout>>(undefined);
