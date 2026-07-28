@@ -41,6 +41,7 @@ export const MobileNavs = ({ children, direction }: Props) => {
           direction={direction}
           onClick={() => toggle(false)}
           onEscapeKeyDown={() => toggle(false)}
+          aria-describedby="Navigation drawer"
         >
           <Dialog.Title hidden>Navigation</Dialog.Title>
           <ul className="flex flex-col">{children}</ul>
