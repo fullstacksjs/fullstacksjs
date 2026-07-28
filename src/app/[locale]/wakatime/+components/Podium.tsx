@@ -27,6 +27,7 @@ const WinnerCard = ({
       key={winner.user.id}
       className={cn(
         'relative overflow-hidden rounded-xl bg-bg-raised px-14 py-12 transition-transform hover:-translate-y-4',
+        { 'max-desktop:order-first': first },
         className,
       )}
     >
@@ -40,7 +41,7 @@ const WinnerCard = ({
       </span>
       <div
         className={cn('relative flex flex-col justify-between gap-6', {
-          'gap-10': first,
+          'desktop:gap-10': first,
         })}
       >
         <Member size="md" nameClassName="font-semibold" user={winner.user} />

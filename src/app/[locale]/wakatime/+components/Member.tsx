@@ -23,7 +23,14 @@ export function Member({
 }: MemberProps) {
   return (
     <div className={cn('flex items-center gap-8', className)}>
-      <Avatar alt={`${user.name}'s avatar`} size={size} src={user.avatar} />
+      <Avatar
+        alt={`${user.name}'s avatar`}
+        className={cn('size-16', {
+          'desktop:size-24': size === 'md',
+        })}
+        size={size}
+        src={user.avatar}
+      />
       <div className="min-w-0">
         <p className={cn('truncate text-sm font-medium', nameClassName)}>
           {user.name}
