@@ -12,7 +12,7 @@ export function PageHeader({ command, title, description }: Props) {
       <p className="mb-6 font-mono text-xs tracking-wide text-accent-0">
         {command}
       </p>
-      <h1 className="mb-7 text-5xl/none font-bold tracking-tight tablet:text-5xl">
+      <h1 className="mb-2 text-4xl/none font-bold tracking-tight desktop:text-5xl/none fa:text-3xl/snug">
         {title}
       </h1>
       <p className="max-w-[60ch] text-base/normal text-pretty text-fg-1">
