@@ -1,13 +1,12 @@
 /* This file is generated, do not edit! */
 /* eslint-disable */
 /* cspell:disable */
+/** Internal type. DO NOT USE DIRECTLY. */
+type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
+/** Internal type. DO NOT USE DIRECTLY. */
+export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
-export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
-export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> = { [_ in K]?: never };
-export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: { input: string; output: string; }
@@ -15,15 +14,15 @@ export type Scalars = {
   Boolean: { input: boolean; output: boolean; }
   Int: { input: number; output: number; }
   Float: { input: number; output: number; }
-  BooleanType: { input: any; output: any; }
-  CustomData: { input: any; output: any; }
-  DateTime: { input: any; output: any; }
-  FloatType: { input: any; output: any; }
-  IntType: { input: any; output: any; }
-  ItemId: { input: any; output: any; }
-  JsonField: { input: any; output: any; }
-  MetaTagAttributes: { input: any; output: any; }
-  UploadId: { input: any; output: any; }
+  BooleanType: { input: unknown; output: unknown; }
+  CustomData: { input: unknown; output: unknown; }
+  DateTime: { input: unknown; output: unknown; }
+  FloatType: { input: unknown; output: unknown; }
+  IntType: { input: unknown; output: unknown; }
+  ItemId: { input: unknown; output: unknown; }
+  JsonField: { input: unknown; output: unknown; }
+  MetaTagAttributes: { input: unknown; output: unknown; }
+  UploadId: { input: unknown; output: unknown; }
 };
 
 export type BlogModelContentField = {
@@ -2509,10 +2508,27 @@ export type MobreviewRecord_SeoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
 
+export enum MuxThumbnailFitMode {
+  Crop = 'crop',
+  Pad = 'pad',
+  Preserve = 'preserve',
+  Smartcrop = 'smartcrop',
+  Stretch = 'stretch'
+}
+
 export enum MuxThumbnailFormatType {
   Gif = 'gif',
   Jpg = 'jpg',
   Png = 'png'
+}
+
+export enum MuxThumbnailRotation {
+  /** Rotate 90° clockwise */
+  Rotate90 = 'ROTATE_90',
+  /** Rotate 180° clockwise */
+  Rotate180 = 'ROTATE_180',
+  /** Rotate 270° clockwise */
+  Rotate270 = 'ROTATE_270'
 }
 
 /** Specifies how to filter by image orientation */
@@ -3302,6 +3318,8 @@ export type UploadVideoField = {
   mp4Url?: Maybe<Scalars['String']['output']>;
   muxAssetId: Scalars['String']['output'];
   muxPlaybackId: Scalars['String']['output'];
+  /** Default poster frame, in seconds into the video. Resolves to the record-level field override when present, otherwise the upload-level default. `null` means Mux's default (middle of the video). */
+  posterTime?: Maybe<Scalars['Float']['output']>;
   streamingUrl: Scalars['String']['output'];
   thumbhash?: Maybe<Scalars['String']['output']>;
   thumbnailUrl: Scalars['String']['output'];
@@ -3331,7 +3349,14 @@ export type UploadVideoFieldMp4UrlArgs = {
 
 
 export type UploadVideoFieldThumbnailUrlArgs = {
+  fitMode?: InputMaybe<MuxThumbnailFitMode>;
+  flipH?: InputMaybe<Scalars['Boolean']['input']>;
+  flipV?: InputMaybe<Scalars['Boolean']['input']>;
   format?: InputMaybe<MuxThumbnailFormatType>;
+  height?: InputMaybe<Scalars['Int']['input']>;
+  rotate?: InputMaybe<MuxThumbnailRotation>;
+  time?: InputMaybe<Scalars['Float']['input']>;
+  width?: InputMaybe<Scalars['Int']['input']>;
 };
 
 
@@ -3415,49 +3440,49 @@ export type FocalPoint = {
   y: Scalars['FloatType']['output'];
 };
 
-export type ImageFragment = { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, bgColor?: string | null, sizes: string };
+export type ImageFragment = { src: string, width: unknown, height: unknown, alt: string | null, title: string | null, base64: string | null, bgColor: string | null, sizes: string };
 
-export type EventFragment = { __typename?: 'EventRecord', slug?: string | null, startDate?: any | null, mediaUrl?: string | null, title?: { __typename?: 'EventModelTitleField', value: any, links: Array<string>, blocks: Array<string> } | null, description?: { __typename?: 'EventModelDescriptionField', value: any, links: Array<string>, blocks: Array<string> } | null, thumbnail?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, bgColor?: string | null, sizes: string } | null } | null, lecturers: Array<{ __typename?: 'LecturerRecord', slug?: string | null, name?: string | null, avatar?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, bgColor?: string | null, sizes: string } | null } | null }> };
+export type EventFragment = { slug: string | null, startDate: unknown, mediaUrl: string | null, title: { value: unknown, links: Array<string>, blocks: Array<string> } | null, description: { value: unknown, links: Array<string>, blocks: Array<string> } | null, thumbnail: { responsiveImage: { src: string, width: unknown, height: unknown, alt: string | null, title: string | null, base64: string | null, bgColor: string | null, sizes: string } | null } | null, lecturers: Array<{ slug: string | null, name: string | null, avatar: { responsiveImage: { src: string, width: unknown, height: unknown, alt: string | null, title: string | null, base64: string | null, bgColor: string | null, sizes: string } | null } | null }> };
 
-export type BlogFragment = { __typename?: 'BlogRecord', title?: string | null, slug?: string | null, createdAt: any };
+export type BlogFragment = { title: string | null, slug: string | null, createdAt: unknown };
 
-export type BlogContentFragment = { __typename?: 'BlogModelContentField', blocks: Array<string>, inlineBlocks: Array<string>, links: Array<string>, value: any };
+export type BlogContentFragment = { blocks: Array<string>, inlineBlocks: Array<string>, links: Array<string>, value: unknown };
 
 export type BlogQueryVariables = Exact<{
-  slug: Scalars['String']['input'];
+  slug: string;
 }>;
 
 
-export type BlogQuery = { __typename?: 'Query', blog?: { __typename?: 'BlogRecord', title?: string | null, slug?: string | null, createdAt: any, banner?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, bgColor?: string | null, sizes: string } | null } | null, content?: { __typename?: 'BlogModelContentField', blocks: Array<string>, inlineBlocks: Array<string>, links: Array<string>, value: any } | null } | null };
+export type BlogQuery = { blog: { title: string | null, slug: string | null, createdAt: unknown, banner: { responsiveImage: { src: string, width: unknown, height: unknown, alt: string | null, title: string | null, base64: string | null, bgColor: string | null, sizes: string } | null } | null, content: { blocks: Array<string>, inlineBlocks: Array<string>, links: Array<string>, value: unknown } | null } | null };
 
 export type BlogsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type BlogsQuery = { __typename?: 'Query', allBlogs: Array<{ __typename?: 'BlogRecord', title?: string | null, slug?: string | null, createdAt: any }> };
+export type BlogsQuery = { allBlogs: Array<{ title: string | null, slug: string | null, createdAt: unknown }> };
 
 export type EventQueryVariables = Exact<{
-  slug: Scalars['String']['input'];
+  slug: string;
 }>;
 
 
-export type EventQuery = { __typename?: 'Query', event?: { __typename?: 'EventRecord', slug?: string | null, startDate?: any | null, mediaUrl?: string | null, title?: { __typename?: 'EventModelTitleField', value: any, links: Array<string>, blocks: Array<string> } | null, description?: { __typename?: 'EventModelDescriptionField', value: any, links: Array<string>, blocks: Array<string> } | null, thumbnail?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, bgColor?: string | null, sizes: string } | null } | null, lecturers: Array<{ __typename?: 'LecturerRecord', slug?: string | null, name?: string | null, avatar?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, bgColor?: string | null, sizes: string } | null } | null }> } | null };
+export type EventQuery = { event: { slug: string | null, startDate: unknown, mediaUrl: string | null, title: { value: unknown, links: Array<string>, blocks: Array<string> } | null, description: { value: unknown, links: Array<string>, blocks: Array<string> } | null, thumbnail: { responsiveImage: { src: string, width: unknown, height: unknown, alt: string | null, title: string | null, base64: string | null, bgColor: string | null, sizes: string } | null } | null, lecturers: Array<{ slug: string | null, name: string | null, avatar: { responsiveImage: { src: string, width: unknown, height: unknown, alt: string | null, title: string | null, base64: string | null, bgColor: string | null, sizes: string } | null } | null }> } | null };
 
 export type AllEventsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AllEventsQuery = { __typename?: 'Query', allEvents: Array<{ __typename?: 'EventRecord', slug?: string | null, startDate?: any | null, mediaUrl?: string | null, title?: { __typename?: 'EventModelTitleField', value: any, links: Array<string>, blocks: Array<string> } | null, description?: { __typename?: 'EventModelDescriptionField', value: any, links: Array<string>, blocks: Array<string> } | null, thumbnail?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, bgColor?: string | null, sizes: string } | null } | null, lecturers: Array<{ __typename?: 'LecturerRecord', slug?: string | null, name?: string | null, avatar?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, bgColor?: string | null, sizes: string } | null } | null }> }> };
+export type AllEventsQuery = { allEvents: Array<{ slug: string | null, startDate: unknown, mediaUrl: string | null, title: { value: unknown, links: Array<string>, blocks: Array<string> } | null, description: { value: unknown, links: Array<string>, blocks: Array<string> } | null, thumbnail: { responsiveImage: { src: string, width: unknown, height: unknown, alt: string | null, title: string | null, base64: string | null, bgColor: string | null, sizes: string } | null } | null, lecturers: Array<{ slug: string | null, name: string | null, avatar: { responsiveImage: { src: string, width: unknown, height: unknown, alt: string | null, title: string | null, base64: string | null, bgColor: string | null, sizes: string } | null } | null }> }> };
 
 export type MobReviewQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type MobReviewQuery = { __typename?: 'Query', mobreview?: { __typename?: 'MobreviewRecord', thumbnail?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, bgColor?: string | null, sizes: string } | null } | null, heading?: { __typename?: 'MobreviewModelHeadingField', value: any, links: Array<string>, blocks: Array<string> } | null, description?: { __typename?: 'MobreviewModelDescriptionField', value: any, links: Array<string>, blocks: Array<string> } | null, links?: { __typename?: 'LinkRecord', session?: string | null, calendar?: string | null } | null } | null };
+export type MobReviewQuery = { mobreview: { thumbnail: { responsiveImage: { src: string, width: unknown, height: unknown, alt: string | null, title: string | null, base64: string | null, bgColor: string | null, sizes: string } | null } | null, heading: { value: unknown, links: Array<string>, blocks: Array<string> } | null, description: { value: unknown, links: Array<string>, blocks: Array<string> } | null, links: { session: string | null, calendar: string | null } | null } | null };
 
 export type StageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type StageQuery = { __typename?: 'Query', stage?: { __typename?: 'StageRecord', thumbnail?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, bgColor?: string | null, sizes: string } | null } | null, heading?: { __typename?: 'StageModelHeadingField', blocks: Array<string> } | null, description?: { __typename?: 'StageModelDescriptionField', blocks: Array<string>, value: any } | null, links?: { __typename?: 'LinkRecord', session?: string | null, calendar?: string | null } | null } | null };
+export type StageQuery = { stage: { thumbnail: { responsiveImage: { src: string, width: unknown, height: unknown, alt: string | null, title: string | null, base64: string | null, bgColor: string | null, sizes: string } | null } | null, heading: { value: unknown, links: Array<string>, blocks: Array<string> } | null, description: { value: unknown, links: Array<string>, blocks: Array<string> } | null, links: { session: string | null, calendar: string | null } | null } | null };
 
 export type WhatsupQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type WhatsupQuery = { __typename?: 'Query', whatsup?: { __typename?: 'WhatsupRecord', thumbnail?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, title?: string | null, base64?: string | null, bgColor?: string | null, sizes: string } | null } | null, heading?: { __typename?: 'WhatsupModelHeadingField', value: any, links: Array<string>, blocks: Array<string> } | null, description?: { __typename?: 'WhatsupModelDescriptionField', value: any, links: Array<string>, blocks: Array<string> } | null, links?: { __typename?: 'LinkRecord', session?: string | null, calendar?: string | null } | null } | null };
+export type WhatsupQuery = { whatsup: { thumbnail: { responsiveImage: { src: string, width: unknown, height: unknown, alt: string | null, title: string | null, base64: string | null, bgColor: string | null, sizes: string } | null } | null, heading: { value: unknown, links: Array<string>, blocks: Array<string> } | null, description: { value: unknown, links: Array<string>, blocks: Array<string> } | null, links: { session: string | null, calendar: string | null } | null } | null };
