@@ -82,26 +82,74 @@
     "eyebrow": "$ cat rules.md --community",
     "desc": "The following behaviors are considered <b>harassment</b> and are <b>unacceptable</b> within our community:",
     "items": {
-      "violence": "Violence, threats of violence or violent language directed against another person.",
-      "name-calling": "<b>Name-calling</b> or calling someone or a group of people with offensive names.",
-      "nsfw": "Posting <b>NSFW</b> content.",
-      "personal": "Posting other people's personally identifying information.",
-      "insult": "Insults/Hate speech based on <b>gender</b>, <b>race</b>, <b>religion</b>, and <b>disability</b>.",
-      "sex": "Unwelcome sexual attention.",
-      "copyright": "Posting/Request for content subject to <b>copyright</b>.",
-      "spam": "<b>Spam</b>/<b>Flooding</b>.",
-      "dm": "Do not <b>direct message</b> someone unless they've granted permission.",
-      "advocate": "Advocating for, or encouraging, any of the above behavior.",
-      "controversial": "Discussions on controversial religious or political topics.",
-      "disturb": "Attempts to send messages with the intent to blackmail, annoy, scam, or disturb others."
+      "violence": {
+        "title": "Violence",
+        "desc": "Violence, threats of violence, or violent language directed against another person. This includes wishing harm on someone."
+      },
+      "name-calling": {
+        "title": "Name-calling",
+        "desc": "Calling a person or a group of people <b>offensive names</b>, mocking who they are, or using degrading nicknames, even when you think it is friendly banter."
+      },
+      "nsfw": {
+        "title": "NSFW",
+        "desc": "Posting <b>NSFW</b> material, sexually explicit or graphically violent images, links, or text. Including avatars and usernames."
+      },
+      "personal": {
+        "title": "Sharing private information",
+        "desc": "Posting other people's <b>personally identifying information</b>: real names, addresses, phone numbers, workplaces, or private conversations and photos shared without their consent."
+      },
+      "insult": {
+        "title": "Insults",
+        "desc": "Insults or hate speech based on <b>gender</b>, <b>race</b>, <b>religion</b>, <b>disability</b>, nationality, or sexual orientation."
+      },
+      "sex": {
+        "title": "Unwelcome sexual attention",
+        "desc": "Sexual comments, jokes, advances, or repeated romantic interest that the other person has not invited. If someone asks you to stop, stop immediately."
+      },
+      "copyright": {
+        "title": "Copyrighted content",
+        "desc": "Posting or requesting content subject to <b>copyright</b>: pirated books and courses, cracked software, or leaked paid material."
+      },
+      "spam": {
+        "title": "Spam and flooding",
+        "desc": "<b>Spam</b> or <b>flooding</b>: unsolicited advertising, referral links, self-promotion outside the channels meant for it, and repetitive messages that bury the conversation."
+      },
+      "dm": {
+        "title": "Unsolicited direct messages",
+        "desc": "Do not <b>direct message</b> someone unless they've granted permission. Ask your question in the public channel first, the answer usually helps others too, and take no for an answer."
+      },
+      "advocate": {
+        "title": "Advocating for the above",
+        "desc": "Encouraging, defending, or organizing any of the behavior listed here is treated exactly the same as doing it yourself."
+      },
+      "controversial": {
+        "title": "Controversial topics",
+        "desc": "Discussions on controversial religious or political topics. They rarely end well in a technical community, so please keep them out of our channels."
+      },
+      "disturb": {
+        "title": "Harassment and scams",
+        "desc": "Attempts to send messages with the intent to blackmail, annoy, scam, or disturb others, in public channels."
+      }
     },
     "guidelines": {
       "title": "Community Guidelines",
       "items": {
-        "kind": "Be kind and courteous, friendly and professional. There's no need to be mean or rude.",
-        "topic": "Don't start a conversation in a wrong topic.",
-        "cross": "Don't cross-post the same thing in multiple topics.",
-        "opinion": "Respect that people have differences of opinion."
+        "kind": {
+          "title": "Be kind and courteous",
+          "desc": "Friendly and professional is the default tone here. There's no need to be mean or rude to make a point, and newcomers deserve extra patience."
+        },
+        "topic": {
+          "title": "Post in the right topic",
+          "desc": "Every channel has a purpose. Starting a conversation in the wrong one makes it harder for people to follow along and harder for the next person to find the answer."
+        },
+        "cross": {
+          "title": "Don't cross-post",
+          "desc": "Pick the single most relevant channel and ask there. Posting the same thing in multiple topics splits the answers and clutters the community."
+        },
+        "opinion": {
+          "title": "Respect differences of opinion",
+          "desc": "People come from different backgrounds and experiences. Argue with the idea and bring reasons for it, never attack the person holding it."
+        }
       }
     }
   },
