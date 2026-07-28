@@ -6,9 +6,7 @@ import { NextResponse } from 'next/server';
 import { clientConfig } from '@/config/clientConfig';
 
 export async function updateSession(request: NextRequest) {
-  let response = NextResponse.next({
-    request: { headers: request.headers },
-  });
+  let response = NextResponse.next({ request });
 
   const supabase = createServerClient(
     clientConfig.get('supabase.url'),
@@ -31,7 +29,7 @@ export async function updateSession(request: NextRequest) {
     },
   );
 
-  await supabase.auth.getUser();
+  await supabase.auth.getClaims();
 
   return response;
 }
