@@ -1,7 +1,7 @@
 import { isEmpty } from '@fullstacksjs/toolbox';
-import { Separator } from '@radix-ui/react-dropdown-menu';
 import { NextIntlClientProvider } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { Separator } from 'radix-ui';
 
 import { generatePageOG } from '@/components/SEO/meta';
 import { getEvents } from '@/data-layer/datocms/getEvents';
@@ -28,7 +28,7 @@ export default async function EventsPage({
   return (
     <NextIntlClientProvider>
       <EventList events={upcoming} title={t('upcoming.title')} />
-      {isEmpty(upcoming) || isEmpty(archived) ? null : <Separator />}
+      {isEmpty(upcoming) || isEmpty(archived) ? null : <Separator.Root />}
       <EventList events={archived} title={t('archived.title')} />
     </NextIntlClientProvider>
   );

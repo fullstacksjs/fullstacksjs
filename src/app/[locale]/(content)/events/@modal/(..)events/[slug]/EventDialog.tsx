@@ -1,7 +1,7 @@
 'use client';
 
-import * as Dialog from '@radix-ui/react-dialog';
 import { useRouter } from 'next/navigation';
+import { Dialog } from 'radix-ui';
 import { useState } from 'react';
 import { SRCImage } from 'react-datocms';
 

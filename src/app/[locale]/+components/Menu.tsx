@@ -1,6 +1,6 @@
 'use client';
 
-import * as Dialog from '@radix-ui/react-dialog';
+import { Dialog } from 'radix-ui';
 
 import { cn } from '@/utils/cn';
 
