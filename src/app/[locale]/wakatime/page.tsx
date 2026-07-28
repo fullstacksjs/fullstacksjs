@@ -26,7 +26,7 @@ export default async function WakatimePage() {
 
   return (
     <NextIntlClientProvider messages={pick(messages, ['wakatime'])}>
-      <div className="container flex flex-col items-center gap-24 py-24">
+      <div className="container flex flex-col gap-16">
         <PageHeader
           command={`$ ${messages.wakatime.command}`}
           title={messages.wakatime.title}
