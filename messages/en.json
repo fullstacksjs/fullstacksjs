@@ -106,6 +106,11 @@
   },
   "ask": {
     "title": "How to ask a question",
+    "eyebrow": "$ ask --community-guide",
+    "intro": "To get the best answers, ask questions in a way that makes it easy for others to understand your problem and provide help. Here are some tips to help you ask better questions.",
+    "copy": "Copy link",
+    "copied": "Copied",
+    "highlight": "Highlight point {number}",
     "guides": {
       "precise": {
         "title": "Be precise and informative about your problem",
@@ -150,6 +155,24 @@
       "homework": {
         "title": "Avoid posting homework questions",
         "desc": "While it's okay to ask for hints or guidance, avoid asking for full solutions to homework problems. The point of homework is to learn, so take advantage of the opportunity to develop your skills by working through the problem on your own."
+      }
+    },
+    "examples": {
+      "precise": {
+        "bad": "My code doesn't work. Please help.",
+        "good": "On Node 20, fetch() throws ECONNREFUSED when I call my local API. Here's the request and the full stack trace."
+      },
+      "sandbox": {
+        "bad": "Pasting 300 lines of your whole project into the message.",
+        "good": "A minimal reproduction on StackBlitz with only the failing component, plus a link."
+      },
+      "xy": {
+        "bad": "How do I force-push over my teammate's commits?",
+        "good": "I need my branch to match main without losing my two local commits — what's the safe way?"
+      },
+      "guess": {
+        "bad": "The router is definitely caching my route — how do I disable that?",
+        "good": "/profile shows the previous user's data until I hard-refresh. Here's what I see."
       }
     }
   },

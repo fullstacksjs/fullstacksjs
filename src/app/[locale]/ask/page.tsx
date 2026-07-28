@@ -2,15 +2,14 @@ import type { Metadata } from 'next';
 
 import { NextIntlClientProvider } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { Suspense } from 'react';
 
-import { Article } from '@/components/Article';
-import { Articles } from '@/components/Articles';
-import { FocusItem } from '@/components/FocusItemList/FocusItem';
-import { FocusItemList } from '@/components/FocusItemList/FocusItemList';
-import { FocusItemListSkeleton } from '@/components/FocusItemList/FocusItemListSkeleton';
+import { FocusProvider } from '@/components/FocusItemList/FocusProvider';
 import { generatePageOG } from '@/components/SEO/meta';
 import { routing } from '@/i18n/routing';
 
+import { PageHeader } from '../+components/PageHeader';
+import { AskStep, AskStepsSkeleton } from './+components/AskStep';
 import { asks } from './asks';
 
 interface MetaDataProps {
@@ -44,23 +43,29 @@ export default async function AskPage({
 
   return (
     <NextIntlClientProvider>
-      <Articles>
-        <Article title={t('title')}>
-          <FocusItemList
-            fallback={
-              <FocusItemListSkeleton className="h-44" lines={asks.length} />
-            }
-          >
-            {asks.map((ask) => (
-              <FocusItem key={ask} target={ask}>
-                <p className="mb-2 text-accent-1">{t(`guides.${ask}.title`)}</p>
-                <p className="text-light-0">{t(`guides.${ask}.desc`)}</p>
-                <br />
-              </FocusItem>
-            ))}
-          </FocusItemList>
-        </Article>
-      </Articles>
+      <div className="container flex flex-col gap-12">
+        <PageHeader
+          command={t('eyebrow')}
+          title={t('title')}
+          description={t('intro')}
+        />
+
+        <Suspense fallback={<AskStepsSkeleton lines={asks.length} />}>
+          <FocusProvider>
+            <ol className="border-t border-border">
+              {asks.map((ask, index) => (
+                <AskStep
+                  desc={t(`guides.${ask}.desc`)}
+                  key={ask}
+                  number={index + 1}
+                  target={ask}
+                  title={t(`guides.${ask}.title`)}
+                />
+              ))}
+            </ol>
+          </FocusProvider>
+        </Suspense>
+      </div>
     </NextIntlClientProvider>
   );
 }
