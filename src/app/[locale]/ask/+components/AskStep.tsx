@@ -2,6 +2,7 @@
 
 import { range } from '@fullstacksjs/toolbox';
 import { useTranslations } from 'next-intl';
+import { usePress } from 'react-aria';
 
 import {
   useFocus,
@@ -27,6 +28,10 @@ export const AskStep = ({ target, number, title, desc }: Props) => {
   const focus = useHandleFocusItem();
   const { getState } = useFocus();
   const isFocused = getState(target) === 'focused';
+  const { pressProps, isPressed } = usePress({ onPress: () => focus(target) });
+  const { pressProps: numberPressProps } = usePress({
+    onPress: () => focus(target),
+  });
   const example = hasExample(target)
     ? {
         bad: t(`examples.${target}.bad`),
@@ -37,28 +42,30 @@ export const AskStep = ({ target, number, title, desc }: Props) => {
   return (
     <li
       className={cn(
-        'group relative scroll-m-40 border-border py-10 ps-10 pe-3 transition-colors not-last:border-b motion-reduce:transition-none',
+        'group relative cursor-pointer scroll-m-40 border-border py-10 ps-6 pe-3 transition-colors not-last:border-b motion-reduce:transition-none',
         {
-          'bg-linear-to-r from-accent-0/5 to-transparent to-60% fa:bg-linear-to-l':
+          'bg-linear-to-r from-accent-0/10 to-transparent to-60% fa:bg-linear-to-l':
             isFocused,
+          'bg-fg-1/5': isPressed && !isFocused,
         },
       )}
       id={target}
+      {...pressProps}
     >
       {isFocused ? (
-        <span className="absolute inset-y-10 inset-s-0 w-[2ch] bg-accent-0" />
+        <span className="absolute inset-y-10 inset-s-0 w-[1ch] rounded-sm bg-accent-0" />
       ) : null}
 
       <div className="flex items-baseline gap-7">
         <button
           aria-label={t('highlight', { number })}
           className={cn(
-            'w-10 shrink-0 text-start font-mono text-xs transition-colors motion-reduce:transition-none',
+            'w-10 shrink-0 rounded-sm text-center font-mono text-xs transition-colors focus-visible:ring-1 focus-visible:outline-none motion-reduce:transition-none',
             isFocused ? 'text-accent-0' : 'text-fg-1/60 group-hover:text-fg-1',
           )}
           dir="ltr"
-          onClick={() => focus(target)}
           type="button"
+          {...numberPressProps}
         >
           {String(number).padStart(2, '0')}
         </button>
