@@ -27,7 +27,8 @@ export const AskStep = ({ target, number, title, desc }: Props) => {
   const t = useTranslations('ask');
   const focus = useHandleFocusItem();
   const { getState } = useFocus();
-  const isFocused = getState(target) === 'focused';
+  const state = getState(target);
+  const isFocused = state === 'focused';
   const { pressProps, isPressed } = usePress({ onPress: () => focus(target) });
   const { pressProps: numberPressProps } = usePress({
     onPress: () => focus(target),
@@ -42,11 +43,13 @@ export const AskStep = ({ target, number, title, desc }: Props) => {
   return (
     <li
       className={cn(
-        'group relative cursor-pointer scroll-m-40 border-border py-10 ps-6 pe-3 transition-colors not-last:border-b motion-reduce:transition-none',
+        'group relative cursor-pointer scroll-m-40 border-border py-10 ps-6 pe-3 transition-[color,background-color,opacity] not-last:border-b motion-reduce:transition-none',
         {
           'bg-linear-to-r from-accent-0/10 to-transparent to-60% fa:bg-linear-to-l':
             isFocused,
           'bg-fg-1/5': isPressed && !isFocused,
+          'opacity-40 focus-within:opacity-100 hover:opacity-100':
+            state === 'faded',
         },
       )}
       id={target}
