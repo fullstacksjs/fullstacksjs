@@ -73,7 +73,7 @@
     "prettier": "3.9.6",
     "supabase": "2.110.0",
     "tailwindcss": "4.3.3",
-    "typescript": "5.9.3"
+    "typescript": "^6"
   },
   "packageManager": "pnpm@10.14.0",
   "volta": {
