@@ -2,12 +2,12 @@ import { range } from '@fullstacksjs/toolbox';
 
 import { Skeleton } from '@/components/Skeleton';
 
-import { TitleSkeleton } from './+components/Title';
+import { PageHeaderSkeleton } from '../+components/PageHeader';
 
 export default function Loading() {
   return (
     <div className="container flex flex-col items-center gap-24 py-24">
-      <TitleSkeleton />
+      <PageHeaderSkeleton />
 
       <div className="flex w-full flex-wrap gap-12">
         {range(3).map((key) => (

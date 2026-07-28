@@ -7,8 +7,8 @@ import { generatePageOG } from '@/components/SEO/meta';
 import { getServerFeature } from '@/config/features/getServerFeatures';
 import { getReportWithCache } from '@/data-layer/wakatime/getReport';
 
+import { PageHeader } from '../+components/PageHeader';
 import { Leaderboard } from './+components/Leaderboard';
-import { Title } from './+components/Title';
 
 export const metadata = generatePageOG({
   title:
@@ -27,7 +27,11 @@ export default async function WakatimePage() {
   return (
     <NextIntlClientProvider messages={pick(messages, ['wakatime'])}>
       <div className="container flex flex-col items-center gap-24 py-24">
-        <Title />
+        <PageHeader
+          command={`$ ${messages.wakatime.command}`}
+          title={messages.wakatime.title}
+          description={messages.wakatime.description}
+        />
         <Leaderboard day={day} year={year} usages={usages} winners={winners} />
       </div>
     </NextIntlClientProvider>
