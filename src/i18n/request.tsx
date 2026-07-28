@@ -3,7 +3,7 @@ import { getRequestConfig } from 'next-intl/server';
 
 import { routing } from './routing';
 
-// eslint-disable-next-line no-restricted-exports
+// oxlint-disable-next-line react/only-export-components
 export default getRequestConfig(async ({ requestLocale }) => {
   const requested = await requestLocale;
   const locale = hasLocale(routing.locales, requested)

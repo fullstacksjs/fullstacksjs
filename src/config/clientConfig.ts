@@ -1,3 +1,4 @@
+// oxlint-disable node/no-process-env
 import { Config } from '@fullstacksjs/config';
 
 const ClientConfig = new Config({

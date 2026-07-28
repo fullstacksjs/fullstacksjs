@@ -1,7 +1,10 @@
-import type { MessageKeys, Messages, NestedKeyOf } from 'next-intl';
-
 import { isNull, isNullOrEmptyArray } from '@fullstacksjs/toolbox';
-import { NextIntlClientProvider } from 'next-intl';
+import {
+  NextIntlClientProvider,
+  type MessageKeys,
+  type Messages,
+  type NestedKeyOf,
+} from 'next-intl';
 import { getLocale, getMessages, getTranslations } from 'next-intl/server';
 import { get } from 'radash';
 

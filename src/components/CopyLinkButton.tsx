@@ -25,6 +25,7 @@ export const CopyLinkButton = ({ target }: Props) => {
       await navigator.clipboard.writeText(
         `${origin}${pathname}?focus=${target}`,
       );
+      // oxlint-disable-next-line preserve-caught-error
     } catch {
       return;
     }

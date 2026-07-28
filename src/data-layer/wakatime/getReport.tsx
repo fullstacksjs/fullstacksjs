@@ -60,5 +60,5 @@ export const getReportWithCache = async (count: number) => {
 
   cacheLife('hours');
 
-  return getReportWithoutCache(count);
+  return await getReportWithoutCache(count);
 };

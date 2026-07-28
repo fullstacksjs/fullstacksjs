@@ -4,9 +4,7 @@ import { useTranslations } from 'next-intl';
 
 import { FocusStep } from '@/components/FocusItemList/FocusStep';
 
-import type { Ask } from '../asks';
-
-import { hasExample } from '../asks';
+import { hasExample, type Ask } from '../asks';
 import { Example } from './Example';
 
 interface Props {

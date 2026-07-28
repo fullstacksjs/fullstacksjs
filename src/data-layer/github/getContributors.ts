@@ -34,10 +34,11 @@ export async function getContributors() {
 
   const repos = await fetchFromGitHub<GitHubRepo>('orgs/fullstacksjs/repos');
 
-  const contributorPromises = repos.map(async (repo) =>
-    fetchFromGitHub<GitHubContributor>(
-      `repos/fullstacksjs/${repo.name}/contributors`,
-    ),
+  const contributorPromises = repos.map(
+    async (repo) =>
+      await fetchFromGitHub<GitHubContributor>(
+        `repos/fullstacksjs/${repo.name}/contributors`,
+      ),
   );
 
   const contributorsResult = await Promise.allSettled(contributorPromises);

@@ -7,11 +7,9 @@ import type { User } from '@/data-layer/supabase/models/User';
 
 import { audios } from '@/components/Audio';
 
-import type { Alphabet } from './alphabet';
-
 import { Game } from './+components/Game';
 import { Result } from './+components/Result';
-import { isAlphabet } from './alphabet';
+import { isAlphabet, type Alphabet } from './alphabet';
 import {
   activeLetterAtom,
   handleCorrectAtom,

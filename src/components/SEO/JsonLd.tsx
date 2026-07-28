@@ -18,6 +18,7 @@ export const JsonLd = () => {
   return (
     <script
       type="application/ld+json"
+      // oxlint-disable-next-line react-perf/jsx-no-new-object-as-prop
       dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
     />
   );

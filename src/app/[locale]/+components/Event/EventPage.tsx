@@ -1,9 +1,9 @@
-import type {
-  CdaStructuredTextValue,
-  ResponsiveImageType,
+import {
+  SRCImage,
+  type StructuredText,
+  type CdaStructuredTextValue,
+  type ResponsiveImageType,
 } from 'react-datocms';
-
-import { SRCImage, StructuredText } from 'react-datocms';
 
 import { getDatoNode } from '@/components/getDatoNode';
 

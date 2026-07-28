@@ -17,7 +17,7 @@ const InnerEventPage = async ({
   return <EventDialog event={event} />;
 };
 
-export default async function Page({
+export default function Page({
   params,
 }: SafeLocale<PageProps<'/[locale]/events/[slug]'>>) {
   return (

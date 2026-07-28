@@ -3,10 +3,11 @@ import { atomWithStorage } from 'jotai/utils';
 
 import { audios } from '@/components/Audio';
 
-import type { ColorQuestion } from './+logic/questionGenerator';
-
 import { COLOR } from './+logic/constants';
-import { generateColorQuestions } from './+logic/questionGenerator';
+import {
+  generateColorQuestions,
+  type ColorQuestion,
+} from './+logic/questionGenerator';
 
 type GameStatus = 'lost' | 'playing' | 'won';
 

@@ -1,6 +1,4 @@
-import type { StructuredTextDocument } from 'react-datocms';
-
-import { StructuredText } from 'react-datocms';
+import { StructuredText, type StructuredTextDocument } from 'react-datocms';
 
 import { getDatoNode } from '@/components/getDatoNode';
 import { cn } from '@/utils/cn';

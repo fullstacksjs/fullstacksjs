@@ -3,9 +3,7 @@ import { atom } from 'jotai';
 import { audios } from '@/components/Audio';
 import { submitRecord } from '@/data-layer/supabase/submitRecord';
 
-import type { Alphabet } from './alphabet';
-
-import { alphabets } from './alphabet';
+import { alphabets, type Alphabet } from './alphabet';
 
 export type LetterStatus = 'correct' | 'corrected' | 'error' | 'idle';
 export type GameStatus = 'finished' | 'idle' | 'typing';

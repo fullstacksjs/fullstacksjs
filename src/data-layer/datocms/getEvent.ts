@@ -9,10 +9,8 @@ import type {
   EventQueryVariables,
 } from './DatoCMS';
 import type { FullstacksJSEvent, Lecturer } from './Event';
-import type { DatoLecturer } from './Fragments';
-
 import { datoClient } from './datoClient';
-import { EventFragment } from './Fragments';
+import { EventFragment, type DatoLecturer } from './Fragments';
 
 const query = gql`
   ${EventFragment}

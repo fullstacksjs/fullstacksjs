@@ -1,7 +1,7 @@
 'use client';
 
 import { Dialog } from 'radix-ui';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { flushSync } from 'react-dom';
 
 import type { Direction } from '@/i18n/direction';
@@ -25,22 +25,24 @@ export const MobileNavs = ({ children, direction }: Props) => {
 
     document.startViewTransition(() => flushSync(() => setOpen(next)));
   };
+  const closeDrawer = useMemo(() => () => toggle(false), []);
+  const openDrawer = useMemo(() => () => toggle(true), []);
 
   return (
     <Dialog.Root open={open}>
       <Dialog.Trigger
         aria-label="toggle navigation menu"
         className="cursor-pointer desktop:hidden"
-        onClick={() => toggle(true)}
+        onClick={openDrawer}
       >
         <MenuIcon />
       </Dialog.Trigger>
       <Dialog.Portal>
-        <MenuOverlay onClick={() => toggle(false)} />
+        <MenuOverlay onClick={closeDrawer} />
         <SheetContent
           direction={direction}
-          onClick={() => toggle(false)}
-          onEscapeKeyDown={() => toggle(false)}
+          onClick={closeDrawer}
+          onEscapeKeyDown={closeDrawer}
           aria-describedby="Navigation drawer"
         >
           <Dialog.Title hidden>Navigation</Dialog.Title>

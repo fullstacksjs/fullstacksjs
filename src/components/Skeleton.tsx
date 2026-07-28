@@ -1,4 +1,5 @@
 import { cn } from '@/utils/cn';
+import { useMemo } from 'react';
 
 interface Props extends React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,
@@ -19,9 +20,13 @@ export const Skeleton = ({
   rounded,
   ...props
 }: Props) => {
+  const memoizedStyle = useMemo(() => {
+    return { ...style, width, height };
+  }, [style, width, height]);
+
   return (
     <div
-      style={{ ...style, width, height }}
+      style={memoizedStyle}
       className={cn(
         'inset-y-0 animate-pulse rounded-lg bg-bg-muted opacity-5',
         { 'rounded-md': rounded },
