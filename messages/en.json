@@ -104,13 +104,15 @@
       }
     }
   },
+  "common": {
+    "copy": "Copy link",
+    "copied": "Copied",
+    "highlight": "Highlight point {number}"
+  },
   "ask": {
     "title": "How to ask a question",
     "eyebrow": "$ ask --community-guide",
     "intro": "To get the best answers, ask questions in a way that makes it easy for others to understand your problem and provide help. Here are some tips to help you ask better questions.",
-    "copy": "Copy link",
-    "copied": "Copied",
-    "highlight": "Highlight point {number}",
     "guides": {
       "precise": {
         "title": "Be precise and informative about your problem",
