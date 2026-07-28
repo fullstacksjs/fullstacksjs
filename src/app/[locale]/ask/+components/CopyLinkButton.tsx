@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { useRef, useState } from 'react';
+import { usePress } from 'react-aria';
 
 import CheckIcon from '@/components/Icons/Check.svg';
 import CopyIcon from '@/components/Icons/Copy.svg';
@@ -33,16 +34,18 @@ export const CopyLinkButton = ({ target }: Props) => {
     timeoutRef.current = setTimeout(() => setCopied(false), 1800);
   };
 
+  const { pressProps } = usePress({ onPress: copy });
+
   return (
     <button
       className={cn(
         'inline-flex shrink-0 items-center gap-2 font-mono text-xs opacity-0 outline-hidden transition-[opacity,color]',
-        'group-focus-within:opacity-100 group-hover:opacity-100 focus-visible:opacity-100 pointer-coarse:opacity-100',
+        'rounded-sm px-2 group-focus-within:opacity-100 group-hover:opacity-100 focus-visible:opacity-100 focus-visible:ring-1 pointer-coarse:opacity-100',
         'pointer cursor-pointer motion-reduce:transition-none',
         copied ? 'text-fg-success' : 'text-fg-1 hover:text-accent-1',
       )}
-      onClick={copy}
       type="button"
+      {...pressProps}
     >
       {copied ? (
         <CheckIcon className="size-5" />
