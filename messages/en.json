@@ -170,10 +170,10 @@
       },
       "xy": {
         "bad": "How do I force-push over my teammate's commits?",
-        "good": "I need my branch to match main without losing my two local commits — what's the safe way?"
+        "good": "I need my branch to match main without losing my two local commits, what's the safe way?"
       },
       "guess": {
-        "bad": "The router is definitely caching my route — how do I disable that?",
+        "bad": "The router is definitely caching my route, how do I disable that?",
         "good": "/profile shows the previous user's data until I hard-refresh. Here's what I see."
       }
     }
