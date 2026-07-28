@@ -31,7 +31,7 @@ export const FocusStep = ({ target, number, title, children }: Props) => {
   return (
     <li
       className={cn(
-        'group relative cursor-pointer scroll-m-40 border-border py-10 ps-6 pe-3 transition-[color,background-color,opacity] not-last:border-b motion-reduce:transition-none',
+        'group relative cursor-pointer scroll-m-40 border-border py-10 transition-[color,background-color,opacity] not-last:border-b motion-reduce:transition-none mobile:ps-6',
         {
           'bg-linear-to-r from-accent-0/10 to-transparent to-60% fa:bg-linear-to-l':
             isFocused,
@@ -47,7 +47,7 @@ export const FocusStep = ({ target, number, title, children }: Props) => {
         <span className="absolute inset-y-10 inset-s-0 w-[1ch] rounded-sm bg-accent-0" />
       ) : null}
 
-      <div className="flex items-baseline gap-7">
+      <div className="flex items-baseline gap-3 mobile:gap-7">
         <button
           aria-label={t('highlight', { number })}
           className={cn(
@@ -62,7 +62,7 @@ export const FocusStep = ({ target, number, title, children }: Props) => {
         </button>
 
         <div className="min-w-0 flex-1">
-          <div className="flex items-baseline gap-5">
+          <div className="flex flex-col items-start gap-3 mobile:flex-row mobile:items-baseline mobile:gap-5">
             <h3
               className={cn(
                 'text-lg/tight font-semibold transition-colors motion-reduce:transition-none',
