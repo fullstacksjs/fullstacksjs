@@ -79,6 +79,7 @@
   },
   "rules": {
     "title": "FullstacksJS Rules",
+    "eyebrow": "$ cat rules.md --community",
     "desc": "The following behaviors are considered <b>harassment</b> and are <b>unacceptable</b> within our community:",
     "items": {
       "violence": "Violence, threats of violence or violent language directed against another person.",
@@ -111,7 +112,7 @@
   },
   "ask": {
     "title": "How to ask a question",
-    "eyebrow": "$ ask --community-guide",
+    "eyebrow": "$ cat ask.md --community",
     "intro": "To get the best answers, ask questions in a way that makes it easy for others to understand your problem and provide help. Here are some tips to help you ask better questions.",
     "guides": {
       "precise": {
