@@ -11,7 +11,7 @@ export const Hero = () => {
   const t = useTranslations('main');
 
   return (
-    <section id="join" className="pt-20 pb-30">
+    <section id="join" className="pb-30">
       <div className="container flex flex-col items-center justify-between gap-16 text-center desktop:flex-row desktop:text-start">
         <div>
           <h1 className="text-4xl/none font-bold tracking-tight desktop:text-5xl/none">

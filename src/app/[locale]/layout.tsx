@@ -74,7 +74,7 @@ export default async function LocaleLayout({
         <JotaiProvider>
           <SupabaseProvider>
             <Header />
-            {children}
+            <div className="py-20">{children}</div>
             <Separator />
             <Footer />
           </SupabaseProvider>
