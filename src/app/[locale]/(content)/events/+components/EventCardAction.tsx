@@ -1,4 +1,5 @@
 import { Button } from '@/components/Button';
+import { ExternalLink } from '@/components/Link';
 
 interface Props {
   isUpcoming: boolean;
@@ -9,9 +10,7 @@ export function EventCardAction({ isUpcoming, mediaUrl }: Props) {
   if (!isUpcoming)
     return (
       <Button asChild>
-        <a href={mediaUrl} target="_blank">
-          مشاهده
-        </a>
+        <ExternalLink href={mediaUrl}>مشاهده</ExternalLink>
       </Button>
     );
 

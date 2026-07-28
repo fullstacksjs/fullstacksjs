@@ -1,3 +1,4 @@
+// oxlint-disable node/no-process-env
 import 'server-only';
 import { Config } from '@fullstacksjs/config';
 

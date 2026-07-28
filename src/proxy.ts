@@ -1,9 +1,8 @@
 import type { Locale } from 'next-intl';
-import type { NextRequest } from 'next/server';
+import { NextResponse, type NextRequest } from 'next/server';
 
 import LinkHeader from 'http-link-header';
 import createMiddleware from 'next-intl/middleware';
-import { NextResponse } from 'next/server';
 
 import { updateSession } from './data-layer/supabase/updateSession';
 import { routing } from './i18n/routing';

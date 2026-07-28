@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import { Dialog } from 'radix-ui';
-import { useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { SRCImage } from 'react-datocms';
 
 import type { FullstacksJSEvent } from '@/data-layer/datocms/Event';
@@ -19,14 +19,17 @@ export const EventDialog = ({ event }: Props) => {
   const [open, setOpen] = useState(true);
   const router = useRouter();
 
-  const close = () => {
+  const close = useCallback(() => {
     setOpen(false);
     router.back();
-  };
+  }, [router]);
 
-  const handleOpenChange = (newOpen: boolean): void => {
-    if (!newOpen) close();
-  };
+  const handleOpenChange = useCallback(
+    (newOpen: boolean): void => {
+      if (!newOpen) close();
+    },
+    [close],
+  );
 
   return (
     <Dialog.Root onOpenChange={handleOpenChange} open={open}>

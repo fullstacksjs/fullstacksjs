@@ -9,7 +9,7 @@
     "supabase:start": "supabase start",
     "supabase:stop": "supabase stop",
     "supabase:gen": "dotenv -e .env ./scripts/supabase-codegen",
-    "lint": "eslint",
+    "lint": "oxlint",
     "codegen": "dotenv -e .env graphql-codegen",
     "prepare": "sh ./scripts/prepare"
   },
@@ -48,7 +48,7 @@
   },
   "devDependencies": {
     "@cspell/dict-fa-ir": "4.0.5",
-    "@fullstacksjs/eslint-config": "14.8.1",
+    "@fullstacksjs/oxlint-config": "0.5.0",
     "@graphql-codegen/add": "7.1.0",
     "@graphql-codegen/cli": "7.2.0",
     "@graphql-codegen/typescript": "6.1.0",
@@ -64,9 +64,9 @@
     "@types/react-dom": "19.2.3",
     "cspell": "10.0.1",
     "dotenv-cli": "11.0.0",
-    "eslint": "10.8.0",
     "husky": "9.1.7",
     "lint-staged": "17.2.0",
+    "oxlint": "1.76.0",
     "postcss": "8.5.24",
     "prettier": "3.9.6",
     "supabase": "2.110.0",

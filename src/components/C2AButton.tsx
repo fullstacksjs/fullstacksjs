@@ -1,8 +1,6 @@
 import { cn } from '@/utils/cn';
 
-import type { ButtonProps } from './Button';
-
-import { Button } from './Button';
+import { Button, type ButtonProps } from './Button';
 
 export const C2AButton = ({ className, ...props }: ButtonProps) => {
   return (

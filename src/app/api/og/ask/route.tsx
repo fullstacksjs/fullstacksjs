@@ -1,3 +1,4 @@
+// oxlint-disable react/no-unknown-property react-perf/jsx-no-new-object-as-prop
 import type { NextRequest } from 'next/server';
 
 import { ImageResponse } from 'next/og';

@@ -20,6 +20,7 @@ export async function createServerSupabaseClient() {
             cookiesToSet.forEach(({ name, value, options }) =>
               cookieStore.set(name, value, options),
             );
+            // oxlint-disable-next-line preserve-caught-error
           } catch {
             // Handled in the middleware
           }

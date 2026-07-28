@@ -16,8 +16,9 @@ export function ColorBlocks({
   return (
     <div className="grid grid-cols-3 place-items-center gap-4.5">
       {blocks.map((color, index) => (
+        // oxlint-disable-next-line jsx-a11y/control-has-associated-label
         <button
-          // eslint-disable-next-line @eslint-react/no-array-index-key
+          // oxlint-disable-next-line react/no-array-index-key
           key={`${color}-${index}`}
           style={{ backgroundColor: color }}
           type="button"
