@@ -23,7 +23,7 @@ export function ColorBlocks({
           type="button"
           onClick={() => onBlockClick(index)}
           className={cn(
-            'size-50 cursor-pointer rounded-lg transition-all duration-200 mobile:size-60',
+            'size-40 cursor-pointer rounded-lg transition-all duration-200 mobile:size-60',
             highlightedWrongIndex === index && 'outline-4 outline-accent-0',
             highlightedCorrectIndex === index && 'outline-white/80 outline-4',
           )}
