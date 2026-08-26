@@ -8,6 +8,7 @@ import Config from './+components/Config.svg';
 import Eslint from './+components/Eslint.svg';
 import GitHubBot from './+components/GitHubBot.svg';
 import NCLU from './+components/NCLU.svg';
+import OxlintConfig from './+components/OxlintConfig.svg';
 import { ProjectCard } from './+components/ProjectCard';
 import ToolBox from './+components/ToolBox.svg';
 import YDKHTML from './+components/YDKHTML.svg';
@@ -69,6 +70,14 @@ const projects: Project[] = [
       'A Telegram bot that tracks and announces GitHub activities in the FullstacksJS community.',
     logo: GitHubBot,
     repoUrl: 'https://github.com/fullstacksjs/github-bot',
+  },
+  {
+    name: '@fullstacksjs/oxlint-config',
+    description:
+      'Shared Oxlint configuration for FullstacksJS projects with minimal dependencies and support for TypeScript, import, promise, and regexp rules.',
+    logo: OxlintConfig,
+    repoUrl: 'https://github.com/fullstacksjs/oxlint-config',
+    npmUrl: 'https://www.npmjs.com/package/@fullstacksjs/oxlint-config',
   },
 ];
 
