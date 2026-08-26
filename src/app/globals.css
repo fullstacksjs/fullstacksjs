@@ -248,6 +248,28 @@ body {
   }
 }
 
+@keyframes fade-in-from-bottom {
+  from {
+    opacity: 0;
+    transform: translateY(0.4rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-out-to-bottom {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(0.4rem);
+  }
+}
+
 ::view-transition-old(menu-content-ltr) {
   animation: 100ms ease-in-out both slide-out-to-left;
 }

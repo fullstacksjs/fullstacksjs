@@ -156,6 +156,7 @@
   "common": {
     "copy": "کپی لینک",
     "copied": "کپی شد",
+    "clickToCopy": "برای کپی کلیک کنید",
     "highlight": "نمایش نکتهٔ {number}"
   },
   "ask": {
