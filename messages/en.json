@@ -260,7 +260,7 @@
     "title": "Wakatime Leaderboard",
     "day": "Day {day} of the year {year}",
     "command": "wakatime leaderboard --today --sort hours",
-    "description": "Coding time logged by community members via WakaTime, ranked by hours logged today.",
+    "description": "Coding time logged by community members via WakaTime, ranked by hours logged today.<br></br><br></br>Want to join the leaderboard? Send <copyable>#wakatime_req</copyable> in the <playground>Playground topic</playground> on Telegram.",
     "hoursToday": "Hours logged today",
     "searchPlaceholder": "Search members…",
     "rank": "Rank",
