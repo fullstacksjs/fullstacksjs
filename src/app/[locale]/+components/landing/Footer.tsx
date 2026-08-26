@@ -51,7 +51,7 @@ export const Footer = () => {
   const t = useTranslations('main');
 
   return (
-    <footer className="container flex flex-col flex-wrap items-start justify-between gap-10 px-20 pt-20 mobile:flex-row">
+    <footer className="container flex flex-col items-start justify-between gap-10 px-20 pt-20">
       <div className="max-w-160">
         <h2 className="mb-2 text-lg font-bold">
           Fullstacks<span className="text-accent-0">JS</span>
@@ -62,18 +62,20 @@ export const Footer = () => {
         <div className="font-mono text-sm tracking-widest text-fg-1 uppercase">
           {t('footer.findUs')}
         </div>
-        {socials.map(({ key, icon: Icon, href, handle }) => (
-          <ExternalLink
-            key={key}
-            href={href}
-            className="group flex items-center gap-4 rounded-md border border-border px-6 py-4 text-fg-1 transition-colors hover:bg-bg-darker hover:text-accent-0"
-          >
-            <Icon width="24" />
-            <span className="font-mono text-sm tracking-wide text-fg-1 transition-colors group-hover:text-accent-0">
-              {handle}
-            </span>
-          </ExternalLink>
-        ))}
+        <div className="flex flex-col flex-wrap gap-4 mobile:flex-row">
+          {socials.map(({ key, icon: Icon, href, handle }) => (
+            <ExternalLink
+              key={key}
+              href={href}
+              className="group flex items-center gap-4 rounded-md border border-border px-6 py-4 text-fg-1 transition-colors hover:bg-bg-darker hover:text-accent-0"
+            >
+              <Icon width="24" />
+              <span className="font-mono text-sm tracking-wide text-fg-1 transition-colors group-hover:text-accent-0">
+                {handle}
+              </span>
+            </ExternalLink>
+          ))}
+        </div>
       </div>
     </footer>
   );
