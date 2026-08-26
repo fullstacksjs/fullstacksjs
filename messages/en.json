@@ -156,6 +156,7 @@
   "common": {
     "copy": "Copy link",
     "copied": "Copied",
+    "clickToCopy": "Click to copy",
     "highlight": "Highlight point {number}"
   },
   "ask": {
