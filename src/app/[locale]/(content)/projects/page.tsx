@@ -74,7 +74,7 @@ const projects: Project[] = [
   {
     name: '@fullstacksjs/oxlint-config',
     description:
-      'Shared Oxlint configuration for FullstacksJS projects with minimal dependencies and support for TypeScript, import, promise, and regexp rules.',
+      'An opinionated, battery-included OXLint configuration for TypeScript projects.',
     logo: OxlintConfig,
     repoUrl: 'https://github.com/fullstacksjs/oxlint-config',
     npmUrl: 'https://www.npmjs.com/package/@fullstacksjs/oxlint-config',
