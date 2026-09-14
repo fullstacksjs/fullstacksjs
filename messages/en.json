@@ -112,7 +112,7 @@
       },
       "spam": {
         "title": "Spam and flooding",
-        "desc": "<b>Spam</b> or <b>flooding</b>: unsolicited advertising, referral links, self-promotion outside the channels meant for it, and repetitive messages that bury the conversation."
+        "desc": "Stop cross-posting the same message in multiple channels. It does not help your message get more attention and clutters the conversation."
       },
       "dm": {
         "title": "Unsolicited direct messages",
