@@ -6,12 +6,12 @@ import Down from './ranks/down.svg';
 import Up from './ranks/up.svg';
 import Zero from './ranks/zero.svg';
 
-function getIcon(diff: number) {
-  if (diff > 2) return TwoUp;
-  if (diff > 0) return Up;
-  if (!diff) return Zero;
-  if (diff < -2) return TwoDown;
-  return Down;
+function renderIcon(diff: number) {
+  if (diff > 2) return <TwoUp height={16} width={16} />;
+  if (diff > 0) return <Up height={16} width={16} />;
+  if (!diff) return <Zero height={16} width={16} />;
+  if (diff < -2) return <TwoDown height={16} width={16} />;
+  return <Down height={16} width={16} />;
 }
 
 interface Props {
@@ -20,11 +20,10 @@ interface Props {
 }
 
 export function Diff({ diff, className }: Props) {
-  const Icon = getIcon(diff);
   return (
     <div className={cn('flex items-center gap-1', className)}>
       <span className="flex items-center">
-        <Icon height={16} width={16} />
+        {renderIcon(diff)}
       </span>
       <span className="text-xs/none font-semibold">{Math.abs(diff)}</span>
     </div>

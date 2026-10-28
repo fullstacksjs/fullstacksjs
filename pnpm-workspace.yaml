@@ -1,8 +1,15 @@
-onlyBuiltDependencies:
-  - '@parcel/watcher'
-  - '@swc/core'
-  - core-js
-  - sharp
+allowBuilds:
+  '@parcel/watcher': true
+  '@swc/core': true
+  core-js: true
+  sharp: true
+
+minimumReleaseAgeExclude:
+  - '@posthog/browser-common@0.10.1'
+  - '@posthog/types@1.418.0'
+  - '@types/node@26.6.6'
+  - dotenv-cli@11.1.0
+  - posthog-js@1.441.2
 
 savePrefix: ''
 
