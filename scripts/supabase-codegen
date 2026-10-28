@@ -3,4 +3,4 @@
 FILE="./src/data-layer/supabase/models/Database.ts"
 
 pnpm exec supabase gen types typescript --local --schema public >$FILE
-pnpm eslint --fix --no-ignore $FILE
+pnpm exec oxlint --fix --no-ignore $FILE
