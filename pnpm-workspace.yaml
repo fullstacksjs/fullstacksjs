@@ -14,3 +14,6 @@ minimumReleaseAgeExclude:
 savePrefix: ''
 
 updateNotifier: false
+
+overrides:
+  minimatch: 11.0.4
