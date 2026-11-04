@@ -8,11 +8,5 @@
     "svgo.config.js",
     "src/data-layer/supabase/models/Database.ts"
   ],
-  "ignoreDependencies": [
-    "sharp",
-    "husky",
-    "lint-staged",
-    "@svgr/webpack",
-    "@swc-jotai/react-refresh"
-  ]
+  "ignoreDependencies": ["sharp", "husky", "lint-staged", "@svgr/webpack"]
 }
