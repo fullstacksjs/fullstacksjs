@@ -20,4 +20,4 @@ jobs:
       - uses: actions/checkout@v7
       - uses: supabase/setup-cli@v3
       - run: supabase link --project-ref $SUPABASE_PROJECT_ID
-      - run: supabase db push
+      - run: supabase db push --remote
